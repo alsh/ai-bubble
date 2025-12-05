@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -43,7 +45,7 @@ jobs:
         if [[ -n $(git status -s data/status_history.json) ]]; then
           git add data/status_history.json
           git commit -m "Daily Update: $(date +'%Y-%m-%d')"
-          git push
+          git push origin HEAD:main
         else
           echo "No changes to data/status_history.json"
         fi
