@@ -40,5 +40,19 @@
       "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
     },
     "date": "2025-12-05"
+  },
+  {
+    "status": "RED",
+    "score": 85,
+    "reasoning": "The market is exhibiting signs of a potential bubble, with AI-focused stocks experiencing significant price movements and increasing volatility. The news headlines suggest a growing concern among experts and market participants about the sustainability of the current AI hype.",
+    "metrics": {
+      "NVDA_price": 182.41,
+      "NVDA_volatility": 1.62,
+      "MSFT_price": 483.16,
+      "GOOGL_price": 321.27,
+      "market_sentiment": "Mixed",
+      "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
+    },
+    "date": "2025-12-05"
   }
 ]
