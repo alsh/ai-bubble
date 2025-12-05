@@ -12,5 +12,19 @@
       "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
     },
     "date": "2025-12-05"
+  },
+  {
+    "status": "YELLOW",
+    "score": 65,
+    "reasoning": "Widespread concerns about an AI bubble are emerging, with potential for a correction. While major players like NVDA, MSFT, and GOOGL are relatively stable, the overall sentiment suggests increasing risk.",
+    "metrics": {
+      "NVDA_price": 181.51,
+      "NVDA_volatility": 1.52,
+      "MSFT_price": 481.61,
+      "GOOGL_price": 320.34,
+      "market_sentiment": "Bearish",
+      "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
+    },
+    "date": "2025-12-05"
   }
 ]

@@ -1,0 +1,14 @@
+commit c2a6d694ee4659011e0a40d2a7b8ac5f960c1511
+Author: Alexey Shumitsky <alexey.shumitsky@gmail.com>
+Date:   Fri Dec 5 20:31:12 2025 +0100
+
+    Initial commit of The Canary market monitor
+
+A	.github/workflows/daily.yml
+A	.gitignore
+A	README.md
+A	data/status_history.json
+A	index.html
+A	project-requirements-document.md
+A	requirements.txt
+A	src/agent.py
