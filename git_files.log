@@ -1,8 +1,0 @@
-.github/workflows/daily.yml
-.gitignore
-README.md
-data/status_history.json
-index.html
-project-requirements-document.md
-requirements.txt
-src/agent.py
