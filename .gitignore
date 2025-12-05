@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.env
+.DS_Store
+# Keep data directory but ignore local changes to history if desired? 
+# Usually we want to commit history for this specific project pattern ("Git as Database"), 
+# so we DO NOT ignore status_history.json.

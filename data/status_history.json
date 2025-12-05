@@ -1,0 +1,16 @@
+[
+  {
+    "status": "YELLOW",
+    "score": 65,
+    "reasoning": "Multiple news headlines suggest concerns about an AI bubble, even with strong prices and volatility in key AI stocks. Market sentiment is leaning towards caution.",
+    "metrics": {
+      "NVDA_price": 181.37,
+      "NVDA_volatility": 1.51,
+      "MSFT_price": 481.77,
+      "GOOGL_price": 320.59,
+      "market_sentiment": "Bearish",
+      "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
+    },
+    "date": "2025-12-05"
+  }
+]

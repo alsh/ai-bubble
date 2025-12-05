@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Canary - AI Market Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center py-10">
+
+    <div class="w-full max-w-4xl px-4">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400">
+                The Canary
+            </h1>
+            <p class="text-gray-400 mt-2">AI Financial Bubble Monitor (Zero-Maintenance)</p>
+        </header>
+
+        <!-- Status Card -->
+        <div id="status-card" class="bg-gray-800 rounded-xl p-8 shadow-lg text-center mb-8 border border-gray-700 transition-all duration-300">
+            <h2 class="text-xl text-gray-400 uppercase tracking-widest mb-4">Current Market Status</h2>
+            <div id="status-indicator" class="text-6xl font-black mb-2 tracking-tighter">LOADING...</div>
+            <div id="score-display" class="text-2xl font-semibold opacity-80">Risk Score: --/100</div>
+        </div>
+
+        <!-- Reasoning -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg mb-8 border border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-300 mb-2 border-b border-gray-700 pb-2">AI Analyst Reasoning</h3>
+            <p id="reasoning-text" class="text-gray-300 leading-relaxed italic">
+                Fetching latest analysis...
+            </p>
+            
+            <div id="metrics-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-sm">
+                <!-- Metrics will be injected here -->
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-300 mb-4">Risk Score Trend (Last 30 Days)</h3>
+            <canvas id="trendChart"></canvas>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-12 text-center text-gray-500 text-xs">
+            <p>Powered by OpenRouter & GitHub Actions. Data updates daily at 21:00 UTC.</p>
+        </footer>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                // Determine raw URL if local vs gh-pages, but normally relative path is fine for gh-pages
+                const response = await fetch('data/status_history.json');
+                if (!response.ok) throw new Error("Failed to load data");
+                
+                const history = await response.json();
+                if (!history || history.length === 0) {
+                    document.getElementById('status-indicator').innerText = "NO DATA";
+                    document.getElementById('reasoning-text').innerText = "Run the agent to generate initial data.";
+                    return;
+                }
+
+                // Get latest entry
+                const latest = history[history.length - 1];
+
+                // Update Status UI
+                const statusEl = document.getElementById('status-indicator');
+                const cardEl = document.getElementById('status-card');
+                const scoreEl = document.getElementById('score-display');
+                
+                statusEl.innerText = latest.status;
+                scoreEl.innerText = `Risk Score: ${latest.score}/100`;
+
+                // Wipe previous bg classes
+                cardEl.className = "rounded-xl p-8 shadow-lg text-center mb-8 border transition-all duration-300";
+                
+                if (latest.status === "RED") {
+                    cardEl.classList.add("bg-red-900/40", "border-red-500", "text-red-100");
+                    statusEl.innerText = "CRITICAL WARNING";
+                    statusEl.classList.add("text-red-400");
+                } else if (latest.status === "YELLOW") {
+                    cardEl.classList.add("bg-yellow-900/40", "border-yellow-500", "text-yellow-100");
+                     statusEl.innerText = "CAUTION";
+                     statusEl.classList.add("text-yellow-400");
+                } else {
+                    cardEl.classList.add("bg-green-900/40", "border-green-500", "text-green-100");
+                     statusEl.innerText = "STABLE";
+                     statusEl.classList.add("text-green-400");
+                }
+
+                // Update Reasoning
+                document.getElementById('reasoning-text').innerText = `"${latest.reasoning}"`;
+
+                // Update Metrics (if available)
+                if (latest.metrics) {
+                    const grid = document.getElementById('metrics-grid');
+                    grid.innerHTML = '';
+                    
+                    for (const [key, value] of Object.entries(latest.metrics)) {
+                        const div = document.createElement('div');
+                        div.className = "bg-gray-700/50 p-3 rounded";
+                        div.innerHTML = `<span class="block text-gray-400 text-xs uppercase">${key.replace(/_/g, ' ')}</span><span class="font-mono font-bold">${value}</span>`;
+                        grid.appendChild(div);
+                    }
+                }
+
+                // Render Chart
+                const labels = history.map(h => h.date).slice(-30);
+                const dataPoints = history.map(h => h.score).slice(-30);
+
+                const ctx = document.getElementById('trendChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Bubble Risk Score',
+                            data: dataPoints,
+                            borderColor: '#60a5fa', // Blue-400
+                            backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            },
+                            x: {
+                                grid: { display: false }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('status-indicator').innerText = "ERROR";
+                document.getElementById('reasoning-text').innerText = "Could not load data. " + err.message;
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
