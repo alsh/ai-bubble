@@ -1,4 +1,5 @@
 name: Daily Market Check
+# Force sync update
 
 on:
   schedule:
