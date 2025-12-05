@@ -26,5 +26,19 @@
       "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
     },
     "date": "2025-12-05"
+  },
+  {
+    "status": "YELLOW",
+    "score": 65,
+    "reasoning": "Multiple news headlines point towards an AI bubble, further substantiated by inflated stock prices and volatility (NVDA). While MSFT and GOOGL remain relatively stable, the overall market sentiment is shifting towards bearish, justifying a YELLOW status.",
+    "metrics": {
+      "NVDA_price": 182.41,
+      "NVDA_volatility": 1.62,
+      "MSFT_price": 483.16,
+      "GOOGL_price": 321.27,
+      "market_sentiment": "Bearish",
+      "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
+    },
+    "date": "2025-12-05"
   }
 ]
