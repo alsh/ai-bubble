@@ -7,3 +7,7 @@ __pycache__/
 # Keep data directory but ignore local changes to history if desired? 
 # Usually we want to commit history for this specific project pattern ("Git as Database"), 
 # so we DO NOT ignore status_history.json.
+# Temporary Logs and Outputs
+*_output.txt
+install_log.txt
+*.log
