@@ -9,6 +9,7 @@ import feedparser
 import html
 import re
 import trafilatura
+from fake_useragent import UserAgent
 from openai import OpenAI
 
 # Configuration
@@ -28,14 +29,22 @@ def get_market_data():
             # Fetch 5 days history
             hist = stock.history(period="5d")
             
+            # Fetch fundamentals
+            info = stock.info
+            
             if not hist.empty:
                 current_price = hist["Close"].iloc[-1]
                 data[f"{ticker}_price"] = round(current_price, 2)
                 
-                # Calculate volatility (std dev of prices) for NVDA specifically as per PRD example
+                # Fetch detailed metrics for NVDA as per PRD
                 if ticker == "NVDA":
                     volatility = hist["Close"].std()
                     data[f"{ticker}_volatility"] = round(volatility, 2)
+                    data[f"{ticker}_pe_ratio"] = info.get("trailingPE", "N/A")
+                    data[f"{ticker}_forward_pe"] = info.get("forwardPE", "N/A")
+                    data[f"{ticker}_revenue_growth"] = info.get("revenueGrowth", "N/A")
+                    data[f"{ticker}_peg_ratio"] = info.get("pegRatio", "N/A")
+
             else:
                 print(f"Warning: No history found for {ticker}")
                 
@@ -47,11 +56,23 @@ def get_market_data():
 def extract_article_content(url):
     """Downloads and extracts main text from a URL using Trafilatura."""
     try:
+        ua = UserAgent()
+        # Trafilatura allows passing a config, but for simple user-agent rotation we can try downloading first with requests or letting trafilatura handle it if supports it.
+        # Trafilatura specific way to fetch with custom headers:
         downloaded = trafilatura.fetch_url(url)
-        if downloaded:
-            text = trafilatura.extract(downloaded)
-            if text:
-                return text
+        # Note: Trafilatura's fetch_url uses a default user agent. To use our fake one, we might need requests.
+        # But let's try the library's built-in robust fetch first, or override if needed.
+        # Ideally: downloaded = trafilatura.fetch_url(url) is usually good.
+        # To be strictly complying with PRD "Attempt 1... with random User-Agent":
+        # We can use requests.
+        import requests
+        headers = {'User-Agent': ua.random}
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code == 200:
+             downloaded = response.text
+             text = trafilatura.extract(downloaded)
+             if text:
+                 return text
     except Exception as e:
         print(f"Error scraping {url}: {e}")
     return None
@@ -82,8 +103,8 @@ def get_news_headlines():
             if not content:
                 content = summary
             else:
-                # Truncate content to avoid token limits (e.g. 2000 chars)
-                content = content[:2000] + "..." if len(content) > 2000 else content
+                # Truncate content to avoid token limits (e.g. 3000 chars)
+                content = content[:3000] + "..." if len(content) > 3000 else content
 
             news_items.append({
                 "title": title,
@@ -108,9 +129,18 @@ def analyze_market_status(market_data, news_items):
     )
 
     prompt = f"""
-    You are a cynical, data-driven financial analyst tracking the *AI Bubble*.
-    Your specific goal is to assess the risk of this bubble *bursting* in the near future.
-    Do not just assess general market health; focus on signs of overvaluation, hype fatigue, or structural instability.
+    You are 'The Canary', a cynical, data-driven financial analyst tracking the AI Bubble.
+    
+    **The Bubble Algorithm:**
+    1. **Efficiency Check:** Compare AI Revenue Growth to Capex signals (inferred from news). If companies are spending heavily but revenue growth is slowing (<10%), Score +20 risk.
+    2. **Valuation Check:** If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, Score +15 risk.
+    3. **Adoption Check:** Scan news for 'Pilot Purgatory'. If non-tech firms are pausing/canceling AI projects, Score +25 risk.
+    4. **Hardware Signals:** If news mentions 'easing supply' or 'reduced lead times' for GPUs, Score +20 risk (signaling demand drop).
+
+    **Task:** Analyze the provided metrics and news. Calculate the total Risk Score (0-100).
+    * 0-30: GREEN (Stable/Early Growth)
+    * 31-69: YELLOW (Caution/Leaking)
+    * 70-100: RED (Burst Imminent)
 
     Market Data:
     {json.dumps(market_data, indent=2)}
@@ -121,18 +151,16 @@ def analyze_market_status(market_data, news_items):
     Analyze the provided stock metrics and news content.
     The 'content' field contains the scraped text of the article (or a summary if scraping failed).
     Pay close attention to specific details, contradictions, or expert quotes in the text that indicate a *shift* in sentiment.
-    Is the "bubble" narrative gaining traction in mainstream finance? Are there concrete signs of slowing adoption?
-
-    Determine the market status (GREEN, YELLOW, or RED) and a risk score (0-100).
-    Provide a concise reasoning string explaining the decision.
 
     Return a valid JSON object with EXACTLY this structure:
     {{
       "status": "GREEN" | "YELLOW" | "RED",
       "score": <integer 0-100>,
-      "reasoning": "<string description>",
+      "reasoning": "<string description of how the score was calculated based on the algorithm>",
       "metrics": {{
-         ... <include relevant metrics from input> ...
+         "nvda_pe": "{market_data.get('NVDA_pe_ratio', 'N/A')}",
+         "revenue_growth": "{market_data.get('NVDA_revenue_growth', 'N/A')}",
+         "peg_ratio": "{market_data.get('NVDA_peg_ratio', 'N/A')}",
          "market_sentiment": "<Bullish/Bearish/Neutral/Mixed>",
          "top_headline": "<most relevant headline>"
       }}

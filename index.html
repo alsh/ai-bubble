@@ -21,6 +21,23 @@
             <p class="text-gray-400 mt-2">AI Financial Bubble Monitor (Zero-Maintenance)</p>
         </header>
 
+        <!-- Metrics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                <h3 class="text-gray-400 text-sm uppercase">NVDA P/E Ratio</h3>
+                <p id="nvda-pe" class="text-2xl font-bold text-blue-400">Loading...</p>
+                <p id="nvda-peg" class="text-xs text-gray-500 mt-1">PEG: <span id="peg-val">-</span></p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                <h3 class="text-gray-400 text-sm uppercase">Revenue Growth</h3>
+                <p id="rev-growth" class="text-2xl font-bold text-purple-400">Loading...</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                <h3 class="text-gray-400 text-sm uppercase">Market Sentiment</h3>
+                <p id="sentiment" class="text-xl font-bold text-gray-200">Loading...</p>
+            </div>
+        </div>
+
         <!-- Status Card -->
         <div id="status-card" class="bg-gray-800 rounded-xl p-8 shadow-lg text-center mb-8 border border-gray-700 transition-all duration-300">
             <h2 class="text-xl text-gray-400 uppercase tracking-widest mb-4">Current Market Status</h2>
@@ -108,6 +125,18 @@
                         div.innerHTML = `<span class="block text-gray-400 text-xs uppercase">${key.replace(/_/g, ' ')}</span><span class="font-mono font-bold">${value}</span>`;
                         grid.appendChild(div);
                     }
+                }
+
+                // Update Metrics Grid
+                if (latest.metrics) {
+                    const pe = latest.metrics.nvda_pe || "N/A";
+                    const growth = latest.metrics.revenue_growth ? (parseFloat(latest.metrics.revenue_growth) * 100).toFixed(1) + "%" : "N/A";
+                    const peg = latest.metrics.nvda_peg_ratio || latest.metrics.peg_ratio || "N/A";
+                    
+                    document.getElementById('nvda-pe').textContent = pe;
+                    document.getElementById('peg-val').textContent = peg;
+                    document.getElementById('rev-growth').textContent = growth;
+                    document.getElementById('sentiment').textContent = latest.metrics.market_sentiment || "N/A";
                 }
 
                 // Render Chart
