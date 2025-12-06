@@ -2,3 +2,5 @@ yfinance
 feedparser
 openai
 pandas
+trafilatura
+requests

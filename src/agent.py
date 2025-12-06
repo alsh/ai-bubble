@@ -3,7 +3,12 @@ import os
 import json
 import datetime
 import yfinance as yf
+import datetime
+import yfinance as yf
 import feedparser
+import html
+import re
+import trafilatura
 from openai import OpenAI
 
 # Configuration
@@ -39,22 +44,60 @@ def get_market_data():
             
     return data
 
+def extract_article_content(url):
+    """Downloads and extracts main text from a URL using Trafilatura."""
+    try:
+        downloaded = trafilatura.fetch_url(url)
+        if downloaded:
+            text = trafilatura.extract(downloaded)
+            if text:
+                return text
+    except Exception as e:
+        print(f"Error scraping {url}: {e}")
+    return None
+
 def get_news_headlines():
-    """Fetches top 5 headlines from Google News RSS."""
+    """Fetches top 5 headlines with summary, source, date, and full content from Google News RSS."""
     print("Fetching news headlines...")
     try:
         feed = feedparser.parse(RSS_FEED_URL)
-        headlines = []
+        news_items = []
         for entry in feed.entries[:5]:
             title = entry.title
-            # Basic cleanup if needed, often title is sufficient
-            headlines.append(title)
-        return headlines
+            # Extract summary (often in description), source, and date
+            summary = html.unescape(entry.get('description', ''))
+            # Clean up summary (sometimes Google News adds "<ul>...</ul>" which is noisy)
+            # Strip HTML tags
+            summary = re.sub('<[^<]+?>', '', summary)
+
+            source = entry.get('source', {}).get('title', 'Unknown Source')
+            published = entry.get('published', 'Unknown Date')
+            link = entry.link
+            
+            # Scrape content
+            print(f"Scraping article: {title[:30]}...")
+            content = extract_article_content(link)
+            
+            # Fallback to summary if scraping fails
+            if not content:
+                content = summary
+            else:
+                # Truncate content to avoid token limits (e.g. 2000 chars)
+                content = content[:2000] + "..." if len(content) > 2000 else content
+
+            news_items.append({
+                "title": title,
+                "summary": summary,
+                "source": source,
+                "published": published,
+                "content": content
+            })
+        return news_items
     except Exception as e:
         print(f"Error fetching news: {e}")
         return []
 
-def analyze_market_status(market_data, headlines):
+def analyze_market_status(market_data, news_items):
     """Queries LLM to analyze the market status."""
     if not OPENROUTER_API_KEY:
         raise ValueError("OPENROUTER_API_KEY environment variable is not set.")
@@ -72,10 +115,14 @@ def analyze_market_status(market_data, headlines):
     Market Data:
     {json.dumps(market_data, indent=2)}
 
-    Recent News Headlines:
-    {json.dumps(headlines, indent=2)}
+    Recent News:
+    {json.dumps(news_items, indent=2)}
 
-    Analyze the provided stock metrics and news headlines.
+    Analyze the provided stock metrics and news content.
+    The 'content' field contains the scraped text of the article (or a summary if scraping failed).
+    Pay close attention to specific details, contradictions, or expert quotes in the text that indicate a *shift* in sentiment.
+    Is the "bubble" narrative gaining traction in mainstream finance? Are there concrete signs of slowing adoption?
+
     Determine the market status (GREEN, YELLOW, or RED) and a risk score (0-100).
     Provide a concise reasoning string explaining the decision.
 
@@ -161,10 +208,10 @@ def main():
     try:
         # 1. Fetch Data
         market_data = get_market_data()
-        headlines = get_news_headlines()
+        news_items = get_news_headlines()
         
         # 2. Analyze
-        analysis_result = analyze_market_status(market_data, headlines)
+        analysis_result = analyze_market_status(market_data, news_items)
         
         # 3. Save
         update_history(analysis_result)
