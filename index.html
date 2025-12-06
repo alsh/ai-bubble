@@ -111,7 +111,17 @@
                 }
 
                 // Render Chart
-                const labels = history.map(h => h.date).slice(-30);
+                const labels = history.map(h => {
+                    const d = new Date(h.date);
+                    // Check if valid date
+                    if (isNaN(d.getTime())) return h.date;
+                    
+                    // If it has time component (length > 10 usually implies ISO string with time)
+                    if (h.date.length > 10) {
+                        return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                    }
+                    return h.date;
+                }).slice(-30);
                 const dataPoints = history.map(h => h.score).slice(-30);
 
                 const ctx = document.getElementById('trendChart').getContext('2d');

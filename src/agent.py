@@ -65,7 +65,9 @@ def analyze_market_status(market_data, headlines):
     )
 
     prompt = f"""
-    You are a cynical, data-driven financial analyst tracking the AI bubble.
+    You are a cynical, data-driven financial analyst tracking the *AI Bubble*.
+    Your specific goal is to assess the risk of this bubble *bursting* in the near future.
+    Do not just assess general market health; focus on signs of overvaluation, hype fatigue, or structural instability.
 
     Market Data:
     {json.dumps(market_data, indent=2)}
@@ -91,6 +93,9 @@ def analyze_market_status(market_data, headlines):
     """
 
     models_to_try = [
+        "openai/gpt-5.1",
+        "google/gemini-2.0-flash-thinking-exp:free",
+        "google/gemini-2.0-flash-thinking-exp",
         "google/gemini-2.0-flash-exp:free",
         "google/gemini-2.0-flash-exp",
         "google/gemini-exp-1206:free",
@@ -129,7 +134,7 @@ def update_history(analysis_result):
     """Appends the new analysis to the history file."""
     # Add date
     entry = analysis_result.copy()
-    entry["date"] = datetime.date.today().isoformat()
+    entry["date"] = datetime.datetime.now().isoformat()
     
     # Load existing
     if os.path.exists(DATA_FILE):
