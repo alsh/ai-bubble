@@ -54,5 +54,19 @@
       "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
     },
     "date": "2025-12-05"
+  },
+  {
+    "status": "YELLOW",
+    "score": 74,
+    "reasoning": "AI-levered megacaps (NVDA, MSFT, GOOGL) remain elevated without accompanying volatility spikes, suggesting complacency rather than panic, but the news flow is saturated with explicit \u2018AI bubble\u2019 warnings from mainstream and institutional voices\u2014classic late-cycle sentiment where narrative is ahead of fundamentals, positioning the market in a fragile, correction-prone phase rather than full-blown collapse mode.",
+    "metrics": {
+      "NVDA_price": 182.41,
+      "NVDA_volatility": 1.62,
+      "MSFT_price": 483.16,
+      "GOOGL_price": 321.27,
+      "market_sentiment": "Bearish",
+      "top_headline": "Google boss sounds the alarm over trillion-dollar AI bubble - Mashable"
+    },
+    "date": "2025-12-06T11:39:28.206345"
   }
 ]
