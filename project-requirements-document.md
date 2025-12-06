@@ -43,7 +43,7 @@ The agent must append a new object to this array daily. The frontend relies on t
 ```json
 [
   {
-    "date": "2025-12-05",
+    "date": "2025-12-05T10:30:00.000",
     "status": "YELLOW",
     "score": 65,
     "reasoning": "Nvidia volatility is high (45.2) and news sentiment is mixed due to stalled pilots.",
@@ -60,6 +60,7 @@ The agent must append a new object to this array daily. The frontend relies on t
 **Schema Notes:**
 * `status`: Enum ["GREEN", "YELLOW", "RED"]
 * `score`: Integer 0-100 (0 = Safe, 100 = Crash Imminent)
+* `date`: ISO 8601 Timestamp (e.g., `2025-12-05T10:30:00`)
 
 ---
 
@@ -70,6 +71,8 @@ The agent must append a new object to this array daily. The frontend relies on t
 **Dependency Constraints:**
 * `yfinance` (v0.2.50+ for stable API access)
 * `feedparser` (v6.0.11+ for RSS parsing)
+* `trafilatura` (For scraping full article content)
+* `requests` (for HTTP requests)
 * `openai` (v1.57+ configured for OpenRouter)
 
 **Logic Flow:**
@@ -81,13 +84,16 @@ The agent must append a new object to this array daily. The frontend relies on t
 2.  **Fetch News Data:**
     * Use `feedparser` to scrape the Google News RSS feed.
     * **Query:** `https://news.google.com/rss/search?q=AI+adoption+OR+AI+bubble+when:1d&hl=en-US&gl=US&ceid=US:en`
-    * Extract the top 5 headlines and descriptions.
+    * Extract the top 5 headlines.
+    * **Full Content Scraping:** For each headline, extract the URL and use `trafilatura` to scrape the article body text (truncated to ~2000 chars) to provide deep context.
 
 3.  **Intelligence (LLM Analysis):**
     * **API Provider:** OpenRouter
     * **Base URL:** `https://openrouter.ai/api/v1`
-    * **Model:** `google/gemini-flash-1.5` (Preferred for cost/speed) or `meta-llama/llama-3.1-70b-instruct`.
-    * **System Prompt:** "You are a cynical, data-driven financial analyst tracking the AI bubble. Analyze the provided stock metrics and news headlines. Determine the market status (GREEN/YELLOW/RED) and a risk score (0-100)."
+    * **API Provider:** OpenRouter
+    * **Base URL:** `https://openrouter.ai/api/v1`
+    * **Model:** Prioritize `openai/gpt-5.1` or `google/gemini-2.0-flash-thinking-exp` for deep reasoning capability.
+    * **System Prompt:** "You are a cynical, data-driven financial analyst tracking the *AI Bubble*. Your goal is to assess the risk of this bubble *bursting*. Analyze the provided stock metrics and *full news article content*. Look for specific contradictions or signs of hype fatigue."
 
 4.  **Persistence:**
     * Load the existing `data/status_history.json`.
