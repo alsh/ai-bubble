@@ -199,5 +199,18 @@
       "top_headline": "Fears of stock market AI bubble revived as Oracle reveals data centre spending binge - MSN"
     },
     "date": "2025-12-13T21:03:14.671352"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied Bubble Algorithm:\n1) Efficiency Check: NVDA revenue growth is ~62.5%, well above the 10% slowdown threshold, and the provided news does not mention heavy AI capex outpacing monetization or margin compression. Condition not met, +0 risk.\n2) Valuation Check: NVDA trailing P/E is ~43.32, under the 70x trigger, and PEG ratio is reported as 'N/A', so we cannot assert PEG > 2.5. Condition not met, +0 risk.\n3) Adoption Check: None of the articles mention 'Pilot Purgatory' or concrete examples of non\u2011tech firms pausing or canceling AI deployments; headlines focus on macro concern about a bubble, not stalled enterprise rollouts. Condition not met, +0 risk.\n4) Hardware Signals: No mentions of 'easing supply' or 'reduced lead times' for GPUs in the news snippets; no explicit sign of a demand air pocket in GPU hardware. Condition not met, +0 risk.\nNet result: All four triggers fail under the strict rules of the algorithm, so the computed Bubble Risk Score is 0 (GREEN), even though qualitative sentiment in headlines has turned broadly cautious/bearish around an 'AI bubble' narrative.",
+    "metrics": {
+      "nvda_pe": "43.321785",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A",
+      "market_sentiment": "Bearish",
+      "top_headline": "Wall Street Sees an AI Bubble Forming and Is Gaming What Pops It - Bloomberg.com"
+    },
+    "date": "2025-12-14T21:03:30.372954"
   }
 ]
