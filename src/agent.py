@@ -86,7 +86,8 @@ def get_news_headlines():
         for entry in feed.entries[:5]:
             title = entry.title
             # Extract summary (often in description), source, and date
-            summary = html.unescape(entry.get('description', ''))
+            description = entry.get('description', '')
+            summary = html.unescape(str(description))
             # Clean up summary (sometimes Google News adds "<ul>...</ul>" which is noisy)
             # Strip HTML tags
             summary = re.sub('<[^<]+?>', '', summary)
@@ -158,9 +159,6 @@ def analyze_market_status(market_data, news_items):
       "score": <integer 0-100>,
       "reasoning": "<string description of how the score was calculated based on the algorithm>",
       "metrics": {{
-         "nvda_pe": "{market_data.get('NVDA_pe_ratio', 'N/A')}",
-         "revenue_growth": "{market_data.get('NVDA_revenue_growth', 'N/A')}",
-         "peg_ratio": "{market_data.get('NVDA_peg_ratio', 'N/A')}",
          "market_sentiment": "<Bullish/Bearish/Neutral/Mixed>",
          "top_headline": "<most relevant headline>"
       }}
@@ -240,6 +238,21 @@ def main():
         
         # 2. Analyze
         analysis_result = analyze_market_status(market_data, news_items)
+        
+        # Merge raw market data into the saved metrics to ensure we capture daily price moves
+        # even if the LLM doesn't explicitly return them in its strict schema.
+        # Also map legacy keys to maintain schema compatibility.
+        if "metrics" in analysis_result:
+            metrics = analysis_result["metrics"]
+            metrics.update(market_data)
+            
+            # Map legacy keys if they exist in market_data
+            if "NVDA_pe_ratio" in market_data:
+                metrics["nvda_pe"] = str(market_data["NVDA_pe_ratio"])
+            if "NVDA_revenue_growth" in market_data:
+                metrics["revenue_growth"] = str(market_data["NVDA_revenue_growth"])
+            if "NVDA_peg_ratio" in market_data:
+                metrics["peg_ratio"] = str(market_data["NVDA_peg_ratio"])
         
         # 3. Save
         update_history(analysis_result)
