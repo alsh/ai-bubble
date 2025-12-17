@@ -246,5 +246,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-16T21:03:55.972165"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied Bubble Algorithm:\n1) Efficiency Check (+0): Nvidia\u2019s reported revenue growth is ~62.5%, well above the 10% slowdown threshold. The news flow mentions AI bubble fears and stock reactions, but contains no concrete indications of hyperscalers or major AI players pulling back capex or seeing a sharp deceleration in AI-related revenue. With no explicit heavy-spend-plus-slow-growth signal, this condition is not met.\n2) Valuation Check (+0): Nvidia\u2019s trailing P/E is ~42.4, below the 70x trigger. PEG is reported as 'N/A', so it cannot be judged as >2.5. The valuation rule therefore does not fire.\n3) Adoption Check (+0): The news set is dominated by opinion pieces and macro commentary about an 'AI bubble' and potential bursting, but there are no mentions of 'Pilot Purgatory' or of non-tech corporates pausing or cancelling AI deployments. No adoption-trigger signal.\n4) Hardware Signals (+0): None of the articles reference 'easing supply' or 'reduced lead times' for GPUs. The Fast Company piece notes Nvidia stock taking a hit amid bubble debate, but there is no hard evidence of a demand rollover in the text provided.\nNet result: All four rule-based triggers remain inactive, yielding a Bubble Algorithm risk score of 0, which maps to GREEN (Stable/Early Growth), despite increasingly bearish narrative noise in the headlines.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The stock market is being powered by 10 stocks that are fueling AI bubble fears - Yahoo Finance",
+      "NVDA_price": 170.94,
+      "NVDA_volatility": 3.67,
+      "NVDA_pe_ratio": 42.41687,
+      "NVDA_forward_pe": 22.940994,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 476.12,
+      "GOOGL_price": 296.72,
+      "nvda_pe": "42.41687",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-17T21:04:03.944389"
   }
 ]
