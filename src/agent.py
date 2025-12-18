@@ -92,7 +92,14 @@ def get_news_headlines():
             # Strip HTML tags
             summary = re.sub('<[^<]+?>', '', summary)
 
-            source = entry.get('source', {}).get('title', 'Unknown Source')
+            # Handle source which might be a list or a dict depending on feedparser version/feed structure
+            source_data = entry.get('source', {})
+            if source_data is None:
+                source_data = {}
+            elif isinstance(source_data, list):
+                source_data = source_data[0] if source_data else {}
+            
+            source = source_data.get('title', 'Unknown Source')
             published = entry.get('published', 'Unknown Date')
             link = entry.link
             
