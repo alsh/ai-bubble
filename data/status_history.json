@@ -330,5 +330,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-20T21:03:08.883398"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied Bubble Algorithm to provided data and news: (1) Efficiency Check: NVIDIA revenue growth is ~62.5%, well above the <10% slowdown threshold. The news flow, while thematically about an 'AI bubble', does not provide concrete evidence of capex-heavy spending combined with collapsing revenue growth at major AI infrastructure players. Result: +0 risk. (2) Valuation Check: NVIDIA trailing P/E (~44.8) is below the 70x threshold, and PEG ratio is reported as N/A, so the condition 'PEG > 2.5 OR P/E > 70' is not met. Result: +0 risk. (3) Adoption Check: The articles discuss AI bubble fears, Oracle as a poster child of excess, and strategies to avoid the bubble, but there is no mention of 'Pilot Purgatory' or clear evidence that non\u2011tech firms are broadly pausing or canceling AI projects. Result: +0 risk. (4) Hardware Signals: None of the news items mention 'easing supply' or 'reduced lead times' for GPUs or similar hardware indicators of a demand rollover. Result: +0 risk. Summing all components yields a total Bubble Risk Score of 0, which falls in the GREEN (Stable/Early Growth) band under the defined scoring rules, despite increasingly cautious narrative tone in the media.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "How Oracle became a \u2018poster child\u2019 for AI bubble fears - Yahoo Finance",
+      "NVDA_price": 180.99,
+      "NVDA_volatility": 3.78,
+      "NVDA_pe_ratio": 44.799507,
+      "NVDA_forward_pe": 24.15835,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 485.92,
+      "GOOGL_price": 307.16,
+      "nvda_pe": "44.799507",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-21T21:03:29.278782"
   }
 ]
