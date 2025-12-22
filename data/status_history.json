@@ -351,5 +351,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-21T21:03:29.278782"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied Bubble Algorithm:\n1) Efficiency Check: NVDA revenue growth is ~62.5%, far above the 10% slowdown threshold, and the news flow does not highlight capex bloat outrunning revenues. No trigger \u2192 +0.\n2) Valuation Check: NVDA trailing P/E ~45.5 (<70) and PEG is N/A, so neither of the valuation tripwires (PEG > 2.5 or P/E > 70) is hit \u2192 +0.\n3) Adoption Check: Despite a lot of \u2018AI bubble\u2019 talk (Time, Yahoo/Oracle, Seeking Alpha), there is no concrete evidence of enterprise \u2018pilot purgatory\u2019; in fact, Salesforce reportedly added 6,000 enterprise customers in 3 months, implying continued adoption rather than stalled rollouts \u2192 +0.\n4) Hardware Signals: No mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs in the articles, so no sign (yet) of a demand rollover on the hardware side \u2192 +0.\nNet result: all four explicit bubble-risk triggers are inactive, so the algorithmic risk score remains 0 (GREEN), even though the narrative chatter about an AI bubble is getting louder.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "How Oracle became a \u2018poster child\u2019 for AI bubble fears - Yahoo Finance",
+      "NVDA_price": 183.69,
+      "NVDA_volatility": 5.12,
+      "NVDA_pe_ratio": 45.467823,
+      "NVDA_forward_pe": 24.430922,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 484.71,
+      "GOOGL_price": 309.78,
+      "nvda_pe": "45.467823",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-22T21:03:42.434755"
   }
 ]
