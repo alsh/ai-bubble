@@ -372,5 +372,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-22T21:03:42.434755"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm to the limited hard data: (1) Efficiency Check: NVIDIA revenue growth is ~62.5%, far above the 10% slowdown threshold. The news flow is full of hand\u2011waving about an 'AI bubble', but contains no concrete evidence of capex bloat or margin-crushing spend overruns. Condition not met \u2192 +0 risk. (2) Valuation Check: NVIDIA trailing P/E \u2248 46.8 (<70) and PEG is reported as 'N/A', so we cannot confirm PEG > 2.5. No trigger on either metric \u2192 +0 risk. (3) Adoption Check: The articles are meta-commentary about whether there is an AI bubble, with no specific mentions of 'pilot purgatory', stalled deployments, or large non\u2011tech enterprises canceling AI projects. Condition not met \u2192 +0 risk. (4) Hardware Signals: No references to 'easing supply', 'reduced lead times', or other GPU-demand rollover signals in the provided content (which is mostly just repeated headlines). Condition not met \u2192 +0 risk. Net result: despite the media discovering the word 'bubble' and using it as SEO bait, the algorithmic inputs here do not flag fundamental or demand-side stress, so the computed risk score stays at 0 (GREEN).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Year in a word: AI bubble - Financial Times",
+      "NVDA_price": 189.21,
+      "NVDA_volatility": 7.34,
+      "NVDA_pe_ratio": 46.83416,
+      "NVDA_forward_pe": 25.048885,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 486.85,
+      "GOOGL_price": 314.35,
+      "nvda_pe": "46.83416",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-23T21:03:55.171271"
   }
 ]
