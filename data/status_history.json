@@ -393,5 +393,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-23T21:03:55.171271"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: Nvidia's reported revenue growth is ~62.5%, well above the <10% 'slowing growth' threshold. While the broader narrative talks about an 'AI bubble', there is no explicit evidence in the provided articles of capex overspend paired with sub-10% revenue growth, so no +20 risk applied. 2) Valuation Check: Nvidia's trailing P/E is ~46.6, below the >70 trigger, and the PEG ratio is 'N/A', so the >2.5 PEG condition cannot be met. No +15 risk added. 3) Adoption Check: The news set discusses AI-bubble concerns and hedging (e.g., via REITs) but does not reference 'Pilot Purgatory' or non-tech firms pausing/canceling AI projects; no direct evidence of stalled enterprise adoption, so no +25 risk. 4) Hardware Signals: None of the articles mention 'easing supply' or 'reduced lead times' for GPUs; no explicit sign of a demand rollover in GPU hardware, so no +20 risk. Summing the triggered factors yields a total risk score of 0, placing conditions firmly in the GREEN (Stable/Early Growth) band by the given algorithm, even though narrative sentiment is increasingly focused on bubble risk.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Are Artificial Intelligence (AI) Stocks in a Bubble? This $7 Trillion Clue May Reveal The Truth. - AOL.com",
+      "NVDA_price": 188.61,
+      "NVDA_volatility": 6.17,
+      "NVDA_pe_ratio": 46.57037,
+      "NVDA_forward_pe": 24.969452,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 488.02,
+      "GOOGL_price": 314.09,
+      "nvda_pe": "46.57037",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-24T21:03:30.148505"
   }
 ]
