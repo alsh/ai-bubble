@@ -435,5 +435,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-25T21:03:28.235093"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied The Bubble Algorithm:\n1) Efficiency Check (+0): News highlights a \"Big Tech AI spending surge\" and record highs, implying elevated capex, but Nvidia\u2019s reported revenue growth is ~62.5%, well above the <10% slowdown threshold. Condition for +20 (heavy spend + slowing growth) is NOT met.\n2) Valuation Check (+0): Nvidia\u2019s trailing P/E is ~47.2 (below the >70 trigger) and PEG is reported as \"N/A\", so the >2.5 PEG condition cannot be applied. No +15 risk added.\n3) Adoption Check (+0): None of the articles mention \"Pilot Purgatory\" or explicitly describe non\u2011tech firms pausing/canceling AI projects at scale. Narrative is about \"bubble fears\" and post\u2011boom debates, but the specific trigger condition is NOT satisfied, so no +25.\n4) Hardware Signals (+0): No mentions of \"easing supply\" or \"reduced lead times\" for GPUs in the provided content. Hardware-demand cooling trigger not met, so no +20.\nTotal risk score from the defined rules is therefore 0, which falls in the GREEN range (0\u201330), despite increasingly bearish bubble rhetoric in headlines.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI Bubble Fears Meet Record Highs: S&P 500 Near 7,000 as Big Tech\u2019s AI Spending Surge Dominates December 26, 2025 - ts2.tech",
+      "NVDA_price": 190.53,
+      "NVDA_volatility": 4.07,
+      "NVDA_pe_ratio": 47.160892,
+      "NVDA_forward_pe": 25.223635,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 487.71,
+      "GOOGL_price": 313.51,
+      "nvda_pe": "47.160892",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-26T21:03:24.746973"
   }
 ]
