@@ -456,5 +456,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-26T21:03:24.746973"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm to available data: (1) Efficiency Check: NVDA revenue growth is ~62.5%, well above the <10% slowdown threshold, and the news set provides no concrete evidence of capex overspend vs. stalling revenues, so +0 risk. (2) Valuation Check: NVDA trailing P/E is ~47.2, below the >70 trigger, and PEG is reported as 'N/A', so the PEG >2.5 condition cannot be applied; +0 risk. (3) Adoption Check: None of the articles mention 'Pilot Purgatory' or clearly describe non\u2011tech firms pausing or canceling AI projects; headlines are worried about a bubble but do not indicate a broad halt in real-world deployments, so +0 risk. (4) Hardware Signals: No references to 'easing supply' or 'reduced lead times' for GPUs, so no demand\u2011drop signal; +0 risk. Despite clearly bearish/bubble\u2011focused sentiment in headlines, none of the specific algorithmic triggers are met, yielding a total score of 0 and a GREEN status.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI Bubble Risk In Our Cautious 2026 S&P 500 Outlook (NYSEARCA:SPY) - Seeking Alpha",
+      "NVDA_price": 190.53,
+      "NVDA_volatility": 4.07,
+      "NVDA_pe_ratio": 47.160892,
+      "NVDA_forward_pe": 25.223635,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 487.71,
+      "GOOGL_price": 313.51,
+      "nvda_pe": "47.160892",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-27T21:03:21.807567"
   }
 ]
