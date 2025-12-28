@@ -477,5 +477,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-27T21:03:21.807567"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: Nvidia\u2019s reported revenue growth (~62.5%) is well above the 10% slowdown threshold, and while there are hints of heavy AI-related capex (e.g., new data centers in Wisconsin), the condition requires BOTH heavy spending and sub-10% growth. That is not met, so +0 risk.\n2) Valuation Check: Nvidia\u2019s trailing P/E (~47.2) is below the 70x trigger and the PEG ratio is reported as N/A, so the PEG > 2.5 test cannot be tripped. No valuation flag per the algorithm, so +0 risk.\n3) Adoption Check: The headlines show rising anxiety (Bill Gates comparing AI to the dot-com bubble, local worries that the AI bubble may burst before data centers open, Nvidia\u2013Enron analogies), but there is no explicit evidence of enterprises putting AI projects into \u2018pilot purgatory\u2019 or pausing/canceling deployments. Therefore the adoption-condition is not satisfied, so +0 risk.\n4) Hardware Signals: None of the articles mention easing GPU supply, shorter lead times, or excess inventory. The Guardian piece questions the structure and sustainability of Nvidia\u2019s AI deals but does not indicate a demand-driven loosening of hardware constraints. Thus +0 risk.\nNet effect: All four algorithmic triggers are currently off, so the calculated Bubble Algorithm Risk Score is 0, even as narrative sentiment around AI grows more conflicted and skeptical.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Nvidia insists it isn\u2019t Enron, but its AI deals are testing investor faith - The Guardian",
+      "NVDA_price": 190.53,
+      "NVDA_volatility": 4.07,
+      "NVDA_pe_ratio": 47.160892,
+      "NVDA_forward_pe": 25.223635,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 487.71,
+      "GOOGL_price": 313.51,
+      "nvda_pe": "47.160892",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-28T21:03:33.421029"
   }
 ]
