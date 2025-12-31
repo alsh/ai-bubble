@@ -540,5 +540,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2025-12-30T21:03:43.598175"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm:\n1) Efficiency Check: NVIDIA's reported revenue growth is ~62.5%, far above the <10% slowdown threshold. The provided news flow talks about AI 'bubble concerns' and rising skepticism, but contains no concrete indications that companies are still ramping AI capex while AI-related revenues stall. Condition not met \u2192 +0 risk.\n2) Valuation Check: NVIDIA's trailing P/E is ~46.3 (below the >70 trigger) and the PEG ratio is listed as 'N/A', so the PEG > 2.5 condition cannot be asserted. No valuation trigger \u2192 +0 risk.\n3) Adoption Check: The articles reference general AI bubble worries and skepticism ('AI bubble concerns', 'AI Skepticism Is on the Rise'), but there is no explicit mention of 'Pilot Purgatory' or of non-tech enterprises pausing/canceling concrete AI projects. No adoption stalling signal per the defined rule \u2192 +0 risk.\n4) Hardware Signals: None of the headlines or snippets mention 'easing supply' or 'reduced lead times' for GPUs or AI accelerators. No hardware demand deterioration signal \u2192 +0 risk.\nNet result: all four triggers are inactive based on the supplied metrics and text, so the algorithmic risk score is 0/100. Sentiment in the press is clearly getting more cautious, but by the strict rules provided, the AI trade still screens as GREEN (Stable/Early Growth) on this snapshot.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Contrarians No More: AI Skepticism Is on the Rise - Dark Reading",
+      "NVDA_price": 186.5,
+      "NVDA_volatility": 1.49,
+      "NVDA_pe_ratio": 46.277912,
+      "NVDA_forward_pe": 24.648577,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 483.62,
+      "GOOGL_price": 313.0,
+      "nvda_pe": "46.277912",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2025-12-31T21:03:26.265541"
   }
 ]
