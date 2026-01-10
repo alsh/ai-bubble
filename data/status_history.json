@@ -750,5 +750,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-09T21:03:38.933881"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm to the provided data: (1) Efficiency Check: NVDA\u2019s reported revenue growth is ~62.5%, well above the 10% slowdown threshold, and the supplied news contains no concrete evidence of capex overspend versus stalling revenue at major AI players. Condition for +20 is not met, so +0. (2) Valuation Check: NVDA\u2019s trailing P/E is ~45.6 (below the >70 trigger) and the PEG ratio is listed as 'N/A', so we cannot assert PEG > 2.5. Condition for +15 is not met, so +0. (3) Adoption Check: The articles are meta-bubble pieces (debating whether there is a bubble, warning retail investors, talking about private markets) but there is no mention of enterprise AI projects stuck in \u2018pilot purgatory\u2019, nor explicit reports of non\u2011tech corporates pausing or canceling AI deployments. Condition for +25 is not met, so +0. (4) Hardware Signals: None of the headlines or content snippets reference \u2018easing supply\u2019, \u2018reduced lead times\u2019, or similar language around GPU demand softening; they focus on valuations and bubble narratives, not channel checks. Condition for +20 is not met, so +0. Total algorithmic risk score = 0, which falls in the 0\u201330 GREEN band, even though media sentiment is clearly shifting toward open bubble anxiety.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Are we in an AI bubble? What 40 tech leaders and analysts are saying, in one chart - CNBC",
+      "NVDA_price": 184.86,
+      "NVDA_volatility": 1.88,
+      "NVDA_pe_ratio": 45.644444,
+      "NVDA_forward_pe": 24.369152,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 479.28,
+      "GOOGL_price": 328.57,
+      "nvda_pe": "45.644444",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-10T21:03:19.761462"
   }
 ]
