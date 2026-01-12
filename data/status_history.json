@@ -792,5 +792,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-11T21:03:08.296946"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm to the available data and truncated news content. (1) Efficiency Check: NVIDIA\u2019s revenue growth is ~62.5%, far above the 10% slowdown threshold, and the provided articles do not contain concrete evidence of outsized capex or data center spending pressure relative to growth, so no +20 risk. (2) Valuation Check: NVIDIA\u2019s trailing P/E (~45.7) is below the 70 threshold, and PEG is listed as N/A, so the condition (PEG > 2.5 OR P/E > 70) is not met; no +15 risk. (3) Adoption Check: The news set includes bubble discourse, executive surveys, Big Tech partnership (Apple\u2013Google Gemini), and bullish stock-pick pieces, but no explicit mentions of non-tech firms canceling or pausing AI deployments or entering \u2018pilot purgatory\u2019; no +25 risk. (4) Hardware Signals: There are no mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, so no +20 risk. Despite rising narrative concerns about an AI bubble, the specific trigger conditions in the algorithm are not met by the given data, yielding a total calculated risk score of 0, which falls in the GREEN (Stable/Early Growth) band.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Are we entering 2026 in an AI bubble? - KRDO",
+      "NVDA_price": 184.94,
+      "NVDA_volatility": 1.89,
+      "NVDA_pe_ratio": 45.664196,
+      "NVDA_forward_pe": 24.379698,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 477.18,
+      "GOOGL_price": 331.86,
+      "nvda_pe": "45.664196",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-12T21:03:21.311442"
   }
 ]
