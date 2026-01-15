@@ -855,5 +855,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-14T21:03:39.178462"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied The Bubble Algorithm:\n1) Efficiency Check: TSMC plans massive capex ($52\u201356B) and is \u2018very nervous\u2019 about an AI bubble, but Nvidia\u2019s reported revenue growth (~62.5%) is far above the <10% slowdown threshold. Heavy spending is not yet mismatched with growth. Score: +0.\n2) Valuation Check: Nvidia trailing P/E \u2248 46.2 (below the 70 trigger) and PEG is N/A (cannot confirm >2.5). No valuation flag under the given rules. Score: +0.\n3) Adoption Check: The articles discuss bubble worries and \u2018crossroads\u2019 for AI stocks, but there is no mention of enterprise AI projects stalling, being paused, or stuck in \u2018pilot purgatory.\u2019 Score: +0.\n4) Hardware Signals: TSMC reports record-setting quarters and is ramping capex; there are no references to \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs that would indicate a demand air pocket. Score: +0.\nTotal Risk Score: 0 \u2192 GREEN (Stable/Early Growth) under the defined rule set, despite rising narrative anxiety about an AI bubble.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "TSMC 'very nervous' about AI bubble concerns despite another record-setting quarter, but assured of demand \u2014 CEO says careless investment 'would be a disaster for TSMC for sure,' company will invest $52-$56 billion in capex - Tom's Hardware",
+      "NVDA_price": 186.99,
+      "NVDA_volatility": 1.41,
+      "NVDA_pe_ratio": 46.17037,
+      "NVDA_forward_pe": 24.611364,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 456.66,
+      "GOOGL_price": 332.78,
+      "nvda_pe": "46.17037",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-15T21:04:07.044276"
   }
 ]
