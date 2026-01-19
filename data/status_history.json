@@ -939,5 +939,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-18T21:03:00.927377"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied The Bubble Algorithm:\n1) Efficiency Check: Nvidia's reported revenue growth is approximately 62.5, well above the 10% slowdown threshold. There is no explicit evidence in the provided news of heavy AI capex outpacing revenue (no mentions of bloated data center capex, ROI concerns, or margin compression from AI investments). Condition for +20 risk is NOT met, so +0.\n2) Valuation Check: Nvidia's trailing P/E is about 46.07, below the 70x threshold. The PEG ratio is reported as \"N/A\", so we cannot trigger the PEG > 2.5 condition. As neither valuation trigger is met, this adds +0.\n3) Adoption Check: The news flow is thematically about an \"AI bubble\" (Oracle: sell before it bursts; prediction of stocks collapsing if it pops; Andreessen Horowitz betting there is no bubble; Barclays seeing strength; Cathie Wood touting fast adoption). However, there are no concrete mentions of enterprises stuck in \"pilot purgatory\", canceling AI deployments, or stalling large-scale rollouts. Consumer adoption is actually framed as outpacing the internet. Therefore, the specific Pilot Purgatory trigger for +25 is NOT met, so +0.\n4) Hardware Signals: None of the articles mention easing GPU supply, reduced lead times, or inventory overhang in AI hardware. No signal of a demand air pocket in GPUs appears in this data, so the +20 hardware risk condition is NOT met, so +0.\nNet result: All four explicit algorithmic triggers fail to fire, producing a total Risk Score of 0. Despite a rising narrative around an \"AI bubble\" in headlines, the strict rules of the Bubble Algorithm, as applied to the limited metrics and text provided, classify the current state as GREEN.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Oracle: Sell Before The AI Bubble Bursts (NYSE:ORCL) - Seeking Alpha",
+      "NVDA_price": 186.23,
+      "NVDA_volatility": 1.49,
+      "NVDA_pe_ratio": 46.065594,
+      "NVDA_forward_pe": 24.47243,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 459.86,
+      "GOOGL_price": 330.0,
+      "nvda_pe": "46.065594",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-19T21:03:20.303067"
   }
 ]
