@@ -1023,5 +1023,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-22T21:05:06.991596"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: Nvidia\u2019s reported revenue growth is ~62.5%, well above the 10% slowdown threshold. The headlines discuss bubbles and \u2018course correction\u2019 but provide no concrete evidence of capex overspend paired with sub-10% growth, so this condition is NOT triggered (0 points). 2) Valuation Check: Nvidia\u2019s trailing P/E (~46.3) is below the bubble trigger threshold of 70, and the PEG ratio is listed as N/A, so we cannot apply the PEG>2.5 test. No valuation flag is triggered (0 points). 3) Adoption Check: The news flow is thematically about whether we are in an AI bubble, but there is no explicit mention of \u2018Pilot Purgatory\u2019 or clear evidence of non\u2011tech firms pausing or canceling AI projects. Therefore, the adoption-risk condition is NOT triggered (0 points). 4) Hardware Signals: None of the articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or similar hardware signals of a demand drop; thus, this condition is NOT triggered (0 points). Summing all algorithmic triggers yields a total risk score of 0, which falls squarely in the GREEN (Stable/Early Growth) band despite increasingly questioning headlines.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "One under-the-radar market signal shows the AI boom might be close to ending - Business Insider",
+      "NVDA_price": 187.68,
+      "NVDA_volatility": 3.7,
+      "NVDA_pe_ratio": 46.340736,
+      "NVDA_forward_pe": 24.488964,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 465.95,
+      "GOOGL_price": 327.93,
+      "nvda_pe": "46.340736",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-23T21:03:46.675293"
   }
 ]
