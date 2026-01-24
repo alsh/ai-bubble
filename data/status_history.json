@@ -1044,5 +1044,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-23T21:03:46.675293"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm to the provided data and news:\n1) Efficiency Check (+0): Nvidia's reported revenue growth is ~62.5%, well above the <10% 'slowing' threshold. News (Huang: 'trillions of dollars of AI infrastructure needs to be built') signals aggressive capex intentions, but the rule only triggers when heavy spend coincides with revenue growth <10%. Condition not met \u2192 +0.\n2) Valuation Check (+0): NVDA PEG ratio is 'N/A', so we fall back to trailing P/E. The trailing P/E is ~46.6, below the 70 threshold, so the valuation trigger does not fire \u2192 +0.\n3) Adoption Check (+0): The news flow is full of warnings about hype and 'bubble-like' investment (Hassabis, Gates, Davos clashes), but there is no explicit mention of non\u2011tech enterprises canceling/pausing AI projects or the phrase 'pilot purgatory'. Without concrete evidence of stalled real-world adoption, this rule does not trigger \u2192 +0.\n4) Hardware Signals (+0): No references to 'easing supply' or 'reduced lead times' for GPUs in the headlines or content snippets, so no sign (per the algorithm) of a demand rollover on the hardware side \u2192 +0.\nSumming all rule-based components: 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0. Despite increasingly cautious and bubble-aware rhetoric in the headlines, none of the explicit quantitative or structural tripwires in the algorithm have been triggered. Under the defined rules, the AI bubble risk remains GREEN.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "DeepMind chief Demis Hassabis warns AI investment looks \u2018bubble-like\u2019 - Financial Times",
+      "NVDA_price": 187.67,
+      "NVDA_volatility": 3.7,
+      "NVDA_pe_ratio": 46.568233,
+      "NVDA_forward_pe": 24.487661,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 465.95,
+      "GOOGL_price": 327.93,
+      "nvda_pe": "46.568233",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-24T21:03:22.959091"
   }
 ]
