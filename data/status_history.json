@@ -1065,5 +1065,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-24T21:03:22.959091"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Bubble Algorithm run-through: (1) Efficiency Check: Nvidia\u2019s revenue growth is ~62.5%, nowhere near the sub-10% slowdown threshold. While headlines hint at an AI 'frenzy' and rising energy/debt, the rule only flags if heavy spend coincides with slowing growth\u2014condition not met, +0. (2) Valuation Check: NVDA trailing P/E \u2248 46.6 (below the >70 trigger); PEG is reported as N/A, so the >2.5 condition can\u2019t be tripped. No valuation flag, +0. (3) Adoption Check: The articles debate bubbles, trades, and architectures, but there\u2019s no explicit evidence of non-tech enterprises putting AI in \u2018pilot purgatory\u2019 or canceling deployments, so +0. (4) Hardware Signals: No mentions of GPU \u2018easing supply\u2019 or \u2018reduced lead times\u2019, so no demand-crack signal, +0. Sum of triggered risk points = 0, which falls in the 0\u201330 bracket: GREEN. Sentiment is getting twitchy, but by the letter of this algorithm, the AI bubble warning light stays off.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is the AI Bubble About to Burst? Here's How to Profit Either Way - Nasdaq",
+      "NVDA_price": 187.67,
+      "NVDA_volatility": 3.7,
+      "NVDA_pe_ratio": 46.570717,
+      "NVDA_forward_pe": 24.488964,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 465.95,
+      "GOOGL_price": 327.93,
+      "nvda_pe": "46.570717",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-25T21:03:17.688952"
   }
 ]
