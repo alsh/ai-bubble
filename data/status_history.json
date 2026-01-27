@@ -1107,5 +1107,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-26T21:05:02.543074"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: NVIDIA revenue growth is ~62.5%, well above the <10% 'slowing' threshold, and the provided news contains no concrete evidence of capex overspend with weak revenue response, so +0 risk. 2) Valuation Check: NVIDIA's trailing P/E (~46.5) is below the 70 threshold and PEG is listed as N/A, so the PEG > 2.5 condition cannot be triggered; +0 risk. 3) Adoption Check: The articles discuss the AI bubble conceptually but do not mention 'pilot purgatory' or non-tech firms pausing/canceling AI projects; +0 risk. 4) Hardware Signals: There are no references to 'easing supply' or 'reduced lead times' for GPUs; +0 risk. Total risk score = 0, which falls in the GREEN (Stable/Early Growth) band under the defined algorithm, despite increasingly anxious bubble-focused headlines.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Debate Rages Over AI Bubble vs. Boom - AI Business",
+      "NVDA_price": 188.52,
+      "NVDA_volatility": 2.11,
+      "NVDA_pe_ratio": 46.548145,
+      "NVDA_forward_pe": 24.598572,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 480.58,
+      "GOOGL_price": 334.55,
+      "nvda_pe": "46.548145",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-27T21:03:19.757219"
   }
 ]
