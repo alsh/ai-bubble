@@ -1128,5 +1128,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-27T21:03:19.757219"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm to current data and headlines:\n\n1) Efficiency Check (+0/20): NVIDIA revenue growth is ~62.5%, far above the <10% slowdown trigger. The news set is full of AI bubble chatter but lacks concrete evidence of corporates overspending on AI capex while revenue growth stalls. No explicit signs of efficiency decay, so +0 risk.\n\n2) Valuation Check (+0/15): NVIDIA's trailing P/E (~47.5) is below the 70x threshold, and the PEG ratio is reported as 'N/A', so the PEG>2.5 condition cannot be triggered. By the algorithm\u2019s rules, this step adds +0 risk despite clearly elevated expectations.\n\n3) Adoption Check (+0/25): Articles highlight AI \"fundamentally reshaping banking\" and having \"transformed\" a regional tech sector. There is bubble *talk* but no mention of non\u2011tech firms pausing, canceling AI programs, or being stuck in 'pilot purgatory'. Instead, it reads as ongoing deployment and structural integration, so the adoption-risk trigger is not met.\n\n4) Hardware Signals (+0/20): None of the headlines or content snippets reference \"easing supply\" or \"reduced lead times\" for GPUs. No explicit sign yet of a demand rollover or inventory overhang in the hardware stack.\n\nWith all four algorithmic triggers inactive, the model-implied bubble risk score is 0, which falls squarely in GREEN, even if narrative sentiment is getting noisier around the word 'bubble'.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI Bubble: History Says Caution Is Warranted - Real Investment Advice",
+      "NVDA_price": 191.52,
+      "NVDA_volatility": 2.5,
+      "NVDA_pe_ratio": 47.52357,
+      "NVDA_forward_pe": 24.990019,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 481.63,
+      "GOOGL_price": 336.01,
+      "nvda_pe": "47.52357",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-28T21:07:31.408826"
   }
 ]
