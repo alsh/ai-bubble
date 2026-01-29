@@ -1149,5 +1149,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-28T21:07:31.408826"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is about 62.5%, well above the 10% slowdown threshold. The supplied news snippets do not provide concrete evidence of companies overspending on AI capex relative to this growth. As the rule only triggers when heavy spend coincides with revenue growth below 10%, no risk points are added here (0/20). 2) Valuation Check: NVDA trailing P/E is approximately 47.7, below the 70 threshold, and the PEG ratio is reported as N/A rather than above 2.5. Therefore, the valuation trigger does not activate and adds no risk (0/15). 3) Adoption Check: The articles are thematically about an AI bubble and possible popping, but the provided content does not mention pilot purgatory, implementation stalls, or non-tech firms pausing or canceling AI projects. Without explicit signs of stalled adoption, this rule does not add risk (0/25). 4) Hardware Signals: There is no mention in the supplied texts of easing GPU supply, reduced lead times, or similar indications of a demand rollover in AI hardware. Consequently, this rule contributes no risk (0/20). Summing all triggered components yields a total risk score of 0, which falls in the GREEN range, even though overall media tone is increasingly bubble-conscious and bearish.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI Bubble Is Getting Closer to Popping - Council on Foreign Relations",
+      "NVDA_price": 192.51,
+      "NVDA_volatility": 2.57,
+      "NVDA_pe_ratio": 47.65099,
+      "NVDA_forward_pe": 25.119196,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 433.5,
+      "GOOGL_price": 338.25,
+      "nvda_pe": "47.65099",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-29T21:06:09.043133"
   }
 ]
