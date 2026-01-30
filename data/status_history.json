@@ -1170,5 +1170,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-29T21:06:09.043133"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: NVIDIA\u2019s reported revenue growth (~62.5%) is far above the 10% slowdown threshold, and the provided news flow does not mention escalating AI capex outpacing revenue or any explicit concern that spending is running ahead of monetization. Condition for +20 risk (\u201cspending heavily but revenue growth is slowing <10%\u201d) is not met. +0.\n2) Valuation Check: NVIDIA\u2019s trailing P/E (~47.3) is below the 70 threshold and the PEG ratio is reported as N/A, so the rule \u201cPEG > 2.5 OR P/E > 70\u201d cannot be triggered on either side. No +15 risk from valuation. +0.\n3) Adoption Check: The articles are thematically about AI bubbles, psychology, and fears, but there is no mention of \u2018Pilot Purgatory\u2019 or concrete evidence that non\u2011tech firms are systematically pausing or canceling AI initiatives. Narrative anxiety without hard adoption reversals does not meet the algorithm\u2019s trigger. +0.\n4) Hardware Signals: None of the news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or similar language implying a demand air pocket in AI hardware. No evidence of a hardware glut, so this trigger is not activated. +0.\nNet: Total risk score = 0. The chatter has shifted toward questioning the AI boom, but by the strict rules of the Bubble Algorithm, none of the quantitative or keyword conditions fire yet\u2014sentiment is wobbling while the scoreboard still shows early\u2011growth fundamentals.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI bubble will pop. It\u2019s up to us to replace it responsibly | Mark Surman - The Guardian",
+      "NVDA_price": 191.13,
+      "NVDA_volatility": 2.48,
+      "NVDA_pe_ratio": 47.309406,
+      "NVDA_forward_pe": 24.93913,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 430.29,
+      "GOOGL_price": 338.23,
+      "nvda_pe": "47.309406",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-01-30T21:07:04.705468"
   }
 ]
