@@ -1212,5 +1212,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-01-31T21:03:53.410072"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Efficiency Check: NVDA revenue growth is ~62.5%, well above the 10% slowdown threshold, and the supplied news contains no indications of capex overshoot or demand disappointment, so +0 risk. Valuation Check: NVDA trailing P/E (~47.7) is below the 70x trigger and PEG is listed as N/A, so the +15 valuation risk condition is not met, +0 risk. Adoption Check: None of the provided articles mention 'pilot purgatory' or non-tech firms pausing/canceling AI projects; instead they discuss scaling AI in government and generalized bubble concerns, so +0 risk. Hardware Signals: No references to easing GPU supply or reduced lead times in the news flow, so +0 risk. Total risk score from the defined algorithm is therefore 0, which falls in the GREEN band, even though narrative sentiment is clearly shifting toward bubble awareness.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The State Of The $2.52 Trillion AI Bubble, January 2026 - Forbes",
+      "NVDA_price": 191.13,
+      "NVDA_volatility": 2.48,
+      "NVDA_pe_ratio": 47.66334,
+      "NVDA_forward_pe": 24.93913,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 430.29,
+      "GOOGL_price": 338.0,
+      "nvda_pe": "47.66334",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-02-01T21:04:44.301935"
   }
 ]
