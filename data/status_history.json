@@ -1254,5 +1254,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-02-03T09:12:22.682498"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm to the provided data:\n1) Efficiency Check: Nikkei headline explicitly flags a Big Tech AI 'spending spree', implying heavy capex. However, Nvidia's reported revenue growth is ~62.5%, well above the 10% slowdown threshold. Heavy spend but still hyper-growth means the +20 risk condition (heavy spend with <10% growth) is NOT triggered.\n2) Valuation Check: Nvidia's trailing P/E is ~44.5, below the 70x trigger, and the PEG ratio is reported as 'N/A', so we cannot flag PEG > 2.5. Therefore, no +15 risk from valuation.\n3) Adoption Check: The news flow is about AI bubble narratives and how to invest around it, plus Nvidia's CEO denying a bubble. There is no mention of non-tech firms pausing or canceling AI projects, no references to stalled deployments, and no 'pilot purgatory' language. So the +25 adoption-risk condition is NOT met.\n4) Hardware Signals: None of the articles mention 'easing supply', 'reduced lead times', or any form of GPU glut; instead, we see ongoing AI enthusiasm and spending. Thus the +20 hardware-risk condition is NOT triggered.\nSumming the triggered conditions: 0 (efficiency) + 0 (valuation) + 0 (adoption) + 0 (hardware) = 0. Within the 0\u201330 band, this maps to GREEN: the numbers still justify the party, even if the headlines are starting to worry about a hangover.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "What bubble? Big Tech's AI spending spree gathers pace in 2026 - Nikkei Asia",
+      "NVDA_price": 180.34,
+      "NVDA_volatility": 5.16,
+      "NVDA_pe_ratio": 44.528393,
+      "NVDA_forward_pe": 23.531223,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 411.21,
+      "GOOGL_price": 339.71,
+      "nvda_pe": "44.528393",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-02-03T21:10:14.528357"
   }
 ]
