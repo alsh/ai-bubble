@@ -1359,5 +1359,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-02-07T21:05:40.362649"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: News (FT) flags an unprecedented $660bn AI capex spree, so spending is clearly heavy. However, NVDA reported revenue growth of 62.5 (>>10%), so the condition 'spending heavily but revenue growth is slowing (<10%)' is NOT met. Risk added: +0. 2) Valuation Check: NVDA trailing P/E is ~45.9 (<70) and PEG is reported as 'N/A', so we cannot assert PEG > 2.5. Condition not met. Risk added: +0. 3) Adoption Check: Provided article contents do not mention 'Pilot Purgatory' or similar language about non\u2011tech firms pausing/canceling AI projects. Condition not met. Risk added: +0. 4) Hardware Signals: No mentions of 'easing supply' or 'reduced lead times' for GPUs in the news snippets. Condition not met. Risk added: +0. Total Bubble Algorithm risk score: 0, which falls in the GREEN (Stable/Early Growth) band, despite a noticeable rise in bubble-themed commentary.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Big Tech groups race to fund unprecedented $660bn AI spending spree - Financial Times",
+      "NVDA_price": 185.41,
+      "NVDA_volatility": 6.31,
+      "NVDA_pe_ratio": 45.893566,
+      "NVDA_forward_pe": 24.035738,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 401.14,
+      "GOOGL_price": 322.86,
+      "nvda_pe": "45.893566",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-02-08T21:05:48.725291"
   }
 ]
