@@ -1401,5 +1401,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-02-09T21:13:10.813865"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm step by step: (1) Efficiency Check: News on 'Big Tech\u2019s AI spend in 2026' implies heavy AI capex, but NVDA revenue growth is ~62.5%, well above the <10% 'slowing' threshold, so no +20 risk. (2) Valuation Check: NVDA PEG ratio is N/A and trailing P/E (~46.6) is below the 70 trigger, so no +15 risk. (3) Adoption Check: No explicit evidence of non\u2011tech firms pausing or canceling AI projects; headlines focus on strategy, spending, and concerns (e.g., 'zombie algorithm' in imaging) rather than broad 'pilot purgatory', so no +25 risk. (4) Hardware Signals: No mentions of 'easing supply' or 'reduced lead times' for GPUs, so no +20 risk. Total risk score = 0, which falls in the GREEN (Stable/Early Growth) band, despite some high\u2011level bubble chatter (e.g., Bezos) and valuation concerns around Alphabet that are not directly captured by the specified scoring rules.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Amazon founder Jeff Bezos says AI bubble is real, but so is the technology [Video] - AOL.com",
+      "NVDA_price": 188.54,
+      "NVDA_volatility": 8.4,
+      "NVDA_pe_ratio": 46.55308,
+      "NVDA_forward_pe": 24.441496,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 413.27,
+      "GOOGL_price": 318.58,
+      "nvda_pe": "46.55308",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-02-10T21:15:05.951473"
   }
 ]
