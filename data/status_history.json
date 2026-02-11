@@ -1422,5 +1422,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-02-10T21:15:05.951473"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied The Bubble Algorithm:\n1) Efficiency Check: News explicitly references an \"AI Capex Boom\" and compares it to the dot-com era, implying heavy spending. However, the only hard revenue data provided is NVIDIA\u2019s revenue growth at ~62.5%, well above the 10% slowdown threshold. Condition for +20 risk (heavy capex + revenue growth <10%) is NOT met. Score +0.\n2) Valuation Check: NVIDIA trailing P/E is ~47.1, below the 70 threshold. PEG ratio is reported as \"N/A\", so it cannot be evaluated against the >2.5 rule. Condition for +15 risk is NOT met. Score +0.\n3) Adoption Check: The articles are full of macro-level \u201cAI bubble\u201d anxiety and comparisons to 2000, plus organizational drama (xAI co-founders quitting) and China-related AI weakness. However, there is no explicit mention of enterprises in \"pilot purgatory\" or of non\u2011tech firms pausing/canceling AI projects. The specific trigger condition for +25 risk is NOT satisfied. Score +0.\n4) Hardware Signals: None of the headlines or summaries mention \"easing supply\" or \"reduced lead times\" for GPUs. No direct evidence of a demand rollover in hardware capacity. Condition for +20 risk is NOT met. Score +0.\nNet result: Despite increasingly nervous and bubble-focused headlines, the mechanical triggers of the Bubble Algorithm are not yet firing based on the provided data. Total risk score = 0, which falls in the GREEN (Stable/Early Growth) band.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI Weekly: Investors nervous about 'AI bubble', xAI co-founders quit - Reuters",
+      "NVDA_price": 190.01,
+      "NVDA_volatility": 7.67,
+      "NVDA_pe_ratio": 47.14764,
+      "NVDA_forward_pe": 24.60835,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 404.37,
+      "GOOGL_price": 310.96,
+      "nvda_pe": "47.14764",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-02-11T21:11:25.237266"
   }
 ]
