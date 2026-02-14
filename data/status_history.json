@@ -1485,5 +1485,26 @@
       "peg_ratio": "N/A"
     },
     "date": "2026-02-13T21:10:25.604071"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: NVIDIA revenue growth is ~62.5%, well above the <10% slowdown threshold. While articles hint at broad AI-related spending and rising debt, there's no specific evidence of capex overshoot paired with slowing AI revenue, so +0 risk.\n2) Valuation Check: NVIDIA trailing P/E is ~45.25, below the >70 trigger, and PEG is reported as N/A, so the PEG >2.5 condition cannot be applied. No valuation trigger, +0 risk.\n3) Adoption Check: The news discusses AI bubble fears, derivatives, and macro debt, but there are no explicit mentions of non-tech firms pausing or canceling AI projects or being stuck in 'pilot purgatory'. Instead, one headline suggests large incumbents may boost profits with AI. Adoption trigger not met, +0 risk.\n4) Hardware Signals: None of the articles mention easing GPU supply or reduced lead times, so no indication of a demand air-pocket on the hardware side. Hardware trigger not met, +0 risk.\nNet result: None of the four algorithmic conditions are triggered, leaving the AI Bubble Risk Score at 0 (GREEN), despite sentiment-tilted coverage about bubble fears.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI Bubble Fears Are Creating New Derivatives - Bloomberg.com",
+      "NVDA_price": 182.81,
+      "NVDA_volatility": 3.01,
+      "NVDA_pe_ratio": 45.25,
+      "NVDA_forward_pe": 23.631657,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": "N/A",
+      "MSFT_price": 401.32,
+      "GOOGL_price": 305.72,
+      "nvda_pe": "45.25",
+      "revenue_growth": "0.625",
+      "peg_ratio": "N/A"
+    },
+    "date": "2026-02-14T21:05:11.623720"
   }
 ]
