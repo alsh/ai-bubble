@@ -1528,5 +1528,27 @@
       "peg_ratio": "0.68"
     },
     "date": "2026-02-15T17:28:00.924586"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm step by step:\n\n1. Efficiency Check (+0/20): News clearly shows *massive* AI capex (Amazon guiding ~$200B, Alphabet $175-$185B, hyperscalers forecast to borrow ~$400B, $3T+ AI investment talk). However, the rule only triggers if this heavy spend coincides with slowing AI revenue growth (<10%). Nvidia's reported revenue growth is 62.5%, well above the 10% slowdown threshold. Under the algorithm\u2019s literal condition, no efficiency-risk points are added. Score: +0.\n\n2. Valuation Check (+0/15): The rule triggers if NVDA PEG > 2.5 or trailing P/E > 70. Current metrics: NVDA PEG \u2248 0.68 and trailing P/E \u2248 45.24, both comfortably below the bubble-trigger thresholds. Whatever the narrative, the numbers don\u2019t trip this wire. Score: +0.\n\n3. Adoption Check (+0/25): We scan for explicit signs of 'Pilot Purgatory'\u2014non-tech firms pausing or canceling AI projects. The articles show: (a) growing bubble fears and hedging via CDS, (b) a hedge fund CIO arguing we\u2019re still early and citing strong productivity use cases, (c) mention that 56% of CEOs *haven\u2019t yet* seen AI revenue/cost benefits, but no indication that they\u2019re canceling or shelving projects. That\u2019s slow payoff, not project abandonment. The algorithm\u2019s condition is not met. Score: +0.\n\n4. Hardware Signals (+0/20): We look for phrases like 'easing supply' or 'reduced lead times' for GPUs. Instead, the coverage still emphasizes tight capacity and demand outstripping supply for AI infrastructure. No signal of a demand rollover via inventory/supply normalization is present. Score: +0.\n\nTotal Risk Score = 0 (0 + 0 + 0 + 0). By the defined scale, 0\u201330 is GREEN. Cynically, the articles scream \"froth\" (CDS on hyperscalers, century bonds funding giant data centers, trillion-dollar tech sell-offs on capex scares), but the mechanical rules you specified don\u2019t light up yet: growth is still strong, valuations (on NVDA) aren\u2019t at the algorithm\u2019s danger levels, adoption hasn\u2019t obviously stalled, and hardware supply isn\u2019t loosening.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI bubble watch: Spooked market sparks $1 trillion Friday tech sell-off",
+      "NVDA_price": 182.81,
+      "NVDA_volatility": 3.01,
+      "NVDA_pe_ratio": 45.242573,
+      "NVDA_forward_pe": 23.627779,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.68,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 401.32,
+      "GOOGL_price": 305.72,
+      "nvda_pe": "45.242573",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.68"
+    },
+    "date": "2026-02-15T21:05:31.476904"
   }
 ]
