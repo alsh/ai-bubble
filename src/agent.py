@@ -40,10 +40,40 @@ def get_market_data():
                 if ticker == "NVDA":
                     volatility = hist["Close"].std()
                     data[f"{ticker}_volatility"] = round(volatility, 2)
-                    data[f"{ticker}_pe_ratio"] = info.get("trailingPE", "N/A")
-                    data[f"{ticker}_forward_pe"] = info.get("forwardPE", "N/A")
-                    data[f"{ticker}_revenue_growth"] = info.get("revenueGrowth", "N/A")
-                    data[f"{ticker}_peg_ratio"] = info.get("pegRatio", "N/A")
+                    
+                    # Fetch basic info
+                    trailing_pe = info.get("trailingPE", "N/A")
+                    forward_pe = info.get("forwardPE", "N/A")
+                    revenue_growth = info.get("revenueGrowth", "N/A")
+                    peg_ratio = info.get("pegRatio", "N/A")
+                    earnings_growth = info.get("earningsGrowth", "N/A") # New: Fetch Earnings Growth
+
+                    # Helper to safeguard float conversion
+                    def safe_float(val):
+                        try:
+                            return float(val)
+                        except (ValueError, TypeError):
+                            return None
+
+                    # Manual PEG Calculation Fallback
+                    # PEG = P/E / (Earnings Growth Rate * 100)
+                    if peg_ratio == "N/A" or peg_ratio is None:
+                        pe_val = safe_float(trailing_pe)
+                        eg_val = safe_float(earnings_growth)
+                        
+                        if pe_val is not None and eg_val is not None and eg_val != 0:
+                            # earnings_growth is usually a decimal (e.g. 0.50 for 50%), so * 100
+                            calculated_peg = pe_val / (eg_val * 100)
+                            peg_ratio = round(calculated_peg, 2)
+                            print(f"Calculated manual PEG: {peg_ratio} (P/E: {pe_val}, Growth: {eg_val})")
+                        else:
+                            print(f"Could not calculate PEG. P/E: {pe_val}, Growth: {eg_val}")
+
+                    data[f"{ticker}_pe_ratio"] = trailing_pe
+                    data[f"{ticker}_forward_pe"] = forward_pe
+                    data[f"{ticker}_revenue_growth"] = revenue_growth
+                    data[f"{ticker}_peg_ratio"] = peg_ratio
+                    data[f"{ticker}_earnings_growth"] = earnings_growth
 
             else:
                 print(f"Warning: No history found for {ticker}")
