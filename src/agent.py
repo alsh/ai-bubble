@@ -9,13 +9,14 @@ import feedparser
 import html
 import re
 import trafilatura
+from urllib.parse import urlparse, parse_qs
 from fake_useragent import UserAgent
 from openai import OpenAI
 
 # Configuration
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 DATA_FILE = "data/status_history.json"
-RSS_FEED_URL = "https://news.google.com/rss/search?q=AI+adoption+OR+AI+bubble+when:1d&hl=en-US&gl=US&ceid=US:en"
+RSS_FEED_URL = "https://www.bing.com/news/search?q=AI+bubble&format=rss&mkt=en-us"
 
 def get_market_data():
     """Fetches market data for NVDA, MSFT, GOOGL and calculates volatility."""
@@ -109,9 +110,14 @@ def extract_article_content(url):
 
 def get_news_headlines():
     """Fetches top 5 headlines with summary, source, date, and full content from Google News RSS."""
-    print("Fetching news headlines...")
+    print(f"Fetching news headlines from {RSS_FEED_URL}...")
     try:
-        feed = feedparser.parse(RSS_FEED_URL)
+        # Bing News blocks default python-requests/urllib UA, so we fetch with a browser UA first
+        headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0'}
+        import requests
+        response = requests.get(RSS_FEED_URL, headers=headers, timeout=10)
+        response.raise_for_status()
+        feed = feedparser.parse(response.content)
         news_items = []
         for entry in feed.entries[:5]:
             title = entry.title
@@ -131,7 +137,16 @@ def get_news_headlines():
             
             source = source_data.get('title', 'Unknown Source')
             published = entry.get('published', 'Unknown Date')
-            link = entry.link
+            link = str(entry.link)
+            
+            # Extract actual URL from Bing redirect if present
+            try:
+                parsed = urlparse(link)
+                params = parse_qs(parsed.query)
+                if 'url' in params:
+                    link = params['url'][0]
+            except Exception as e:
+                print(f"Warning: Could not parse Bing link {link}: {e}")
             
             # Scrape content
             print(f"Scraping article: {title[:30]}...")
