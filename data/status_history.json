@@ -1550,5 +1550,27 @@
       "peg_ratio": "0.68"
     },
     "date": "2026-02-15T21:05:31.476904"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Efficiency Check: NVDA revenue growth is ~62.5%, far above the <10% slowdown threshold, even as news highlights a $600B+ AI capex splurge and hyperscalers\u2019 massive spending; the algorithm only adds risk when heavy capex is paired with sub-10% growth, so risk = 0. Valuation Check: NVDA\u2019s trailing P/E (~45.2) is below the 70 threshold and its PEG (~0.68) is well under 2.5, so no overvaluation flag under the rules, risk = 0. Adoption Check: While articles warn about hype, shakeouts, and firms stuck at the \u201cdemo\u201d stage, they do not describe broad non\u2011tech enterprises pausing or canceling AI projects (\u2018pilot purgatory\u2019), and some explicitly note AI adoption is expected to accelerate, so risk = 0. Hardware Signals: News focuses on a race to secure more GPUs and massive data-center buildouts, with no mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs that would signal a demand air pocket, so risk = 0. Summing all triggered components yields a total Bubble Algorithm risk score of 0, which falls in the GREEN (0\u201330) band.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI Bubble 2026: Is The $600B Capex Splurge The New Fiber Optic Overbuild?",
+      "NVDA_price": 182.81,
+      "NVDA_volatility": 3.01,
+      "NVDA_pe_ratio": 45.242573,
+      "NVDA_forward_pe": 23.627779,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.68,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 401.32,
+      "GOOGL_price": 305.72,
+      "nvda_pe": "45.242573",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.68"
+    },
+    "date": "2026-02-16T21:06:51.752524"
   }
 ]
