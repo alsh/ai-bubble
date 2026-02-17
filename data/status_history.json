@@ -1572,5 +1572,27 @@
       "peg_ratio": "0.68"
     },
     "date": "2026-02-16T21:06:51.752524"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied Bubble Algorithm step-by-step:\n1) Efficiency Check: News clearly signals an AI capex boom and growing concern about overinvestment, but Nvidia\u2019s reported revenue growth is ~62.5%, far above the <10% slowdown trigger. Heavy spend, yes; efficiency breakdown per the rule, no. Risk +0.\n2) Valuation Check: Nvidia PEG ratio (~0.69) and trailing P/E (~45.8) are both below the thresholds (PEG > 2.5 or P/E > 70). This does not flag classic bubble valuation extremes under the given rule. Risk +0.\n3) Adoption Check: Articles discuss hype, shaky economics, and an impending shakeout, but there is no explicit mention of broad non-tech enterprises stuck in \u2018pilot purgatory\u2019 or pausing/cancelling AI programs at scale. The specific trigger condition is not met. Risk +0.\n4) Hardware Signals: Coverage mentions a global memory chip shortage and massive AI infrastructure build-outs, not easing GPU supply or reduced lead times. That suggests demand is still outstripping supply rather than collapsing. Risk +0.\nNet result: Despite rising narrative tension and visible investor anxiety, the strict quantitative triggers in the Bubble Algorithm do not fire on the current data, yielding a total score of 0 (GREEN).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI spending bubble fear just hit an all-time high, BofA survey shows",
+      "NVDA_price": 184.97,
+      "NVDA_volatility": 2.86,
+      "NVDA_pe_ratio": 45.784653,
+      "NVDA_forward_pe": 23.873814,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.69,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 396.86,
+      "GOOGL_price": 302.02,
+      "nvda_pe": "45.784653",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.69"
+    },
+    "date": "2026-02-17T21:10:04.872040"
   }
 ]
