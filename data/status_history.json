@@ -1616,5 +1616,27 @@
       "peg_ratio": "0.7"
     },
     "date": "2026-02-18T21:12:13.357442"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm: (1) Efficiency Check: NVDA revenue growth is very strong at ~62.5%, and there is no concrete evidence in the news of heavy AI capex with sub-10% revenue growth, so +0 risk. (2) Valuation Check: NVDA PEG (~0.7) is well below 2.5 and trailing P/E (~46.5) is below the 70 threshold, so +0 risk. (3) Adoption Check: While articles warn of an AI shakeout and firms stuck at the demo stage, there is no explicit evidence of broad non\u2011tech enterprises in \u2018pilot purgatory\u2019 pausing or cancelling AI projects, so the trigger condition is not met and adds +0. (4) Hardware Signals: No mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, so +0. Net result: the quantitative triggers are not hit, giving a formal score of 0 (GREEN), even though sentiment in the headlines is clearly turning more anxious and skeptical.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI bubble will burst for firms that can\u2019t get beyond demos and LLMs",
+      "NVDA_price": 187.9,
+      "NVDA_volatility": 2.21,
+      "NVDA_pe_ratio": 46.5099,
+      "NVDA_forward_pe": 24.217255,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.7,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 398.46,
+      "GOOGL_price": 302.85,
+      "nvda_pe": "46.5099",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.7"
+    },
+    "date": "2026-02-19T21:08:12.577490"
   }
 ]
