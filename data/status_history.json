@@ -1638,5 +1638,27 @@
       "peg_ratio": "0.7"
     },
     "date": "2026-02-19T21:08:12.577490"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm step by step:\n\n1) Efficiency Check (+0): The rule triggers only if companies are spending heavily on AI capex *and* AI revenue growth is slowing to <10%. The news clearly shows record concern about AI overinvestment and hyperscaler capex (Bank of America survey: a record share of managers say firms are \"overinvesting\" in AI; CIOs say AI capex has gone too far; BoE warns about overstretched valuations). However, the hard data we do have \u2013 Nvidia revenue growth at ~62.5% with earnings growth ~66.7% \u2013 indicates very strong top-line and profit growth, not a sub\u201110% slowdown. On a strict, data-driven basis there is no quantitative evidence yet that AI revenue growth has collapsed while capex soars, so this condition is not formally met and adds 0 risk points under the algorithm.\n\n2) Valuation Check (+0): This rule triggers if Nvidia\u2019s PEG ratio > 2.5 or trailing P/E > 70. Current metrics: NVDA PEG \u2248 0.7, trailing P/E \u2248 47.0, forward P/E \u2248 24.5. Those are elevated versus the broad market but well below the algorithm\u2019s bubble thresholds. So no valuation-triggered risk is added (+0).\n\n3) Adoption Check (+0): This rule requires explicit evidence of 'Pilot Purgatory' \u2013 non\u2011tech firms pausing or cancelling AI projects stuck in pilots. The articles do flag a shakeout (\"the AI bubble will burst for firms that can\u2019t get beyond demos and LLMs\", many companies chasing shiny objects, only a subset delivering measurable value at scale) and note that businesses aren\u2019t yet optimizing AI to maximize sales and profits. That\u2019s a clear *qualitative* sign of friction in adoption, but there is no direct report of widespread project cancellations or the specific 'Pilot Purgatory' dynamic the rule calls out. Under a literal reading, this check does not trigger and adds 0 points.\n\n4) Hardware Signals (+0): This rule triggers on mentions of 'easing supply' or 'reduced lead times' for GPUs, which would signal demand cooling. None of the articles reference loosening GPU supply or shorter lead times; in fact, they note that AI hardware adoption remains robust and the main concern is overspending, not lack of demand. So this adds 0 points.\n\nNet result: All four algorithmic triggers fail under current data (20 + 15 + 25 + 20 potential points all remain unused), yielding a total Bubble Algorithm risk score of 0. Qualitatively, sentiment is clearly shifting from euphoric to wary \u2013 BoE comparisons to the dot\u2011com era, BofA managers naming an AI bubble as the top tail risk, CIOs saying capex has gone too far, Druckenmiller taking profits and exiting several hot AI names \u2013 but the model\u2019s hard thresholds (revenue slowdown, extreme NVDA valuation, explicit pilot purgatory, or GPU oversupply) have not yet been crossed. Under this framework, the AI cycle still sits in GREEN (Early Growth with visible stress fractures, but no quantified break yet).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI spending bubble fear just hit an all-time high, BofA survey shows",
+      "NVDA_price": 189.82,
+      "NVDA_volatility": 2.78,
+      "NVDA_pe_ratio": 46.98515,
+      "NVDA_forward_pe": 24.464714,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.7,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 397.23,
+      "GOOGL_price": 314.98,
+      "nvda_pe": "46.98515",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.7"
+    },
+    "date": "2026-02-20T21:05:41.599137"
   }
 ]
