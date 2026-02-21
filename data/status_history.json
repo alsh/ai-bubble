@@ -1660,5 +1660,27 @@
       "peg_ratio": "0.7"
     },
     "date": "2026-02-20T21:05:41.599137"
+  },
+  {
+    "status": "GREEN",
+    "score": 25,
+    "reasoning": "Applied the Bubble Algorithm step by step: (1) Efficiency Check: Nvidia\u2019s revenue growth is ~62.5%, well above the 10% slowdown threshold, and the articles focus on hype and valuation rather than evidence of heavy capex outstripping revenue, so no +20 risk added. (2) Valuation Check: Nvidia\u2019s trailing P/E (~47) is below 70 and its PEG (~0.7) is far below the 2.5 trigger, so no +15 risk from valuations. Despite the bubble talk, the numbers do not yet match a classic late-stage bubble profile by this rule set. (3) Adoption Check: The article \u2018The AI bubble will burst for firms that can\u2019t get beyond demos and LLMs\u2019 explicitly describes companies stuck at the demo stage, unable to convert pilots into durable revenue\u2014i.e., classic \u2018pilot purgatory\u2019 conditions\u2014so this triggers the +25 risk for adoption friction and stalled real-world deployment, particularly among non-tech and enterprise users. (4) Hardware Signals: None of the news mentions easing GPU supply or reduced lead times, so no +20 risk from a hardware demand rollover. Total risk score = 0 (efficiency) + 0 (valuation) + 25 (adoption/pilot purgatory) + 0 (hardware) = 25, which falls in the GREEN band, even though sentiment in headlines is notably bearish.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI bubble will burst for firms that can\u2019t get beyond demos and LLMs",
+      "NVDA_price": 189.82,
+      "NVDA_volatility": 2.78,
+      "NVDA_pe_ratio": 46.98515,
+      "NVDA_forward_pe": 24.464714,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.7,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 397.23,
+      "GOOGL_price": 314.98,
+      "nvda_pe": "46.98515",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.7"
+    },
+    "date": "2026-02-21T21:03:41.628205"
   }
 ]
