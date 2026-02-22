@@ -1682,5 +1682,27 @@
       "peg_ratio": "0.7"
     },
     "date": "2026-02-21T21:03:41.628205"
+  },
+  {
+    "status": "GREEN",
+    "score": 25,
+    "reasoning": "Applied the Bubble Algorithm step by step:\n1) Efficiency Check: NVIDIA revenue growth is ~62.5%, well above the 10% slowdown threshold. News flow (e.g., OpenAI halving 2030 infra investment) points to *reduced* rather than aggressively escalating capex. The condition of heavy spending + slowing revenue is NOT met. Risk added: +0.\n2) Valuation Check: NVIDIA trailing P/E \u2248 47 (<70) and PEG \u2248 0.7 (<2.5), both comfortably below the bubble thresholds. No valuation trigger. Risk added: +0.\n3) Adoption Check (Pilot Purgatory): The article \"The AI bubble will burst for firms that can\u2019t get beyond demos and LLMs\" explicitly discusses companies stuck on impressive demos that don\u2019t translate into durable revenue, along with a coming shakeout for firms that can\u2019t move beyond foundational models. That is precisely the \"pilot purgatory\" dynamic the rule is looking for. Risk added: +25.\n4) Hardware Signals: None of the news references \"easing supply\" or \"reduced lead times\" for GPUs. OpenAI cutting long-term infra spend is an investment pullback, not a report of loosening GPU supply conditions. No hardware-triggered warning. Risk added: +0.\nTotal Risk Score = 0 + 0 + 25 + 0 = 25, which falls in the 0\u201330 band, classified as GREEN (Stable/Early Growth), albeit with clear early signs of adoption stress in weaker players.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI bubble will burst for firms that can\u2019t get beyond demos and LLMs",
+      "NVDA_price": 189.82,
+      "NVDA_volatility": 2.78,
+      "NVDA_pe_ratio": 46.98515,
+      "NVDA_forward_pe": 24.464714,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.7,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 397.23,
+      "GOOGL_price": 314.98,
+      "nvda_pe": "46.98515",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.7"
+    },
+    "date": "2026-02-22T21:05:25.586612"
   }
 ]
