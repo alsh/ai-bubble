@@ -1726,5 +1726,27 @@
       "peg_ratio": "0.71"
     },
     "date": "2026-02-23T21:15:22.875937"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm step-by-step:\n1) Efficiency Check: Nvidia\u2019s reported revenue growth (~62.5%) is far above the <10% slowdown threshold. While articles reference a prior \u2018credit-driven AI infrastructure bubble\u2019 and heavy AI spending by the Magnificent 7, there is no evidence here that current AI revenue growth has collapsed to sub-10%. Result: +0 risk.\n2) Valuation Check: NVDA trailing P/E \u2248 47.7 (well below the >70 trigger) and PEG \u2248 0.72 (well below the >2.5 trigger). By the algorithm\u2019s rules, current valuation does not flag as bubble-risky. Result: +0 risk.\n3) Adoption Check: The news flow is full of bubble *talk* (credit investors worried, \u2018Phase Two\u2019 of an AI bubble, Goldman calling AI\u2019s macro impact \u2018basically zero\u2019), but there are no clear mentions of \u2018Pilot Purgatory\u2019 or concrete examples of non\u2011tech firms pausing/canceling AI deployments at scale. Result: +0 risk.\n4) Hardware Signals: No explicit mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or AI chips. We see references to a past infrastructure bubble bursting, but nothing about current supply/demand imbalances in GPU availability. Result: +0 risk.\nNet outcome under the strict rules: 0/100. The narrative is getting darker, but the hard triggers (growth, valuation, adoption stalls, hardware glut) are not yet tripped by the provided data.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI Bubble Burst: Phase Two",
+      "NVDA_price": 192.85,
+      "NVDA_volatility": 2.18,
+      "NVDA_pe_ratio": 47.73515,
+      "NVDA_forward_pe": 24.543056,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 389.0,
+      "GOOGL_price": 310.9,
+      "nvda_pe": "47.73515",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-02-24T21:10:24.095524"
   }
 ]
