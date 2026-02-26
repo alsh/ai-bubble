@@ -1770,5 +1770,27 @@
       "peg_ratio": "0.73"
     },
     "date": "2026-02-25T21:11:35.559888"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: Nvidia\u2019s reported revenue growth (~62.5%, with a cited 73% quarterly surge in the article) is far above the 10% slowdown threshold. While bond investors expect a surge in hyperscaler issuance (implying heavy AI capex), the algorithm only flags risk when heavy spending coincides with revenue growth <10%. Condition not met \u2192 +0 risk.\n2) Valuation Check: NVDA PEG ratio = 0.68 (<2.5) and trailing P/E \u2248 45.65 (<70). Neither of the valuation triggers (PEG > 2.5 or P/E > 70) is hit \u2192 +0 risk.\n3) Adoption Check: The news flow focuses on market and credit worries about an AI bubble, but there is no mention of \u2018Pilot Purgatory\u2019 or non\u2011tech firms pausing/canceling AI projects. No evidence of systematic deployment stall \u2192 +0 risk.\n4) Hardware Signals: The Nvidia article discusses supply constraints and management claiming they have secured enough components and inventory commitments out to 2027. However, there is no explicit mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, as required by the rule. Current language is still framed around meeting strong demand rather than slack capacity \u2192 +0 risk.\nNet result: None of the four algorithmic triggers are activated by the provided metrics or text, so the AI Bubble Risk Score remains at 0, which maps to GREEN (Stable/Early Growth) under the specified scale, despite growing market chatter about an AI bubble.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Nvidia\u2019s strong earnings fail to ease investor concerns about AI bubble",
+      "NVDA_price": 184.89,
+      "NVDA_volatility": 3.98,
+      "NVDA_pe_ratio": 45.651848,
+      "NVDA_forward_pe": 17.427935,
+      "NVDA_revenue_growth": 0.625,
+      "NVDA_peg_ratio": 0.68,
+      "NVDA_earnings_growth": 0.667,
+      "MSFT_price": 401.72,
+      "GOOGL_price": 307.38,
+      "nvda_pe": "45.651848",
+      "revenue_growth": "0.625",
+      "peg_ratio": "0.68"
+    },
+    "date": "2026-02-26T21:10:13.561368"
   }
 ]
