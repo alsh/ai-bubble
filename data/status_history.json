@@ -1792,5 +1792,27 @@
       "peg_ratio": "0.68"
     },
     "date": "2026-02-26T21:10:13.561368"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied Bubble Algorithm to the given data and news:\n\n1) Efficiency Check (+0/20): Nvidia\u2019s reported revenue growth is 73.2% (0.732), far above the <10% slowdown threshold. News clearly signals massive AI capex (hyperscalers expected to issue more bonds; \u201cimmense investment into AI infrastructure\u201d; customers \u201cracing to invest in AI compute\u201d), but the algorithm only flags risk if heavy spending coincides with slowing revenue growth. Since growth is still extremely strong, this check does NOT add risk. Score: +0.\n\n2) Valuation Check (+0/15): Nvidia\u2019s trailing P/E is ~43.75 (<70) and PEG ratio is 0.46 (<2.5). Both are well below the algorithm\u2019s bubble trigger levels, so this step yields no additional risk despite broader bubble chatter in headlines. Score: +0.\n\n3) Adoption Check (+0/25): No mention of \u201cPilot Purgatory\u201d or of non\u2011tech enterprises pausing/canceling AI deployments. The news focuses on investor fears, funding structures, and hyperscaler/datacenter build\u2011out, not on stalled real\u2011economy adoption. Therefore, the adoption trigger is NOT met. Score: +0.\n\n4) Hardware Signals (+0/20): The articles do not mention \u201ceasing supply\u201d or \u201creduced lead times\u201d for GPUs. Instead, Nvidia\u2019s datacenter revenue is up 75% YoY to $62.3bn, and demand is framed as very strong. No evidence of a demand rollover in GPU hardware from the supplied text. Score: +0.\n\nTotal Risk Score = 0 (0+0+0+0). According to the specified scale, this is firmly in GREEN territory: strong revenue growth and still\u2011reasonable valuations by the given thresholds, with no confirmed signs (from this dataset) of adoption stalling or hardware demand easing, even though narrative fears of an AI bubble are clearly rising.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Nvidia quarterly earnings show immunity to AI bubble fears as it cashes in on datacenter boom",
+      "NVDA_price": 177.19,
+      "NVDA_volatility": 7.4,
+      "NVDA_pe_ratio": 43.750614,
+      "NVDA_forward_pe": 16.620033,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.46,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 392.74,
+      "GOOGL_price": 311.76,
+      "nvda_pe": "43.750614",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.46"
+    },
+    "date": "2026-02-27T21:08:20.471200"
   }
 ]
