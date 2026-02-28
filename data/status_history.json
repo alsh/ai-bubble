@@ -1814,5 +1814,27 @@
       "peg_ratio": "0.46"
     },
     "date": "2026-02-27T21:08:20.471200"
+  },
+  {
+    "status": "GREEN",
+    "score": 20,
+    "reasoning": "Applied the Bubble Algorithm to the data and news:\n\n1) Efficiency Check (+20 risk): TRIGGERED.\n- Capex / spending signals are clearly elevated:\n  \u2022 \"Investors expect a surge in bond issuance from hyperscalers\" \u2192 funding more AI infra build-out.\n  \u2022 Nebius: \"unprofitability, negative FCF, heavy CapEx and dilution risks despite AI deals\" \u2192 classic overbuild profile.\n  \u2022 Andrew Ng piece: \"competition for compute, talent, and control\" and emphasis on the training layer \u2192 capex arms race.\n- Revenue / ROI signals on the demand side are weak:\n  \u2022 PwC 2026 CEO Survey: 56% of 4,454 CEOs saw neither increased revenue nor reduced costs from AI over the past 12 months; only 12% achieved both, yet 51% plan to keep investing.\n  \u2022 That\u2019s effectively sub-10% meaningful revenue uplift for the majority of adopters while spend continues \u2013 i.e., \u201cspending heavily but revenue growth is slowing (<10%)\u201d at the enterprise level.\n- On the vendor side, Nvidia\u2019s revenue growth is still extremely strong (73.2), but the algorithm is about the system: capex is ramping while realized AI payback is stalling for buyers. That mismatch satisfies the Efficiency Check \u2192 +20 risk.\n\n2) Valuation Check (+0 risk): NOT TRIGGERED.\n- Condition: NVDA PEG > 2.5 OR trailing P/E > 70.\n- Actual metrics:\n  \u2022 NVDA PEG ratio: 0.38 (well below 2.5).\n  \u2022 NVDA trailing P/E: ~36.09 (well below 70).\n- Whatever else the market is, Nvidia is not priced like peak-dotcom by these metrics. No points added.\n\n3) Adoption Check (+0 risk): NOT TRIGGERED.\n- Condition: evidence of \u201cPilot Purgatory\u201d \u2013 non-tech firms pausing/canceling AI projects.\n- News flow does show weak, uneven outcomes and a widening gap between AI promises and realized economics (per Andrew Ng and the PwC survey), but there is no explicit language about large-scale pauses or cancellations; in fact, 51% of CEOs plan to continue investing.\n- That\u2019s disappointment, not yet capitulation. No points under the strict rule.\n\n4) Hardware Signals (+0 risk): NOT TRIGGERED.\n- Condition: mentions of \u201ceasing supply\u201d or \u201creduced lead times\u201d for GPUs \u2013 a clean sign of demand cooling relative to capacity.\n- The Nvidia article notes: \u201cforecast failed to dispel fears of an AI bubble\u201d and the stock saw its worst decline in 10 months, but there is no explicit mention of easing GPU supply or shorter lead times.\n- Sentiment is wobbling, not supply yet. No points added.\n\nTotal Risk Score = 20 (Efficiency 20 + Valuation 0 + Adoption 0 + Hardware 0) \u2192 GREEN (Stable/Early Growth), albeit with increasingly nervous narrative and clear efficiency cracks: enterprise AI ROI is lagging badly even as the capex machine keeps roaring.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Nvidia Shares Slide After Forecast Underwhelms Investors",
+      "NVDA_price": 177.19,
+      "NVDA_volatility": 7.4,
+      "NVDA_pe_ratio": 36.087578,
+      "NVDA_forward_pe": 16.620033,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 392.74,
+      "GOOGL_price": 311.76,
+      "nvda_pe": "36.087578",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-02-28T21:03:29.683637"
   }
 ]
