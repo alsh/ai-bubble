@@ -1836,5 +1836,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-02-28T21:03:29.683637"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying the Bubble Algorithm: (1) Efficiency Check: NVDA revenue growth is ~73.2%, well above the <10% 'slowing growth' threshold, so despite news of rising hyperscaler capex and bond issuance, the heavy-spend-plus-slow-revenue condition is NOT met; +0 risk. (2) Valuation Check: NVDA PEG ratio (~0.38) is far below 2.5 and trailing P/E (~36) is far below 70, so the valuation trigger is NOT hit; +0 risk. (3) Adoption Check: The news flow is full of AI-bubble warnings, macro and labor-market concerns, and a bearish call on Nebius, but there is no explicit evidence of non-tech firms entering AI 'pilot purgatory' (pausing/canceling AI deployments), so this condition is NOT met; +0 risk. (4) Hardware Signals: No mention of 'easing supply' or 'reduced lead times' for GPUs, so no sign yet (in this feed) of a hardware demand rollover; +0 risk. Net result: total algorithmic risk score = 0, which falls in the GREEN band, even though sentiment in headlines has clearly shifted more cautious and bubble-aware.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Nebius: Sell Before The AI Bubble Bursts",
+      "NVDA_price": 177.19,
+      "NVDA_volatility": 7.4,
+      "NVDA_pe_ratio": 36.087578,
+      "NVDA_forward_pe": 16.620033,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 392.74,
+      "GOOGL_price": 311.76,
+      "nvda_pe": "36.087578",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-01T21:03:57.877749"
   }
 ]
