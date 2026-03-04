@@ -1902,5 +1902,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-03-03T21:08:30.507193"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Starting risk score at 0 per the Bubble Algorithm. (1) Efficiency Check: Nvidia\u2019s reported revenue growth is ~73% (0.732), far above the <10% \u2018slowing\u2019 threshold, even as hyperscalers plan ~$700B in 2026 AI capex. The rule only triggers if heavy spending coincides with sub-10% growth; that condition is not met, so +0 risk. (2) Valuation Check: Nvidia\u2019s trailing P/E (~37.4) is well below the 70 trigger, and its PEG ratio (~0.39) is far below the >2.5 trigger, so no valuation-based flag; +0 risk. (3) Adoption Check: The news flow shows rising anxiety (BofA survey: 23% of credit investors now cite an AI bubble as their top worry, up from 9%), but there is no explicit evidence of \u2018pilot purgatory\u2019\u2014no broad pausing or cancelation of AI projects by non-tech enterprises is mentioned, only concern that $700B of infra must justify itself; +0 risk. (4) Hardware Signals: None of the articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or AI chips\u2014concern is about future ROI and funding structures, not hardware demand softening; +0 risk. Total score remains 0, which falls in the 0\u201330 GREEN band. Cynical read: sentiment among credit investors is clearly deteriorating and the narrative is shifting from euphoria to scrutiny (bubble worry now front-page for bond buyers), but by this algorithm\u2019s hard triggers\u2014revenues, valuations, adoption stalling, and hardware oversupply\u2014the canary is forced to call it GREEN for now, with a notable uptick in background nervousness that isn\u2019t yet showing in the numbers.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "BofA Survey: AI Bubble Just Became the Biggest Worry for Credit Investors",
+      "NVDA_price": 183.04,
+      "NVDA_volatility": 2.98,
+      "NVDA_pe_ratio": 37.3551,
+      "NVDA_forward_pe": 17.143456,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.39,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 405.2,
+      "GOOGL_price": 303.13,
+      "nvda_pe": "37.3551",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.39"
+    },
+    "date": "2026-03-04T21:08:10.534718"
   }
 ]
