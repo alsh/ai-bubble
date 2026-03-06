@@ -1946,5 +1946,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-03-05T21:09:08.252985"
+  },
+  {
+    "status": "GREEN",
+    "score": 25,
+    "reasoning": "Applied the Bubble Algorithm to the given data and news: (1) Efficiency Check: News points to heavy AI capex and expected surge in bond issuance from hyperscalers, but NVIDIA\u2019s revenue growth is very strong at ~73%, far above the <10% slowdown threshold. Condition for +20 risk is NOT met, so +0. (2) Valuation Check: NVIDIA\u2019s trailing P/E (~36.3) is well below the 70 trigger and its PEG (~0.38) is far below the >2.5 threshold. No valuation flag, so +0. (3) Adoption Check: Gartner placing AI in the 2026 \u2018Trough of Disillusionment\u2019 and BCG stating fewer than 5% of organizations have achieved AI value at scale indicate widespread failure to move beyond pilots into scaled, profitable deployments\u2014classic \u2018pilot purgatory\u2019 dynamics. This signals a sentiment and adoption shift, so +25 risk. (4) Hardware Signals: None of the articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, so no evidence of a demand rollover in hardware; +0. Total risk score = 0 + 0 + 25 + 0 = 25, which falls in the GREEN (Stable/Early Growth) band, albeit with mounting skepticism in the narrative rather than in the hard numbers.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "After Microsoft, NVIDIA\u2019s pullback from OpenAI signals the AI bubble burst may be near",
+      "NVDA_price": 177.88,
+      "NVDA_volatility": 2.33,
+      "NVDA_pe_ratio": 36.30306,
+      "NVDA_forward_pe": 16.559456,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 408.96,
+      "GOOGL_price": 298.48,
+      "nvda_pe": "36.30306",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-06T21:06:30.250406"
   }
 ]
