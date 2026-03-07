@@ -1968,5 +1968,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-03-06T21:06:30.250406"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm strictly to the provided data and text: (1) Efficiency Check: NVIDIA\u2019s reported revenue growth is ~73.2%, well above the <10% slowdown threshold. While AI capex is thematically implied (inflationary boom, training layer focus), the condition requires heavy spend *and* slowing growth; with growth this high, the +20 risk is not triggered. (2) Valuation Check: NVIDIA\u2019s trailing P/E (~36.2) is below the 70 threshold and its PEG ratio (~0.38) is far under 2.5, so the +15 valuation risk is not triggered. (3) Adoption Check: The news mentions Gartner\u2019s \u2018Trough of Disillusionment\u2019 and that fewer than 5% of organizations have achieved AI value at scale, but there is no explicit mention of \u2018Pilot Purgatory\u2019 or non\u2011tech firms pausing/canceling AI projects; thus the +25 adoption risk condition is not met under the algorithm as written. (4) Hardware Signals: None of the articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, so the +20 hardware risk is also not triggered. Despite clearly rising bubble anxiety in sentiment (surveys flagging AI as top worry, talk of bubble burst risk, and major players pulling back from OpenAI), the algorithm\u2019s specific triggers all remain inactive on the provided metrics and wording, yielding a total score of 0 and a GREEN status.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "BofA Survey: AI Bubble Just Became the Biggest Worry for Credit Investors",
+      "NVDA_price": 177.82,
+      "NVDA_volatility": 2.36,
+      "NVDA_pe_ratio": 36.21589,
+      "NVDA_forward_pe": 16.553408,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 408.96,
+      "GOOGL_price": 298.52,
+      "nvda_pe": "36.21589",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-07T21:03:21.761556"
   }
 ]
