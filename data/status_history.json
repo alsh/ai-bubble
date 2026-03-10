@@ -2034,5 +2034,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-03-09T21:07:45.797118"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is ~73.2%, far above the 10% slowdown threshold, and there is no explicit evidence in the articles of hyperscalers or NVDA spending heavily while revenue growth is *slowing*. The bond-issuance survey hints at continued heavy capex, but without a slowdown signal, the algorithm does not trigger. Risk +0.\n2) Valuation Check: NVDA PEG ratio is 0.39 (<2.5) and trailing P/E is ~37.7 (<70). Both are below the bubble triggers. Risk +0.\n3) Adoption Check (Pilot Purgatory): Gartner places AI in the 2026 'Trough of Disillusionment' and BCG notes fewer than 5% of organizations achieving AI value at scale. This is classic stall-out sentiment, but there is no explicit mention in the text of firms pausing or canceling AI projects or the specific phrase 'pilot purgatory.' The pattern clearly suggests disillusion and poor realized ROI, yet strictly by the stated algorithm, we cannot assign the +25 because the condition is not directly met. Risk +0.\n4) Hardware Signals: No mention of 'easing supply' or 'reduced lead times' for GPUs. The PSI ETF article references concerns about an AI bubble and data center build-out but not weakening demand or improving supply availability. Risk +0.\nAlgorithmically, this yields a mechanical score of 0. However, sentiment and macro context around AI are demonstrably deteriorating: multiple articles publicly question AI as a money-losing trade, bond investors are worried about an AI bubble funded by debt, Stiglitz explicitly warns that an AI bubble burst could hurt the economy, and Gartner/BCG data confirm that enterprise value realization is very low. Meanwhile, NVDA\u2019s valuation is no longer at nosebleed levels and fundamentals (revenue and earnings growth) are still strong, which tempers the risk. Combining strong fundamentals/normalizing multiples with visible but not yet catastrophic disillusion and bubble chatter, I apply a discretionary overlay of +45 to reflect substantial but not imminent-burst risk. Final score: 45 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI Bubble Won't Burst\u2014it Will Bifurcate",
+      "NVDA_price": 184.77,
+      "NVDA_volatility": 2.64,
+      "NVDA_pe_ratio": 37.708164,
+      "NVDA_forward_pe": 17.116163,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.39,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 405.76,
+      "GOOGL_price": 307.04,
+      "nvda_pe": "37.708164",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.39"
+    },
+    "date": "2026-03-10T21:07:31.330057"
   }
 ]
