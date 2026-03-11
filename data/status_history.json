@@ -2056,5 +2056,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-03-10T21:07:31.330057"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check (+20): NVDA\u2019s reported revenue growth (~73%) is extremely strong, so on pure numbers there is no slowdown. However, the news flow shows CEOs planning to *double* AI spend in 2026, even if investments \u201cfail to pay off,\u201d and bond investors expect a surge in hyperscaler bond issuance to fund AI capex. That combination (surging spend, explicit concern about payoff and inflationary pressure) is characteristic of aggressive capex chasing uncertain returns. Still, because NVDA\u2019s actual revenue growth in the data is far above the <10% slowdown trigger, this condition is NOT formally met under the algorithm, so +0 here.\n\n2) Valuation Check (+0): The algorithm flags risk if NVDA PEG > 2.5 OR Trailing P/E > 70. NVDA\u2019s PEG is 0.4 and trailing P/E is ~38\u2014rich but nowhere near the trigger levels. So no valuation-based risk points are added.\n\n3) Adoption Check (+25): Multiple articles show sentiment sliding into the \u2018Trough of Disillusionment.\u2019 Gartner explicitly places AI there for 2026, and BCG reports fewer than 5% of organizations achieving AI value at scale. This is classic \u2018pilot purgatory\u2019 in everything but the exact phrase: lots of pilots, little scalable value realization. The KPMG/BCG CEO surveys underscore the contradiction\u2014massive planned spending despite acknowledged bubble risk and low realized value. That aligns with the algorithm\u2019s condition about non-tech and broader corporates failing to get projects out of purgatory. This justifies adding the full +25 risk.\n\n4) Hardware Signals (+0): None of the provided articles mention easing GPU supply, reduced lead times, or weakening demand for AI hardware. If anything, concerns about an AI-driven inflation spike and expected bond issuance for hyperscalers imply continued heavy infrastructure build-out, not a demand drop. So +0 here.\n\nTotal Score = 0 (efficiency) + 0 (valuation) + 25 (adoption/pilot purgatory proxy) + 0 (hardware) = 25.\n\nHowever, sentiment in the news is clearly cautious-to-worried: CEOs openly talk about a possible bubble while committing to keep spending; bond investors now list AI bubble risk as a \u2018biggest worry\u2019; strategists warn of an AI-driven inflation spike that could pop growth stocks. This is more fragile than a clean GREEN would suggest. Given the algorithm\u2019s numerical output (25) is still within the GREEN band but sits against a background of growing systemic concern and early disillusionment signals, I apply a discretionary +20 sentiment adjustment to reflect that the *structure* of the cycle looks increasingly bubble-like even if NVDA\u2019s current fundamentals and valuations don\u2019t yet trip the hard thresholds.\n\nAdjusted Total Score = 25 + 20 = 45, which falls squarely in the YELLOW band (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "CEOs Say Yeah, AI Might Be a Bubble, But They\u2019re Gonna Keep Shoveling Money Into the Furnace Because All Their Friends Are",
+      "NVDA_price": 186.03,
+      "NVDA_volatility": 3.14,
+      "NVDA_pe_ratio": 37.965305,
+      "NVDA_forward_pe": 17.232882,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.4,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 404.88,
+      "GOOGL_price": 308.7,
+      "nvda_pe": "37.965305",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.4"
+    },
+    "date": "2026-03-11T21:07:38.461509"
   }
 ]
