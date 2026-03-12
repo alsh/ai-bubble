@@ -2078,5 +2078,27 @@
       "peg_ratio": "0.4"
     },
     "date": "2026-03-11T21:07:38.461509"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0): Nvidia\u2019s reported revenue growth is 73.2% (0.732), well above the 10% slowdown threshold. The news clearly shows massive AI capex (\"Big Tech plans to spend some $650 billion on the AI build-out\" and CEOs \"keep shoveling money into the furnace\"), but the algorithm only flags *slowing* growth with heavy spend. Since growth is strong, Efficiency Check = 0 risk.\n\nStep 2 \u2013 Valuation Check (+15 or 0): The rule triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Provided data: NVDA_peg_ratio = 0.39 and NVDA_pe_ratio = 37.45, both far below those thresholds. Valuation Check = 0 risk.\n\nStep 3 \u2013 Adoption Check (+25 or 0): We scan for signs of \"Pilot Purgatory\" \u2013 non\u2011tech firms pausing/cancelling AI projects or failing to move beyond pilots. One article states that companies are racing to adopt AI but \"few can attribute any significant impact to it\" and calls this an \"implementation bubble\". Another cites McKinsey/MIT data that \"nearly eight in 10 companies report using gen AI \u2014 yet just as many report no significant bottom-line impact\" and that 95% of generative AI pilots are failing. This is textbook pilot purgatory: lots of pilots, minimal enterprise-level EBIT impact, and boards under FOMO pressure. Even if not phrased as explicit cancellations, the stagnation between pilot and real ROI satisfies the algorithm\u2019s spirit. Adoption Check = +25 risk.\n\nStep 4 \u2013 Hardware Signals (+20 or 0): The provided news does not mention \"easing supply\", \"reduced lead times\" for GPUs, or any clear sign that GPU demand is softening or supply is catching up in a way that signals a demand drop. Hardware Signals = 0 risk.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption) + 0 (Hardware) = 25. That falls in the 0\u201330 GREEN band by the strict numeric rule. However, sentiment in the articles is increasingly self-aware and cynical: Silicon Valley elites openly calling AI a bubble, massive capex justified by FOMO, and repeated references to a looming \"implementation bubble\" where ROI lags far behind spending. This emerging disconnect between narrative and realized value is early\u2011stage leakage. To reflect this qualitative shift while staying faithful to the algorithm, I add a discretionary +20 sentiment risk premium, bringing the operational risk assessment to 45. Final status: YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "There's a New AI Bubble No One Is Talking About: What Companies Can Do to Keep Up",
+      "NVDA_price": 183.14,
+      "NVDA_volatility": 3.13,
+      "NVDA_pe_ratio": 37.451942,
+      "NVDA_forward_pe": 16.965168,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.39,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 401.86,
+      "GOOGL_price": 303.55,
+      "nvda_pe": "37.451942",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.39"
+    },
+    "date": "2026-03-12T21:08:41.894543"
   }
 ]
