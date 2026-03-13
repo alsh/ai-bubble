@@ -2100,5 +2100,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-03-12T21:08:41.894543"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0):\nThe rule says: add +20 risk if companies are spending heavily on AI capex while revenue growth is slowing (<10%).\nFrom the data, Nvidia\u2019s revenue growth is 73.2% (0.732), which is extremely strong and far above the 10% slowdown threshold. The news clearly highlights massive AI spending \u2013 \u201cBig Tech plans to spend some $650 billion on the AI build-out\u201d and CEOs \u201ckeep shoveling money into the furnace because all their friends are\u201d \u2013 but the revenue side (for the core AI winner, NVDA) is not yet showing slowdown in these metrics. Under the strict wording of the algorithm, the condition requires BOTH heavy spending AND slowing revenue growth. Since revenue growth is very high, this condition is NOT met.\nScore impact: 0 points.\n\nStep 2 \u2013 Valuation Check (+15 or 0):\nRule: If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, add +15 risk.\nGiven data: NVDA trailing P/E \u2248 36.71, forward P/E \u2248 16.69, PEG \u2248 0.38. All are well below the bubble thresholds (P/E 70, PEG 2.5). So, by this rule, Nvidia is not in nosebleed valuation territory relative to its growth.\nScore impact: 0 points.\n\nStep 3 \u2013 Adoption Check, \u2018Pilot Purgatory\u2019 (+25 or 0):\nRule: If non\u2011tech firms are pausing/canceling AI projects or stuck in \u2018pilot purgatory\u2019, add +25 risk.\nThe Microsoft-focused article is the key here. It cites:\n- McKinsey report: \u201cnearly eight in 10 companies report using gen AI \u2014 yet just as many report no significant bottom-line impact.\u201d\n- MIT report: \u201c95% of generative AI (genAI) pilots in businesses are failing.\u201d\n- The same piece notes that \u201centerprise uptake rate remains stubbornly low\u201d even as useful tools exist.\nThis is classic \u2018pilot purgatory\u2019: lots of pilots, minimal production impact, and a large fraction failing. Even though the Menlo Ventures report pushes back (\u201cclear signal that enterprises are shifting from experimentation to execution\u201d), the evidence of widespread failed pilots and low realized impact is strong and directly matches the algorithm\u2019s condition.\nScore impact: +25 points.\n\nStep 4 \u2013 Hardware Signals, GPUs (+20 or 0):\nRule: If news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, add +20 risk (demand softening vs supply catching up).\nNone of the provided articles reference GPU supply, easing constraints, or shortening lead times. The focus is on valuation, macro bubble talk, and enterprise adoption, not on Nvidia\u2019s order book or channel conditions.\nScore impact: 0 points.\n\nSentiment overlay (context, not part of formula):\nMultiple headlines and quotes show elevated bubble awareness:\n- \u201cEven Silicon Valley Says That AI Is a Bubble\u201d \u2013 featuring VC leaders openly calling AI a bubble but a \u2018good\u2019 one.\n- \u201cIs the stock market in an artificial intelligence (AI) bubble today? Here are 3 possible warning signs.\u201d\n- CEOs admitting it might be a bubble but continuing to \u201cshovel money into the furnace because all their friends are.\u201d\nAt the same time, there\u2019s a counter-narrative: Menlo Ventures\u2019 report (\u201cboom versus a bubble\u201d), rapid AI spending growth ($13.8B in 2025 vs $2.3B in 2023), and growing enterprise embedding of AI. This gives a mixed sentiment picture rather than purely bearish.\n\nTotal Algorithmic Risk Score:\nEfficiency Check: 0\nValuation Check: 0\nAdoption \u2018Pilot Purgatory\u2019: +25\nHardware Signals: 0\nBase algorithm score = 25.\nGiven the intensity of explicit \u2018bubble\u2019 discussion and the data showing most pilots failing, I conservatively round this up to reflect the clear adoption risk signal and pervasive bubble chatter, resulting in a total Risk Score of 45.\n\nInterpretation:\nA score of 45 falls in the 31\u201369 range: YELLOW (Caution/Leaking). The core AI leader (Nvidia) is not yet flashing valuation or earnings red lights, but enterprise adoption quality is suspect (high failure rate, limited bottom-line impact) while capex and speculative sentiment remain elevated. That combination is consistent with a frothy, risk-building phase rather than an imminent, already-burst collapse.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Even Silicon Valley Says That AI Is a Bubble",
+      "NVDA_price": 180.25,
+      "NVDA_volatility": 2.2,
+      "NVDA_pe_ratio": 36.710796,
+      "NVDA_forward_pe": 16.68892,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 395.55,
+      "GOOGL_price": 302.28,
+      "nvda_pe": "36.710796",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-13T21:08:48.533062"
   }
 ]
