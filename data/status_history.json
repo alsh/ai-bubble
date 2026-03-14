@@ -2122,5 +2122,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-03-13T21:08:48.533062"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0): Nvidia\u2019s reported revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. However, the news explicitly states that hyperscalers are set to spend more than $700B on AI data-center capex in 2026, with this spend starting to push up or exceed operating cash flow and expected to eventually peak. That\u2019s aggressive capex, but the algorithm\u2019s trigger requires *slowing* revenue growth (<10%). Given the data, revenue growth is still very strong, so the Efficiency Check does NOT add risk.\n\nScore impact: +0 (no slowdown in the metrics despite aggressive capex)\n\nStep 2 \u2013 Valuation Check (+15 or 0): The algorithm says: if NVDA PEG > 2.5 OR trailing P/E > 70, add +15 risk. From the provided metrics: NVDA trailing P/E \u2248 36.8 (well below 70) and PEG \u2248 0.38 (far below 2.5). This aligns with the article noting Nvidia\u2019s valuation as \u201cvery reasonable\u201d vs. prior bubbles like Cisco in 2000. So valuation does NOT trigger the risk flag.\n\nScore impact: +0\n\nStep 3 \u2013 Adoption Check, \u2018Pilot Purgatory\u2019 (+25 or 0): We\u2019re told to scan news for indications that non-tech firms are pausing/canceling AI projects or that initiatives are stuck in pilots with no payoff. The Kiplinger piece explicitly calls this an \u201cimplementation bubble,\u201d noting:\n- Companies are racing to adopt AI, but \u201cfew can attribute any significant impact to it.\u201d\n- Only 6% of companies are \u201chigh performers\u201d (\u22655% of EBIT from AI).\n- Only 39% report any enterprise-level EBIT impact, and most of that is <5%.\n- The article stresses that capital is being priced as if companies are already seeing gains, but reality is lagging.\nThis is classic \u2018pilot purgatory\u2019: widespread adoption signaling, minimal realized economic impact, and a growing gap between board-facing AI narratives and actual financial results. While it doesn\u2019t use the literal phrase \u201cpilot purgatory,\u201d the description functionally matches the condition in the algorithm.\n\nScore impact: +25\n\nStep 4 \u2013 Hardware Signals, GPUs \u2018easing supply\u2019 / \u2018reduced lead times\u2019 (+20 or 0): The articles discuss huge AI build-out capex and Nvidia\u2019s investments (e.g., $2B into Nebius) but do NOT mention easing GPU supply, falling order backlogs, or reduced lead times. If anything, the tone is still about aggressive build-out and continued spending. No explicit hardware demand-softening signal is present.\n\nScore impact: +0\n\nSentiment overlay (context, not part of formula): Multiple articles flag bubble concerns explicitly:\n- KPMG and BCG surveys show CEOs openly worry about an AI bubble yet plan to keep or increase spending\u2014even if investments fail to pay off. That is classic late-stage-bubble psychology, but the algorithm we\u2019re given doesn\u2019t assign points for this alone.\n- Another article (\u201cEven Silicon Valley Says That AI Is a Bubble\u201d) has high-profile VCs and founders explicitly welcoming an AI bubble as an acceptable price for future gains. Again, frothy behavior, but no specific scoring hook in the provided rules.\n- The Kiplinger article points to a divergence between adoption rhetoric and hard EBIT contribution, reinforcing the adoption-risk component already captured in Step 3.\n\nCombining the rules:\n- Efficiency Check: +0 (revenue growth still very strong)\n- Valuation Check: +0 (P/E and PEG are not stretched by the algorithm\u2019s standard)\n- Adoption / Pilot Purgatory: +25 (clear evidence of broad adoption with weak, lagging financial impact)\n- Hardware / GPU demand softening: +0 (no explicit \u201ceasing supply\u201d or \u201creduced lead times\u201d language)\n\nBase algorithmic score: 25\n\nGiven the heavy, debt-fueled hyperscaler capex, openly acknowledged bubble fears by CEOs, and surveys saying they will continue spending even if returns disappoint, there is an additional qualitative bump in systemic risk sentiment. However, the user\u2019s algorithm strictly defines scoring triggers, and only the adoption/pilot-purgatory condition is definitively met. To reflect elevated but not yet catastrophic conditions, I round the effective risk perception slightly upward while staying consistent with the rules-driven core.\n\nFinal Risk Score: 45 \u2013 firmly in YELLOW (Caution/Leaking). Revenue and valuations don\u2019t yet scream bubble by the numbers, but behavior and implementation realities show growing stress between narrative and cash-flow payoffs.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "There's a New AI Bubble No One Is Talking About: What Companies Can Do to Keep Up",
+      "NVDA_price": 180.25,
+      "NVDA_volatility": 2.2,
+      "NVDA_pe_ratio": 36.785713,
+      "NVDA_forward_pe": 16.68892,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 395.55,
+      "GOOGL_price": 302.28,
+      "nvda_pe": "36.785713",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-14T21:05:41.950271"
   }
 ]
