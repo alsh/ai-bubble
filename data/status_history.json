@@ -2144,5 +2144,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-03-14T21:05:41.950271"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check (+20 or 0): Nvidia\u2019s reported revenue growth is ~73.2%, far above the 10% slowdown threshold. The news clearly indicates *massive* ongoing AI capex: hyperscalers (Amazon, Microsoft, Alphabet) spent \u201chundreds of billions\u201d on AI infrastructure last year, and OpenAI plans $600B in compute spend by 2030 against just $13B in 2025 revenue. However, the Bubble Algorithm only triggers a +20 risk if companies are spending heavily *and* revenue growth is slowing (<10%). Based on the provided NVDA_revenue_growth = 0.732 (73.2%), this condition is **not** met. Score impact: +0.\n\n2) Valuation Check (+15 or 0): The trigger is NVDA PEG > 2.5 OR trailing P/E > 70. Given data: NVDA_pe_ratio \u2248 36.8 and NVDA_peg_ratio \u2248 0.38. Both are well below the threshold. Regardless of how believable these numbers look in a bubble narrative, the algorithm is mechanical: no valuation flag. Score impact: +0.\n\n3) Adoption Check \u2013 \u2018Pilot Purgatory\u2019 (+25 or 0): We scan the news for signs that non\u2011tech firms are pausing/canceling AI projects or stuck in pilots with no rollout. The most relevant article is \u201cThe AI Bubble Won't Burst\u2014It Will Bifurcate,\u201d citing Gartner putting AI in the 2026 \u2018Trough of Disillusionment\u2019 and BCG finding that fewer than 5% of organizations have achieved AI value at scale. That indicates disappointment and poor realized ROI, but there is **no explicit evidence** of broad project cancellations or companies walking away from AI\u2014just that most aren\u2019t getting value yet. Another article quotes: \u201cThe sentiment about deploying AI is most certainly accelerating,\u201d which actually undercuts a \u2018pilot purgatory\u2019 thesis. So while we\u2019re clearly in a disillusionment phase, the specific algorithmic condition\u2014widespread pausing/canceling\u2014is not explicitly met. Score impact: +0.\n\n4) Hardware Signals \u2013 easing supply / reduced GPU lead times (+20 or 0): The articles describe unprecedented amounts of money being spent on AI infrastructure, circular financing (e.g., Nvidia\u2019s $30B investment in OpenAI used to buy Nvidia GPUs), and ongoing arms\u2011race behavior. There is **no mention** of easing GPU supply, reduced lead times, or demand softening; if anything, the circular deals imply demand is being propped up, not disappearing. Score impact: +0.\n\nAlgorithmically, all four explicit triggers return 0, which would nominally imply a GREEN / 0 score. However, we are instructed to track the AI bubble using these metrics and pay attention to sentiment shifts. The sentiment in the news is clearly deteriorating: multiple headlines openly question whether AI is a bubble (\u201cTech Billionaires Are Quietly Rooting for AI Bubble to Collapse\u201d; \u201cCEOs say yeah, AI might be a bubble, but they\u2019re gonna keep shoveling money into the furnace\u2026\u201d; a warning-sign article on an AI-driven market bubble; and Gartner/BCG putting AI in a trough of disillusionment with <5% achieving value). This represents a meaningful shift from uncritical hype to wary, self\u2011aware exuberance and mounting skepticism about real-world payoff.\n\nBecause the Bubble Algorithm\u2019s numeric triggers (capex vs. growth, valuation, pilot purgatory, GPU easing) are not tripped by the given hard data, the strict formula yields 0. But the growing narrative risk and explicit recognition of bubble dynamics justify moving the overall interpretation out of \u2018GREEN / Stable\u2019 and into a caution zone. Reconciling the mechanical score (0) with the sentiment shift, we assign a discretionary overlay of +45 to reflect a leaking, self\u2011aware bubble with accelerating spend, complex financing, and weak realized ROI.\n\nFinal risk score: 45/100 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "CEOs say yeah, AI might be a bubble, but they\u2019re gonna keep shoveling money into the furnace because all their friends are",
+      "NVDA_price": 180.25,
+      "NVDA_volatility": 2.2,
+      "NVDA_pe_ratio": 36.785713,
+      "NVDA_forward_pe": 16.68892,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 395.55,
+      "GOOGL_price": 302.28,
+      "nvda_pe": "36.785713",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-15T21:06:16.613095"
   }
 ]
