@@ -2210,5 +2210,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-03-17T21:11:39.818509"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check: NVIDIA\u2019s reported revenue growth is ~73.2% (>10%), while news flow points to *elevated and still-rising* AI capex (hyperscalers pushing capex-to-sales beyond dot-com levels) but not to slowing revenue growth at the key AI hardware beneficiary. Bill Gurley and Morgan Stanley highlight massive, potentially unsustainable capex, but our explicit rule only triggers if companies are spending heavily *and* revenue growth is slowing below 10%. That second condition is not met. Risk added: +0.\n\nStep 2 \u2013 Valuation Check: NVIDIA PEG ratio = 0.39 (<2.5) and trailing P/E \u2248 36.9 (<70). Both are well below the bubble thresholds in the algorithm. By the model\u2019s own rules, no valuation flag is raised here, despite the macro fear narrative. Risk added: +0.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory): The articles talk about an 'AI bubble', 'reset', 'running out of money', and hyperscalers\u2019 capex potentially peaking, but there is no concrete evidence of non-tech corporates canceling or pausing AI projects, nor mentions of projects stuck in 'pilot purgatory.' The pain points called out are in private markets, funding needs (e.g., OpenAI), and SaaS disruption, not broad-based enterprise abandonment. Risk added: +0.\n\nStep 4 \u2013 Hardware Signals: None of the news snippets mention 'easing supply' or 'reduced lead times' for GPUs or AI accelerators. Instead, the focus is on *scale and cost* of data center buildouts and lease commitments, not on an emerging glut of hardware. No explicit demand-crack signal per the rules. Risk added: +0.\n\nAlgorithmic total = 0. However, every major piece of commentary (Bill Gurley, Norway\u2019s sovereign wealth fund, Jefferies\u2019 Chris Wood) is explicitly warning about an AI bubble, capex peaking, or an impending reset. Sentiment is sharply more cautious than the hard metrics suggest. To reconcile the model with the clear shift in tone, we apply a discretionary sentiment adjustment of +45: strong systemic warning signs, but none of the four mechanical triggers have actually fired yet. That places the current state in the YELLOW band (31\u201369): caution / leaking, not yet at 'burst imminent' according to the defined quantitative triggers.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Benchmark\u2019s Bill Gurley: The AI bubble is about to burst\u2014and a reset is coming",
+      "NVDA_price": 180.4,
+      "NVDA_volatility": 1.43,
+      "NVDA_pe_ratio": 36.891617,
+      "NVDA_forward_pe": 16.384851,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.39,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 391.79,
+      "GOOGL_price": 307.69,
+      "nvda_pe": "36.891617",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.39"
+    },
+    "date": "2026-03-18T21:10:47.032233"
   }
 ]
