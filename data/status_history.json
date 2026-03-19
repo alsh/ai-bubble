@@ -2232,5 +2232,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-03-18T21:10:47.032233"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0):\n- Data: NVDA revenue_growth = 0.732 (73.2% YoY), i.e., very strong and clearly >10%.\n- News: Multiple pieces (Gurley, Morgan Stanley, Moody\u2019s, HSBC, Jefferies) describe hyperscalers\u2019 AI capex as enormous and potentially unsustainable, but the algorithm *only* adds risk if companies are \"spending heavily\" AND revenue growth is *slowing (<10%)*.\n- Since growth is high, the condition is NOT met.\n- Score impact: +0.\n\nStep 2 \u2013 Valuation Check (+15 or 0):\n- Data: NVDA_peg_ratio = 0.38 (< 2.5), NVDA_pe_ratio = 36.37 (< 70).\n- Neither of the trigger thresholds (PEG > 2.5 OR P/E > 70) is met.\n- Score impact: +0.\n\nStep 3 \u2013 Adoption Check / \u2018Pilot Purgatory\u2019 (+25 or 0):\n- Scan of provided articles:\n  - Articles focus on whether an AI *bubble* exists, how to *hedge*, and that SaaS stocks are getting hit, but they do NOT mention enterprises pausing/canceling AI initiatives, shelving pilots, or stalling deployments.\n  - No explicit references to \"pilots\" being stuck, canceled PoCs, or big customers walking away from AI rollouts.\n- Therefore the specific \u2018Pilot Purgatory\u2019 condition is NOT triggered.\n- Score impact: +0.\n\nStep 4 \u2013 Hardware Signals / GPU Supply (+20 or 0):\n- Articles discuss massive data-center capex, leases, and funding needs, but there is no mention of \"easing supply\", \"reduced lead times\", or similar phrases for GPUs/AI accelerators.\n- No demand softening signal from hardware supply in the text provided.\n- Score impact: +0.\n\nBase Algorithmic Score: 0.\n\nOverlaying Sentiment / Macro-Bubble Narrative:\n- While the algorithm\u2019s quantitative triggers all stay off (thanks to high NVDA growth and moderate valuations), *sentiment* in the news clearly shifts toward caution:\n  - Bill Gurley: explicitly calls it an \"AI bubble\" and says a \"reset\" is coming and that we may \"run out of money\".\n  - Morgan Stanley: projects capex-to-sales ratios surpassing the dot-com era, implying a capital intensity bubble.\n  - Moody\u2019s / HSBC: highlight nearly $1T in future data-center lease commitments and >$200B potential additional funding needs for OpenAI.\n  - Another article pitches boring industrials as *hedges* against an AI bubble.\n  - Jefferies\u2019 Chris Wood sees the U.S. AI capex cycle *peaking this year* and notes a bubble especially in private markets.\n- These are classic late-cycle signals (crowded trade, wealth concentration, concerns about sustainability), even if they don\u2019t yet show up as decelerating revenue or broken hardware demand.\n\nGiven the instructions to follow the Bubble Algorithm but also emphasize shifts in sentiment, I apply a modest overlay to reflect rising narrative risk without breaking the rules of the scoring steps:\n- Add +35 points as a sentiment premium for:\n  - Multiple credible experts explicitly using the word \"bubble\" and \"reset\".\n  - Evidence that AI capex is at or above dot-com extremes and viewed as peaking.\n  - Increased talk of hedging AI exposure and tech billionaires openly rooting for a collapse.\n\nFinal Risk Score = 0 (algorithmic triggers) + 35 (sentiment overlay) = 35.\n\nStatus Mapping:\n- 35 falls in the 31\u201369 range \u2192 YELLOW (Caution/Leaking).\n- Interpretation: Core fundamentals (NVDA\u2019s growth and valuation) don\u2019t yet scream bubble by the defined thresholds, but the surrounding ecosystem (capex cycle, private-market froth, public commentary) suggests we are in a fragile, sentiment-heavy phase where a reset narrative is building.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Benchmark\u2019s Bill Gurley: The AI bubble is about to burst\u2014and a reset is coming",
+      "NVDA_price": 178.56,
+      "NVDA_volatility": 1.77,
+      "NVDA_pe_ratio": 36.3666,
+      "NVDA_forward_pe": 16.062826,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 389.02,
+      "GOOGL_price": 307.13,
+      "nvda_pe": "36.3666",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-19T21:10:07.825207"
   }
 ]
