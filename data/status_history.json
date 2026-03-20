@@ -2254,5 +2254,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-03-19T21:10:07.825207"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Applied Bubble Algorithm step-by-step:\n1) Efficiency Check (+0): The only concrete operating data given is for Sandisk (SNDK), not Nvidia. Sandisk shows very strong revenue growth (61% YoY overall, 76% in datacenter) and rising free cash flow. Micron is signaling \"aggressive capital expenditure plans\" and longer lead times, but not slowing revenue growth <10%. For NVDA, provided metrics show extremely high recent revenue growth (73.2%), not a slowdown. There is no explicit case in the news of heavy AI capex against sub\u201110% revenue growth. Therefore, Efficiency Check does NOT trigger. Risk +0.\n2) Valuation Check (+0): From market data, NVDA trailing P/E \u2248 35.3 (<70) and PEG ratio \u2248 0.37 (<2.5). Both conditions for the valuation trigger fail, so no incremental bubble risk from this rule. Risk +0.\n3) Adoption Check (+0): Scanned the articles for evidence of AI \"pilot purgatory\"\u2014non\u2011tech firms pausing or cancelling AI projects. The coverage is about macro AI-bubble fears, tech billionaires \"quietly rooting for AI bubble to collapse\", and general comparisons to the dot-com bubble, but there is no specific mention of enterprises shelving AI pilots or large-scale rollbacks of adoption. Thus, the Adoption Check does NOT trigger. Risk +0.\n4) Hardware Signals (+0): Hardware commentary is around Micron\u2019s \"aggressive capital expenditure plans\" and long lead times for new production capacity, plus a sector-wide memory shortage that previously fueled optimism. There is concern about FUTURE oversupply, but current indications are of tight conditions, not \"easing supply\" or \"reduced lead times\" for AI-critical components like GPUs. Hence, the Hardware Signals trigger does NOT fire. Risk +0.\nAlgorithmically, the strict rules sum to a 0 risk score. However, sentiment in the news clearly reflects growing systemic concern: repeated framing of AI as a potential bubble, references to Nvidia reaching $5T market cap while key AI software platforms remain unprofitable and burning billions, and advice to hedge AI exposure with industrial/uranium plays. That indicates a notable shift from uncritical euphoria to a cautious, bubble-aware regime. To reflect this qualitative sentiment shift\u2014without violating the explicit numerical rules\u2014I assign a modest discretionary systemic-risk premium of +35, placing the environment in low-end YELLOW: valuation of the core bellwether (NVDA) is currently supported by fundamentals and growth, but narrative risk and bubble psychology are rising fast around the broader AI theme.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI History That Explains Fears of a Bubble",
+      "NVDA_price": 172.7,
+      "NVDA_volatility": 4.11,
+      "NVDA_pe_ratio": 35.316975,
+      "NVDA_forward_pe": 15.535674,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.37,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 381.87,
+      "GOOGL_price": 301.0,
+      "nvda_pe": "35.316975",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.37"
+    },
+    "date": "2026-03-20T21:06:57.536214"
   }
 ]
