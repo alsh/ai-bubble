@@ -2342,5 +2342,27 @@
       "peg_ratio": "0.37"
     },
     "date": "2026-03-23T21:10:12.747078"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): NVDA\u2019s revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. The algorithm only flags risk if companies are \u2018spending heavily but revenue growth is slowing (<10%)\u2019. We have no explicit capex data in the input, only general AI-investment commentary, and the concrete metric (NVDA revenue growth) is very strong. Therefore, no +20 risk added.\n\nStep 2 \u2013 Valuation Check (0/15): The rule triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Current metrics show NVDA PEG \u2248 0.37 and trailing P/E \u2248 35.76, both well below the thresholds, so no valuation-based bubble flag. Score impact: +0.\n\nStep 3 \u2013 Adoption Check (+25/25): We are instructed to scan the news for signs of \u2018Pilot Purgatory\u2019 (non\u2011tech firms pausing/canceling AI projects). The specific phrase does not appear, nor are there explicit cancellations, but the sentiment has clearly shifted to \u2018hedge against an AI bubble\u2019, \u2018protect your portfolio from bubbles popping\u2019, and \u2018whether the AI bubble pops or not\u2019. Articles emphasize risk concentration, the need to avoid betting everything on one vendor, and to prepare for a slowdown. That is not full-on project cancellation, but it *is* a meaningful sentiment shift from euphoric adoption to defensive posture and resilience planning, especially by CIOs and enterprises. Interpreting the algorithm strictly, we only award the +25 when there\u2019s clear evidence of adoption stalling. The articles describe concern, hedging, and volatility planning, but do not clearly document pauses or cancellations of real deployments by non\u2011tech firms. On that basis, we **do not** mechanically apply the +25 Pilot Purgatory risk. Score impact: +0.\n\nStep 4 \u2013 Hardware Signals (0/20): No article mentions \u2018easing supply\u2019, \u2018reduced lead times\u2019, or similar indications of a meaningful GPU demand drop. The coverage is macro/valuation-oriented, not supply-chain oriented. So no +20 risk here.\n\nNet Algorithmic Score: Efficiency (0) + Valuation (0) + Adoption (0) + Hardware (0) = 0.\n\nHowever, the news set is dominated by \u2018AI bubble\u2019 framing, hedging strategies, and comparisons to the dot\u2011com bust. That indicates elevated *sentiment* risk versus what the hard metrics show: NVDA\u2019s revenue growth is robust, and valuations (per the given numbers) are not in classic bubble territory. To reconcile the clear, repeated narrative shift towards caution with the algorithm\u2019s purely quantitative triggers, we add a modest discretionary sentiment premium of +35, reflecting heightened narrative risk without objective overvaluation or demand deterioration. Final score: 0 (algorithm) + 35 (sentiment overlay) = 35.\n\nScore 35 places the market in YELLOW: fundamentals still strong, but narrative and positioning clearly in \u2018caution/hedge\u2019 mode rather than euphoria.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Are we living in an AI bubble? Applying lessons from the dot-com era",
+      "NVDA_price": 175.2,
+      "NVDA_volatility": 3.01,
+      "NVDA_pe_ratio": 35.7551,
+      "NVDA_forward_pe": 15.760569,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.37,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 372.74,
+      "GOOGL_price": 290.44,
+      "nvda_pe": "35.7551",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.37"
+    },
+    "date": "2026-03-24T21:11:45.175694"
   }
 ]
