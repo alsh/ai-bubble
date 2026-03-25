@@ -2364,5 +2364,27 @@
       "peg_ratio": "0.37"
     },
     "date": "2026-03-24T21:11:45.175694"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0):\nNVDA revenue growth is ~73.2%, far above the 10% slowdown threshold. The news does note massive AI/data-center capex (AMZN $200B, GOOG $185B, MSFT $114B, META $135B), but the algorithm only triggers if heavy spend coincides with slowing revenue growth (<10%). That condition is not met, so Efficiency Check adds 0 risk.\n\nStep 2 \u2013 Valuation Check (+15 or 0):\nNVDA PEG ratio is 0.38 and trailing P/E is ~36.39. Both are well below the bubble triggers (PEG > 2.5 or P/E > 70). This suggests current valuations are high-profile but not at classic blow-off-bubble levels for the key AI bellwether. Valuation Check adds 0 risk.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (+25 or 0):\nThe articles repeatedly question whether there is an AI bubble and draw dot-com parallels, but they do NOT describe a broad wave of non-tech enterprises pausing/canceling AI projects or being stuck in prolonged pilots. Instead, the themes are: (a) OpenAI shutting down Sora to reallocate compute toward more lucrative enterprise/productivity use cases, (b) a collapsed Disney\u2013OpenAI Sora deal, and (c) general advice to hedge AI risk and focus on value. This is sentiment deterioration and strategic refocus, but it is not explicit \u201cpilot purgatory\u201d across the non-tech corporate landscape. Adoption Check adds 0 risk.\n\nStep 4 \u2013 Hardware Signals (+20 or 0):\nNone of the news mentions easing GPU supply, shorter lead times, or excess inventory. Instead, OpenAI is closing Sora precisely because it is too compute-hungry relative to ROI, and they want those chips for higher-value workloads \u2013 implying compute is still scarce and valuable. Hardware Signals add 0 risk.\n\nBaseline/Sentiment Overlay:\nWhile the mechanical triggers are all at 0, the narrative backdrop is clearly more cautious than six quarters ago: multiple headlines openly ask whether the AI bubble is bursting, reference Bank of England concerns, note that two-thirds of US VC in 2025 went into AI, and emphasize concentration risk in a few platforms. Sora\u2019s abrupt shutdown and the canceled Disney deal are non-trivial: they show some high-visibility consumer AI bets are not economically defensible yet. However, NVDA\u2019s fundamentals (high growth, moderate PEG and P/E) argue this is not a late-stage mania in the core enabler, but a repricing and sorting-out of weaker business models.\n\nApplying \"The Bubble Algorithm\" strictly yields a mechanical risk score of 0. To reflect the clear shift to cautionary sentiment, concentration risks, and a high-profile product shutdown without crossing the explicit quantitative triggers, I assign an additional 45 discretionary risk points. That places the environment in the middle of the YELLOW band: not an imminent burst, but clearly in a leak-prone, correction-ready zone where narrative has turned from euphoric to questioning, even as the core financial metrics (especially for NVDA) remain strong.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Sora has been scrapped by OpenAI \u2013 is the AI bubble about to burst?",
+      "NVDA_price": 178.68,
+      "NVDA_volatility": 2.51,
+      "NVDA_pe_ratio": 36.391037,
+      "NVDA_forward_pe": 16.07362,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 371.04,
+      "GOOGL_price": 290.93,
+      "nvda_pe": "36.391037",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-03-25T21:10:21.094789"
   }
 ]
