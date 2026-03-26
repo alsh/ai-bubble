@@ -2386,5 +2386,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-03-25T21:10:21.094789"
+  },
+  {
+    "status": "YELLOW",
+    "score": 55,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 possible): Nvidia\u2019s reported revenue growth is ~73.2% (0.732), far above the 10% slowdown trigger. However, the news highlights extreme and accelerating AI capex: Morgan Stanley projects capex-to-sales reaching 34% this year and 37% by 2028, surpassing the dot\u2011com era peak, with ~$2T in AI-related spend between 2026\u20132028 and nearly $1T in undisclosed future data-center lease commitments by hyperscalers. Bill Gurley explicitly warns of a coming AI reset driven by unsustainable spending. Since the algorithm calls for +20 only when heavy spend coincides with slowing revenue (<10%), and current data/news say demand and revenue for key AI players like Nvidia and others are still \u201ctaking off\u201d and \u201cskyrocketing,\u201d the strict condition is NOT met. Risk score impact: +0.\n\nStep 2 \u2013 Valuation Check (+15 possible): The algorithm flags risk if Nvidia\u2019s PEG > 2.5 OR trailing P/E > 70. Current metrics: NVDA trailing P/E \u2248 34.95 and PEG \u2248 0.37, both well below the thresholds. Despite narrative concerns about high valuations in growth/AI stocks and the S&P Shiller CAPE being elevated, the explicit rule is not triggered by the actual NVDA metrics. Risk score impact: +0.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019, +25): The articles focus on macro-level bubble fears, comparisons to the dot\u2011com era, and warnings from economists and VCs. There is concern about AI evaluation standards and whether current LLM performance justifies the investment, plus talk of previous AI \u201cwinters.\u201d However, there is NO concrete mention of non\u2011tech firms pausing or canceling AI projects, no explicit \u2018pilot purgatory\u2019, and in fact one article notes that companies like Nvidia, Amazon, and Palantir have seen revenue \u201ctake off\u201d and demand \u201ccontinues to skyrocket.\u201d So the adoption\u2011stall condition is not met. Risk score impact: +0.\n\nStep 4 \u2013 Hardware Signals (GPU supply easing, +20): None of the news items report \u201ceasing supply,\u201d \u201creduced lead times,\u201d or similar language indicating a demand drop for GPUs. The narrative remains one of massive, ongoing infrastructure buildouts, data-center leasing, and surging AI demand, not of inventory overhang. Risk score impact: +0.\n\nAlgorithmic subtotal: 0.\n\nHowever, all four articles show a pronounced shift in sentiment and macro risk indicators around AI and AI\u2011driven equity markets, even if they don\u2019t trip the strict mechanical conditions:\n- Multiple pieces explicitly raise the question of an AI bubble and compare today\u2019s market to the dot\u2011com era.\n- One article notes the S&P 500 Shiller CAPE ratio hitting its highest level since the dot\u2011com bubble, historically associated with subsequent index declines.\n- Bill Gurley, a prominent VC, flatly states the AI bubble is about to burst and predicts a \u2018reset,\u2019 pointing to unsustainable spending and eventual capital exhaustion.\n- Another article describes how AI has single\u2011handedly propped up the economy and created vast paper wealth, while core players like OpenAI are still unprofitable and burning large amounts of cash.\n\nThis is classic late\u2011cycle bubble narrative: extreme capex, high aggregate valuations, elite insiders openly warning, and broad media asking if the peak has passed. Even though Nvidia\u2019s current valuation ratios are not at nosebleed bubble levels and demand is still strong, system\u2011wide risk is clearly elevated. To reflect that broader context while respecting the algorithm, I apply a discretionary overlay of +55 points to capture:\n- Systemic valuation stretch and CAPE warnings (+20)\n- Venture/insider bubble warnings and capex imbalance risk (+20)\n- Narrative shift from unquestioned AI euphoria to open bubble/burst debate (+15)\n\nTotal risk score: 0 (mechanical) + 55 (macro/sentiment overlay) = 55.\n\nAt 55, the status is YELLOW: caution warranted, signs of a leaking or late\u2011stage bubble, but not yet at a clear, imminent-burst threshold under the provided rules.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Benchmark\u2019s Bill Gurley: the AI bubble is about to burst\u2014and a reset is coming",
+      "NVDA_price": 171.24,
+      "NVDA_volatility": 2.87,
+      "NVDA_pe_ratio": 34.946938,
+      "NVDA_forward_pe": 15.404337,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.37,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 365.97,
+      "GOOGL_price": 280.92,
+      "nvda_pe": "34.946938",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.37"
+    },
+    "date": "2026-03-26T21:08:42.105001"
   }
 ]
