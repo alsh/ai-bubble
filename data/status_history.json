@@ -2408,5 +2408,27 @@
       "peg_ratio": "0.37"
     },
     "date": "2026-03-26T21:08:42.105001"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 if heavy spend but slowing AI revenue <10%):\n- News: Morgan Stanley and Moody\u2019s data via Gurley piece show hyperscalers\u2019 AI/data-center capex-to-sales ratios at or above dot-com levels (34% now, heading toward 37\u201345%, ~$2T 2026\u20132028, plus ~$1T lease commitments). That\u2019s clearly \u201cspending heavily.\u201d\n- NVDA fundamentals: revenue growth = 73.2% (0.732), earnings growth = 95.6%, both extremely strong.\n- Algorithm condition requires heavy spending AND slowing revenue growth (<10%). Only the first condition is met; growth is not slowing but explosive.\n\u2192 Efficiency Check score: 0.\n\nStep 2 \u2013 Valuation Check (+15 if NVDA PEG > 2.5 OR Trailing P/E > 70):\n- NVDA PEG ratio = 0.36 (well below 2.5).\n- NVDA trailing P/E = 34.19 (well below 70).\n\u2192 Valuation Check score: 0.\n\nStep 3 \u2013 Adoption Check \u2018Pilot Purgatory\u2019 (+25 if non\u2011tech firms pausing/canceling AI projects):\n- News flow focuses on macro AI-bubble debate, OpenAI shutting down Sora, historic parallels, hyperscaler spending, and venture warnings.\n- There is no explicit mention of non\u2011tech enterprises canceling or pausing AI deployments or being stuck in pilot purgatory.\n\u2192 Adoption Check score: 0.\n\nStep 4 \u2013 Hardware Signals (+20 if \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, signaling demand drop):\n- None of the articles reference GPU supply easing, shorter lead times, or inventory buildup. NVDA fundamentals (high growth, moderate P/E, low PEG) are consistent with still-strong demand.\n\u2192 Hardware Signals score: 0.\n\nBase Algorithm Score = 0.\n\nHowever, sentiment and structural context from the news clearly exceed a benign backdrop:\n- Bill Gurley explicitly calls out an AI bubble that is \u201cabout to burst\u201d and warns of an imminent reset, tied to unsustainable spending and future funding gaps.\n- The Gurley/Morgan Stanley/Moody\u2019s data points show historically extreme capex ratios and large off-balance-sheet lease commitments, a classic late-cycle pattern.\n- Another feature lists industrials as hedges against a possible AI-bubble burst, implying that mainstream investors consider a pop non-trivial.\n- A historical AI piece highlights prior \u2018AI winters\u2019 driven by misaligned expectations and weak evaluation metrics \u2014 a structural echo of past busts.\n- Larry Fink pushes back on the \u201cbubble\u201d label, showing there is still strong bull conviction in major asset managers.\n- OpenAI shutting down Sora is a negative signal for at least part of the frontier product set, but it\u2019s not framed as broad enterprise abandonment, so it doesn\u2019t trigger the algorithm\u2019s pilot-purgatory rule.\n\nThese articles show mounting concern and serious expert warnings, but the core quantitative triggers in the Bubble Algorithm (overstretched NVDA valuation, clear demand rollover, enterprise pullback) are not yet met. To reflect this rising but not-critical risk, a discretionary overlay of +45 is applied to the base score of 0, placing the status in mid\u2011YELLOW: cautionary, but not \u201cburst imminent.\u201d",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Benchmark\u2019s Bill Gurley: the AI bubble is about to burst\u2014and a reset is coming",
+      "NVDA_price": 167.52,
+      "NVDA_volatility": 4.33,
+      "NVDA_pe_ratio": 34.187756,
+      "NVDA_forward_pe": 15.0696945,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.36,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 356.77,
+      "GOOGL_price": 274.34,
+      "nvda_pe": "34.187756",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.36"
+    },
+    "date": "2026-03-27T21:10:21.398460"
   }
 ]
