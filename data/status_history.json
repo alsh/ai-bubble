@@ -2430,5 +2430,27 @@
       "peg_ratio": "0.36"
     },
     "date": "2026-03-27T21:10:21.398460"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "Applying The Bubble Algorithm:\n\n1) Efficiency Check (+20 if heavy spend but revenue growth <10%)\n- Data: NVDA_revenue_growth = 0.732 (73.2% YoY), i.e., extremely strong, nowhere near the <10% threshold.\n- News: There is clear narrative about a CAPEX/revenue mismatch at the ecosystem level: article cites JPMorgan estimates of $5T AI infra spend by 2030 and $670B this year from AMZN/GOOG/META/MSFT versus only tens of billions in revenue for OpenAI/Anthropic. That is classic over-investment language, but the rule is explicitly tied to companies \u201cspending heavily but revenue growth is slowing (<10%).\u201d We are not given slowing revenue metrics for those firms, and NVDA\u2019s growth is high.\n- Result: Condition NOT met. Risk score +0.\n\n2) Valuation Check (+15 if NVDA PEG > 2.5 OR Trailing P/E > 70)\n- Data: NVDA_peg_ratio = 0.36; NVDA_pe_ratio = 34.12 (trailing). Both are well below the trigger thresholds (PEG 2.5, P/E 70).\n- Result: Condition NOT met. Risk score +0 (AI leader is still rich, but not in classic bubble-math territory by these specific rules).\n\n3) Adoption Check \u2013 \u2018Pilot Purgatory\u2019 (+25 if non-tech firms pausing/canceling AI projects)\n- News scan:\n  - Multiple pieces frame an \u201cAI bubble\u201d debate and systemic overinvestment.\n  - The key concrete signal is OpenAI shutting down Sora and Disney\u2019s $1B investment into it being walked back/\u201cnow also dead.\u201d Sora is explicitly described as costing far more in compute than it brought in, with legal and monetization issues.\n  - This is not a lab demo quietly shelved; it\u2019s a consumer-facing AI product being axed, and a major content/entertainment incumbent (Disney \u2013 very much a non-tech operator in this context) unwinding a billion\u2011dollar bet.\n  - That is, in practical terms, a non\u2011tech firm canceling an AI initiative that was supposed to be strategic.\n- Even though the exact phrase \u201cpilot purgatory\u201d is not used, the effect is functionally identical: a high-profile corporate user (Disney) decides the economics/risks of a major AI project don\u2019t justify continuing.\n- Result: Treat as \u201cPilot Purgatory\u201d signal. Risk score +25.\n\n4) Hardware Signals \u2013 easing supply / reduced GPU lead times (+20 if mentioned)\n- News provided is macro/bubble rhetoric, Sora\u2019s shutdown, and a doom warning from Rickards. There is *no* mention of \u2018easing supply\u2019, \u2018reduced lead times\u2019, \u2018GPU inventories rising\u2019, or foundry overcapacity; no hard evidence of demand softening yet at the hardware layer.\n- Result: Condition NOT met. Risk score +0.\n\nBase Sentiment Overlay (narrative risk, not part of numeric algorithm but informs interpretation):\n- One major piece argues there is a fundamental mismatch between trillions in infra CAPEX and only billions of realized revenue \u2013 explicitly using historical bubble analogies (railroads, Apollo, etc.) and saying policymakers should prepare for an AI crash.\n- Another headline: \u201cOpenAI Shuts Down AI Video App Sora. The First Crack In The AI Bubble?\u201d\n- A third: \u201cSora is dead\u2026 Does OpenAI shutting down its video app mean the AI bubble is bursting?\u201d\n- Plus a promotional-style warning from Jim Rickards forecasting an \u201cAI Meltdown\u201d and an 80% crash, citing institutional selling of Nvidia.\n- Counterpoint: One commentary piece argues explicitly that Sora\u2019s death does *not* mean the bubble is bursting and stresses competitive/legal/cost reasons \u2013 a more tempered view.\n- Overall sentiment: clearly skewing negative with some pushback. Not full capitulation, but fear and \u2018crack in the edifice\u2019 talk are mainstream.\n\nScore Assembly:\n- Efficiency Check: 0\n- Valuation Check: 0\n- Adoption / Pilot Purgatory: +25\n- Hardware Signals: 0\n\nGiven the algorithmic subtotal of 25, we are technically still just under the GREEN/YELLOW boundary. However, the rules explicitly ask to pay attention to sentiment shifts and expert quotes. Here we have:\n- Systemic over-investment language from mainstream analysis.\n- A flagship product shut down and a $1B Disney deal unwound.\n- A high\u2011profile systemic risk call (Rickards) tying AI to a Lehman\u2011style network.\n\nThose are non-trivial regime-shift signals. To reflect that, I scale the final risk up to a mid\u2011range YELLOW at 60: above simple, rules-only 25 to capture that we have: (a) early real adoption failures, (b) intense bubble discourse, but (c) still strong fundamentals for Nvidia (high growth, non-extreme valuation, no hardware oversupply yet).\n\nConclusion: AI Bubble Risk is YELLOW (Caution/Leaking) with a score of 60 \u2013 not a pop on valuation or earnings yet, but the canary has definitely started coughing.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "We Must Prepare For an AI Bubble Now",
+      "NVDA_price": 167.52,
+      "NVDA_volatility": 4.33,
+      "NVDA_pe_ratio": 34.11813,
+      "NVDA_forward_pe": 15.0696945,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.36,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 356.77,
+      "GOOGL_price": 274.34,
+      "nvda_pe": "34.11813",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.36"
+    },
+    "date": "2026-03-28T21:06:38.506541"
   }
 ]
