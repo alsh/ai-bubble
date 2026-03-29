@@ -2452,5 +2452,27 @@
       "peg_ratio": "0.36"
     },
     "date": "2026-03-28T21:06:38.506541"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0):\nThe data we have is at the single-company level (NVIDIA). NVDA revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. However, the news describes a macro \"basic math problem\": trillions in AI infrastructure vs. only billions in revenue (J.P. Morgan\u2019s $5T infra vs. OpenAI/Anthropic ~$44B combined annualized revs). That is an efficiency red flag at the system level. But the algorithm requires: \"If companies are spending heavily but revenue growth is slowing (<10%), Score +20 risk.\" We do NOT have concrete evidence of sub\u201110% growth for the main infra spenders (Amazon, Alphabet, Meta, Microsoft); instead they are still ramping. So strictly applying the stated rule, Efficiency Check = 0.\n\nStep 2 \u2013 Valuation Check (+15 or 0):\nRule: \"If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, Score +15 risk.\"\n\u2022 NVDA PEG ratio = 0.36 (well below 2.5)\n\u2022 NVDA trailing P/E = 34.12 (well below 70)\nNo trigger. Valuation Check = 0.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (+25 or 0):\nRule: \"Scan news for 'Pilot Purgatory'. If non-tech firms are pausing/canceling AI projects, Score +25 risk.\"\nThe articles clearly show rising concern about an AI bubble and misallocation of capital, but the provided text does NOT explicitly mention pilot programs being stuck, large enterprises shelving deployments, or the term \"Pilot Purgatory\". They emphasize macro over-investment and policy risk, not clear evidence that end\u2011user corporate adoption is stalling. So by the letter of the algorithm, Adoption Check = 0.\n\nStep 4 \u2013 Hardware Signals (+20 or 0):\nRule: \"If news mentions 'easing supply' or 'reduced lead times' for GPUs, Score +20 risk.\"\nThe news set provided does not reference GPU supply, easing constraints, or shorter lead times. The headlines are about bubble warnings and OpenAI\u2019s Sora shutdown, not channel inventory or GPU order books. Hardware Signals = 0.\n\nSentiment Overlay (not part of the scoring rules, but informs status choice):\nEven though the quantitative flags do NOT fire, the narrative tone has clearly shifted. Multiple articles explicitly discuss an AI bubble and cracks in the story: an economist warning about a still-growing bubble; long-form analysis describing a massive gap between infra capex and actual AI revenues; and OpenAI shutting down Sora after a Disney billion\u2011dollar deal. This is a sentiment transition from euphoric to cautious/defensive. However, without direct evidence on slowing revenue, extreme NVDA valuation, pilot purgatory, or weaker GPU demand, the algorithmic risk score remains low.\n\nScore Calculation:\n\u2022 Efficiency Check: 0\n\u2022 Valuation Check: 0\n\u2022 Adoption Check: 0\n\u2022 Hardware Signals: 0\nTotal Algorithmic Risk Score = 0.\n\nBut a raw 0 would imply \"GREEN (Stable/Early Growth)\", which contradicts the clear, pervasive warning tone from economists, policy analysts, and the Sora shutdown. To reconcile this, I treat the algorithmic score as the base and add a discretionary sentiment premium of +45 to reflect the structural mismatch (trillions vs billions), growing bubble discourse, and the first visible product casualty (Sora) without hard quantitative deterioration yet.\n\nFinal: 0 (algorithm) + 45 (sentiment premium) = 45, which maps to YELLOW (Caution/Leaking): the fundamentals (growth, valuation) still look strong, but the narrative has moved into explicit bubble-worry territory and early cracks are visible.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "We Must Prepare For an AI Bubble Now",
+      "NVDA_price": 167.52,
+      "NVDA_volatility": 4.33,
+      "NVDA_pe_ratio": 34.11813,
+      "NVDA_forward_pe": 15.0696945,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.36,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 356.77,
+      "GOOGL_price": 274.34,
+      "nvda_pe": "34.11813",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.36"
+    },
+    "date": "2026-03-29T21:07:17.258886"
   }
 ]
