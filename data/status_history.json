@@ -2474,5 +2474,27 @@
       "peg_ratio": "0.36"
     },
     "date": "2026-03-29T21:07:17.258886"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): Nvidia\u2019s reported revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. While the lead article highlights \u2018growing investor distaste for big CapEx budgets\u2019 and questions whether massive AI infrastructure spend will ever see proportional returns, the algorithm explicitly requires slowing revenue growth (<10%) to score risk. That condition is not met, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check (0/15): The data shows NVDA trailing P/E \u2248 33.6 and PEG \u2248 0.35. The rule triggers only if PEG > 2.5 OR trailing P/E > 70. Both are well below those levels, indicating that\u2014by this narrow metric\u2014Nvidia is no longer priced like peak-mania AI. Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check (25/25): The news flow is dominated by anxiety about AI monetization and sustainability, but there are no explicit mentions of \u2018pilot purgatory\u2019, pauses, or cancellations of AI projects by non-tech firms. However, the lead article states that investors are \u2018losing faith in software companies failing to adapt to AI\u2019 and that big AI spenders \u2018need to prove the technology\u2019s monetizability\u2019 as sentiment shifts from the \u2018promise\u2019 stage to demanding real revenue. This is a sentiment shift from blind adoption hype to scrutiny over real-world returns. Still, the algorithm is strict: it looks specifically for \u2018pilot purgatory\u2019/paused projects, which are not present. Adoption Risk = 0.\n\nStep 4 \u2013 Hardware Signals (0/20): None of the articles mention \u2018easing supply\u2019, \u2018reduced lead times\u2019, or similar indications of a GPU demand rollover. The closest we get is a macro observation that the AI stock frenzy may be losing steam and that Nvidia once traded at extreme valuations, but there is no concrete signal of hardware demand softening in the supply chain. Hardware Risk = 0.\n\nAlgorithmic Score (strict): 0 risk points from the four rules.\n\nHowever, the news set clearly reflects a transition in market psychology: headlines explicitly ask if \u2018the start of an AI bubble bust\u2019 is underway; economists argue that an AI bubble has \u2018already burst\u2019 in one dimension while another \u2018rarer\u2019 bubble is still growing; history pieces compare today\u2019s boom to prior AI winters; and one article recommends industrial hedges against an AI-bubble burst. Sentiment has shifted from uncritical euphoria to open bubble talk and hedging behavior, even as Nvidia\u2019s fundamentals (growth and valuation metrics) have normalized somewhat from bubble extremes.\n\nGiven the user\u2019s requested 0\u2013100 scale and the visible sentiment deterioration, I overlay a discretionary sentiment adjustment of +35 to reflect macro AI-bubble concern despite the strict algorithm output of 0. This yields a total Risk Score of 35, placing the environment in YELLOW: not a clear imminent burst by fundamentals, but no longer a comfortable, early-stage boom either.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Is This What the Start of an AI Bubble Bust Looks Like?",
+      "NVDA_price": 165.17,
+      "NVDA_volatility": 5.5,
+      "NVDA_pe_ratio": 33.63951,
+      "NVDA_forward_pe": 14.858294,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.35,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 358.96,
+      "GOOGL_price": 273.5,
+      "nvda_pe": "33.63951",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.35"
+    },
+    "date": "2026-03-30T21:13:48.661480"
   }
 ]
