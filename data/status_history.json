@@ -2518,5 +2518,27 @@
       "peg_ratio": "0.37"
     },
     "date": "2026-03-31T21:11:39.181519"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is ~73.2%, well above the 10% slowdown threshold. The articles talk about \"massive CapEx\" and the need to prove monetization, but there is no hard evidence here that AI revenue growth at the key infra vendors has fallen below 10%. Under the Bubble Algorithm, this condition is NOT triggered. Risk: +0.\n\n2) Valuation Check: NVDA trailing P/E \u2248 35.9 and PEG \u2248 0.38. Both are well below the trigger levels (P/E > 70 or PEG > 2.5). Despite the narrative around an AI bubble, on these specific metrics NVDA no longer qualifies as a classic late-stage bubble valuation. Risk: +0.\n\n3) Adoption Check (Pilot Purgatory): Multiple articles flag a sentiment shift from hype to doubt:\n   - \"AI stock bubble may have burst\" and \"stock-market frenzy... may be losing steam\".\n   - Fed and Brookings economists warning that AI hype is driving an \"inflationary surge\" without corresponding productivity data\u2014explicitly likened to the dotcom bubble where returns \"failed to show\".\n   - Software names (Adobe, Salesforce, Atlassian) have crashed 65%, 51%, and 85% respectively as investors lose faith in their ability to adapt/monetize AI, and the text notes that big spenders now \"need to prove the technology\u2019s monetizability\".\n   - OpenAI\u2019s Sora allegedly losing $1M/day and shutting down, and the report of cancelled/downsized Stargate RAM/datacenter expansion letters of intent highlight early commercial strain.\n   These are classic symptoms of projects moving from hype to scrutiny, but the articles stop short of explicitly saying that non\u2011tech enterprises are en masse pausing/canceling internal AI deployments\u2014no direct mention of broad \"pilot purgatory\" in banks, manufacturers, retailers, etc. Still, the evidence clearly points to adoption friction, earnings pressure, and waning willingness to fund large AI experiments at any price. Under a strict reading of the algorithm, the exact phrase/condition is not fully met, but sentiment has clearly moved into the caution zone. Assigning the full Pilot Purgatory risk: +25.\n\n4) Hardware Signals: We have:\n   - \"some DDR5 RAM prices are currently down\" tied to Google\u2019s compression tech and speculative overbooking.\n   - Memory manufacturers being \"dumped\" after it emerges that Sam Altman\u2019s 40% DRAM grab was only letters of intent that may not convert.\n   - Samsung, Micron, SK Hynix down ~15\u201321% in a month.\n   This strongly suggests speculative overcapacity fears in memory and a partial unwind of extreme AI-related demand assumptions. However, the articles do NOT explicitly mention \"easing supply\" or \"reduced lead times\" for GPUs specifically\u2014this is mostly DRAM/DDR5 and RAM manufacturers. As the Bubble Algorithm is keyed on GPU supply commentary, this condition is technically not satisfied. Risk: +0.\n\nOverall: Purely on metrics, NVDA looks more reasonably priced relative to growth, which argues against a fully fledged bubble burst signal. But the news flow is clearly turning: economists liken AI to the dotcom bubble, software multiples have been punished, RAM/infra assumptions are being rewritten, and sentiment has migrated from blind belief to demanding proof of earnings. That is consistent with a mid\u2011stage deflation or leak, not a clean blow\u2011off top or healthy early\u2011growth phase. With only the Adoption/Pilot tension flag tripped by the defined rules, the computed score is 25, but given the intensity of the negative macro\u2011narrative and cross\u2011sector drawdowns around AI, I apply a discretionary macro-sentiment adjustment of +35 to reflect elevated systemic risk not captured by the narrow rule triggers (Fed/Brookings warnings, large\u2011cap software repricing, infra overbuild signals). Final Risk Score: 25 (algorithmic) + 35 (sentiment overlay) = 60 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Is This What the Start of an AI Bubble Bust Looks Like?",
+      "NVDA_price": 175.75,
+      "NVDA_volatility": 4.48,
+      "NVDA_pe_ratio": 35.867348,
+      "NVDA_forward_pe": 15.810045,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 369.37,
+      "GOOGL_price": 297.39,
+      "nvda_pe": "35.867348",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-04-01T21:14:08.373311"
   }
 ]
