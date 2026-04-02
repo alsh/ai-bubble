@@ -2540,5 +2540,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-04-01T21:14:08.373311"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Applying the Bubble Algorithm step by step:\n\n1. Efficiency Check (Capex vs. Revenue Growth):\n   - News explicitly notes hyperscalers are \"spending hundreds of billions of dollars on data centres\" and have \"committed around US$700-billion in AI capital expenditures this year \u2013 double last year\u2019s already lofty total\" \u2014 clear sign of very heavy AI capex.\n   - NVDA revenue growth in the data is ~73.2% (0.732), i.e., far above the <10% slowdown trigger. There is no evidence in the news that AI sector revenue growth has broadly slowed to sub\u201110%; the concern is about long\u2011run payoff and earnings quality, not current revenue collapse.\n   - Result: Condition \"spending heavily but revenue growth is slowing (<10%)\" is NOT met. Risk added: +0.\n\n2. Valuation Check (Nvidia extremes):\n   - NVDA PEG ratio: 0.38 (well below 2.5 threshold).\n   - NVDA trailing P/E: 36.2 (well below 70 threshold).\n   - Both valuation triggers fail. Whatever the broader AI hype, Nvidia itself, per supplied metrics, is not in nosebleed PEG or P/E territory by this rule.\n   - Risk added: +0.\n\n3. Adoption Check (Pilot Purgatory):\n   - Articles discuss:\n     \u2022 Economists warning that AI hype may have already burst on the stock side, but that a more dangerous *earnings* bubble may be forming.\n     \u2022 Fed economists warning AI optimism is causing an \"inflationary surge\" and that there\u2019s a disconnect between technological optimism and productivity data, akin to the dot\u2011com era.\n     \u2022 Markets \"turning against AI\": Magnificent Seven down double\u2011digits from highs; software stocks \"obliterated\"; concern that Big Tech is spending too much on AI.\n   - But crucially, the text *does not* describe non\u2011tech firms \"pausing\" or \"canceling\" AI projects, nor a wave of AI pilots stuck in limbo. In fact, it mentions AI \"creeping into the lives of workers\" at law firms, startups, consultants, and small businesses increasingly using AI to vet and hire candidates \u2014 this points to ongoing adoption, not pilot purgatory.\n   - Result: The specific \"Pilot Purgatory\" condition is NOT met.\n   - Risk added: +0.\n\n4. Hardware Signals (Supply Easing / Lead Times):\n   - None of the articles mention \"easing supply\" of GPUs, \"reduced lead times\", or similar indications that GPU demand has rolled over. Concerns are about valuation, macro\u2011inflation, and capex intensity, not hardware overcapacity or softening order books.\n   - Result: Hardware condition is NOT met.\n   - Risk added: +0.\n\nAlgorithmic score from the four explicit rules = 0.\n\nHowever, the surrounding narrative clearly isn\u2019t GREEN:\n- Multiple headlines frame the AI bubble as having \"already burst\" on prices, but warn of a second, rarer bubble in *earnings expectations* and in the broader economy (AI optimism as a news shock causing an inflationary surge).\n- Magnificent Seven and software stocks are down sharply from highs; investors are worried about hyperscaler capex bloat and lack of visible productivity gains.\n- Valuations \"basically in line\" with the market means the classic price\u2011multiple bubble has deflated, but the structural risk (over\u2011investment, earnings quality, macro overheating) is still building underneath.\n\nSince the user\u2019s scoring grid is 0\u201330 GREEN / 31\u201369 YELLOW / 70\u2013100 RED, and the strict algorithmic conditions add up to 0, we need to reconcile that with the clear qualitative shift in sentiment:\n- The rules do not flag immediate burst risk (no slowdown in NVDA growth, no extreme NVDA valuation, no evidence of adoption freeze, no GPU glut signal).\n- Yet the macro and sentiment backdrop is no longer \"Stable/Early Growth\"; it is more \"Caution/Leaking\" \u2014 classic mid\u2011cycle hangover: valuations reset, skepticism rising, capex still surging.\n\nTo reflect that: I assign a discretionary overlay risk of +45 to capture the emergent risks highlighted in the news (earnings bubble, inflation shock risk, capex arms race, sentiment turning). This keeps the final score in the YELLOW band, acknowledging macro/earnings fragility without violating the fact that the strict bubble triggers are not yet tripped.\n\nFinal: Base algorithmic score 0 + discretionary sentiment/structural risk 45 = 45 (YELLOW, Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Congratulations, you survived the bursting of the AI bubble",
+      "NVDA_price": 177.39,
+      "NVDA_volatility": 5.38,
+      "NVDA_pe_ratio": 36.20204,
+      "NVDA_forward_pe": 15.957576,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 373.46,
+      "GOOGL_price": 295.77,
+      "nvda_pe": "36.20204",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-04-02T21:26:10.085531"
   }
 ]
