@@ -2584,5 +2584,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-04-03T21:09:20.588122"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): Nvidia\u2019s reported revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. The news clearly flags heavy AI infrastructure and data center capex, but the algorithm only adds risk if companies are spending heavily *and* revenue growth is slowing below 10%. That condition is not met, so +0 risk here.\n\nStep 2 \u2013 Valuation Check (+0): The algorithm triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Current metrics: NVDA PEG \u2248 0.38, trailing P/E \u2248 36.2, both well below the thresholds. Despite all the narrative about an AI stock bubble, the explicit trigger conditions are not satisfied, so +0 risk.\n\nStep 3 \u2013 Adoption Check (+25): The news flow shows a clear shift from pure hype to visible strain in real-world adoption and monetization:\n- OpenAI and other AI entities are \u201cscaling back commitments to chip spending and canceling projects such as video generator Sora,\u201d indicating projects being paused/cut.\n- Brookings and IMF commentary highlights that adoption and productivity gains have not yet validated the massive infrastructure build-out, and that optimism is dangerously concentrated.\nThis matches the spirit of \u2018Pilot Purgatory\u2019\u2014experiments not reliably converting into sustained deployments and revenue. Non-hyperscaler players are explicitly pulling back on ambitious projects. That\u2019s enough to trigger the Adoption Check: +25 risk.\n\nStep 4 \u2013 Hardware Signals (+20): Multiple articles reference the AI stock frenzy cooling and specifically note that the chip spending \u201cparty\u201d appears to be ending, with firms reducing chip commitments. While the exact phrases \u201ceasing supply\u201d or \u201creduced lead times\u201d aren\u2019t quoted, the concrete detail that AI leaders are scaling back chip purchases and canceling GPU-hungry projects implies easing demand pressure on GPU supply chains. Under the algorithm, this is consistent with the hardware-signal condition for a demand downshift: +20 risk.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption) + 20 (Hardware) = 45.\n\nThis falls in the 31\u201369 band: YELLOW (Caution/Leaking). The core tell is not Nvidia\u2019s current fundamentals\u2014those still look strong\u2014but the combination of: (1) project cancellations and reduced chip commitments, (2) macro-level warnings from IMF/Fed/Brookings that AI optimism is running ahead of productivity data, and (3) language that the equity \u2018bubble\u2019 may have already cooled while a slower-moving infrastructure/credit bubble continues to inflate beneath the surface.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is the AI Bubble Bursting? Here Are 2 Top Stocks to Buy the Dip on When It Does.",
+      "NVDA_price": 177.39,
+      "NVDA_volatility": 5.38,
+      "NVDA_pe_ratio": 36.20204,
+      "NVDA_forward_pe": 15.957576,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 373.46,
+      "GOOGL_price": 295.77,
+      "nvda_pe": "36.20204",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-04-04T21:07:34.539572"
   }
 ]
