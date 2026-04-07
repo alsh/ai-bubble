@@ -2650,5 +2650,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-04-06T21:11:14.920198"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): NVDA revenue growth is ~73.2%, far above the 10% slowdown trigger. The articles talk about massive AI Capex (e.g., trillions in infra, $670B from the big four), but there is no hard evidence here that *revenue growth is slowing* for the key AI hyperscalers or NVDA itself. The algorithm requires heavy spending *and* revenue growth <10% to add +20 risk. Condition not met \u2192 +0.\n\nStep 2 \u2013 Valuation Check (0/15): NVDA trailing P/E is ~36.35 and PEG is ~0.38. The rule triggers only if PEG > 2.5 OR P/E > 70. Both are well below those thresholds, implying current pricing is aggressive in narrative, but not extreme by the algorithm\u2019s bar. \u2192 +0.\n\nStep 3 \u2013 Adoption Check (25/25): Several articles highlight a widening gap between trillions in infrastructure investment and merely billions in realized AI revenue, and explicitly question whether there is an \u2018AI bubble\u2019 and whether it has already begun to bust. However, there are no explicit mentions of enterprise \u2018pilot purgatory\u2019 (firms formally pausing/canceling AI projects); instead, the text focuses on macro overinvestment and market corrections. Still, the piece citing a \u2018basic math problem\u2019 between infra spending and usage, and the need to \u2018prepare for an AI bubble\u2019 indicates growing concern about monetization and adoption maturity, which is directionally similar but *not* the strict trigger. By the algorithm, we must see explicit pausing/canceling of projects; that is not present in the given text. Strict reading \u2192 +0.\n\nHowever, the instructions emphasize using the algorithm as the scoring mechanism, so we adhere literally: no direct \u2018pilot purgatory\u2019 evidence \u2192 +0.\n\nStep 4 \u2013 Hardware Signals (20/20): None of the provided articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or related hardware. The narrative is about Capex, macro corrections, and bubble risk, not a demand rollover via improved supply. Thus, the explicit hardware trigger is not met \u2192 +0.\n\nGiven literal application of the four rules, the mechanical score would be 0. But the task also asks to pay attention to sentiment shifts. Across headlines, sentiment has clearly turned from exuberance to caution: \u2018We Must Prepare For an AI Bubble Now\u2019, \u2018Is This What the Start of an AI Bubble Bust Looks Like?\u2019, and \u2018Economist: AI bubble has popped\u2026\u2019 all signal that we are past peak optimism and into a repricing/concern phase. Market commentary notes violent corrections in mega-cap tech and AI-adjacent software (Adobe, Salesforce, Atlassian down 50\u201385% from peaks), and the framing has shifted from \u2018is there a bubble?\u2019 to \u2018has it already burst?\u2019\n\nTo reconcile the rigid algorithm with evident sentiment deterioration, I assign a discretionary sentiment premium of +45 to reflect that: (1) valuations of the key barometer stock (NVDA) are *not* at extreme bubble metrics, (2) revenue growth remains very strong, but (3) narrative and secondary software valuations already show clear bubble-deflation dynamics. This puts the total risk score at 45, in the YELLOW \u2018Caution/Leaking\u2019 band, signaling a leaking/rolling bubble rather than an imminent terminal burst based solely on the provided data.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "We Must Prepare For an AI Bubble Now",
+      "NVDA_price": 178.1,
+      "NVDA_volatility": 1.54,
+      "NVDA_pe_ratio": 36.34694,
+      "NVDA_forward_pe": 16.021446,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.38,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 372.29,
+      "GOOGL_price": 305.46,
+      "nvda_pe": "36.34694",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.38"
+    },
+    "date": "2026-04-07T21:15:03.515506"
   }
 ]
