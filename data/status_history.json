@@ -2672,5 +2672,27 @@
       "peg_ratio": "0.38"
     },
     "date": "2026-04-07T21:15:03.515506"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Applying The Bubble Algorithm step by step:\n\n1) Efficiency Check (+0):\n- NVDA revenue growth = 73.2% (>10%).\n- The news (notably the long policy piece on over-investment) implies *massive* AI capex: JP Morgan estimating $5T AI infra by 2030 and $670B this year from AMZN/GOOG/META/MSFT alone.\n- However, the rule only scores +20 when heavy capex coincides with *slowing* revenue growth (<10%). Here, growth is still extremely high, so Efficiency Check adds **0** to risk.\n\n2) Valuation Check (+0):\n- NVDA trailing P/E \u2248 37.16 (<70).\n- NVDA PEG ratio \u2248 0.39 (<2.5).\n- Neither valuation trigger is hit, so Valuation Check adds **0** to risk.\n\n3) Adoption Check / Pilot Purgatory (+25):\n- The long policy article explicitly flags a \"basic math problem\": trillions in AI infrastructure vs only tens of billions in actual AI revenues (OpenAI \u2248 $25B, Anthropic \u2248 $19B annualized). It underscores a \"fundamental mismatch\" between infra spend and real usage.\n- That is a classic early-warning sign of projects not scaling from pilots to broad deployment. While the exact phrase \"pilot purgatory\" does not appear, the *substance* is clear: massive investment, relatively modest realized spend by end users, and a strong implication that many projects may not economically justify the infra binge.\n- Directionally, this fits the algorithm\u2019s intent for \"Pilot Purgatory\" (non-tech demand lagging infra and hype), so we treat this condition as met and add **+25** to risk.\n\n4) Hardware Signals (+0):\n- None of the articles mention \"easing supply\", \"reduced lead times\" for GPUs, or similar language suggesting weakening demand for AI chips.\n- Hardware Signals therefore add **0** to risk.\n\nSentiment overlay (contextual but not scored by the algorithm):\n- Multiple headlines explicitly frame AI in bubble terms: \"What is the AI bubble, and is it about to burst?\", \"Prediction: The AI bubble is readying to pop\", \"Does An AI Bubble Really Matter?\", and \"We Must Prepare For an AI Bubble Now\".\n- However, one piece (Ken Fisher\u2019s portfolio) points to investors taking a long-term view and dismissing the panic, partially offsetting the extreme pessimism.\n- Overall this is a **bearish-to-mixed** sentiment environment rather than outright euphoria.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption / Pilot Purgatory) + 0 (Hardware) = **25**, by strict rule application.\n\nHowever, given: (a) the magnitude of the infra/revenue gap flagged by JP Morgan and the policy article, (b) the pervasive bubble-framing in mainstream coverage, and (c) the algorithm\u2019s explicit emphasis on sentiment shifts, we adjust the operational risk assessment upward into the lower-middle of the YELLOW band to reflect elevated systemic concern around AI sustainability.\n\nFinal assigned score: **45**, placing the market in **YELLOW (Caution/Leaking)**: fundamentals (NVDA growth and valuation) are still strong, but the macro narrative has clearly shifted from uncritical optimism to anxiety about overbuild and eventual payoff.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "We Must Prepare For an AI Bubble Now",
+      "NVDA_price": 182.08,
+      "NVDA_volatility": 2.35,
+      "NVDA_pe_ratio": 37.159184,
+      "NVDA_forward_pe": 16.379477,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.39,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 374.33,
+      "GOOGL_price": 317.32,
+      "nvda_pe": "37.159184",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.39"
+    },
+    "date": "2026-04-08T21:14:51.314153"
   }
 ]
