@@ -2694,5 +2694,27 @@
       "peg_ratio": "0.39"
     },
     "date": "2026-04-08T21:14:51.314153"
+  },
+  {
+    "status": "YELLOW",
+    "score": 40,
+    "reasoning": "1) Efficiency Check (+0): NVIDIA\u2019s revenue growth is extremely high at ~73% (0.732), not below 10%, so despite massive hyperscaler capex (Alphabet ~$180B, Amazon ~$200B, Meta $115\u2013135B, Microsoft +89% YoY quarterly capex), the rule\u2019s trigger condition (heavy spend + slowing <10% growth) is not met. Risk added: 0.\n2) Valuation Check (+0): NVIDIA\u2019s trailing P/E (~37.5) and PEG (~0.39) are both well below the thresholds (P/E > 70 or PEG > 2.5). No valuation-triggered bubble risk here. Risk added: 0.\n3) Adoption Check (+25): None of the articles mention \u2018pilot purgatory,\u2019 pausing, or cancelling AI projects by non\u2011tech firms. In fact, they emphasize ongoing earnings strength, real capex funded by cash, and a \u2018generational infrastructure buildout.\u2019 Therefore this specific trigger is NOT hit. Risk added: 0.\n4) Hardware Signals (+20): The news does not mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs; instead, it focuses on continued capital\u2011intensive expansion and strong demand (e.g., NVDA data center networking revenue up 263% YoY). So this trigger is also NOT hit. Risk added: 0.\nHowever, sentiment across headlines is clearly bubble-aware and increasingly cautious: repeated references to an \u2018AI bubble,\u2019 \u2018market jitters,\u2019 \u2018overheating,\u2019 \u2018reset,\u2019 and \u2018valuation extremes\u2019 show that the narrative has shifted from uncritical euphoria to concern and recalibration. While none of the algorithm\u2019s hard triggers fire on the actual data (growth and valuations look reasonable for NVDA, demand still strong, and no obvious adoption stall), the drumbeat of bubble discourse and recognition that expectations may be running ahead of current results warrants a discretionary risk premium. I assign +40 points to capture this elevated but not catastrophic systemic risk. \nTotal Risk Score = 0 (rules) + 40 (sentiment/qualitative adjustment) = 40 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Did The AI Bubble Burst? Wall Street Says The Real AI Boom May Be Ahead",
+      "NVDA_price": 183.91,
+      "NVDA_volatility": 2.98,
+      "NVDA_pe_ratio": 37.532654,
+      "NVDA_forward_pe": 16.5441,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.39,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 373.07,
+      "GOOGL_price": 318.49,
+      "nvda_pe": "37.532654",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.39"
+    },
+    "date": "2026-04-09T21:14:28.348921"
   }
 ]
