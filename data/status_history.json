@@ -2738,5 +2738,27 @@
       "peg_ratio": "0.4"
     },
     "date": "2026-04-10T21:10:13.939705"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check:\n- We infer AI infra capex is extremely heavy from Amazon Jassy\u2019s letter: \u201cAmazon plans to spend roughly $200 billion in capital expenditures, most of which will go toward AI infrastructure,\u201d and from broader references to hyperscalers \u201cpouring hundreds of billions of dollars\u201d into AI build\u2011outs.\n- However, the key metric in the algorithm is revenue growth. NVIDIA\u2019s reported revenue growth in the data is 0.732 (73.2%), far above the 10% slowdown threshold. Jassy also claims AWS AI revenue run\u2011rate has gone from near zero to >$15B in three years and is monetizing capacity as fast as it\u2019s installed. That does *not* match a \u2018spending heavily but revenue growth is slowing <10%\u2019 scenario.\n=> Efficiency Check condition is NOT met. Risk +0.\n\nStep 2 \u2013 Valuation Check:\n- NVIDIA PEG ratio = 0.4 (well below 2.5 threshold).\n- NVIDIA trailing P/E = 38.50 (below 70 threshold).\n=> Neither valuation trigger is hit. Risk +0.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory):\n- Scan the articles for signs that non\u2011tech firms are pausing/canceling AI projects or stuck in pilots:\n  \u2022 The Micron article argues current demand is driven by \u201cconcrete purchase orders\u201d and explicitly contrasts this with bubble behavior.\n  \u2022 The Jassy/Amazon piece states AI is being adopted faster than any prior technology, highlights strong AI revenue run\u2011rates, and notes constraints are capacity\u2011based, not demand\u2011based.\n  \u2022 The \u2018Did The AI Bubble Burst?\u2019 article frames the current environment as a \u201chealthy reset,\u201d with tech earnings still growing and AI viewed as a long\u2011term driver by BlackRock, Fidelity, and Goldman.\n  \u2022 None of the supplied content mentions enterprises shelving AI, canceling deployments, or stalling in \u201cpilot purgatory.\u201d Instead, it emphasizes roll\u2011out, inference\u2011driven demand, and edge/production use cases.\n=> No evidence of broad Pilot Purgatory. Risk +0.\n\nStep 4 \u2013 Hardware Signals (easing supply / reduced GPU lead times):\n- The news mentions \u201ccurrent supply bottlenecks across the HBM industry\u201d and worries about *future* commoditization, not easing supply or reduced lead times implying demand drop.\n- No article mentions NVIDIA/GPUs experiencing easing supply or materially shortened lead times from waning demand.\n=> Hardware condition not triggered. Risk +0.\n\nBaseline Sentiment Overlay (qualitative):\n- Multiple headlines openly question whether there is an AI bubble, which is itself a late\u2011cycle behavioral tell. But the algorithm you specified only scores specific, concrete triggers (efficiency, valuation, adoption, hardware). None are currently met given the data.\n- To reflect that we are in a \u2018caution/reset\u2019 phase, not pristine early\u2011growth, I assign a modest discretionary baseline risk of 35/100, landing in YELLOW: valuations are no longer extreme per the provided NVDA metrics, but narrative shows awareness of bubble risk, heavy capex, and a \u201chealthy reset\u201d rather than a clean, low\u2011risk early phase.\n\nNet: 0 (efficiency) + 0 (valuation) + 0 (adoption) + 0 (hardware) + 35 (cycle\u2011awareness / sentiment risk) = 35. Status: YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Did The AI Bubble Burst? Wall Street Says The Real AI Boom May Be Ahead",
+      "NVDA_price": 188.63,
+      "NVDA_volatility": 4.52,
+      "NVDA_pe_ratio": 38.49592,
+      "NVDA_forward_pe": 16.968699,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.4,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 370.87,
+      "GOOGL_price": 317.24,
+      "nvda_pe": "38.49592",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.4"
+    },
+    "date": "2026-04-11T21:07:51.100219"
   }
 ]
