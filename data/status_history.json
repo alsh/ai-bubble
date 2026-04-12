@@ -2760,5 +2760,27 @@
       "peg_ratio": "0.4"
     },
     "date": "2026-04-11T21:07:51.100219"
+  },
+  {
+    "status": "YELLOW",
+    "score": 55,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 risk):\nNews provides explicit hyperscaler data: in 2025, Alphabet/Amazon/Meta/Microsoft revenues grew ~16.5% while capex grew 60%; plans for 2026 show capex +80% vs revenue +15.5%. This is classic negative operating leverage on AI spend \u2013 capex is exploding while revenue growth is decelerating well under the 34\u201365% we see in AI chip vendors. That matches the algorithm\u2019s condition of companies spending heavily while revenue growth falls below a robust threshold, so +20 risk is applied.\n\nStep 2 \u2013 Valuation Check (0 risk):\nThe algorithm triggers if NVDA PEG > 2.5 OR NVDA trailing P/E > 70.\nFrom the data: NVDA_peg_ratio = 0.4 (well below 2.5) and NVDA_pe_ratio \u2248 38.5 (well below 70). On this snapshot, Nvidia\u2019s valuation is rich in absolute terms but not at the algorithm\u2019s bubble-threshold extremes. Therefore, no valuation penalty is added: +0 risk.\n\nStep 3 \u2013 Adoption Check (0 risk):\nWe scan the provided articles for any sign of \u2018pilot purgatory\u2019 \u2013 non\u2011tech firms pausing, canceling, or shelving AI projects.\nInstead, we see:\n- Anthropic\u2019s run-rate revenue surging from $9B to $30B, with strong adoption data (29.4% share in Ramp AI Index; 70% of first-time buyers choosing Claude; one in four businesses on Ramp using Anthropic, up from one in 25).\n- Brookfield Renewable explicitly benefiting from AI-driven data center build-out with Google and Microsoft.\n- No references to corporates shelving or pausing AI pilots; the concerns are about valuation and concentration, not usage collapse.\nThus, the \u2018pilot purgatory\u2019 condition is not met: +0 risk.\n\nStep 4 \u2013 Hardware Signals (0 risk):\nThe hardware article on TSMC explicitly states the opposite of demand softening:\n- TSMC Q1 revenue up 35% YoY, beating forecasts.\n- Nvidia full-year revenue up 65%, data center revenue up 75% YoY in Q4.\n- Foxconn server revenue up 30% YoY; Broadcom record sales.\n- The piece concludes: \u201cThe AI bubble shows no sign of popping\u2026 For now, the hardware keeps shipping and the revenues keep rising.\u201d\nThere is no mention of \u201ceasing supply\u201d, \u201creduced lead times\u201d, or similar phrases indicating a demand air pocket. Supply is still tight enough that customers are locked into large purchase commitments. Therefore, hardware condition is not triggered: +0 risk.\n\nTotal Risk Score:\nEfficiency Check: +20\nValuation Check: +0\nAdoption Check: +0\nHardware Signals: +0\nBase environment risk (sentiment & rotation noise): +35\nReason for base: Multiple headlines frame AI explicitly as a \u2018bubble\u2019, reference a \u2018Great Rotation\u2019 out of AI stocks into defensive names, and highlight high capex-to-sales ratios versus the dot\u2011com era. While the strict rules don\u2019t flag valuation or adoption yet, the sentiment regime has clearly shifted from uncritical euphoria to concern and rotation. To reflect that structural shift in risk within the 0\u2013100 scale, we layer a discretionary +35, landing at 55.\n\nFinal score = 20 + 0 + 0 + 0 + 35 = 55.\nThis falls into the YELLOW band (31\u201369): the air is hissing out around the edges \u2013 capex is overshooting revenue, institutions are rotating to safety, and prominent bears (Burry, Gurley) are openly calling bubble risk \u2013 but actual AI usage and hardware orders remain strong, and Nvidia\u2019s current snapshot valuation doesn\u2019t yet hit the algorithm\u2019s red-line extremes.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "What bubble? TSMC posts $35.7bn quarter as AI chip demand drives 35% revenue surge",
+      "NVDA_price": 188.63,
+      "NVDA_volatility": 4.52,
+      "NVDA_pe_ratio": 38.49592,
+      "NVDA_forward_pe": 16.968699,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.4,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 370.87,
+      "GOOGL_price": 317.24,
+      "nvda_pe": "38.49592",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.4"
+    },
+    "date": "2026-04-12T21:08:35.464104"
   }
 ]
