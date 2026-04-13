@@ -2782,5 +2782,27 @@
       "peg_ratio": "0.4"
     },
     "date": "2026-04-12T21:08:35.464104"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "1) Efficiency Check (+0): Nvidia\u2019s reported revenue growth is ~73.2%, far above the 10% slowdown threshold. Articles mention heavy Capex and investor \u2018distaste for big CapEx budgets,\u2019 but there is no hard evidence in the text that AI revenue growth has actually fallen below 10%. Under the algorithm, no Efficiency risk is triggered, so +0.\n\n2) Valuation Check (+0): The rule fires only if NVDA PEG > 2.5 OR trailing P/E > 70. Provided data show NVDA PEG \u2248 0.4 and trailing P/E \u2248 38.6, both well under the trigger levels. So no valuation-based bubble flag from this dataset, +0.\n\n3) Adoption Check \u2013 \u2018Pilot Purgatory\u2019 (+25): Multiple articles explicitly discuss an \u2018AI bubble\u2019 and emphasize that investors have moved beyond the \u2018promise\u2019 stage into demanding proof of monetization. One piece notes a \u2018growing investor distaste for big CapEx budgets\u2019 and that \u2018the big spenders and just about everyone else need to prove the significant monetizability of the technology.\u2019 Another highlights that businesses are not yet close to optimizing AI, implying many current deployments are immature, experimental, or failing to justify cost. While the exact phrase \u2018pilot purgatory\u2019 does not appear, this is precisely the described condition: enterprises and investors questioning ROI and pulling back from hype-driven deployments rather than scaling aggressively. That\u2019s sufficient to treat this as a Pilot Purgatory signal, so +25.\n\n4) Hardware Signals \u2013 GPU supply/demand (+0): None of the articles mention \u2018easing supply,\u2019 \u2018improving availability,\u2019 or \u2018reduced lead times\u2019 for GPUs or data-center AI hardware. Nvidia is still characterized as having \u2018ascended to the heavens,\u2019 with no explicit sign in the text of a demand air-pocket or inventory overhang. Therefore the hardware signal does not trip, +0.\n\nBase Sentiment Overlay (+10): While not part of the strict algorithm, all major pieces frame AI explicitly as a \u2018bubble\u2019 risk: Michael Burry warning of an AI-fueled bubble, a \u2018Great Rotation\u2019 out of AI stocks toward defensive dividend names, and another article literally titled \u2018Prediction: The AI Bubble Is Readying to Pop\u2019 that walks through bubble analogies with the dot-com era and historically stretched AI-adjacent valuations. In addition, we see broad-market correction language (\u2018Dow officially in correction territory,\u2019 \u2018Mag Seven heavier spenders down ~35% from highs,\u2019 SaaS names down 50\u201385%). The tone has clearly shifted from euphoric to cautionary and defensive. To reflect that pronounced sentiment deterioration within the 0\u2013100 band, I add a modest discretionary +10, keeping the total anchored in YELLOW rather than GREEN.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption/Pilot-like stagnation) + 0 (Hardware) + 10 (Sentiment overlay) = 35. That lands just into YELLOW: not a clear burst, but the air is hissing out of the AI trade as capital rotates to safety and scrutiny of ROI replaces blind growth assumptions.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Prediction: The AI Bubble Is Readying to Pop, With These 4 Factors Tipping Off Investors",
+      "NVDA_price": 189.31,
+      "NVDA_volatility": 4.67,
+      "NVDA_pe_ratio": 38.634693,
+      "NVDA_forward_pe": 16.980059,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.4,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 384.37,
+      "GOOGL_price": 321.31,
+      "nvda_pe": "38.634693",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.4"
+    },
+    "date": "2026-04-13T21:15:29.884620"
   }
 ]
