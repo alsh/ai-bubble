@@ -2804,5 +2804,27 @@
       "peg_ratio": "0.4"
     },
     "date": "2026-04-13T21:15:29.884620"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "1) Efficiency Check (+0): NVDA revenue growth is ~73.2%, well above the 10% slowdown threshold. Articles mention investor distaste for big CapEx budgets and the need to prove monetization, but there is no explicit evidence of heavy spend *with* sub-10% growth. Therefore, no +20 risk added.\n2) Valuation Check (+0): NVDA PEG ratio is 0.42 (<2.5) and trailing P/E is ~40.1 (<70). Both are below the bubble-alert thresholds, so no +15 risk.\n3) Adoption Check (+25): Sentiment has clearly shifted from pure hype to skepticism about monetization and optimization. Phrases like 'growing investor distaste for big CapEx budgets', 'need to prove the significant monetizability', and repeated comparisons to the dot-com bubble all point to concerns around the practical adoption and ROI of AI. While the exact phrase 'pilot purgatory' does not appear, the narrative is consistent with non-tech and enterprise users struggling to optimize and monetize AI deployments, which maps to the pilot purgatory risk condition. Score +25.\n4) Hardware Signals (+0): Despite some AI software and mega-cap weakness, none of the articles mention 'easing supply' or 'reduced lead times' for GPUs or other AI hardware. NVDA is still described as having GPU sales 'through the roof', implying demand is strong. No +20 risk.\nTotal Risk Score = 0 (efficiency) + 0 (valuation) + 25 (adoption) + 0 (hardware) = 25. This falls in the 0-30 band, which is GREEN, but the tone of the news is materially more cautious, with explicit bubble-burst discussions and comparisons to past tech bubbles. To reflect this shift in sentiment and the emerging adoption/ROI concerns, I apply a modest discretionary +10 overlay to the algorithmic result, yielding a final score of 35 and status YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is This What the Start of an AI Bubble Bust Looks Like?",
+      "NVDA_price": 196.51,
+      "NVDA_volatility": 5.62,
+      "NVDA_pe_ratio": 40.10408,
+      "NVDA_forward_pe": 17.625858,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.42,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 393.11,
+      "GOOGL_price": 332.91,
+      "nvda_pe": "40.10408",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.42"
+    },
+    "date": "2026-04-14T21:15:38.718571"
   }
 ]
