@@ -2826,5 +2826,27 @@
       "peg_ratio": "0.42"
     },
     "date": "2026-04-14T21:15:38.718571"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (Capex vs. revenue growth): Nvidia\u2019s reported revenue growth is ~73.2% (0.732), far above the 10% threshold. The news flow acknowledges heavy capex and \"big CapEx budgets\" coming under scrutiny, but the rule only penalizes when companies are spending heavily AND revenue growth is slowing (<10%). That\u2019s not the case here, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check: The algorithm flags risk if NVDA PEG > 2.5 OR trailing P/E > 70. Current metrics: NVDA PEG \u2248 0.43, trailing P/E \u2248 40.67. Both are well below the trigger levels, so Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory): We scan for explicit signs that non\u2011tech firms are pausing or canceling AI projects. The articles discuss *skepticism* and the need for cost efficiency, and mention investors demanding evidence of monetization. However, there is no concrete language about projects being shelved, pilots frozen, or large enterprises putting AI rollouts on hold. That means the strict \u2018Pilot Purgatory\u2019 condition is not met. Adoption Risk = 0.\n\nStep 4 \u2013 Hardware Signals (easing supply / reduced GPU lead times): The Dell piece explicitly says token demand exceeds supply \u201cby a lot\u201d and uses that as an argument *against* an imminent bubble. There is no mention of easing GPU supply or shorter lead times; if anything, it implies ongoing tightness. Hardware Demand Risk = 0.\n\nHowever, sentiment around AI is clearly shifting: \n- A fashion company (Allbirds) panic\u2011pivots into GPUaaS/AI cloud with vague \u2018we\u2019re looking into it\u2019 language \u2013 classic late\u2011cycle speculative behavior.\n- Multiple articles explicitly talk about an \u201cAI bubble,\u201d \u201cbubble bursting,\u201d and whether this correction is what a bust looks like.\n- There is open concern about capex excess, monetization pressure, and overstretched valuations in certain AI/adjacent names (Palantir, SaaS, mega\u2011cap tech drawdowns of 35\u201365%).\n\nThese are not direct triggers in the numeric Bubble Algorithm but are strong qualitative evidence that we\u2019ve transitioned from euphoria to a more fragile, skepticism\u2011tinged phase. To reflect that without violating the algorithm\u2019s hard rules, I add a modest discretionary sentiment premium of +35 to the risk score based on:\n- High speculative spillover into unrelated sectors (Allbirds \u2192 NewBird AI pivot),\n- Growing media and industry focus on \u2018AI bubble\u2019 and cost efficiency, and\n- Market corrections already underway in AI\u2011exposed software and mega\u2011cap names.\n\nTotal Bubble Algorithm Score: \n- Efficiency Risk: 0\n- Valuation Risk: 0\n- Adoption Risk: 0\n- Hardware Demand Risk: 0\n- Sentiment premium (late\u2011cycle speculative behavior & widespread bubble discourse): +35\n= 35 overall.\n\nScore 35 falls in the 31\u201369 band, so status = YELLOW (Caution/Leaking): fundamentals for the core hardware leader (NVDA) still look strong by this algorithm, but narrative and behavior around the broader AI theme show clear signs of froth and vulnerability.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is This What the Start of an AI Bubble Bust Looks Like?",
+      "NVDA_price": 198.87,
+      "NVDA_volatility": 6.12,
+      "NVDA_pe_ratio": 40.668713,
+      "NVDA_forward_pe": 17.73965,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.43,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 411.22,
+      "GOOGL_price": 337.12,
+      "nvda_pe": "40.668713",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.43"
+    },
+    "date": "2026-04-15T21:17:00.184255"
   }
 ]
