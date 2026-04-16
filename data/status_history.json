@@ -2848,5 +2848,27 @@
       "peg_ratio": "0.43"
     },
     "date": "2026-04-15T21:17:00.184255"
+  },
+  {
+    "status": "YELLOW",
+    "score": 40,
+    "reasoning": "Applying the Bubble Algorithm step by step:\n\n1) Efficiency Check (+0)\n- NVDA revenue_growth = 0.732 (73.2%), well above the 10% slowdown threshold.\n- News tone: concerns about capex efficiency exist, but there is no sign of revenue growth stalling at the AI leaders; the concern is more about future monetization and optimization, not current growth collapse.\n- Condition \"spending heavily but revenue growth is slowing (<10%)\" is NOT met.\n- Risk added: +0.\n\n2) Valuation Check (+0)\n- NVDA PEG ratio = 0.42 (<< 2.5).\n- NVDA trailing P/E = 40.56 (<< 70).\n- Rule: If NVDA PEG > 2.5 OR trailing P/E > 70, add +15 risk.\n- Neither valuation trigger is hit; by the provided metrics, NVDA looks expensive in absolute terms but not at bubble-trigger levels per your rule set.\n- Risk added: +0.\n\n3) Adoption Check \u2013 'Pilot Purgatory' (+25)\n- Articles highlight:\n  \u2022 \"The big spenders and just about everyone else need to prove the significant monetizability of the technology ... and they probably need to do it sooner rather than later if the bleeding in AI stocks is to come to a halt\" \u2013 clear concern that real-world ROI and scaled deployment are lagging the hype.\n  \u2022 Discussion of optimization curves: most businesses \"aren't remotely close to optimizing AI solutions/applications\" \u2013 indicates a gap between promise and practical, scaled adoption.\n  \u2022 Reference to software names (Adobe, Salesforce, Atlassian) being down 50\u201385% as investors reassess AI narratives for application-layer firms.\n- While the text doesn\u2019t literally use the phrase \u201cpilot purgatory,\u201d the sentiment is that many enterprises are not yet seeing efficient, scaled payoff from AI projects, and investors are punishing that. This aligns with your intended signal: projects and expectations stalling between pilot and full production.\n- Interpreting this as a valid trigger for the \"Pilot Purgatory\" condition.\n- Risk added: +25.\n\n4) Hardware Signals \u2013 supply/demand for GPUs (+0)\n- News flow shows two contrasting signals:\n  \u2022 Anthropic and others throttling users because \"it turns out there actually isn't enough compute and we're not building maybe fast enough\" \u2013 this is a shortage signal, not easing.\n  \u2022 Allbirds pivoting to buy AI servers and rent them out after a 600% stock spike suggests speculative capital chasing AI infrastructure, but still implies perceived tightness/strong demand, not slack.\n- No explicit mentions of \"easing supply\" or \"reduced lead times\" for GPUs or AI chips; narrative is still of scarcity and intense demand.\n- Hardware trigger condition is NOT met.\n- Risk added: +0.\n\nTotal Risk Score: 0 (efficiency) + 0 (valuation) + 25 (adoption/pilot purgatory) + 0 (hardware) = 25.\n\nHowever, sentiment adjustment: several pieces explicitly frame an \"AI bubble\" narrative and a potential bursting process:\n- \"Prediction: The AI Bubble Is Readying to Pop, With These 4 Factors Tipping Off Investors\" \u2013 strongly bearish framing.\n- \"Is This What the Start of an AI Bubble Bust Looks Like?\" \u2013 directly positions current drawdowns and capex skepticism as early bust dynamics.\n- Large drawdowns in AI-adjacent software (down 50\u201385%) suggest the bubble has already partially popped in certain segments, shifting from pure euphoria toward a valuation reckoning.\n- Allbirds\u2019 violent 600% spike on announcing an AI server-rental pivot is classic late-stage speculative behavior at the fringes.\n\nYour rules cover fundamentals and micro-signals but not sentiment drift. The visible shift from \"AI supremacy\" stories to explicit \"bubble readying to pop\" and \"start of a bubble bust\" language warrants a modest overlay.\n\nI apply a discretionary +15 sentiment risk for:\n- Multiple headlines explicitly invoking \"AI bubble\" and \"bubble bust\" with detailed vulnerability arguments (valuation, optimization lag, macro/interest-rate context).\n- Evidence that speculative behavior (e.g., Allbirds pivot) is colliding with rapid reversals, suggesting localized mini-bursts.\n\nAdjusted Final Score: 25 (rule-based) + 15 (sentiment overlay) = 40.\n\nScore band 40 falls into: 31\u201369 = YELLOW (Caution/Leaking). This matches the picture: leadership names like NVDA are not yet in classic bubble-metric territory by your thresholds, but sentiment, adoption frictions, and speculative side shows at the edges indicate a leaking, not pristine, AI trade.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Prediction: The AI Bubble Is Readying to Pop, With These 4 Factors Tipping Off Investors",
+      "NVDA_price": 198.35,
+      "NVDA_volatility": 4.98,
+      "NVDA_pe_ratio": 40.562374,
+      "NVDA_forward_pe": 17.693266,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.42,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 420.26,
+      "GOOGL_price": 336.02,
+      "nvda_pe": "40.562374",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.42"
+    },
+    "date": "2026-04-16T21:15:15.188727"
   }
 ]
