@@ -2870,5 +2870,27 @@
       "peg_ratio": "0.42"
     },
     "date": "2026-04-16T21:15:15.188727"
+  },
+  {
+    "status": "GREEN",
+    "score": 20,
+    "reasoning": "Step 1 \u2013 Efficiency Check: Nvidia\u2019s reported revenue growth is ~73.2% (0.732), which is far above the 10% slowdown threshold. There is no explicit evidence in the news of hyperscalers or AI leaders suffering from slowing AI revenue growth while still ramping capex recklessly. With no clear \u2018spending heavily but revenue growth <10%\u2019 signal, the Efficiency Check adds 0 risk points.\n\nStep 2 \u2013 Valuation Check: The algorithm flags risk if NVDA PEG > 2.5 OR trailing P/E > 70. Provided data: NVDA trailing P/E \u2248 41.16, forward P/E \u2248 17.94, PEG \u2248 0.71. All are well below the bubble tripwires; valuation is rich but not at the algorithm\u2019s danger levels. Valuation Check adds 0 risk points.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019): The news set does not mention enterprises canceling or pausing AI projects or being stuck in proof\u2011of\u2011concept hell. Instead, sentiment skews toward continued heavy investment and demand:\n- Venture funding into AI startups at $242B last quarter indicates capital still pouring in, not being cut.\n- Michael Dell explicitly says token demand exceeds supply by a wide margin and argues it\u2019s hard to call this a bubble *right now* due to constrained supply, while acknowledging a future correction is likely.\n- Dell also expects server revenue tied to AI to roughly double YoY, reinforcing active deployment rather than stalled pilots.\n- The Allbirds/\u2018NewBird AI\u2019 story is a classic late\u2011cycle style gimmick, but it\u2019s a one\u2011off pivot flop, not evidence of broad enterprise AI pullback.\nNone of this fits the \u2018pilot purgatory with cancellations/pauses\u2019 condition, so Adoption Check adds 0 risk points.\n\nStep 4 \u2013 Hardware Signals: The articles mention strong token demand and Dell\u2019s expectation of surging server revenue but do not mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or AI hardware. Nvidia is still being used as a catalyst for other speculative areas (quantum), but there is no sign in the text of an actual demand air pocket for GPUs. Therefore, Hardware Signals add 0 risk points.\n\nTotal Bubble Algorithm Risk Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0. This sits at the very bottom of the 0\u201330 GREEN band. The qualitative overlay: there are obvious pockets of speculative excess (quantum computing names with extreme P/S ratios, retail \u2018AI pivot\u2019 nonsense like Allbirds), but *within the algorithm\u2019s rules for the AI bubble around Nvidia and core AI infra*, the current data show strong growth, non-extreme valuations by its own thresholds, ongoing adoption, and still\u2011tight hardware/tokens. That combination yields a low mechanical risk score, even if early froth is visible on the fringe.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "What bubble? AI startups score $242B in venture funding last quarter",
+      "NVDA_price": 201.68,
+      "NVDA_volatility": 4.65,
+      "NVDA_pe_ratio": 41.15918,
+      "NVDA_forward_pe": 17.94437,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.7054,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 422.79,
+      "GOOGL_price": 341.68,
+      "nvda_pe": "41.15918",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.7054"
+    },
+    "date": "2026-04-17T21:14:44.872710"
   }
 ]
