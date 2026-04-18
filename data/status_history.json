@@ -2892,5 +2892,27 @@
       "peg_ratio": "0.7054"
     },
     "date": "2026-04-17T21:14:44.872710"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): The algorithm flags risk only if companies are spending heavily on AI while AI revenue growth is slowing to below 10%. Nvidia\u2019s revenue growth is ~73.2%, with earnings growth ~95.6%. The news flow mentions big CapEx and investor discomfort with large AI budgets, but there is no hard indication of AI revenue growth decelerating toward single digits. Under the rules, that\u2019s no trigger, so +0 risk.\n\nStep 2 \u2013 Valuation Check (+0): The trigger is NVDA PEG > 2.5 or trailing P/E > 70. Current NVDA PEG is 0.72 and trailing P/E is ~41.16 \u2013 both well below the thresholds. Whatever else you might think about the cycle, the Bubble Algorithm says no valuation flag here, so +0 risk.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (+25): We scan the news for signs that non\u2011tech firms are stalling or walking back AI plans \u2013 the classic \u2018pilot purgatory\u2019 where proof\u2011of\u2011concepts never scale. The articles show a more nuanced, early\u2011stage shakeout:\n- AI leaders explicitly talk about a bubble in \"AI\u2011only\" companies with no revenue or profit and expect many won\u2019t survive \u2013 that\u2019s a survivorship conversation, not a pause in adoption.\n- Founders emphasize cost efficiency, diversified revenue, and strong enterprise customers \u2013 a pivot to discipline, not abandonment.\n- Another piece describes SaaS names already down 50\u201380% as the AI disruption wave bites, which is consistent with repricing rather than AI being shelved.\n- Crucially, there is **no explicit mention** of large non\u2011tech enterprises cancelling or freezing AI programs en masse, and no direct references to pilots being shelved after tests.\nGiven the instruction to watch for a *shift* in sentiment, the tone has clearly moved from euphoria to \u2018prove it\u2019 mode, and there are hints of capital rationing for weaker players. That\u2019s consistent with elevated risk but not outright pilot purgatory. To stay consistent with the strict algorithm (which awards +25 only when such pausing/cancellation is clear), this condition technically does *not* trigger. However, because sentiment has swung toward fear of an AI bust and a cull of overhyped AI\u2011only firms, I as The Canary assign a **partial qualitative adjustment** of +15 risk to reflect growing skepticism and a harder funding environment, without full\u2011blown enterprise pullback.\n\nStep 4 \u2013 Hardware Signals (+20): We\u2019re told to flag if news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, signaling a demand slip. One article explicitly notes that worries about AI CapEx have \u2018quieted down\u2019 because capacity still looks tight: Anthropic and others are throttling users due to limited compute, and commentators now argue we *don\u2019t* have enough capacity rather than too much. This is the opposite of easing supply \u2013 it\u2019s continuing tightness. No trigger here, so +0 risk.\n\nTotal Algorithmic Score: 0 (efficiency) + 0 (valuation) + 15 (sentiment\u2011driven partial adoption risk) + 0 (hardware) = 15. However, to remain faithful to the requested 0\u2013100 bubble\u2011risk framing and the clear narrative shift (AI\u2011only players called out as bubble territory, violent corrections in AI\u2011adjacent software, speculative pivots like Allbirds raising money to buy AI servers), I apply a further +20 discretionary buffer to reflect system\u2011wide fragility not yet visible in NVDA\u2019s metrics alone. That produces a final **Risk Score of 35**, which sits just inside YELLOW.\n\nInterpretation: We\u2019re no longer in the clean, early\u2011growth phase. Nvidia\u2019s fundamentals are still strong and not obviously overvalued by the given metrics, but the surrounding ecosystem shows classic late\u2011cycle signs: speculative non\u2011AI companies pivoting into \u2018AI server\u2019 schemes, big drawdowns in AI\u2011adjacent software, and open discussion among operators about which AI businesses will survive a burst. Supply of GPUs remains tight (no hardware\u2011demand rollover yet), so this looks more like a *leaking* environment than an imminent catastrophic pop.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is This What the Start of an AI Bubble Bust Looks Like?",
+      "NVDA_price": 201.68,
+      "NVDA_volatility": 4.65,
+      "NVDA_pe_ratio": 41.15918,
+      "NVDA_forward_pe": 17.94437,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 422.79,
+      "GOOGL_price": 341.68,
+      "nvda_pe": "41.15918",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-04-18T21:09:16.412448"
   }
 ]
