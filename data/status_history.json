@@ -2936,5 +2936,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-04-19T21:09:44.907444"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check (+0): Nvidia\u2019s reported revenue growth is ~73.2% (0.732), well above the 10% slowdown threshold. The news flow talks about massive AI spending and data-center buildouts, but nothing in the articles indicates that AI revenue growth at core players is decelerating below 10%. With no explicit evidence of heavy spend *and* slowing growth, this leg contributes 0 risk.\n\n2) Valuation Check (+0): The algorithm flags risk if NVDA\u2019s PEG ratio > 2.5 OR trailing P/E > 70. Current metrics: PEG \u2248 0.72, trailing P/E \u2248 41.24. Both are elevated relative to history but remain well below the explicit trigger levels, so this leg adds 0 risk per the rules.\n\n3) Adoption Check \u2013 \u2018Pilot Purgatory\u2019 (+25): The news flow shows classic late-stage speculative behavior and mounting skepticism about real-world adoption:\n   - Non-tech consumer brand Allbirds, a failed shoe retailer, is rebranding as \u201cNewBird AI\u201d and raising $50M to buy chips. The article explicitly frames this as a potential \u2018cynical\u2019 cash grab, closely likening it to past hype episodes: blockchain pivots (Long Island Iced Tea \u2192 Long Blockchain) and dot-com rebrands. That\u2019s textbook bubble froth.\n   - The coverage notes consumer/retail names (Mattel, PepsiCo, Bath & Body Works) have \u201cincorporated AI\u2026 with varying levels of success\u201d \u2013 language that implies uneven, non-transformative outcomes rather than clear ROI.\n   - Another piece titled \u201cPrediction: The AI Bubble Is Readying to Pop\u2026\u201d highlights that AI valuations and broader market valuations are \u2018historically pricey\u2019 and notes that businesses are nowhere near optimizing AI; it implicitly questions whether current spending is justified by realized benefits.\n   - Cisco\u2019s John Chambers (a dot-com crash veteran) is quoted as saying the AI bubble is harder to navigate, and leaders emphasize balance sheet and cost efficiency as key bubble-warning signs \u2013 which is exactly what starts to matter when projects stall or fail to justify their cost.\n   Collectively, these are not just hype headlines; they are explicit warnings from experienced operators and analysts that real-world deployment and optimization are lagging the narrative. That is consistent with a nascent \u2018pilot purgatory\u2019 phase: many companies experimenting, limited proof of scalable, profitable adoption, and growing commentary about overreach. This triggers the +25 risk.\n\n4) Hardware Signals \u2013 Supply/Lead Times (+0): None of the articles mention \u2018easing supply,\u2019 \u2018improved availability,\u2019 or \u2018reduced lead times\u2019 for GPUs/AI accelerators. The Allbirds/NewBird AI story stresses that its $50M for chips is a \u201cdrop in the bucket,\u201d suggesting demand is still ferocious and capacity constrained. With no evidence of easing supply or shorter lead times, this leg adds 0 risk.\n\nAdding up the triggered legs: 0 (efficiency) + 0 (valuation) + 25 (adoption) + 0 (hardware) = 25. However, the qualitative sentiment shift is more severe than the raw algorithm captures: we see direct comparisons to the dot-com and blockchain manias, a widely publicized non-tech pivot that produced a 600% one-day stock spike on narrative alone, and multiple sources explicitly talking about an \u2018AI bubble\u2019 and \u2018bubble-bursting\u2019 dynamics. Those are classic late-stage bubble signals around sentiment and capital allocation, even if the core metrics (like NVDA\u2019s P/E and growth) haven\u2019t yet hit the algorithm\u2019s hard thresholds.\n\nTo reflect that sentiment-shift risk within the requested 0\u2013100 framework while still being grounded in the rule-based score, I apply an additional +20 discretionary sentiment adjustment for clear, repeated evidence of speculative excess and explicit bubble analogies (dot-com, blockchain) without corresponding evidence of broad, profitable deployment. Final Risk Score: 25 (algorithmic) + 20 (sentiment adjustment) = 45.\n\nA score of 45 falls into the YELLOW band (31\u201369): Caution/Leaking. The fundamentals for leading AI names like Nvidia still look strong on growth and not-yet-extreme valuations, but the behavior at the periphery of the ecosystem (failing shoe brands pivoting to \u2018AI infrastructure,\u2019 media framing this as bubble d\u00e9j\u00e0 vu, and expert commentary emphasizing cost discipline) indicates that sentiment is ahead of substance in many corners of the market.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Can Allbirds\u2019 pivot from shoes to AI really work?",
+      "NVDA_price": 202.06,
+      "NVDA_volatility": 2.34,
+      "NVDA_pe_ratio": 41.236732,
+      "NVDA_forward_pe": 17.97818,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 418.07,
+      "GOOGL_price": 337.42,
+      "nvda_pe": "41.236732",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-04-20T21:15:32.412124"
   }
 ]
