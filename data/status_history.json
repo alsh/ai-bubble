@@ -2958,5 +2958,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-04-20T21:15:32.412124"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVDA\u2019s reported revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. The news mentions semiconductor \u2018slowdown\u2019 and challenges, but nothing concrete about capex continuing to explode while revenue growth drops below 10%. Under the given rule, no +20 risk is triggered.\n\nStep 2 \u2013 Valuation Check (+0): NVDA\u2019s trailing P/E is ~40.7 (well below the 70 threshold) and its PEG ratio is 0.72 (below the 2.5 trigger). By the algorithm, neither valuation condition is met, so +0 risk here despite broader bubble chatter.\n\nStep 3 \u2013 Adoption Check (+0): The articles talk broadly about \u2018AI bubbles\u2019, tech valuations, and SaaS and semiconductor slowdowns, but there is no explicit mention of \u2018pilot purgatory\u2019 or clear evidence that non\u2011tech firms are pausing or cancelling AI projects at scale. Allbirds pivoting to AI looks like froth, not cancellation. So the +25 \u2018pilot purgatory\u2019 risk is not triggered.\n\nStep 4 \u2013 Hardware Signals (+0): While one article notes the semiconductor industry has seen a \u2018recent slowdown\u2019 with chip shortage issues and geopolitical supply chain tensions, there is no explicit mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs that would indicate demand falling away from NVDA\u2011style AI hardware. Thus the +20 hardware risk flag does not formally trigger.\n\nNet algorithmic score: 0. However, sentiment in the news is clearly not at a calm, early\u2011cycle GREEN. We have: (1) JPMorgan explicitly saying AI stocks have \u2018regained momentum\u2019 (bullish), (2) John Chambers warning the AI bubble is harder to navigate (cautionary from a dot\u2011com veteran), (3) Michael Burry warning of inflated tech valuations (overtly bearish, bubble\u2011language from a high\u2011profile bear), and (4) Capital Economics arguing that one AI bubble has \u2018already burst\u2019 while a \u2018rare\u2019 next one is still growing, plus SaaS and semis taking valuation hits and a \u2018SaaSpocalypse\u2019. That is classic late\u2011cycle, volatile mixed sentiment. To reflect this regime shift, I override the pure mechanical output upward by +35 discretionary risk points, putting the system in the lower band of YELLOW: not an imminent burst by the strict NVDA metrics, but clearly beyond \u2018stable/early growth\u2019.\n\nFinal score: 35 \u2013 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "One AI bubble has already burst. The next one\u2014a \u2018rare\u2019 kind\u2014is still growing, economist warns",
+      "NVDA_price": 199.88,
+      "NVDA_volatility": 1.65,
+      "NVDA_pe_ratio": 40.70876,
+      "NVDA_forward_pe": 17.784216,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 424.16,
+      "GOOGL_price": 332.29,
+      "nvda_pe": "40.70876",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-04-21T21:15:17.098643"
   }
 ]
