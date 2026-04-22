@@ -2980,5 +2980,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-04-21T21:15:17.098643"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applied the Bubble Algorithm to the supplied data and text:\n\n1) Efficiency Check (+20 possible):\n- Rule: If companies are spending heavily but revenue growth is slowing (<10%), add +20 risk.\n- Given: NVDA_revenue_growth = 0.732 (73.2% YoY), which is far above the 10% slowdown threshold.\n- No explicit evidence in the news of capex/reinvestment outpacing growth or indicating efficiency collapse.\n- Result: 0 points (no slowdown; revenue growth still explosive).\n\n2) Valuation Check (+15 possible):\n- Rule: If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, add +15 risk.\n- Given: NVDA_peg_ratio = 0.72 (well below 2.5); NVDA_pe_ratio = 41.33 (well below 70).\n- Result: 0 points (elevated but nowhere near the algorithm\u2019s bubble tripwires).\n\n3) Adoption Check \u2013 \u2018Pilot Purgatory\u2019 (+25 possible):\n- Rule: If non\u2011tech firms are pausing/canceling AI projects, add +25 risk.\n- News scan:\n  \u2022 Articles reference general AI bubble fears, historical comparisons (dot\u2011com, John Chambers), and a piece arguing the bubble may pop.\n  \u2022 The Allbirds piece mentions a pivot from shoes to AI that \u201cmight be a cash grab\u201d or \u201cescape hatch,\u201d but there is no mention of pilots being frozen, shelved, or canceled; it\u2019s speculative on strategy, not evidence of widespread failed deployments.\n  \u2022 No explicit language about large non\u2011tech enterprises canceling, pausing, or stalling AI rollouts at scale.\n- Result: 0 points (sentiment anxiety, but no concrete \u2018pilot purgatory\u2019 signal in the text provided).\n\n4) Hardware Signals (+20 possible):\n- Rule: If news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, add +20 risk (implies demand drop vs prior shortages).\n- News scan: None of the articles mention GPU supply, easing shortages, or lead times; focus is on bubble debate and momentum, not hardware congestion or cooling.\n- Result: 0 points (no explicit hardware-softening signal in the text).\n\nTotal Bubble Risk Score = 0 + 0 + 0 + 0 = 0.\n\nInterpretation: The Canary sees plenty of narrative froth \u2014 articles about bubbles, comparisons to dot\u2011com, and JPMorgan proclaiming AI momentum is \u201cback.\u201d But per the strict rules of this algorithm, none of the quantified triggers actually fire: Nvidia still has extreme revenue and earnings growth, valuations (for now) sit below the defined danger thresholds, there\u2019s no explicit corporate \u2018pilot purgatory\u2019 evidence, and no indication in these clips that GPU supply is easing. Narrative risk is rising, but this model flags the current state as early\u2011stage/structurally strong rather than imminently bursting.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Prediction: The AI Bubble Is Readying to Pop, With These 4 Factors Tipping Off Investors",
+      "NVDA_price": 202.5,
+      "NVDA_volatility": 1.74,
+      "NVDA_pe_ratio": 41.32653,
+      "NVDA_forward_pe": 18.01733,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 432.92,
+      "GOOGL_price": 339.32,
+      "nvda_pe": "41.32653",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-04-22T21:16:40.425391"
   }
 ]
