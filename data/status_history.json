@@ -3024,5 +3024,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-04-23T21:15:47.906522"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check: Warren explicitly flags that AI revenues are not keeping pace with massive investment and debt loads across the sector, but the hard data we\u2019re given for the bellwether (NVIDIA) shows revenue growth of 73.2%, far above the 10% slowdown threshold. Since the algorithm requires slowing revenue growth (<10%) to trigger this penalty, the condition is NOT met for the core hardware supplier. Score +0.\n\n2) Valuation Check: NVIDIA\u2019s trailing P/E is ~42.6 (below the 70 threshold) and PEG is 0.72 (below 2.5). By the algorithm, neither of the valuation tripwires is triggered. Score +0.\n\n3) Adoption Check (Pilot Purgatory): The news flow is filled with macro fear and political commentary (Warren calling this a bubble, comparisons to 2008, and an article literally titled \"Prediction: The AI Bubble Is Readying to Pop\"), but there are NO concrete reports of non\u2011tech corporates pausing, shelving, or canceling AI rollouts or being stuck in pilot purgatory. The articles talk about *risk* and *vulnerability*, not about failed enterprise adoption. Condition not met. Score +0.\n\n4) Hardware Signals: None of the articles mention easing GPU supply, shorter lead times, or excess inventory. No sign yet of demand rolling over on the hardware side in the provided text. Condition not met. Score +0.\n\nAlgorithmic risk from the given triggers is formally 0. However, sentiment is visibly souring: a U.S. senator publicly equates AI to a 2008\u2011style systemic bubble and claims revenues are nowhere near where they must be to justify capex; another piece talks about an AI bubble being ready to pop; yet another focuses on what to watch for when the bubble cracks. That\u2019s a sentiment and narrative inflection, not yet corroborated by the supplied hard metrics (which still show explosive NVIDIA growth at moderate multiples). To reflect this emerging narrative risk while staying within the 0\u2013100 scale, I add a discretionary 45 points for looming macro/political and sentiment pressure that the strict triggers don\u2019t yet capture.\n\nNet score: 0 (from explicit rules) + 45 (sentiment and systemic\u2011risk overhang) = 45. Status: YELLOW (Caution/Leaking): the story has turned bearish and systemic, but the datapoints for NVIDIA still look more like late\u2011stage boom than outright bust.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "US senator warns of another '2008-style financial crisis' thanks to looming AI 'bubble'",
+      "NVDA_price": 208.27,
+      "NVDA_volatility": 3.48,
+      "NVDA_pe_ratio": 42.591003,
+      "NVDA_forward_pe": 18.530712,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 424.62,
+      "GOOGL_price": 344.4,
+      "nvda_pe": "42.591003",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-04-24T21:16:02.265800"
   }
 ]
