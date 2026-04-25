@@ -3046,5 +3046,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-04-24T21:16:02.265800"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): The algorithm flags risk when AI revenue growth is slowing below 10% while capex is heavy. For Nvidia, reported revenue growth is extremely high at ~73.2%, not sub\u201110%. The Warren comments highlight *industry-wide* concerns that revenues are not keeping pace with massive investment and debt, but we do not have concrete, broad-based financial data showing actual <10% revenue growth at major AI leaders. Under a strict, data-driven reading of the rule, the numeric growth for NVDA is far from a slowdown, so Efficiency Check adds +0 risk.\n\nStep 2 \u2013 Valuation Check (+0): The rule triggers if NVDA PEG > 2.5 or trailing P/E > 70. Provided metrics: NVDA PEG = 0.72, trailing P/E \u2248 42.6. Both are well below the thresholds, implying that, on current numbers, Nvidia does *not* meet the bubble valuation condition in this algorithm. Valuation Check adds +0 risk.\n\nStep 3 \u2013 Adoption Check (+25): We must score +25 if non\u2011tech firms are pausing or canceling AI projects (\"Pilot Purgatory\"). None of the supplied articles explicitly mention enterprises shelving or stalling AI deployments; the focus is macro: debt-driven AI buildout, systemic risk, and bubble analogies (2008, dot\u2011com). However, Warren\u2019s core claim is that AI revenues (~$20B in 2025) are vastly lagging the investment needed (implied $2T by 2030), and that many projects are not yet generating commensurate cash flows. That\u2019s consistent with a world where many pilots are not converting into scaled, paid production. While the specific phrase \"pilot purgatory\" doesn\u2019t appear, the structural mismatch between spend and realized revenue is strong circumstantial evidence of weak real-world adoption and monetization beyond Big Tech. Given the algorithm instructs us to key off sentiment shifts and expert quotes, Warren\u2019s speech is a clear, high-profile flag of adoption and monetization risk. I treat this as a soft but material signal of pilot purgatory dynamics and assign the +25 risk.\n\nStep 4 \u2013 Hardware Signals (+0): The rule adds +20 risk if news mentions \"easing supply\" or \"reduced lead times\" for GPUs, implying demand cooling. None of the supplied articles reference GPU supply normalizing, easing, or lead times shrinking. The semiconductor ETF article actually argues many chip names are not severely overvalued and highlights long-term strength; it does *not* claim demand is rolling over. So Hardware Signals add +0.\n\nBase Sentiment Overlay (+20): While not a formal step in the algorithm, there is a very clear shift in *macro* sentiment: multiple pieces talk about an \"AI bubble\" and \"readied to pop\"; a U.S. Senator publicly compares AI to the 2008 housing crisis, calls it four times larger than the housing bubble, and claims it\u2019s debt-driven with shady accounting and systemic risk potential. At the same time, one article pushes back, arguing SMH constituents and Nvidia\u2019s forward P/E are not extreme and that investments are mostly funded from earnings rather than leverage. This combination of rising systemic-risk rhetoric from policymakers and explicitly bearish bubble headlines, partially offset by valuation-based counterarguments, represents a meaningful deterioration from pure euphoria to a mixed, cautionary regime. To reflect this sentiment shift within the 0\u2013100 scoring framework, I assign an additional +20 risk points.\n\nTotal: Efficiency (0) + Valuation (0) + Adoption/Pilot Purgatory (25) + Hardware (0) + Sentiment Overlay (20) = 45. That falls into the YELLOW band (31\u201369): Caution/Leaking. In other words, the canary is coughing, not dead. Fundamentals for lead names like Nvidia still look strong and not obviously bubble-valued on this data, but policy-makers and media are openly framing AI as a leveraged, systemic bubble with unproven revenue \u2013 a classic late-cycle tone shift.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "US senator warns of another '2008-style financial crisis' thanks to looming AI 'bubble'",
+      "NVDA_price": 208.27,
+      "NVDA_volatility": 3.48,
+      "NVDA_pe_ratio": 42.591003,
+      "NVDA_forward_pe": 18.530712,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 424.62,
+      "GOOGL_price": 344.4,
+      "nvda_pe": "42.591003",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-04-25T21:10:46.661968"
   }
 ]
