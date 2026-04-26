@@ -3068,5 +3068,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-04-25T21:10:46.661968"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0 risk):\nNvidia revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. Although articles mention massive data center build\u2011outs and capex, the rule requires heavy spend *plus* sub\u201110% growth to add risk. That condition is not met, so +0 risk.\n\nStep 2 \u2013 Valuation Check (0 risk):\nThe rule triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Current metrics: PEG \u2248 0.74, P/E \u2248 42.6. Both are below the thresholds, so no valuation-triggered bubble score. +0 risk.\n\nStep 3 \u2013 Adoption Check / \u2018Pilot Purgatory\u2019 (+25 risk):\nThe news set is dominated by AI-bubble concern pieces (Warren\u2019s warning; \u201cAI frenzy propels markets\u201d; \u201cPrediction: The AI Bubble Is Readying to Pop\u201d; 60/40 rule being rethought). However, none of the provided articles explicitly reference enterprises pausing or canceling AI rollouts, shelving generative AI initiatives, or being stuck in \u2018pilot purgatory\u2019. They discuss high expectations, late-decade cash flows, and past bubbles, but not widespread stalled adoption. Therefore the specific \u2018Pilot Purgatory\u2019 condition is not satisfied. +0 risk.\n\nStep 4 \u2013 Hardware Signals (+0 risk):\nThe content references massive GPU demand and data center construction but does *not* mention \u2018easing supply\u2019, \u2018improving availability\u2019, \u2018reduced lead times\u2019, or similar phrases that would indicate demand roll-off versus supply catching up. Thus the hardware-weakening trigger is not met. +0 risk.\n\nAlgorithmic total from explicit rules: 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0.\n\nHowever, sentiment in the news clearly reflects elevated systemic concern:\n- Multiple articles frame AI as a potential bubble and compare it to the dot\u2011com era or the housing crisis.\n- Market breadth is deteriorating: AI leaders are pulling indices to highs while a large chunk of the S&P 500 is down >10%, suggesting a narrow, narrative-driven rally.\n- Investors are financing huge AI/data center build-outs while meaningful AI-related free cash flow is acknowledged as a \u2018late decade\u2019 story, which is a classic timing mismatch between capital deployment and realized returns.\n\nThese signals indicate a growing speculative overhang not yet confirmed by the algorithm\u2019s hard triggers (no slowdown in NVDA growth, valuations still below extreme levels, no concrete adoption stall, no easing GPU supply). To reflect this disconnect\u2014rising narrative risk without fundamental breakdown\u2014I assign an overlay risk of +45, placing conditions in the mid \u2018Caution/Leaking\u2019 band.\n\nNet result: Overall risk score 45, status YELLOW. Fundamentals for key hardware remain strong and valuations not yet at blow-off extremes, but sentiment, concentration risk, and bubble analogies show the system is pressurized and vulnerable if/when growth or capex efficiency falter.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI frenzy propels markets to record highs, fueling bubble debate",
+      "NVDA_price": 208.27,
+      "NVDA_volatility": 3.48,
+      "NVDA_pe_ratio": 42.58896,
+      "NVDA_forward_pe": 18.529821,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.74,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 424.62,
+      "GOOGL_price": 344.4,
+      "nvda_pe": "42.58896",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.74"
+    },
+    "date": "2026-04-26T21:10:26.964060"
   }
 ]
