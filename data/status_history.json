@@ -3090,5 +3090,27 @@
       "peg_ratio": "0.74"
     },
     "date": "2026-04-26T21:10:26.964060"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0): Nvidia\u2019s trailing revenue growth is extremely strong at ~73.2%, and the news, while highlighting record hyperscaler capex of ~$660\u2013690B (largest corporate investment program in history), does not yet indicate that AI revenue growth at hyperscalers has fallen below 10% or is clearly stalling. The narrative explicitly says profits have exploded and that Nvidia alone earned ~$120B in net income, so there is no direct evidence of a revenue-growth slowdown versus capex. Result: 0 risk points.\n\nStep 2 \u2013 Valuation Check (+15 or 0): The algorithm flags risk if NVDA PEG > 2.5 OR trailing P/E > 70. Provided metrics: NVDA PEG = 0.74 and trailing P/E \u2248 44.30, both well below the specified bubble triggers. Despite broader market Shiller CAPE at 38\u201340 and top-10 concentration above dot-com levels, the rule is NVDA-specific and its current multiples don\u2019t cross the thresholds. Result: 0 risk points.\n\nStep 3 \u2013 Adoption Check (+25 or 0): We are instructed to scan for signs of \u2018Pilot Purgatory\u2019\u2014non\u2011tech firms pausing/canceling AI projects. The supplied articles focus on macro valuation fears and bubble analogies, not concrete evidence of enterprises shelving AI deployments. There is abundant concern (Grantham: \u2018slim to none\u2019 chance AI rally doesn\u2019t bust; Hussman calling it Ponzi\u2011like; 57% of fund managers citing AI crash as top risk), but that\u2019s sentiment, not adoption rollback. No explicit \u2018pilot purgatory\u2019 signals, so according to the algorithm this condition is not met. Result: 0 risk points.\n\nStep 4 \u2013 Hardware Signals (+20 or 0): We add risk if there are mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, indicating demand softening. None of the provided content mentions GPU supply loosening; the narrative is still about massive hyperscaler build\u2011out and record spending, not excess inventory or order cuts. Result: 0 risk points.\n\nBase Sentiment Overlay (discretionary adjustment): While the strict four rules yield a mechanical score of 0, the question explicitly emphasizes shifts in sentiment. The news set shows a clear, sharp turn in tone: (1) repeated explicit references to an \u2018AI bubble\u2019 and comparisons to the dot\u2011com peak; (2) Shiller CAPE at the second-highest level in 155 years; (3) S&P top\u201110 concentration above 2000 levels; (4) 57% of institutional investors naming an AI valuation crash as the single greatest risk; (5) high\u2011profile bears (Grantham, Hussman) explicitly predicting a bust or \u2018ball of flames\u2019. At the same time, fundamentals (Nvidia profits, sector earnings, and current measured valuation for NVDA itself) are still very strong and not at the algorithm\u2019s hard-danger triggers.\n\nGiven the instructions to produce a 0\u2013100 risk score, and to incorporate sentiment shifts, I apply a discretionary +35 risk points to reflect that we are in a structurally fragile environment where valuations and positioning are stretched and the narrative has clearly moved to \u2018bubble-watch\u2019 mode, even though the specific mechanical triggers (slowing AI revenue vs capex, extreme NVDA valuation, pilot purgatory, or GPU oversupply) have not yet fired. This places the system in the lower band of YELLOW (35), consistent with \u2018Caution/Leaking\u2019: sentiment and macro signals are flashing warning lights, but the core algorithmic triggers for an imminent burst are not yet confirmed.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI rally looks like the dot-com bubble. The companies do not.",
+      "NVDA_price": 216.61,
+      "NVDA_volatility": 7.18,
+      "NVDA_pe_ratio": 44.296524,
+      "NVDA_forward_pe": 19.272758,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.74,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 424.82,
+      "GOOGL_price": 350.34,
+      "nvda_pe": "44.296524",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.74"
+    },
+    "date": "2026-04-27T21:21:37.810416"
   }
 ]
