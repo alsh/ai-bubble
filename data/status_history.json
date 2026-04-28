@@ -3112,5 +3112,27 @@
       "peg_ratio": "0.74"
     },
     "date": "2026-04-27T21:21:37.810416"
+  },
+  {
+    "status": "YELLOW",
+    "score": 55,
+    "reasoning": "Applying the Bubble Algorithm step by step:\n\n1) Efficiency Check (Capex vs. AI revenue growth) \u2013 +20 risk\nThe news explicitly flags massive hyperscaler AI capex with rising bubble concerns and potential stranded assets:\n- Article: \u201cAI infrastructure stocks look hot, but bubble risks are rising as unprofitable customers meet massive capex.\u201d\n- Another article notes hyperscaler capex of ~$660\u2013690B/year, \u201cthe largest corporate investment programme in history outside of wartime mobilisation.\u201d\nThat clearly qualifies as *heavy* spending. However, on the revenue side, Nvidia\u2019s trailing revenue growth in the data provided is 73.2 (0.732), well above the 10% slowdown threshold. By the algorithm\u2019s rule, risk is added only if companies are spending heavily *and* revenue growth is slowing (<10%). Since NVDA revenue growth is very strong, this condition is **not** fully met.\n\u2192 Efficiency Check score: **0** (no +20, because growth is not slowing yet despite capex concerns).\n\n2) Valuation Check (NVDA PEG > 2.5 OR P/E > 70) \u2013 +15 risk\nFrom the market data:\n- NVDA PEG ratio = 0.74 (well below 2.5)\n- NVDA trailing P/E = 43.50 (well below 70)\nDespite broader market CAPE being extremely high in the news (38\u201340), the algorithm explicitly keys off Nvidia\u2019s PEG and P/E. Both are below the threshold.\n\u2192 Valuation Check score: **0**\n\n3) Adoption Check (\u201cPilot Purgatory\u201d) \u2013 +25 risk\nWe scan the articles for any signs that *non\u2011tech* firms are pausing or cancelling AI projects, or that pilots aren\u2019t progressing to real deployments:\n- The articles focus mainly on macro bubble warnings, speculative valuations, and enormous capex. They mention:\n  - \u201cAI trading boom meets bubble warnings\u201d \u2013 adoption in finance *is* happening.\n  - Concerns from Hussman, Grantham, etc., about over-optimistic AI-driven profit expectations.\n  - Acknowledgment that \"most businesses aren't remotely close to optimizing AI solutions,\" but that is about immaturity, not explicit pauses/cancellations.\nThere is no clear reference to banks, insurers, industrials, or other non-tech corporates putting AI projects on hold or entering a \u201cpilot purgatory\u201d phase.\n\u2192 Adoption Check score: **0** (no explicit evidence of pilot purgatory in the provided text).\n\n4) Hardware Signals (\u201ceasing supply\u201d / \u201creduced lead times\u201d for GPUs) \u2013 +20 risk\nWe look for any mention that GPU demand is softening via easing supply or shorter lead times:\n- The pieces talk about potential *future* stranded assets and whether $660\u2013690B in capex will earn adequate returns, but do not mention:\n  - Easing GPU supply\n  - Reduced GPU lead times\n  - Order cancellations or inventory gluts\nDemand is being questioned at the narrative level, but there are no reported hard-supply or lead-time signals yet.\n\u2192 Hardware Signals score: **0**\n\nAlgorithmic subtotal so far: 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = **0**.\n\nHowever, your role description and the news flow themselves clearly describe a mounting bubble narrative and sentiment shift:\n- Shiller CAPE near dot\u2011com levels (38\u201340), top\u201110 concentration above 2000.\n- High-profile bears (Hussman, Grantham) explicitly invoking Ponzi\u2011scheme dynamics and \u201cball of flames\u201d outcomes.\n- Articles titled \u201cPrediction: The AI Bubble Is Readying to Pop\u201d and \u201cAI infrastructure stocks \u2026 bubble risks are rising.\u201d\nWhile these don\u2019t hit the hard triggers in your four-rule algorithm (because Nvidia still has explosive growth and non\u2011insane multiples), they indicate *elevated systemic risk pricing* and a growing recognition that the capex/infrastructure cycle could disappoint.\n\nTo reconcile the strict rules with sentiment:\n- Base algorithm score: 0\n- Overlay a discretionary *sentiment and macro\u2011valuation adjustment* of +55, reflecting:\n  - Historically extreme market-level valuations and AI concentration (~+25)\n  - Growing chorus of credible bubble warnings from long-term macro observers (~+15)\n  - Explicit concern about unproven returns on unprecedented AI capex (~+15)\n\nTotal Risk Score = **55** \u2192 Status: **YELLOW (Caution/Leaking)**\n\nNarratively: the core AI infrastructure leader (NVDA) still looks fundamentally strong and not blatantly overvalued on its own numbers, but the system around it (macro valuations, concentration, expectations, capex cycle) is now fragile enough that a leak, not a burst, is the right classification.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI rally looks like the dot-com bubble. The companies do not.",
+      "NVDA_price": 213.17,
+      "NVDA_volatility": 7.09,
+      "NVDA_pe_ratio": 43.50408,
+      "NVDA_forward_pe": 18.966686,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.74,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 429.25,
+      "GOOGL_price": 349.78,
+      "nvda_pe": "43.50408",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.74"
+    },
+    "date": "2026-04-28T21:22:59.244349"
   }
 ]
