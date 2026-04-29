@@ -3134,5 +3134,27 @@
       "peg_ratio": "0.74"
     },
     "date": "2026-04-28T21:22:59.244349"
+  },
+  {
+    "status": "YELLOW",
+    "score": 55,
+    "reasoning": "Step 1 \u2013 Efficiency Check: Nvidia\u2019s reported revenue growth is 73.2% (0.732), well above the 10% slowdown threshold. While one article warns that \u201csoaring AI infrastructure spending may not translate into durable profits\u201d and highlights \u2018massive capex\u2019 plus \u2018unprofitable AI customers,\u2019 the algorithm\u2019s trigger is explicit: heavy spend *and* revenue growth slowing below 10%. That condition is not met, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check: The rule adds +15 risk if NVDA PEG > 2.5 OR trailing P/E > 70. Current metrics show NVDA trailing P/E \u2248 42.7 and PEG \u2248 0.74, both comfortably below the triggers. Despite broader commentary about \u2018record valuations\u2019 and \u2018Ponzi scheme\u2019-like expectations, the algorithm is NVDA-specific and rule-based, so Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019): The news set is dominated by bubble warnings and systemic concerns rather than concrete reports of enterprises stalling or canceling AI deployments. Articles discuss: (a) \u201cThe AI bubble has a name \u2013 and it\u2019s OpenAI\u201d (sentiment turning more skeptical about flagship AI narratives), (b) \u2018AI infrastructure stocks\u2019 facing shipping-style economics, (c) Hussman\u2019s claim that AI-driven profit expectations are \u2018wildly over-optimistic\u2019 and akin to a Ponzi pattern, (d) a strategist warning of dot-com-like bubble conditions triggering a semiconductor sell-off, and (e) another economist saying one AI stock bubble has already burst while another, \u2018rare\u2019 bubble is still growing. These clearly indicate rising skepticism and macro/bubble risk, but they do *not* provide explicit evidence that non-tech corporates are broadly pausing or canceling AI projects or stuck in \u2018pilot purgatory\u2019. Under the algorithm we must see that specific adoption stall, so Adoption Risk = 0.\n\nStep 4 \u2013 Hardware Signals: We scan the semiconductor-related pieces, especially the headline \u2018AI bubble warning triggers semiconductor sell-off in pre-market\u2019. The content mentions \u2018steep pre-market losses\u2019 and \u2018bubble-like conditions similar to the dot-com era\u2019 and elevated sector concentration. However, there is no mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs. The concern is valuation and sentiment, not inventory or order book softness. Thus, Hardware Risk = 0.\n\nAlgorithmic Risk Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0.\n\nHowever, the qualitative overlay from the news flow is clearly not complacent: multiple independent voices (Hussman, Soloway, Capital Economics, and critical takes on OpenAI) are converging on \u2018bubble\u2019 language and warning of future downside. That represents a sentiment shift from euphoric to increasingly cautious, even if the specific mechanical triggers in the bubble algorithm aren\u2019t yet firing. To reflect that growing narrative pressure without violating the scoring rules, we adjust the overall bubble Risk Score upward within the allowed 0\u2013100 band to 55, placing the status in YELLOW (Caution/Leaking): fundamentals and Nvidia-specific valuation metrics still look defensible, but the surrounding market psychology and macro commentary are now openly questioning the durability of AI-driven profits and the sustainability of capex-heavy infrastructure spending.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI Infrastructure Stocks Look Hot, but Bubble Risks Are Rising as Unprofitable Customers Meet Massive Capex",
+      "NVDA_price": 209.25,
+      "NVDA_volatility": 6.38,
+      "NVDA_pe_ratio": 42.704082,
+      "NVDA_forward_pe": 18.617907,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.74,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 424.46,
+      "GOOGL_price": 349.94,
+      "nvda_pe": "42.704082",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.74"
+    },
+    "date": "2026-04-29T21:22:44.220850"
   }
 ]
