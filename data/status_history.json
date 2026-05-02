@@ -3200,5 +3200,27 @@
       "peg_ratio": "0.76"
     },
     "date": "2026-05-01T21:16:09.408138"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0):\nNvidia\u2019s reported revenue growth is ~73% (0.732), far from \u2018slowing <10%.\u2019 While the news clearly shows massive capex and data-center build\u2011out (hundreds of billions going into AI infrastructure, Nvidia investing in its own customers, etc.), the algorithm only flags this if heavy spend coincides with sub\u201110% revenue growth. That condition is not met, so Efficiency risk = 0.\n\nStep 2 \u2013 Valuation Check (+0):\nThe algorithm triggers if NVDA PEG > 2.5 OR trailing P/E > 70.\n\u2022 NVDA PEG ratio: 0.63 (well below 2.5)\n\u2022 NVDA trailing P/E: 40.5 (well below 70)\nEven if you assume some creative optimism in the growth inputs, by the defined rule no valuation flag is triggered. Valuation risk = 0.\n\nStep 3 \u2013 Adoption Check (+0):\nWe scan for \u2018Pilot Purgatory\u2019 style signals \u2013 non\u2011tech firms pausing/canceling projects or complaining they can\u2019t move AI from experiment to production.\n\u2022 Article 1: Describes a sharp *improvement* in real traction \u2013 Claude Code and AI agents driving \u2018astronomical\u2019 productivity, teams doing 4x software output, and AI moving from \u201cinteresting gadget\u201d to \u201cagents that can actually do things.\u201d That\u2019s the opposite of pilot purgatory.\n\u2022 Berkshire article: Subsidiaries like See\u2019s Candies, Dairy Queen, etc. are described as embracing AI \u201cto different degrees\u201d with broadly positive tone on efficiency. Greg Abel is cautious, but it\u2019s a prudence message, not a pause/cancel signal.\n\u2022 GoodData.ai CTO explicitly says the \u201centerprise AI bubble is real, but so is transformational power\u201d \u2013 again, concern about valuations and hype, not adoption freeze.\n\u2022 Venture funding piece: Enterprises across sectors are \u201cadding to their AI portfolios\u201d and VCs are accelerating deployment of capital. Concerns are about profitability and circular financing, not lack of use.\nNo explicit signs of broad non\u2011tech \u2018pilot purgatory\u2019 or large\u2011scale cancellations; if anything, adoption is accelerating. Adoption risk = 0.\n\nStep 4 \u2013 Hardware Signals (+0):\nThe news includes:\n\u2022 Massive GPU demand via huge rounds for OpenAI, Anthropic, and X.AI tied to Nvidia GPU supply deals.\n\u2022 Worries about whether there will be *enough* data centers to meet demand.\nThere is no language about \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs; if anything, the subtext is ongoing tightness and aggressive pre\u2011buying. Hardware risk = 0.\n\nAlgorithmic Score: 0 (no rule-based triggers activated).\n\nOverlay Sentiment Adjustment (+35):\nThe algorithm itself returns 0, but the brief explicitly asks to watch for *shifts* in sentiment and contextual contradictions. There is a clear late\u2011cycle smell:\n\u2022 Venture funding is in blow\u2011off phase: $300B in Q1 into 6,000 AI startups, record pace, \u2018gold rush,\u2019 circular financing (Nvidia funding customers who then buy Nvidia GPUs).\n\u2022 Valuations of private AI firms are extreme: OpenAI at ~$852B, Anthropic at ~$380B with little visibility on durable margins and capex requirements.\n\u2022 Multiple experienced voices (Hussman, Jack Gold, GoodData CTO) explicitly call this an AI bubble or Ponzi\u2011like dynamic, citing deficits and murky profitability.\n\u2022 At the same time, the first article marks a *genuine* fundamental turning point: real revenue catching up to hype, extreme growth at Anthropic, widespread productivity gains in software.\nThis is classic transition from pure speculative phase to \u2018profits justify anything\u2019 phase: fundamentals improving while capital and narrative run ahead of reality. That is not RED (burst imminent), but it is no longer GREEN. On balance, I assign a +35 discretionary risk to reflect growing systemic bubble characteristics despite strong current fundamentals.\n\nNet Risk Score: 0 (rules) + 35 (sentiment/late-cycle overlay) = 35.\nThis falls in the YELLOW band (31\u201369): Caution/Leaking \u2013 real business value materializing, but capital flows and narrative excess are increasingly disconnected from sustainable economics.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI venture funding to shoot up this year as bubble looms",
+      "NVDA_price": 198.45,
+      "NVDA_volatility": 8.11,
+      "NVDA_pe_ratio": 40.5,
+      "NVDA_forward_pe": 17.656982,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 414.44,
+      "GOOGL_price": 385.69,
+      "nvda_pe": "40.5",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-05-02T21:13:34.304963"
   }
 ]
