@@ -3222,5 +3222,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-05-02T21:13:34.304963"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVIDIA\u2019s reported revenue growth is ~73.2% (0.732), which is far above the 10% slowdown threshold. While the news mentions that AI capex growth is expected to plunge from >100% in 2026 to 15\u201330% in 2027 and that there were earlier concerns about overinvestment in data centers, there is no indication in the articles that current AI revenue growth at leading players has slowed below 10%. In fact, one piece emphasizes that revenues are now \u2018finally catching up to the hype\u2019 and cites Anthropic as \u2018possibly the fastest-growing business in the history of capitalism.\u2019 Therefore, the criterion of heavy spending with sub-10% revenue growth is not met, so the risk contribution here is 0.\n\nStep 2 \u2013 Valuation Check (+0): The algorithm flags risk if NVIDIA\u2019s PEG ratio > 2.5 OR trailing P/E > 70. Provided data: NVDA PEG = 0.63 (well below 2.5) and NVDA trailing P/E = 40.5 (well below 70). Even though there is generalized commentary in the news about \u2018record valuations\u2019 and \u2018AI bubble\u2019 concerns, the explicit quantitative valuation triggers in the Bubble Algorithm are not hit. So valuation adds 0 risk.\n\nStep 3 \u2013 Adoption Check (+0): We scan the articles for concrete evidence of \u2018Pilot Purgatory\u2019 where non-tech firms are pausing or canceling AI projects. The first article actually describes the opposite: rapid adoption of AI agents like Claude Code and \u2018astronomical productivity benefits,\u2019 with developers producing multiples of prior output. Other pieces talk about over-optimism, historical bubbles, and systemic risk (debt, fiscal pullback), but they do not cite non-tech enterprises shelving AI pilots at scale. No explicit pausing/canceling trend is documented, so this condition is not met, contributing 0 risk.\n\nStep 4 \u2013 Hardware Signals (+0): The algorithm adds risk if news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, signaling demand softening. None of the supplied articles mention easing GPU supply, shorter lead times, or inventory overhang. The main hardware-related datapoint is that AI capex growth is projected to slow meaningfully in 2027, which implies future demand deceleration but does not meet the explicit text triggers of \u2018easing supply\u2019 or \u2018reduced lead times.\u2019 Under the strict rules, risk from this channel is 0.\n\nNet Algorithmic Risk Score: Efficiency (0) + Valuation (0) + Adoption (0) + Hardware (0) = 0. However, the question emphasizes shifts in sentiment, and the newsflow is dominated by warnings: multiple articles explicitly use \u2018AI bubble,\u2019 highlight mountains of debt, risky financial maneuvers, historically high market valuations, and a forecasted plunge in AI capex growth from >100% to 15\u201330% in 2027. A prominent permabear likens the current setup to a Ponzi-like structure driven by deficits and doubts the sustainability of profit margins as fiscal policy normalizes. Another article is titled \u2018Prediction: The AI Bubble Is Readying to Pop,\u2019 laying out macro and historical analogies to prior tech bubbles. Set against this is one strongly bullish piece arguing that AI revenues and adoption are now catching up to infrastructure spend, with agents like Claude Code marking a step-change in real utility.\n\nThis mix is best characterized as sentiment-driven, not yet data-triggered under the strict Bubble Algorithm thresholds: fundamentals (revenue growth, NVIDIA-specific valuation, and explicit adoption/hardware signals) do not yet flash red, while the narrative has clearly turned cautious to bearish. To reflect this, I adjust the practical risk score upward to 35, placing the market in the lower band of YELLOW \u2013 not because the algorithmic triggers have fired, but because forward-looking capex compression and increasingly alarmist macro/bubble commentary suggest mounting medium-term fragility even as current metrics remain strong.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Prediction: The AI Bubble Is Readying to Pop, With These 4 Factors Tipping Off Investors",
+      "NVDA_price": 198.45,
+      "NVDA_volatility": 8.11,
+      "NVDA_pe_ratio": 40.5,
+      "NVDA_forward_pe": 17.656982,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 414.44,
+      "GOOGL_price": 385.69,
+      "nvda_pe": "40.5",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-05-03T21:14:17.781293"
   }
 ]
