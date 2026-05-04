@@ -3244,5 +3244,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-05-03T21:14:17.781293"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying The Bubble Algorithm step by step:\n\n1. Efficiency Check (0/20): NVDA revenue growth is 73.2% (0.732), far above the 10% slowdown threshold. No news data indicating heavy AI capex with sub-10% revenue growth, so no +20 risk.\n\n2. Valuation Check (0/15): NVDA trailing P/E is ~40.5 (below the 70 threshold) and PEG ratio is 0.63 (below 2.5). Both conditions fail the overvaluation triggers, so no +15 risk.\n\n3. Adoption Check (0/25): No recent news articles were provided (empty list), so there is no evidence of non\u2011tech firms entering 'pilot purgatory' or pausing/canceling AI projects. No +25 risk.\n\n4. Hardware Signals (0/20): With no news, there are no mentions of 'easing supply' or 'reduced lead times' for GPUs, so no signal of a demand rollover. No +20 risk.\n\nTotal risk score = 0 + 0 + 0 + 0 = 0. That places the market firmly in the GREEN (Stable/Early Growth) zone under this algorithm, with fundamentals (revenue and earnings growth) still strongly outpacing even an already-elevated AI narrative and without textual evidence of demand cracks or capex/revenue divergence.",
+    "metrics": {
+      "market_sentiment": "Bullish",
+      "top_headline": "No relevant AI-bubble headlines available in the provided news dataset",
+      "NVDA_price": 198.48,
+      "NVDA_volatility": 6.93,
+      "NVDA_pe_ratio": 40.506123,
+      "NVDA_forward_pe": 17.65965,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 413.62,
+      "GOOGL_price": 383.25,
+      "nvda_pe": "40.506123",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-05-04T21:22:59.090199"
   }
 ]
