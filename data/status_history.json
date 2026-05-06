@@ -3288,5 +3288,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-05-05T21:21:13.897026"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Step 1 \u2013 Efficiency Check: Nvidia\u2019s reported revenue growth is 73.2% (0.732), far above the 10% slowdown threshold. While news mentions massive data center and AI infrastructure spend (JPMorgan/BlackRock defending ~$1.4T and \u2018hundreds of billions\u2019 going into build-out), the algorithm only flags risk when heavy spending coincides with revenue growth <10%. That condition is not met, so +0 risk here.\n\nStep 2 \u2013 Valuation Check: Nvidia\u2019s trailing P/E is ~42.5 (below the 70 threshold) and its PEG ratio is 0.63 (well below 2.5). Both valuation triggers fail, so +0 risk here.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory): The articles discuss earlier worries about overinvestment but explicitly say revenues are now catching up to the hype, with Anthropic described as possibly the fastest-growing business in history and AI tools (e.g., Claude Code, coding agents) seeing strong adoption and productivity gains. There is no mention of non\u2011tech firms pausing/canceling AI projects or \u2018pilot purgatory\u2019\u2014indeed the tone is that adoption is accelerating. So the pilot purgatory condition is not met, +0 risk.\n\nStep 4 \u2013 Hardware Signals: The news mentions a $1\u20131.4T data\u2011center/AI infrastructure build\u2011out and CEOs (Dimon, Fink) defending this spend, not \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs. No language suggesting softening GPU demand or overcapacity in near-term supply. Hence, the hardware signal condition is not met, +0 risk.\n\nAggregate: All four algorithmic triggers fail based on the supplied metrics and text. Despite some commentators (Burry) warning of a bubble and others (Fink, Dimon, Cramer) insisting there is no bubble, those are sentiment/color, not conditions in the specified Bubble Algorithm. Total risk score = 0, mapped to GREEN (Stable/Early Growth).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "So, About That AI Bubble",
+      "NVDA_price": 207.83,
+      "NVDA_volatility": 4.42,
+      "NVDA_pe_ratio": 42.501022,
+      "NVDA_forward_pe": 18.491564,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 413.96,
+      "GOOGL_price": 398.04,
+      "nvda_pe": "42.501022",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-05-06T21:23:41.839241"
   }
 ]
