@@ -3332,5 +3332,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-05-07T21:20:22.333101"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is ~73.2%, well above the 10% slowdown threshold. While one article notes that 'Big Tech AI capex is squeezing cash flow and boosting leverage', there is no evidence in the data or news that NVDA\u2019s or broader AI leaders\u2019 revenue growth has fallen below 10%. Therefore, the condition 'spending heavily but revenue growth is slowing (<10%)' is NOT met. Score +0.\n2) Valuation Check: NVDA PEG ratio is 0.66 (well below 2.5) and trailing P/E is ~43.83 (below the 70 threshold). So the rule 'If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, Score +15 risk' does not trigger. Score +0.\n3) Adoption Check (Pilot Purgatory): The news flow is clearly concerned about an AI bubble and excess valuation, but none of the articles mention enterprises putting AI into 'pilot purgatory', pausing, or cancelling AI projects at scale. Instead, they point to: a) VCs complaining that 'the math is not mathing' and that round sizes are too large relative to fundamentals, b) concerns that AI/LLM business models are not yet profitable (OpenAI missing metrics and relying on ever-larger raises), and c) general equity concentration and AI-driven overvaluation, not explicit implementation stall-outs. Thus, the specific condition of widespread 'pilot purgatory' is NOT met. Score +0.\n4) Hardware Signals: None of the articles mention 'easing supply' or 'reduced lead times' for GPUs. In fact, they still frame the space as an 'AI arms race', with Oracle and others 'spending billions on Nvidia chips', implying sustained demand. Therefore, the hardware-signal trigger is NOT met. Score +0.\nAggregate per algorithm: 0 + 0 + 0 + 0 = 0. However, sentiment and context are meaningfully cautious: Michael Burry calls current tech more 'extreme' than the dot-com bubble and specifically questions Nvidia\u2019s accounting; Vanguard publicly questions the equity valuation environment and advocates a defensive 40/60 allocation; Canadian VCs openly debate an 'AI bubble' with one calling it 'huge' and 'not sustainable'; another article talks about AI capex squeezing cash flow and leverage. This constellation of high-profile, data-driven skepticism indicates non-trivial systemic risk build-up around AI-linked equities even though the mechanical triggers don\u2019t yet fire. As 'The Canary', I layer a discretionary, sentiment-based overlay of +35 risk points to reflect a market where fundamentals (fast NVDA growth, still-reasonable PEG/P/E) remain strong but narrative froth and leverage are clearly rising. Final score: 35 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Today's Tech Stock Rally More 'Extreme' Than the Dot-com Bubble, Warns Michael Burry",
+      "NVDA_price": 215.2,
+      "NVDA_volatility": 8.14,
+      "NVDA_pe_ratio": 43.828922,
+      "NVDA_forward_pe": 19.068007,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 415.12,
+      "GOOGL_price": 400.8,
+      "nvda_pe": "43.828922",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-05-08T21:20:42.777288"
   }
 ]
