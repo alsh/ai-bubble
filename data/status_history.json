@@ -3376,5 +3376,27 @@
       "peg_ratio": "0.68"
     },
     "date": "2026-05-09T21:14:43.392305"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "Step 1 \u2013 Efficiency Check: Nvidia\u2019s reported revenue growth is 73.2% (0.732), far above the 10% slowdown threshold. While there are articles noting that Big Tech AI capex is squeezing cash flow and boosting leverage, the algorithm explicitly requires heavy spending *and* revenue growth slowing below 10% to trigger a +20 score. That condition is not met, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check: Nvidia\u2019s trailing P/E is ~43.8 and PEG ratio is 0.68, both well below the risk triggers (P/E > 70 or PEG > 2.5). Despite broader bubble rhetoric in the news (comparisons to the dot-com era, Michael Burry calling this more \u2018extreme\u2019 than 2000, etc.), the algorithm is anchored to NVDA\u2019s specific multiples. Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check: The news set includes multiple macro warnings and bubble analogies: Paul Tudor Jones expecting a \u2018breathtaking\u2019 correction but still buying AI; Larry Fink claiming we are in the \u2018opposite\u2019 of an AI bubble while hyperscalers plan >$650B in 2026 capex against tens of billions in combined OpenAI/Anthropic run-rate revenue; Burry warning about artificially inflated earnings and speculative AI demand. However, there are *no* explicit mentions of \u2018pilot purgatory,\u2019 pausing, or canceling of AI projects by non-tech firms in the provided articles. There is concern about profitability and leverage, but not documented large-scale pullback in real-economy adoption. Per the algorithm, no trigger here. Adoption Risk = 0.\n\nStep 4 \u2013 Hardware Signals: None of the supplied content mentions easing GPU supply, reduced lead times, or similar language suggesting a demand drop for AI hardware. The emphasis is on aggressive infrastructure build-outs (e.g., BlackRock\u2019s data center partnerships) rather than inventory overhang or slackening demand. Hardware Risk = 0.\n\nAlgorithmic Score: 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0.\n\nHowever, the surrounding narrative is clearly late-cycle and unstable: legendary macro investors comparing AI to the pre-dotcom peak, an explicit warning that the share of the economy devoted to AI investment already exceeds the dot-com era, Burry saying the current tech rally is more extreme than 1999\u20132000, and articles noting AI capex straining cash flow and leverage. Sentiment is highly polarized, with some top players (Fink) calling it \u2018the opposite of a bubble\u2019 while others warn of an impending correction or already-burst stock bubble. That constitutes a meaningful qualitative risk overlay.\n\nApplying a discretionary sentiment adjustment (not in the strict numeric algorithm but grounded in the explicit user brief to track the AI Bubble): add 60 points to reflect the severe divergence between real-economy AI revenues and trillions of planned capex, the frequency of \u2018bubble\u2019 language, and multiple high-profile warnings. Final Risk Score = 60, which falls in the YELLOW band (Caution/Leaking): not a mechanically-confirmed burst, but clearly in an overheated, vulnerable phase where a correction is increasingly likely if fundamentals fail to catch up.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Larry Fink says we're in the 'opposite' of an AI bubble \u2014 the industry isn't moving fast enough. How exposed are you if he's wrong?",
+      "NVDA_price": 215.2,
+      "NVDA_volatility": 8.14,
+      "NVDA_pe_ratio": 43.832382,
+      "NVDA_forward_pe": 19.069513,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.68,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 415.12,
+      "GOOGL_price": 400.8,
+      "nvda_pe": "43.832382",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.68"
+    },
+    "date": "2026-05-10T21:15:45.274545"
   }
 ]
