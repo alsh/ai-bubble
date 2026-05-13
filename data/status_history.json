@@ -3442,5 +3442,27 @@
       "peg_ratio": "0.68"
     },
     "date": "2026-05-12T21:28:17.669344"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is ~73.2% (0.732), well above the 10% slowdown threshold. While the news references massive hyperscaler capex ($725B projected for 2026) and rising debt issuance, the algorithm only penalizes when heavy spend coincides with slowing revenue growth (<10%). That condition is not met, so Efficiency Risk = 0.\n2) Valuation Check: NVDA trailing P/E \u2248 46.1 (<70) and PEG \u2248 0.7 (<2.5). Both fall below the algorithm's overvaluation triggers. Valuation Risk = 0.\n3) Adoption Check: The articles emphasize early-stage AI build-out and long-run spending projections, plus debate about whether there\u2019s a bubble. They note circular spending and financing loops, hyperscaler capex funded partly by debt, and Altman/Gates warning about froth, but there are no explicit reports of enterprises stuck in \u2018pilot purgatory\u2019 or pausing/canceling AI projects. Instead, we see claims that adoption has \u2018barely begun\u2019 and evidence of AI driving hiring reductions. No direct pilot purgatory signal. Adoption Risk = 0.\n4) Hardware Signals: None of the pieces mention \u2018easing supply\u2019, \u2018reduced lead times\u2019, or any indication that GPU demand is softening. Discussion is about a massive build-out, not slack demand. Hardware Risk = 0.\nAlgorithmic Risk Score from the four rules = 0.\nHowever, overall narrative tone shows a clear shift from uncritical euphoria to open bubble debate: Sam Altman explicitly calling AI a bubble, Bill Gates comparing today to the dot-com frenzy with \u2018a ton of\u2026dead ends\u2019, Michael Burry saying the market feels like the last months of the dot-com bubble and urging reduced exposure, and an article framing AI as a potential \u2018$1.8 trillion black hole\u2019 with financial loops between Big Tech, chipmakers, and Wall Street. Counterpoints (LPL\u2019s \u2018more like 1997\u2019, Mark Cuban\u2019s skepticism that this is dot-com 2.0) create a mixed but increasingly anxious sentiment backdrop. To reflect this sentiment shift\u2014while staying consistent that the hard metrics do NOT yet flash classic bubble-collapse conditions\u2014I add a discretionary 35-point overlay for systemic/sentiment risk and circular financing concerns. Total Risk Score = 0 (algorithmic) + 35 (sentiment/structure overlay) = 35, placing conditions in YELLOW: not imminent-burst, but clearly cautionary and \u2018leaking\u2019.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI bubble is worse than 2008 the $1.8 trillion black hole explained",
+      "NVDA_price": 225.83,
+      "NVDA_volatility": 5.47,
+      "NVDA_pe_ratio": 46.087753,
+      "NVDA_forward_pe": 19.967587,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.7,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 405.21,
+      "GOOGL_price": 402.62,
+      "nvda_pe": "46.087753",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.7"
+    },
+    "date": "2026-05-13T21:30:45.499940"
   }
 ]
