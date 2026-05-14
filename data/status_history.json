@@ -3464,5 +3464,27 @@
       "peg_ratio": "0.7"
     },
     "date": "2026-05-13T21:30:45.499940"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): The explicit data we have is for Nvidia (NVDA). Revenue growth is ~73.2% (0.732), far above the 10% slowdown threshold. The articles mention massive AI data\u2011center capex (e.g., $725B projected hyperscaler capex by 2026) and concerns about a 'spending spree,' but those are not tied to slowing AI revenue growth yet. Under the algorithm, the +20 risk only triggers when heavy spending coincides with revenue growth <10%. That condition is not met, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check (+0): The rule triggers if NVDA PEG > 2.5 OR NVDA trailing P/E > 70. Provided metrics show NVDA PEG \u2248 0.7 and trailing P/E \u2248 48.1, both well below the thresholds. Despite narrative claims of 'extreme valuations' in semis, the given hard numbers do not satisfy the algorithmic trigger, so Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check (+0): The news flow is almost entirely about market sentiment, macro comparisons to the dot\u2011com era, and high\u2011profile warnings (Michael Burry, Sam Altman, Bill Gates, Wells Fargo calling AI a 'euphoric bubble'). There is no concrete mention of enterprises entering 'pilot purgatory' \u2013 i.e., pausing or canceling AI deployments due to poor ROI or lack of use\u2011cases. We see comments that adoption is still early and that AI spending is rising significantly, not that projects are being shelved. Therefore, the Pilot Purgatory condition is not met, so Adoption Risk = 0.\n\nStep 4 \u2013 Hardware Signals (+0): None of the articles reference 'easing supply,' 'reduced lead times,' or similar phrases for GPUs or AI accelerators. Instead, the tone is that demand and capex remain very strong, and concerns are about valuation and leverage, not about excess hardware inventory or slackening demand. Since the trigger language is absent, Hardware Risk = 0.\n\nSentiment Overlay (non\u2011algorithmic context): While the mechanical bubble algorithm yields 0, the news set is saturated with explicit bubble talk \u2013 Wells Fargo calling AI 'euphoric' and advising to ride it until it pops, Burry warning the market feels like the last months of the dot\u2011com bubble, and CEOs acknowledging a bubble\u2011like frenzy even if fundamentals are stronger than 2000. That is classic late\u2011cycle sentiment, but your scoring framework is tightly rule\u2011based off four operational triggers that are not yet flashing. To reflect this mounting narrative risk without violating the rules, I assign a modest discretionary overlay of +35 to acknowledge that sentiment is overheating even though fundamentals (growth and valuation in the supplied metrics) still look grounded relative to prior bubbles.\n\nTotal Risk Score = Efficiency (0) + Valuation (0) + Adoption (0) + Hardware (0) + Sentiment overlay (35) = 35. This lands in the YELLOW band (31\u201369), indicating a caution/leaking phase: the story and psychology are running ahead of the hard indicators, but the classic internal\u2011fundamentals triggers (slowing growth, stretched PEG/P\u2011E, clear demand softening, or pilot purgatory) have not yet tripped.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Wells Fargo: AI is a 'euphoric' bubble and investors should ride it until it pops",
+      "NVDA_price": 235.74,
+      "NVDA_volatility": 7.87,
+      "NVDA_pe_ratio": 48.110203,
+      "NVDA_forward_pe": 20.736755,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.7,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 409.43,
+      "GOOGL_price": 401.07,
+      "nvda_pe": "48.110203",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.7"
+    },
+    "date": "2026-05-14T21:24:47.326996"
   }
 ]
