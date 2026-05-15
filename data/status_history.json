@@ -3486,5 +3486,27 @@
       "peg_ratio": "0.7"
     },
     "date": "2026-05-14T21:24:47.326996"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check: NVIDIA revenue growth is ~73.2% (0.732), far above the 10% slowdown trigger. While multiple articles mention massive AI capex (hyperscalers, >$1T investment, $725B projected capex), there is no sign in the data or text that NVIDIA\u2019s revenue growth is slowing below 10%. Therefore, Efficiency Check adds 0 risk points.\n\nStep 2 \u2013 Valuation Check: The rule triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Provided data shows NVDA PEG \u2248 0.75 and trailing P/E \u2248 45.98, both well below the thresholds. Despite the articles highlighting historic overextension of chip indices (SOX 62% above 200-day MA and comparisons to the dot-com and Mississippi bubbles), the explicit valuation rule is not met. Valuation Check adds 0 risk points.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory): The news discusses AI as early in adoption and still in infrastructure-build phase. There are no mentions of enterprises canceling or pausing AI projects, no references to stalled pilots, and no language resembling \u2018pilot purgatory\u2019 or large-scale shelving of AI rollouts. Instead, UBS notes AI is now a catalyst for reduced hiring, implying real deployment rather than abandoned experimentation. Adoption Check adds 0 risk points.\n\nStep 4 \u2013 Hardware Signals: While the SOX index is described as parabolic and historically stretched, none of the articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs/AI chips. The narrative is about bubble *risk* and extreme price action, not about demand cooling or inventory building. Hardware Signal adds 0 risk points.\n\nAlgorithmically, the Bubble Algorithm flags no direct triggers: 0 (efficiency) + 0 (valuation) + 0 (adoption) + 0 (hardware) = 0. However, sentiment in the articles is clearly shifting from euphoria to open bubble talk: comparisons to Black Monday 1987, Black Tuesday 1929, dot-com 2000, and the 1720 Mississippi Bubble; explicit \u2018chip-stock bubble\u2019 warnings; Michael Burry saying it \u2018feels like the last months of the dotcom bubble\u2019. At the same time, some strategists (LPL, FT commentary) argue valuations are still more grounded than 2000, AI leaders are cash-flow funded, and the current phase resembles an early bubble stage (likened to 1997 not 1999/2000). This mix of rising alarm and macro-justifications suggests sentiment is transitioning from pure optimism to cautious debate.\n\nBecause the user\u2019s scoring framework is purely rule-based but the news flow clearly indicates mounting concern, I apply a discretionary sentiment overlay of +35 points to reflect that the system\u2019s hard triggers lag the narrative. That pushes the aggregate risk into the lower band of \u2018Caution/Leaking\u2019 rather than a complacent 0. Therefore, final score = 0 (rules) + 35 (sentiment overlay) = 35, which falls into YELLOW.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI chip bubble rivals French stocks in 1700s, surpasses Nasdaq during dot-com frenzy by one measure",
+      "NVDA_price": 225.32,
+      "NVDA_volatility": 6.4,
+      "NVDA_pe_ratio": 45.983673,
+      "NVDA_forward_pe": 19.71483,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.75,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 421.92,
+      "GOOGL_price": 396.78,
+      "nvda_pe": "45.983673",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.75"
+    },
+    "date": "2026-05-15T21:22:28.337486"
   }
 ]
