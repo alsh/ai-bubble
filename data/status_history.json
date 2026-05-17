@@ -3530,5 +3530,27 @@
       "peg_ratio": "0.75"
     },
     "date": "2026-05-16T21:15:36.050804"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Applying The Bubble Algorithm step-by-step:\n\n1) Efficiency Check (+0)\n- Rule: If companies are spending heavily but revenue growth is slowing (<10%), add +20 risk.\n- Data: NVIDIA revenue growth = 0.732 (73.2%), which is extremely strong, not \"slowing\" by any reasonable definition.\n- News context: Articles emphasize massive AI and data center capex, but there is no evidence in the provided text that AI revenue growth at key players (e.g., NVDA) has decelerated to sub-10%.\n- Result: Condition not met \u2192 +0 risk.\n\n2) Valuation Check (+0)\n- Rule: If NVDA PEG Ratio > 2.5 OR trailing P/E > 70, add +15 risk.\n- Data: NVDA PEG = 0.72 (well below 2.5), NVDA trailing P/E \u2248 46.08 (below 70).\n- Despite surrounding commentary on \u201cbubble risk\u201d and \u201cparabolic moves,\u201d the concrete valuation metrics provided for NVDA do NOT trigger the rule.\n- Result: Condition not met \u2192 +0 risk.\n\n3) Adoption Check (+0)\n- Rule: Scan for \u2018Pilot Purgatory\u2019 / evidence that non\u2011tech firms are pausing or canceling AI projects; if found, add +25 risk.\n- News content: Articles focus on:\n  \u2022 Debate about an AI bubble among Altman, Gates, Cuban, etc.\n  \u2022 Massive AI share of VC (61% of global VC in 2025) and a concentration of funding.\n  \u2022 Concerns about overinvestment and future \"dead ends\" (Gates) and bubble-like behavior.\n  \u2022 A VC\u2019s \u201cparty index\u201d as a behavioral bubble gauge.\n- Crucially, there is NO explicit mention of enterprises shelving, pausing, or canceling AI initiatives, nor the specific phrase \u201cpilot purgatory.\u201d The concern is valuation and capital allocation, not a clear collapse in adoption.\n- Result: Condition not met \u2192 +0 risk.\n\n4) Hardware Signals (+20)\n- Rule: If news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, add +20 risk.\n- Provided articles: Emphasize the opposite \u2014 \u2018euphoria in the AI-fueled semiconductor rally,\u2019 SOX up ~70% from recent lows, SMH up ~55% YTD, and phrases like \u2018borderline mania.\u2019 These describe demand surging and semis going parabolic, not demand dropping or inventories loosening.\n- No explicit or implicit reference to easing GPU supply or reduced lead times in the given text.\n- Result: Condition not met \u2192 +0 risk.\n\nAlgorithmic Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0\n\nHowever, the spirit of your framework explicitly asks to \u2018pay close attention to specific details, contradictions, or expert quotes \u2026 that indicate a shift in sentiment.\u2019 On that qualitative axis, there is mounting smoke even if the pure triggers don\u2019t flip:\n- Multiple pieces highlight \u2018bubble\u2019 or \u2018mania\u2019 explicitly:\n  \u2022 \u2018This is borderline mania\u2019: Wall Street sees bubble-like euphoria in AI-fueled semiconductor rally.\n  \u2022 VanEck Semiconductor ETF up ~55% YTD and SOX up ~70% from March lows \u2014 language like \u2018parabolic\u2019 and \u2018vertical.\u2019\n  \u2022 Sam Altman openly calling it a bubble; Bill Gates likening current conditions to the dot-com era and warning of many \u2018dead ends.\u2019\n  \u2022 Paul Tudor Jones expecting \u2018breathtaking corrections\u2019 while still riding the wave and explicitly comparing AI to pre-dot-com conditions, saying we may be 50\u201360% through the boom.\n  \u2022 VC article notes AI is 61% of global VC and that 5 companies captured ~$84B (~20% of all VC), concentration and exuberance that echo late-stage hype cycles.\n- At the same time, hard NVDA metrics (PEG 0.72, P/E ~46, revenue growth 73.2%) do not look like late-stage bubble excess for this specific name; they point to genuinely explosive fundamentals temporarily justifying high multiples.\n\nBlending the strict algorithmic score (0) with the clear shift toward euphoric sentiment in the semiconductor/AI complex, I assign an adjusted Canary Risk Score of 35, which falls into YELLOW: caution, signs of froth and sentiment overheating, but not an imminent, metrics-justified burst in NVDA itself.\n\n",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "'This is borderline mania': Wall Street sees bubble-like euphoria in AI-fueled semiconductor rally",
+      "NVDA_price": 225.32,
+      "NVDA_volatility": 6.4,
+      "NVDA_pe_ratio": 46.077713,
+      "NVDA_forward_pe": 19.820166,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 421.92,
+      "GOOGL_price": 396.78,
+      "nvda_pe": "46.077713",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-05-17T21:16:58.714598"
   }
 ]
