@@ -3552,5 +3552,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-05-17T21:16:58.714598"
+  },
+  {
+    "status": "GREEN",
+    "score": 20,
+    "reasoning": "Applied Bubble Algorithm to the data and articles as of the provided snapshot:\n\n1) Efficiency Check (+0 or +20)\n- Rule: If companies are spending heavily but revenue growth is slowing (<10%), add +20 risk.\n- Evidence: Articles highlight *massive* and *mounting* AI-related capex:\n  - Goldman Sachs notes hyperscalers committing to roughly $755B in capex this year, up 38% YoY.\n  - Another piece suggests big tech AI capex could test $1T in the next year, with explicit concern around whether returns will justify the spend.\n- But the key quantitative signal here is NVDA\u2019s own revenue growth: NVDA_revenue_growth = 0.732 (73.2%). That is not \u201cslowing (<10%)\u201d; it is extremely high.\n- There is concern that if capex keeps rising for 3+ years without commensurate payoff, risk will increase, but that\u2019s conditional future tension, not current evidence of low growth.\n- Conclusion: Heavy spending is present, but it is *not yet* paired with slowing revenue growth per the algorithm\u2019s strict condition. No trigger.\n- Score: +0.\n\n2) Valuation Check (+0 or +15)\n- Rule: If NVDA PEG > 2.5 OR Trailing P/E > 70, add +15 risk.\n- Metrics given:\n  - NVDA_peg_ratio = 0.72 (well below 2.5)\n  - NVDA_pe_ratio (trailing P/E) = 45.46 (well below 70)\n- Despite narrative about a potential AI bubble and \u2018parabolic\u2019 moves in semis (e.g., SMH up ~55% YTD), the hard valuation triggers in the algorithm are *not* met for Nvidia.\n- Score: +0.\n\n3) Adoption Check (+0 or +25)\n- Rule: If news shows \u2018Pilot Purgatory\u2019 \u2013 non\u2011tech firms pausing/canceling AI projects \u2013 add +25 risk.\n- Review of content:\n  - Articles focus on mega\u2011cap tech and semiconductors, not broad enterprise pullback.\n  - Sentiment: investors are worried about a *potential* bubble and capex/ROI mismatch, but:\n    - AI is described as a defensive trade with \u201cinelastic\u201d demand.\n    - Hyperscalers and large players are actually *increasing* spend.\n    - No references to banks, manufacturers, retailers, or other non\u2011tech corporates shelving AI initiatives or stuck in pilots.\n- There is no explicit or implicit sign of widespread \u2018pilot purgatory\u2019 in the provided text.\n- Score: +0.\n\n4) Hardware Signals (+0 or +20)\n- Rule: If news mentions \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs, add +20 risk (demand softening signal).\n- The news mentions:\n  - Liquid cooling as the \u201cnext phase\u201d in the AI infrastructure trade.\n  - Volatility risk and possible corrections, plus semis having had parabolic moves.\n- However, there is *no explicit mention* of:\n  - Easing GPU supply,\n  - Reduced lead times,\n  - Order cancellations,\n  - Inventory overhang.\n- Current tone is still about constraints and big infrastructure build\u2011out, not slack demand.\n- Score: +0.\n\nScore Tally:\n- Efficiency Check: +0\n- Valuation Check: +0\n- Adoption Check: +0\n- Hardware Signals: +0\n\nTotal Risk Score = 0.\n\nInterpretation vs. Narrative:\n- The narrative clearly shows rising *anxiety* about an AI bubble: comparisons to 1999, warnings about bubble risk, and concern that capex may outstrip returns if growth slows.\n- But the user-defined algorithm is strictly tied to concrete triggers: slowing revenue (<10%), stretched NVDA valuations, pilot purgatory, or easing GPU supply. None of those fire based on the supplied metrics and text.\n- Therefore, under this rules-based system, the current environment still scores as early-to-mid boom with *structural risk building in the background*, but not yet flagged by the hard indicators.\n\nFinal classification: 0 falls in the 0\u201330 band \u2192 GREEN (Stable/Early Growth). The cautionary commentary in the articles is more about *future scenario risk* than about already-visible breakdowns in efficiency, adoption, or hardware demand.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Forget the bubble. Wall Street is treating AI like a defensive trade, Goldman Sachs says.",
+      "NVDA_price": 222.32,
+      "NVDA_volatility": 5.83,
+      "NVDA_pe_ratio": 45.464214,
+      "NVDA_forward_pe": 19.450876,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.72,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 423.54,
+      "GOOGL_price": 396.94,
+      "nvda_pe": "45.464214",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.72"
+    },
+    "date": "2026-05-18T21:25:48.986451"
   }
 ]
