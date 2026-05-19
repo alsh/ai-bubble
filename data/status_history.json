@@ -3574,5 +3574,27 @@
       "peg_ratio": "0.72"
     },
     "date": "2026-05-18T21:25:48.986451"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Step 1 \u2013 Efficiency Check: NVIDIA\u2019s reported revenue growth is 73.2% (0.732), far above the 10% slowdown threshold. While Grantham explicitly notes \u201chuge investments being poured into AI\u201d and $725B in capex (about 2% of US GDP), the algorithm only flags risk if heavy capex coincides with slowing AI revenue growth (<10%). That condition is not met, so +0 risk.\n\nStep 2 \u2013 Valuation Check: NVIDIA\u2019s PEG ratio is 0.71 (well below 2.5) and trailing P/E is ~45.1 (below the 70 threshold). Neither valuation tripwire is triggered, so +0 risk.\n\nStep 3 \u2013 Adoption Check: The news set is dominated by bubble talk and macro reliance on AI capex (Burry and Grantham warnings, \u2018semi frenzy\u2019, parabolic moves), but there are no mentions of enterprises putting AI projects on hold, running into \u2018pilot purgatory\u2019, or pausing/canceling implementations. The Intel piece is overtly positive on an \u2018AI supercycle\u2019. No explicit signs of stalled non\u2011tech adoption, so +0 risk.\n\nStep 4 \u2013 Hardware Signals: Although there is discussion of semiconductors being in a potential bubble and \u2018frenzy\u2019, none of the articles mention \u2018easing supply\u2019, \u2018reduced lead times\u2019, or any equivalent language that would indicate a demand drop for GPUs. Instead, the tone implies continued heavy demand. Therefore, +0 risk.\n\nNet result: All four algorithmic conditions fail to trigger, so total Risk Score = 0. Despite high-profile bears calling this an AI bubble and warning of eventual deflation, the specific quantitative and textual triggers in the Bubble Algorithm are not met by the supplied data. On this rules-based view, the AI trade still screens as GREEN/early growth rather than imminently bursting.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Legendary investor Jeremy Grantham says AI is the only thing that's prevented a recession and a market crash",
+      "NVDA_price": 220.61,
+      "NVDA_volatility": 5.87,
+      "NVDA_pe_ratio": 45.11452,
+      "NVDA_forward_pe": 18.975262,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.71,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 417.42,
+      "GOOGL_price": 387.66,
+      "nvda_pe": "45.11452",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.71"
+    },
+    "date": "2026-05-19T21:29:40.981951"
   }
 ]
