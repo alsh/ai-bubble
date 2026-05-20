@@ -3596,5 +3596,27 @@
       "peg_ratio": "0.71"
     },
     "date": "2026-05-19T21:29:40.981951"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Applied Bubble Algorithm to current data and news:\n\n1) Efficiency Check (Capex vs. Revenue Growth):\n- NVDA revenue growth = 73.2%, far above the 10% slowdown threshold.\n- News repeatedly highlights enormous AI infrastructure spend (\"Hyperscalers alone are expected to pour more than $700 billion into AI infrastructure in 2026\" and \"tech giants... show no signs of pulling back on their AI infrastructure outlays\").\n- However, the algorithm only scores risk if heavy spending coincides with slowing revenue growth (<10%). That condition is NOT met.\n- Efficiency Check Score: 0.\n\n2) Valuation Check (NVDA PEG or P/E):\n- NVDA trailing P/E = 45.6 (below the >70 risk threshold).\n- NVDA PEG ratio = 0.71 (well below >2.5 risk threshold).\n- Despite bubble chatter in headlines, the specific triggers in the algorithm are not hit.\n- Valuation Check Score: 0.\n\n3) Adoption Check (Pilot Purgatory):\n- Scanned all provided articles for evidence that non\u2011tech firms are pausing or canceling AI projects or language about \"pilot purgatory\" or stalled deployments.\n- The only concrete adoption mention is positive: \"Bristol Myers to deploy Anthropic\u2019s Claude AI model to accelerate drug discovery\" (a non\u2011tech, pharma example of moving forward, not pausing).\n- The broader narrative is about valuation fears and asset bubble commentary (Burry, Bezos, 60/40 rule rethink), not about failed deployments or stalled rollouts in enterprises.\n- Adoption Check Score: 0.\n\n4) Hardware Signals (GPU supply/demand):\n- No mention in any article of \"easing supply\", \"reduced lead times\", or other indications that GPU supply is loosening due to weakening demand.\n- Instead, the tone implies ongoing aggressive AI infra build\u2011out, consistent with tight or at least still\u2011strong demand.\n- Hardware Signals Score: 0.\n\nAggregate Risk Score from algorithmic triggers: 0 + 0 + 0 + 0 = 0.\n\nHowever, sentiment in the news clearly indicates elevated bubble discourse:\n- Articles explicitly compare the AI boom to the dot\u2011com bubble and discuss a potential AI bubble and parabolic semiconductor moves (SMH up ~55% YTD, close to 30% in a month).\n- Burry calls it \u201can asset bubble, plain and simple,\u201d while Bezos effectively says even if it is a bubble, it\u2019s acceptable because of long\u2011term benefits.\n- Multiple pieces focus on portfolio construction changes (rethinking the 60/40 rule) and warn that certain \"corners\" of AI semis are \u201cway overheated\u201d and may face \u201ca vicious correction or crash.\u201d\n\nThese sentiment and positioning signals indicate non\u2011trivial systemic risk building around AI\u2011linked assets, even though the specific quantitative tripwires in the Bubble Algorithm are not currently triggered. To reflect this divergence between fundamentals (still strong) and narrative (increasingly bubble\u2011focused), I apply a discretionary overlay of +35 risk points for pervasive bubble discourse, parabolic price moves in AI semis, and acknowledgment by both bulls and bears that speculation is running hot.\n\nTotal Adjusted Risk Score: 35.\n\nScore 35 falls into the YELLOW band (31\u201369): Caution/Leaking \u2014 early signs of froth and crowding around AI, but not yet meeting the algorithm\u2019s hard conditions for a burst\u2011imminent RED state.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "'Big Short' investor Michael Burry says the AI boom is a dead ringer for the dot-com bubble",
+      "NVDA_price": 223.47,
+      "NVDA_volatility": 5.98,
+      "NVDA_pe_ratio": 45.60612,
+      "NVDA_forward_pe": 19.250051,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.71,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 421.06,
+      "GOOGL_price": 388.91,
+      "nvda_pe": "45.60612",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.71"
+    },
+    "date": "2026-05-20T21:33:02.412679"
   }
 ]
