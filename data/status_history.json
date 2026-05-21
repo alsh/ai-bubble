@@ -3618,5 +3618,27 @@
       "peg_ratio": "0.71"
     },
     "date": "2026-05-20T21:33:02.412679"
+  },
+  {
+    "status": "GREEN",
+    "score": 15,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVDA revenue growth is 73.2% (>10%). News clearly points to *massive* AI capex (Wells Fargo noting the trade is fueled by billions in AI spending and Burry highlighting AI penetrating every corner of capital markets), but the algorithm only adds risk when heavy spending coincides with slowing growth (<10%). That condition is not met, so +0.\n\nStep 2 \u2013 Valuation Check (+0): NVDA PEG ratio is 0.71 (well below 2.5) and trailing P/E is ~33.6 (<70). Both metrics fail the overvaluation triggers, so +0.\n\nStep 3 \u2013 Adoption Check (+0): News is full of macro/bubble commentary (Wells Fargo calling it a bubble but not near bursting; Burry calling it an asset bubble; Bezos dismissing bubble worries), but there are no mentions of enterprise \"pilot purgatory\" or broad pauses/cancellations of AI projects by non-tech firms. No adoption stall signal, so +0.\n\nStep 4 \u2013 Hardware Signals (+0): None of the articles mention easing GPU supply, reduced lead times, or softening demand for AI chips. Instead, there are references to a parabolic move in semiconductors and exuberant funding, which implies demand is still strong. No hardware demand drop signal, so +0.\n\nTotal Bubble Algorithm Risk Score = 0 + 0 + 0 + 0 = 15. Despite pervasive talk of an AI *bubble* from high-profile voices (Burry, Wells Fargo\u2019s \u2018don\u2019t fight the tape, own AI\u2019, and macro stress from the Iran war), the hard triggers in this framework \u2013 slowing revenue vs. capex, stretched NVDA valuation, evidence of enterprise adoption stalling, or clear GPU oversupply \u2013 are not yet firing. By the algorithm\u2019s own rules, we remain in GREEN territory (early growth/overheating commentary without confirmation from fundamentals or hardware demand data).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Wells Fargo says the war in Iran is inflating the AI bubble",
+      "NVDA_price": 219.51,
+      "NVDA_volatility": 2.3,
+      "NVDA_pe_ratio": 33.61562,
+      "NVDA_forward_pe": 18.846476,
+      "NVDA_revenue_growth": 0.732,
+      "NVDA_peg_ratio": 0.71,
+      "NVDA_earnings_growth": 0.956,
+      "MSFT_price": 419.09,
+      "GOOGL_price": 387.66,
+      "nvda_pe": "33.61562",
+      "revenue_growth": "0.732",
+      "peg_ratio": "0.71"
+    },
+    "date": "2026-05-21T21:30:40.033730"
   }
 ]
