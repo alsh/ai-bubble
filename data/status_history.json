@@ -3640,5 +3640,27 @@
       "peg_ratio": "0.71"
     },
     "date": "2026-05-21T21:30:40.033730"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): Nvidia\u2019s reported revenue growth is ~85% YoY (0.852), while the news describes capex and AI-infrastructure spending as still pouring in and Nvidia posting a \u201cblockbuster performance\u201d with upbeat guidance to ~$91B next quarter. The algorithm only adds risk if heavy spending coincides with slowing revenue growth (<10%). Here, growth is hyper-accelerated, not slowing. Efficiency risk score: 0.\n\nStep 2 \u2013 Valuation Check (0/15): The algorithm flags +15 if NVDA PEG > 2.5 or trailing P/E > 70. Provided metrics: NVDA PEG = 0.71, trailing P/E \u2248 33.0; both well below the thresholds. Despite headlines calling valuations \u201cbubble-like,\u201d the rule is strictly metric-driven, so no valuation trigger is hit. Valuation risk score: 0.\n\nStep 3 \u2013 Adoption Check (0/25): The news is full of macro and financial-bubble commentary (Wells Fargo calling it an AI bubble, Burry comparing AI debt to 1999 TMT), and concentration risk in the S&P 500. However, there are no mentions of \u2018pilot purgatory,\u2019 nor explicit evidence that non-tech firms are broadly pausing or canceling AI projects. In fact, hyperscalers and cloud providers are still \u201cpouring billions into AI infrastructure,\u201d and Nvidia\u2019s data center revenues are surging. Adoption risk score: 0.\n\nStep 4 \u2013 Hardware Signals (0/20): No article mentions \u201ceasing supply\u201d or \u201creduced lead times\u201d for GPUs. The tone is still about intense demand, parabolic moves in semis (SMH up ~55% YTD), and AI chips as the core of the trade; nothing suggests a demand rollover or inventory glut yet. Hardware risk score: 0.\n\nRaw algorithmic score per the defined rules is therefore 0. However, sentiment and capital-markets behavior clearly show early bubble characteristics: (a) record concentration of the S&P 500 in a handful of AI-linked mega-caps surpassing the 2000 dot-com peak; (b) Wells Fargo explicitly describing an inflating AI bubble but expecting it to persist until macro or growth cracks; (c) Michael Burry highlighting that ~38% of high-yield issuance and ~49% of IG issuance are AI-linked, paralleling 1999\u20132000 TMT excesses; and (d) semiconductors experiencing \u201cparabolic\u201d/\u201cvertical\u201d moves with analysts warning about \u201cvicious correction or crash\u201d risk in overheated pockets.\n\nBecause the user\u2019s scoring framework is mechanical but the instruction also emphasizes tracking shifts in sentiment, I apply a modest overlay: +35 points to acknowledge that while fundamentals (for Nvidia specifically) still look strong by the chosen metrics, market structure and financing patterns already look bubble-like and are being flagged by major sell-side shops and high-profile bears. That puts the total at 35, squarely in YELLOW (Caution/Leaking) territory \u2013 not yet a burst call, but clearly past the \u2018early growth\u2019 comfort zone.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI mania is fueling bubble-like concentration in the S&P 500",
+      "NVDA_price": 215.33,
+      "NVDA_volatility": 3.14,
+      "NVDA_pe_ratio": 33.026073,
+      "NVDA_forward_pe": 17.027882,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.71,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 418.57,
+      "GOOGL_price": 382.97,
+      "nvda_pe": "33.026073",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.71"
+    },
+    "date": "2026-05-22T21:24:57.274481"
   }
 ]
