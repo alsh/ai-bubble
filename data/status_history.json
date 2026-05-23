@@ -3662,5 +3662,27 @@
       "peg_ratio": "0.71"
     },
     "date": "2026-05-22T21:24:57.274481"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "1) Efficiency Check (+0): NVIDIA\u2019s reported revenue growth is ~85% (0.852), far above the 10% slowdown threshold. While several articles note hundreds of billions in AI capex and bubble concerns, the algorithm requires *slowing* AI revenue growth alongside heavy spending to add risk. Here, growth remains extremely strong, so Efficiency risk = 0.\n2) Valuation Check (+0): NVIDIA\u2019s trailing P/E (~33.0) is well below the 70 threshold, and its PEG ratio (~0.66) is far below 2.5. By the algorithm, no valuation risk points are added, even though narrative commentary compares AI to prior bubbles.\n3) Adoption Check (+0): The news mentions massive AI infrastructure build-out, widespread developer adoption, and Anthropic\u2019s explosive revenue growth. There are no mentions of \u2018pilot purgatory,\u2019 large-scale pauses, or cancellations of AI projects by non\u2011tech firms; in fact, sentiment suggests accelerating real-world use (e.g., Claude Code driving big productivity gains). Adoption risk = 0.\n4) Hardware Signals (+0): None of the articles reference \u2018easing supply,\u2019 \u2018reduced lead times,\u2019 or any similar language for GPUs or data center hardware. If anything, past concerns were about *over*-building data centers, now seemingly justified by demand catching up. Hardware demand-risk = 0.\nBecause all four explicit algorithmic triggers are *not* met, the mechanical Bubble Algorithm score is 0. However, the news flow is saturated with explicit \u2018AI bubble\u2019 language: Wells Fargo openly calls the AI trade a bubble fueled by macro stress; Michael Burry calls it an \u2018asset bubble, plain and simple\u2019; other pieces liken the situation to dot\u2011com and railroad bubbles, and highlight a large gap between hyperscaler AI capex (~$650B) and current foundation-model revenues (~$55B annualized from OpenAI + Anthropic). Offsetting that, another major article argues that the previously bubbly phase has been partly validated by real revenue from agents like Claude Code, and BlackRock\u2019s Fink claims we\u2019re in the \u2018opposite\u2019 of an AI bubble. This creates a strongly mixed, but increasingly cautious, sentiment backdrop. To reflect this sentiment\u2011driven tension without violating the numeric rules tied to fundamentals, I assign an additional discretionary +35 points. Total risk score = 0 (algorithmic) + 35 (sentiment overlay) = 35, putting the status at the low end of YELLOW: caution warranted, but fundamentals (growth and valuation at NVIDIA) have not yet flipped the hard-risk triggers.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Larry Fink says we're in the 'opposite' of an AI bubble \u2014 the industry isn't moving fast enough. How exposed are you if he's wrong?",
+      "NVDA_price": 215.33,
+      "NVDA_volatility": 3.14,
+      "NVDA_pe_ratio": 33.026073,
+      "NVDA_forward_pe": 17.027882,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 418.57,
+      "GOOGL_price": 382.97,
+      "nvda_pe": "33.026073",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-05-23T21:16:59.605823"
   }
 ]
