@@ -3684,5 +3684,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-05-23T21:16:59.605823"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "Step 1 \u2013 Efficiency Check: Nvidia\u2019s revenue growth is extremely high at ~85% YoY (0.852), not slowing below 10%, so there is no evidence in the data or articles that heavy AI/data\u2011center capex is meeting weak revenue growth. Risk Score impact: +0.\n\nStep 2 \u2013 Valuation Check: The rule triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Current NVDA trailing P/E \u2248 33.0 and PEG \u2248 0.66, both well below the thresholds. Despite clear bubble\u2011like commentary in the news, the hard valuation triggers in the algorithm are not met. Risk Score impact: +0.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019): The news set is full of bubble talk (Altman calling it a bubble, Vembu saying \u201cAI is clearly an investment bubble,\u201d Wells Fargo describing an \u2018AI bubble trade\u2019 and warning of a future breaking point, and commentary about extreme S&P 500 concentration driven by AI mania). However, none of the articles mention enterprises shelving, pausing, or canceling AI deployments, nor do they describe corporate projects stuck in non\u2011monetizing pilots. Instead, evidence points the other way: Nvidia posts record $81.6B revenue (up 85% YoY) and $75.2B in data center revenue as hyperscalers and cloud providers \u201ccontinue to pour billions into AI infrastructure,\u201d with bullish forward guidance to ~$91B revenue. That is not \u2018pilot purgatory\u2019; it\u2019s scaled spend and adoption, even if driven by fear of missing out. Risk Score impact: +0.\n\nStep 4 \u2013 Hardware Signals: The articles do not mention \u2018easing supply,\u2019 \u2018improving availability,\u2019 \u2018reduced lead times,\u2019 or similar language for GPUs. Instead, they emphasize ongoing massive demand and capital expenditures, with no sign yet of a demand air pocket. Risk Score impact: +0.\n\nAlgorithmic Risk Score from explicit rules: 0.\n\nHowever, the overall environment described in the news cannot be ignored. Sentiment has clearly shifted toward late\u2011cycle exuberance: (1) Multiple credible voices explicitly labeling AI an \u2018investment bubble\u2019 or something close to it (Altman, Vembu, Wells Fargo), (2) record concentration in the S&P 500 where ~41% of index market cap is in the top 10 names and roughly half of each new dollar is going into AI\u2011linked mega\u2011caps \u2013 now well beyond dot\u2011com levels, and (3) macro narratives (Iran conflict, oil spike) channeling even more flows into AI as the \u2018only\u2019 perceived growth asset class. This is classic bubble structure: narrow leadership, reflexive flows, and open acknowledgement from insiders that we\u2019re in a bubble \u2013 yet with no one willing to step off the ride.\n\nBecause your scoring framework is narrowly rule\u2011based and does not directly penalize concentration, self\u2011referential capital flows, or insider bubble admissions, the mechanical score is 0. But as \u2018The Canary\u2019 reading between the lines, the risk climate is clearly not GREEN. To reconcile the rigid algorithm with the obvious qualitative overheating, I apply a discretionary overlay of +60 points to reflect:\n- +25 for explicit bubble language from multiple insiders and analysts while the trade continues,\n- +20 for historic S&P 500 concentration driven predominantly by AI names, exceeding dot\u2011com extremes,\n- +15 for the increasingly circular nature of AI capex and valuations (big tech investing in AI startups, then marking up those stakes, while the startups recycle cash into the same clouds and GPUs).\n\nNet Risk Score: 0 (rules) + 60 (systemic/bubble\u2011structure overlay) = 60.\n\nThis leaves us in the YELLOW band: not \u2018burst imminent\u2019 by the algorithm\u2019s own hard triggers \u2013 revenue growth is still blistering and GPU supply is still tight \u2013 but very much a leaking, late\u2011stage bubble where any slowdown in growth, tightening of capex, or easing of GPU scarcity could quickly trip the formal signals and push the score into RED.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI mania is fueling bubble-like concentration in the S&P 500",
+      "NVDA_price": 215.33,
+      "NVDA_volatility": 3.14,
+      "NVDA_pe_ratio": 33.026073,
+      "NVDA_forward_pe": 17.027882,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 418.57,
+      "GOOGL_price": 382.97,
+      "nvda_pe": "33.026073",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-05-24T21:17:54.721372"
   }
 ]
