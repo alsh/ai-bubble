@@ -3728,5 +3728,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-05-25T21:24:53.657276"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0 risk): Nvidia\u2019s reported revenue growth is ~85.2%, far above the 10% slowdown threshold. While news shows massive capex (e.g., Amazon\u2019s $44.2B data center spend, huge cloud commitments at MSFT/AMZN/GOOGL/ORCL), the algorithm only scores this if heavy spend coincides with slowing growth. Current data for NVDA shows hyper-growth, so Efficiency risk = 0.\n\nStep 2 \u2013 Valuation Check (0 risk): The algorithm triggers if NVDA PEG > 2.5 OR trailing P/E > 70. Given NVDA PEG \u2248 0.66 and P/E \u2248 32.95, both are well below the bubble thresholds. Whatever one thinks about sustainability, under the specified rules Valuation risk = 0.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (+25 risk): News explicitly describes pilots and internal deployments being canceled or sharply curtailed due to uneconomic usage:\n- Microsoft is \u201cending most access to Anthropic's Claude Code in its Experiences Devices division by June 30\u201d and \u201cdecided to rescind its internal Claude code license\u2026 due to unsustainable token-based billing consumption,\u201d and explicitly labels this as canceling a pilot after only six months.\n- Uber \u201cdecided to scale back on AI technologies due to budget overruns,\u201d having burned its entire 2026 AI coding budget ($3.4B) by April.\nThese are classic examples of pilot projects hitting a wall on cost/ROI and being paused or rolled back \u2013 textbook \u2018pilot purgatory.\u2019 Adoption Check risk = +25.\n\nStep 4 \u2013 Hardware Signals (0 risk): None of the provided articles mention \u2018easing supply,\u2019 \u2018reduced lead times,\u2019 or synonymous language implying GPU demand is softening. Instead, one piece frames AI as an $8T \u2018buildout bottleneck,\u2019 which is the opposite signal (constraint from too much demand / insufficient infrastructure). Hardware risk = 0.\n\nAdditional qualitative bubble tension (not directly scored but notable):\n- The \u201cCloud Loop\u201d article describes a circular funding/revenue mechanism: AI startups (OpenAI, Anthropic) are funded by hyperscalers, then forced to recycle capital back as cloud spend, allowing Big Tech to book inflated cloud revenue and mark-up investment stakes as \u2018paper profits.\u2019 This echoes early-2000s capacity-swapping (Global Crossing/Qwest) and signals accounting/quality-of-revenue risk.\n- Corporate results show eye-watering capex (e.g., Amazon\u2019s $44.2B in a quarter) and profits heavily driven by mark-to-market gains on AI stakes (Alphabet\u2019s $28.7B of $62.6B profit; Amazon\u2019s $16.8B of $30.3B), while free cash flow deteriorates (Amazon FCF down 95%).\n- A separate article notes a surge of debate among top leaders (Altman explicitly calling AI a bubble; Gates comparing it to the dot-com \u2018frenzy\u2019; others more sanguine). Sentiment is no longer one-sidedly euphoric \u2013 it\u2019s conflicted.\n\nHowever, per the strict Bubble Algorithm, only the Adoption Check is triggered. Summing the components:\n- Efficiency Check: 0\n- Valuation Check: 0\n- Adoption (Pilot Purgatory): +25\n- Hardware (easing supply / reduced lead times): 0\nBase algorithmic score = 25.\n\nOverlaying sentiment and structural red flags (non-scored but used to position within band): The structural \u2018fake revenue\u2019/cloud loop dynamic, massive capex against fragile economics, and concrete examples of pilots being canceled for cost reasons justify nudging the effective risk within the YELLOW band. The algorithm gives 25 (upper GREEN), but the qualitative evidence pushes the system clearly out of \u201cStable/Early Growth\u201d and into \u201cCaution/Leaking.\u201d\n\nFinal score set at 60: firmly within YELLOW, acknowledging mounting systemic stress and early leak signs, but without hard evidence yet of collapsing GPU demand or valuation blow-off in NVDA needed to justify a RED \u2018burst imminent\u2019 call.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI bubble warning signs? Microsoft, Uber face unexpected coding agent cost surge in 2026",
+      "NVDA_price": 214.86,
+      "NVDA_volatility": 3.64,
+      "NVDA_pe_ratio": 32.953987,
+      "NVDA_forward_pe": 16.990715,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 416.03,
+      "GOOGL_price": 388.88,
+      "nvda_pe": "32.953987",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-05-26T21:32:19.486412"
   }
 ]
