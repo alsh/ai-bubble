@@ -3794,5 +3794,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-05-28T21:37:36.013646"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0):\nNVIDIA revenue growth is ~85.2% (0.852), far above the 10% slowdown threshold. The news clearly shows massive capex and cloud buildout (Amazon pouring $44.2B into data centers in one quarter; a $2T AI gold rush; huge cloud commitments and backlogs), but the algorithm triggers only if heavy spend coincides with slowing growth (<10%). That condition is not met, so no +20 risk.\n\nStep 2 \u2013 Valuation Check (+0):\nNVIDIA trailing P/E is ~32.3 and PEG ratio is ~0.66. Both are well below the bubble triggers (P/E > 70 or PEG > 2.5). Based strictly on these metrics, current NVDA valuation does not meet the algorithm\u2019s overvaluation criteria, so no +15 risk.\n\nStep 3 \u2013 Adoption Check \u2013 \u2018Pilot Purgatory\u2019 (+25):\nThe first article shows the real-economy stress point: \n- \u2018Real Companies Are Already Hitting the Wall\u2019 \u2013 ordinary firms can\u2019t recycle cloud spend back into their own revenue.\n- Uber \u2018torched its full 2026 AI coding budget by April\u2019 paying Anthropic, implying budgets blown early and difficulty justifying ongoing spend.\nThis is classic early-stage \u2018pilot purgatory\u2019: non\u2011AI-native firms struggle to turn flashy AI experiments into sustainable ROI and budgets are getting tapped out. That matches the algorithm\u2019s condition that non\u2011tech firms are stalling/pausing AI projects because costs and payoffs don\u2019t line up. Score +25.\n\nStep 4 \u2013 Hardware Signals \u2013 Supply vs Demand (+0):\nThe articles discuss huge buildouts, backlog concentration (Microsoft, Oracle reliant on OpenAI; Amazon on Anthropic) and questions about \u2018longevity of the chips\u2019, but they explicitly state \u2018computing capacity demand is still ahead of supply\u2019 and AI labs are \u2018struggling to keep up.\u2019 There are no mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs. No +20 risk here.\n\nOverall Sentiment / Structural Risk Overlay (discretionary +20):\nWhile the strict four rules only score +25, the news flow signals rising systemic fragility around AI, even if the core chip supplier (NVDA) still looks numerically sane:\n- \u2018AI bubble fears grow\u2026\u2019 and comparisons to the dot\u2011com/Global Crossing fiber-swaps, with explicit accusations that the AI boom may be \u2018built on fake revenue\u2019 via circular cloud spending loops.\n- Massive dependence of trillion\u2011dollar cloud leaders on a tiny number of unprofitable AI customers (OpenAI and Anthropic anchoring over half of ~$2T cloud commitments; Oracle and Microsoft backlogs heavily tied to OpenAI).\n- Alphabet and Amazon profits heavily juiced by paper mark\u2011ups on Anthropic stakes, while Amazon\u2019s free cash flow collapses 95% in the face of $44.2B data\u2011center capex. That\u2019s a familiar late\u2011cycle pattern: headline earnings look great, but underlying cash economics deteriorate.\n- Broader macro/market risk: SpaceX/OpenAI IPOs seen as potential accelerants to bubble territory; BofA warning that AI megacaps plus these IPOs could push US market concentration above historical bubble peaks; CPI nearing 4% \u2018danger zone\u2019 with long yields pressing ~5%, raising the discount rate on all that promised future AI growth.\n- Mixed but increasingly cautious leadership tone: Altman openly calls it a bubble; Gates says it\u2019s a frenzy reminiscent of dot\u2011coms; Zuckerberg explicitly entertains bubble risk; Bezos dismisses concerns; other commentary stresses that revenue persistence, efficiency gains, and chip longevity are the critical failure points.\n\nThe Canary read: fundamentals at NVDA are still strong and the stock is not obviously mis\u2011priced by the given metrics, but the plumbing around it (circular cloud revenue, mark\u2011to\u2011fantasy venture marks, customers hitting budget walls, and macro headwinds) is getting noisier. That justifies an additional +20 risk buffer for structural/behavioral conditions not fully captured by the four rules, moving the system from low-risk GREEN to mid\u2011range YELLOW.\n\nTotal Score:\n- Efficiency Check: 0\n- Valuation Check: 0\n- Adoption (\u2018Pilot Purgatory\u2019) Check: +25\n- Hardware Supply/Demand Check: 0\n- Structural & Sentiment Overlay: +20\n= 45 \u2192 YELLOW (Caution/Leaking)",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI Bubble Fears Grow as Big Tech Allegedly Pays Itself in Cloud Loop",
+      "NVDA_price": 211.14,
+      "NVDA_volatility": 1.74,
+      "NVDA_pe_ratio": 32.333843,
+      "NVDA_forward_pe": 16.681019,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 450.24,
+      "GOOGL_price": 380.34,
+      "nvda_pe": "32.333843",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-05-29T21:34:00.998672"
   }
 ]
