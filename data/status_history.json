@@ -3838,5 +3838,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-05-30T21:20:03.651014"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 if heavy spend but AI revenue growth slowing <10%):\nNews: Big Tech is in a capex super-cycle \u2013 $725B on AI infra, free cash flow collapsing (Amazon FCF down 95%, Meta raising capex to $125\u2013145B, data centers and chips framed as heavy-industry level spend). However, the only hard growth metric we\u2019re given from market data is Nvidia revenue growth at 85.2% (0.852), which is far from \u2018slowing <10%\u2019. The algorithm is explicitly tied to revenue growth, and what we have is still hypergrowth. Despite clear signs of efficiency strain and paper profits (cloud-loop revenue, Anthropic/OpenAI markups, negative FCF), the rule trigger is not met. Risk score: +0.\n\nStep 2 \u2013 Valuation Check (+15 if NVDA PEG > 2.5 OR Trailing P/E > 70):\nMarket data shows NVDA PEG ratio = 0.65, NVDA trailing P/E \u2248 32.38. Both are well below the bubble trigger levels (PEG 2.5, P/E 70). Yes, news cites 20x price\u2011to\u2011sales and \u2018insane bubble\u2019 rhetoric, but the algorithm explicitly keys off PEG and P/E, and by those measures NVDA is not in the extreme zone (because earnings have caught up to part of the hype). Risk score: +0.\n\nStep 3 \u2013 Adoption Check (+25 if evidence of \u2018Pilot Purgatory\u2019 / pauses/cancellations by non\u2011techs):\nThe first article explicitly flags the moment AI leaves the closed Big Tech/cloud loop and hits real corporate budgets. Concrete signal: \u2018Real Companies Are Already Hitting the Wall\u2019 and Uber burning its entire 2026 AI coding budget by April. That is classic pilot\u2011to\u2011wall behavior: budgets exhausted early, spend not scaling sustainably, suggesting projects stall or get cut. Combined with repeated emphasis that costs are here but returns are not, and that ordinary firms cannot recycle infrastructure spending back into revenue, this is clear \u2018pilot purgatory\u2019 / adoption-friction evidence. Risk score: +25.\n\nStep 4 \u2013 Hardware Signals (+20 if \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs):\nNone of the provided articles mention easing GPU supply, shorter lead times, or inventory overhang. The narrative is still scarcity + cost surge (chips and data centers getting more expensive). Risk score: +0.\n\nBase Sentiment Overlay (not part of mechanical rules but consistent with them):\nMultiple pieces explicitly frame AI as a bubble risk: \u2018AI Bubble Fears Grow\u2026\u2019, \u2018This is an insane bubble\u2019, \u2018AI Can Change The World And Still Be A Bubble\u2019, and comparisons to dot\u2011com and even 1929. Big Tech profits are increasingly driven by accounting markups (Anthropic, OpenAI) and self\u2011funding cloud loops, with real cash flow deteriorating. That supports elevated but not yet terminal risk.\n\nTotal Algorithmic Score = 0 (efficiency) + 0 (valuation) + 25 (adoption / pilot purgatory) + 0 (hardware) = 25.\nHowever, given the algorithm\u2019s narrowness versus the depth of structural concerns in the articles (fake\u2011looking revenue loops, FCF crunch, historic valuation warnings, and explicit bubble framing), I apply a discretionary +20 overlay for systemic sentiment/behavioral risk that the mechanical triggers undercount. Final risk score: 45.\n\nInterpretation: 45 lies in the YELLOW band (31\u201369): Caution/Leaking. The earnings ramp has temporarily made NVDA\u2019s standard valuation ratios look tame, so the pure metrics don\u2019t scream end\u2011stage bubble yet. But adoption friction at real companies, extreme capex, deteriorating free cash flow, and the cloud-loop/paper-profit dynamics all indicate a maturing, fragile phase of the AI trade where sentiment is turning and cracks are visible beneath the surface.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI Bubble Fears Grow as Big Tech Allegedly Pays Itself in Cloud Loop",
+      "NVDA_price": 211.14,
+      "NVDA_volatility": 1.74,
+      "NVDA_pe_ratio": 32.383434,
+      "NVDA_forward_pe": 16.681019,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 450.24,
+      "GOOGL_price": 380.34,
+      "nvda_pe": "32.383434",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-05-31T21:19:55.749043"
   }
 ]
