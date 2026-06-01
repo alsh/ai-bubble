@@ -3860,5 +3860,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-05-31T21:19:55.749043"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0): NVIDIA\u2019s reported revenue_growth is ~85.2% (0.852), which is extremely strong, not \u2018slowing (<10%)\u2019. The news flow clearly flags enormous AI spend and mounting concern about profitability (e.g., a mystery company blowing $500M on Claude in a month, Uber burning its full 2026 AI coding budget by April, cloud \u2018round\u2011trip\u2019 revenue loops, and Amazon\u2019s free cash flow collapsing while capex explodes). That\u2019s a warning on efficiency, but the Bubble Algorithm is explicit: only if companies are spending heavily AND revenue growth is slowing below 10% do we add +20. Since NVIDIA\u2019s revenue growth is far above that threshold, this rule is NOT triggered. Risk: +0.\n\nStep 2 \u2013 Valuation Check (+15 or 0): The rule says if NVDA PEG > 2.5 OR trailing P/E > 70, add +15. Provided data: NVDA_peg_ratio = 0.65 and NVDA_pe_ratio = 34.41. Both are well below the trigger levels, so by the algorithm\u2019s own thresholds NVIDIA\u2019s valuation does not yet qualify as bubble\u2011grade. Risk: +0.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019, +25 or 0): We scan the articles for explicit signs that non\u2011tech firms are pausing or canceling AI projects / stuck in pilots.\n- The \u2018AI Bubble Fears Grow as Big Tech Allegedly Pays Itself in Cloud Loop\u2019 piece is the key: it notes real\u2011economy friction \u2013 Uber \u2018torched its full 2026 AI coding budget by April\u2019 after rolling out Anthropic tools; ordinary companies \u2018cannot recycle infrastructure spending into their own revenue, and the invoices are arriving fast.\u2019 That is early evidence of customers hitting economic walls, but it does NOT clearly say they are pausing/canceling or that projects are being shelved into \u2018pilot purgatory\u2019; instead, it describes budget blow\u2011outs and growing unease.\n- The $500M Claude overspend story shows reckless usage, followed by Microsoft pivoting internal use from Claude Code to its own Copilot CLI \u2013 that\u2019s vendor substitution and cost rationalization, not outright abandonment of AI.\n- None of the pieces mentions the phrase \u2018pilot purgatory\u2019 or plainly describes non\u2011tech firms pausing/canceling AI programs en masse; the narrative is \u2018costs are huge, profits thin, and investors are getting nervous,\u2019 not \u2018projects are being mothballed.\u2019\nGiven the algorithm\u2019s requirement for a clear pilot\u2011purgatory signal, we do NOT trigger this rule yet. Risk: +0.\n\nStep 4 \u2013 Hardware Signals (\u2018easing supply\u2019 / \u2018reduced lead times\u2019, +20 or 0): The chip\u2011stock article only states that chipmakers are the hottest stocks and that the run\u2011up is fueling bubble debate. There is no mention of GPUs seeing \u2018easing supply\u2019 or \u2018reduced lead times\u2019; if anything, the rally implies tightness and strong demand expectations. Therefore, the hardware rule does not trigger. Risk: +0.\n\nTotal Bubble Algorithm Risk Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0. However, the question explicitly asks for a 0\u2013100 risk rating and notes that sentiment shifts in the news should inform the interpretation. While the four mechanical triggers are not yet met, the qualitative backdrop has clearly deteriorated: \n- Multiple articles explicitly call out \u2018AI bubble\u2019 fears, \u2018dot\u2011com style worries\u2019, and historic levels of market concentration.\n- Evidence of \u2018round\u2011trip\u2019 cloud revenue and paper-profit mark\u2011ups at Big Tech (Alphabet, Amazon) shows that a chunk of the reported AI \u2018revenue\u2019 is accounting smoke more than hard cash.\n- Non\u2011tech customers (Uber, the mystery corporation with a $500M Claude bill) are already confronting unsustainable AI opex and are being forced to rethink usage, even if they haven\u2019t formally cancelled projects yet.\n- Bank of America\u2019s Hartnett frames Fed hikes and 4%+ CPI as the pin that could pop any bubble, while bond yields are already in the danger zone.\n\nGiven this worsening sentiment and visible fragility in the economic logic of the AI spend \u2013 but without the algorithm\u2019s hard thresholds being met yet \u2013 I adjust the practical risk reading upward from the mechanical 0 to a modestly elevated 35, placing the regime in YELLOW (Caution/Leaking). The system metrics still say \u2018boom\u2019, but the narrative has shifted from euphoria to anxiety about sustainability, fake revenue, and macro headwinds \u2013 classic late\u2011phase behavior before the hard indicators (slowing revenue, hardware oversupply) flash red.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI Bubble Fears Grow as Big Tech Allegedly Pays Itself in Cloud Loop",
+      "NVDA_price": 224.36,
+      "NVDA_volatility": 5.19,
+      "NVDA_pe_ratio": 34.41104,
+      "NVDA_forward_pe": 17.725458,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 460.52,
+      "GOOGL_price": 376.37,
+      "nvda_pe": "34.41104",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-06-01T22:01:15.465583"
   }
 ]
