@@ -3882,5 +3882,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-06-01T22:01:15.465583"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "Apply the Bubble Algorithm step by step:\n\n1) Efficiency Check (Capex vs. Revenue Growth) \u2014 +20 risk\n- Data: NVDA revenue growth = 0.852 (85.2% YoY), far above the 10% slowdown threshold.\n- However, the check is triggered by **capex behavior and sustainability concerns**, not by NVDA growth alone.\n- News: The article on trillion\u2011dollar AI floats notes that hyperscalers (Meta, Microsoft, Alphabet) have \"ploughed billions\" into data centers/AI infrastructure, and an analyst explicitly warns they are **unlikely to generate a return on their investments at their current trajectory**. Alphabet is tapping shareholders for **$80bn** to fund AI spending. Another piece highlights a firm blowing **$500m in one month** on Claude due to lack of usage limits, with investors \"increasingly uneasy about the soaring costs of AI with little profit to show\" and warnings that interest is fading.\n- This is textbook sign of **heavy AI spend vs. questionable monetization** across the ecosystem, even if NVDA itself is currently growing fast. The algorithm only requires that companies are spending heavily while growth is at risk / being questioned, which the articles clearly suggest for hyperscalers and enterprise adopters.\n- Verdict: Efficiency risk condition effectively triggered by hyperscaler capex + doubts on ROI.\n- Score: +20\n\n2) Valuation Check (NVDA PEG or P/E) \u2014 +0 risk\n- NVDA trailing P/E = 34.12 (< 70 threshold).\n- NVDA PEG ratio = 0.69 (< 2.5 threshold).\n- Both valuation trip\u2011wires are **not** triggered.\n- Score: +0\n\n3) Adoption Check (Pilot Purgatory) \u2014 +25 risk\n- We look for signs that non\u2011tech firms or large enterprises are **pulling back, pausing, or struggling to justify AI projects**.\n- News: One article states investors are growing uneasy about \"soaring costs of AI with little profit to show\" and that \"investor interest is fading\" with AI bubble talk \"on the brink of collapse\". Another details Microsoft internally **pulling back** on Claude Code in favor of GitHub Copilot, explicitly because the scale of usage became hard to justify \u2014 a direct example of over\u2011adoption followed by internal retrenchment.\n- The mysterious corporation blowing $500m in a month on Claude due to lack of limits, and then having to rethink usage, is classic early sign of **AI project bloat** and impending budget scrutiny. While the phrase \"pilot purgatory\" is not used, the sentiment is that **unbounded pilots and experimentation are colliding with financial reality**, enough that consultants and investors are publicly worried.\n- This qualifies as a meaningful shift: from exuberant experimentation to cost\u2011cutting, rationalization, and selective pullbacks.\n- Score: +25\n\n4) Hardware Signals (GPU supply easing) \u2014 +0 risk\n- None of the articles mention \"easing supply\", \"reduced lead times\", or similar language on GPUs or AI hardware.\n- Some hardware names (HPE, Dell, Intel, Cisco, Arm) are mentioned, but only in the context of **surging prices on AI demand**, not supply loosening.\n- Score: +0\n\nTotal Risk Score = 20 (Efficiency) + 0 (Valuation) + 25 (Adoption) + 0 (Hardware) = 45\n\nStatus mapping: 45 falls in the **31\u201369** band, which corresponds to **YELLOW (Caution/Leaking)**. The market narrative is classic late\u2011phase bubble behavior: trillion\u2011dollar IPOs, comparisons to Global Crossing and the dotcom peak, GDP growth overly concentrated in tech investment (93%), plus visible cost blowouts and internal AI retrenchment. Counterbalancing that, NVDA\u2019s current fundamentals and valuation metrics do **not** yet scream classic single\u2011name bubble, and some institutional voices (e.g., BlackRock\u2019s Rieder, Berkshire\u2019s new $10bn into Alphabet) remain openly bullish. Hence elevated but not yet catastrophic risk.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Fears of dotcom bubble 2.0 as trillion-dollar AI floats swamp the market",
+      "NVDA_price": 222.82,
+      "NVDA_volatility": 6.11,
+      "NVDA_pe_ratio": 34.122513,
+      "NVDA_forward_pe": 17.603792,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.69,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 441.31,
+      "GOOGL_price": 361.85,
+      "nvda_pe": "34.122513",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.69"
+    },
+    "date": "2026-06-02T21:57:36.992144"
   }
 ]
