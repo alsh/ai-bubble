@@ -3904,5 +3904,27 @@
       "peg_ratio": "0.69"
     },
     "date": "2026-06-02T21:57:36.992144"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check (+20?): The articles repeatedly highlight that Big Tech and hyperscalers are plowing billions into AI/data center CapEx and that aggregate free cash flow among hyperscalers is 'crashing and could turn negative in 2027' while reported profits are 'going through the roof.' That is classic heavy-spend, strained cash-flow behavior. However, NVIDIA\u2019s reported revenue growth in the data is ~85.2% (0.852), far above the <10% slowdown threshold. So the strict algorithmic condition (heavy spend + <10% growth) is NOT met. Risk added: +0.\n\n2) Valuation Check (+15?): NVIDIA\u2019s trailing P/E is ~32.9 and PEG is ~0.69, both well below the bubble tripwire of P/E > 70 or PEG > 2.5. The narrative articles explicitly call this an 'earnings bubble rather than a valuation bubble,' which lines up with the data: fundamentals still justify the multiple for now. Risk added: +0.\n\n3) Adoption Check \u2013 'Pilot Purgatory' (+25?): We do see signs of usage discipline and cost pushback: Microsoft internally is pulling back from third-party Claude Code in favor of its own GitHub Copilot due to cost/scale concerns, and a 'mysterious corporation' accidentally burned $500m on Claude in one month. Analysts note 'investors grow increasingly uneasy about the soaring costs of AI with little profit to show' and that interest may fade. But these are not clear-cut cases of broad, non-tech enterprises pausing or canceling AI projects en masse; they\u2019re more about optimization, overuse, and investor anxiety than explicit pilot cancellations. No explicit 'pilot purgatory' theme emerges across multiple non\u2011tech firms. Risk added: +0 (but sentiment-watch list).\n\n4) Hardware Signals \u2013 easing GPU supply/reduced lead times (+20?): The news still frames the environment as a capacity-constrained build-out: shortages and supply-demand imbalances are 'propping up earnings,' and the AI build-out 'isn\u2019t slowing' with NVIDIA at the center of major CapEx plans. There are no mentions of 'easing supply,' 'excess inventory,' or 'reduced lead times' as demand cools. Risk added: +0.\n\nBase/contextual bubble risk: While the strict algorithm flags 0 from the four explicit triggers, the qualitative backdrop is clearly frothy: references to an 'AI bubble,' trillion\u2011dollar AI IPOs, 'impossible maths,' 93% of US GDP growth attributed to tech investments, and comparisons to late\u20111990s TMT. Strategists explicitly say we may be 'at the beginning of the end' phase and expect 'extreme irrationality' before the fever breaks. At the same time, big allocators like BlackRock\u2019s Rieder remain bullish and 'more relaxed' than in the dot\u2011com era, emphasizing 20%+ earnings growth and ongoing cash reinvestment. To reconcile this, I apply a discretionary overlay for systemic froth and sentiment risk: +45.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) + 45 (macro/sentiment overlay) = 45. This places the AI complex in YELLOW: a clearly frothy, earnings-driven bubble phase, but without the hard data breaks (slowing growth, extreme NVDA valuation, stalled adoption, or collapsing hardware demand) that would justify a RED 'burst imminent' classification.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Wall Street's blowout earnings season is fueling a 'paradoxical' stock market bubble",
+      "NVDA_price": 214.75,
+      "NVDA_volatility": 5.79,
+      "NVDA_pe_ratio": 32.886677,
+      "NVDA_forward_pe": 17.002884,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.69,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 427.34,
+      "GOOGL_price": 358.99,
+      "nvda_pe": "32.886677",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.69"
+    },
+    "date": "2026-06-03T21:57:46.960330"
   }
 ]
