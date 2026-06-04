@@ -3926,5 +3926,27 @@
       "peg_ratio": "0.69"
     },
     "date": "2026-06-03T21:57:46.960330"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0):\nThe rule is: if companies are spending heavily but revenue growth is slowing (<10%), add +20 risk.\n- News #2 explicitly states: \"The AI buildout isn\u2019t slowing\" and that hyperscalers are ramping CapEx with NVIDIA at the center \u2013 clear evidence of *heavy* AI/datacenter CapEx.\n- NVIDIA fundamentals: revenue_growth = 0.852 (85.2% YoY), earnings_growth = 2.145 (214.5%). That is explosive, not \"slowing <10%\".\n=> Condition NOT met. Efficiency risk score: +0.\n\nStep 2 \u2013 Valuation Check (+15 or 0):\nRule: If NVDA PEG > 2.5 OR Trailing P/E > 70, add +15 risk.\n- NVDA_peg_ratio = 0.66 (< 2.5).\n- NVDA_pe_ratio = 33.49 (< 70).\nSo by the algorithm, NVIDIA is actually *not* in classic bubble-valuation territory on these metrics.\n=> Valuation risk score: +0.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (+25 or 0):\nRule: If news shows non\u2011tech firms pausing/canceling AI projects (\"pilot purgatory\"), add +25.\n- Article #1: Altman says AI costs have become a \"huge issue\" and memes about companies blowing their 2026 budget in Q1. Commentators talk about overinvestment, unsustainable data center build-outs, and \"death of tokenmaxxing\".\n- However, this is framed as:\n  \u2022 a budgeting and cost-benefit squeeze,\n  \u2022 FOMO-driven overspending getting reined in,\n  \u2022 optimization of token use (\"long tail of dubious token usage that can be curtailed\"),\n  NOT as widespread cancellation/abandonment of AI programs by non-tech corporates.\n- There is no concrete reporting of major banks, retailers, manufacturers, etc. shelving AI deployments or entering explicit \"pilot purgatory\" \u2013 just cost pressure and scrutiny.\n=> Adoption risk (per the strict trigger) is NOT formally met. Score: +0.\n\nStep 4 \u2013 Hardware Signals / GPU Demand (+20 or 0):\nRule: If news mentions \"easing supply\" or \"reduced lead times\" for GPUs, add +20.\n- Article #2: \"The AI build-out isn\u2019t slowing\" and \"as the hyperscalers keep scaling their CapEx, it looks like Nvidia is just going to keep on selling.\" This is the opposite of easing demand.\n- No mention anywhere of easing supply, shorter lead times, or inventory build-ups.\n=> Hardware risk score: +0.\n\nAlgorithmic subtotal: 0.\n\nHowever, sentiment and qualitative risk are clearly shifting:\n- From Article #1: public discourse turns sharply more skeptical (Gary Marcus, Michael Burry, ESR, Ed Zitron) with language like \"bubble is popping\", \"AI revenue models are imploding\", \"overinvestment in datacenters not sustainable\".\n- Cost pressure is now described as a \"huge issue\" where earlier it was a non-issue \u2013 that\u2019s a clear inflection in enterprise willingness to blindly spend.\n- From Article #2: strong bullish counter-narrative \u2013 AI build-out \"isn\u2019t slowing\", NVIDIA still at the center, talk of \"Nvidia might just be a cheap stock\" and the tech being profoundly useful. This offsets some of the doom but underscores *polarization* of sentiment.\n\nThe formal Bubble Algorithm doesn\u2019t flag on any of the four mechanical triggers given the current hard data (high real growth, moderate valuations, still-tight GPU demand, no evidence of broad pilot purgatory). But the *tone* of the news shows a clear transition from euphoria to contested, cost-conscious adoption with visible macro skeptics entering the chat.\n\nTo reflect this early-stage sentiment crack\u2014without contradicting the quantitative triggers\u2014I assign a discretionary +45 risk (out of 100) to capture:\n- major voices openly calling it a bubble and questioning revenue models,\n- evidence that customers are starting to push back on AI cost structures,\n- yet *no* hard evidence (yet) of collapsing demand, stalled build-outs, or bubble valuations in the bellwether (NVIDIA).\n\nNet result: 45 => YELLOW (Caution/Leaking). Fundamental metrics remain robust, but narrative has clearly shifted from uncritical hype to cost and sustainability concerns.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "AI bubble heads and doomers seize on Sam Altman's remark that AI costs are a 'huge issue' for some companies",
+      "NVDA_price": 218.66,
+      "NVDA_volatility": 5.5,
+      "NVDA_pe_ratio": 33.48545,
+      "NVDA_forward_pe": 17.275133,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 428.05,
+      "GOOGL_price": 372.19,
+      "nvda_pe": "33.48545",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-06-04T21:31:42.940918"
   }
 ]
