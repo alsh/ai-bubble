@@ -3948,5 +3948,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-06-04T21:31:42.940918"
+  },
+  {
+    "status": "YELLOW",
+    "score": 40,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is ~85.2% (>10%), and while Sam Altman flags AI costs as a 'huge issue', there's no clear evidence from the data/news that hyperscalers or AI majors are overspending relative to sharply slowing revenue growth. The formal trigger condition (heavy spend + <10% growth) is not met. Score: +0.\n2) Valuation Check: NVDA PEG ratio is 0.66 (<2.5) and trailing P/E is ~31.36 (<70), both well below the bubble trigger thresholds. Score: +0.\n3) Adoption Check: The news is full of macro-bubble commentary (Dalio, Bank of America, Graham Stephan, etc.) but there are no concrete mentions of enterprises entering 'pilot purgatory' (pausing/canceling AI projects due to poor ROI or stalled deployment). It's sentimentally bearish but does not satisfy the specific adoption trigger. Score: +0.\n4) Hardware Signals: No mention of 'easing supply', 'reduced lead times', or similar phrasing for GPUs or AI accelerators; nothing indicates a demand air-pocket on the hardware side. Score: +0.\nAlgorithmic risk sum: 0. However, broader narrative risk is clearly rising: multiple high-profile voices (Dalio, BofA's Hartnett, Graham Stephan) are explicitly calling this an AI bubble or preparing a 'post-bubble roadmap', and Altman\u2019s quote about AI costs being a 'huge issue' points to mounting economic friction. These sentiment shifts justify a discretionary overlay, moving the practical risk score into the lower caution band. Discretionary sentiment adjustment: +40. Total Risk Score: 40 (YELLOW: Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Bank of America director offers \u2018post-bubble roadmap\u2019 in light of foreboding market trends \u2014 here\u2019s how you can ride out a major crash in AI stocks",
+      "NVDA_price": 205.1,
+      "NVDA_volatility": 7.61,
+      "NVDA_pe_ratio": 31.360857,
+      "NVDA_forward_pe": 16.172209,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.66,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 416.67,
+      "GOOGL_price": 368.53,
+      "nvda_pe": "31.360857",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.66"
+    },
+    "date": "2026-06-05T21:30:04.373601"
   }
 ]
