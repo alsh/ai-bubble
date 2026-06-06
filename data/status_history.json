@@ -3970,5 +3970,27 @@
       "peg_ratio": "0.66"
     },
     "date": "2026-06-05T21:30:04.373601"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVDA revenue growth is ~85.2%, well above the 10% slowdown threshold. The news clearly describes massive AI capex by hyperscalers and even non-core players (e.g., Toto shifting >50% of capex to AI-related capacity), but the algorithm only triggers here when heavy spending coincides with slowing revenue growth (<10%). That condition is not met, so +0 risk.\n\nStep 2 \u2013 Valuation Check (+0): NVDA trailing P/E (~31.46) is well below the 70 threshold, and the PEG ratio (~0.63) is below 2.5. Regardless of broader bubble commentary in the articles, the explicit rule does not trigger, so +0 risk.\n\nStep 3 \u2013 Adoption Check (+0): The news flow screams \u2018bubble talk\u2019 but not \u2018pilot purgatory.\u2019 We see: Altman warning AI costs are a \u201chuge issue\u201d; commentators outlining post\u2011bubble \u201croadmaps\u201d; claims that the AI bubble is earnings-driven; a toilet manufacturer pivoting capex to AI components because investors are chasing any AI adjacency. However, there is no concrete evidence of non\u2011tech enterprises pausing or canceling AI initiatives at scale, nor direct mentions of stalled pilots or shelved deployments. Therefore, the specific \u2018Pilot Purgatory\u2019 trigger is not met, so +0 risk.\n\nStep 4 \u2013 Hardware Signals (+0): Multiple references to shortages, capacity constraints, and hyperscaler spending imply tight supply and strong current demand. There are no mentions of \u201ceasing supply\u201d or \u201creduced lead times\u201d for GPUs or related AI hardware. The hardware trigger does not fire, so +0 risk.\n\nNet algorithmic score: 0. However, the news sentiment has clearly shifted from uncritical AI euphoria to explicit bubble framing: a major bank strategist publicly publishing a \u2018post\u2011bubble roadmap\u2019 and explicitly calling this an AI bubble; discussion of unsustainable earnings growth and collapsing free cash flow at hyperscalers; and investors bidding up a Japanese toilet maker mainly on AI-chip-adjacent capex hype. This marks a notable sentiment inflection toward caution and late-stage behavior even though the quantitative triggers (valuation, growth, adoption slowdown, supply easing) haven\u2019t yet hit. To reflect this qualitative shift in tone while staying within the 0\u2013100 regime, I add a discretionary overlay of +35 risk points, putting the total at 35 and categorizing the environment as YELLOW (Caution/Leaking): early cracks in narrative and capital discipline, but not yet confirmed by the specific hard metrics in the algorithm.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Wall Street's blowout earnings season is fueling a 'paradoxical' stock market bubble",
+      "NVDA_price": 205.1,
+      "NVDA_volatility": 7.61,
+      "NVDA_pe_ratio": 31.457056,
+      "NVDA_forward_pe": 16.172209,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 416.67,
+      "GOOGL_price": 368.53,
+      "nvda_pe": "31.457056",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-06T21:21:42.693809"
   }
 ]
