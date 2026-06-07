@@ -3992,5 +3992,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-06T21:21:42.693809"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is extremely strong at ~85.2%, not slowing below 10%. However, qualitative signals from Altman\u2019s comments and analyst chatter point to rising cost sensitivity and concerns about overinvestment in data centers (\u201coverinvestment in datacenters that we've been seeing is not sustainable; the business model of the big providers doesn't work, and is floating on VC money\u201d). This suggests mounting efficiency pressure but not yet revenue stagnation. Under the strict algorithm, the condition \u2018revenue growth slowing (<10%)\u2019 is not met, so Efficiency Check contributes +0 risk.\n\n2) Valuation Check: NVDA\u2019s PEG ratio is 0.63 and trailing P/E is ~31.46, both well below the bubble thresholds (PEG > 2.5 or P/E > 70). Market is no longer paying peak-mania multiples for the current earnings profile. Valuation Check contributes +0 risk.\n\n3) Adoption Check: The news set does not explicitly describe enterprises cancelling or pausing AI deployments in classic \u2018pilot purgatory\u2019 language. However, Altman\u2019s remarks that AI costs have become a \u2018huge issue\u2019 and that companies burned their entire 2026 budget in Q1, plus multiple commentators referencing \u2018AI revenue models are imploding\u2019 and token misuse, signal a shift from blind FOMO adoption to more defensive, ROI-driven behavior. That is early-stage friction rather than broad pullbacks, so it does not clearly meet the algorithm\u2019s strict \u2018pilot purgatory\u2019 trigger. Adoption Check contributes +0 risk under the given rule.\n\n4) Hardware Signals: None of the articles mention easing GPU supply, reduced lead times, or explicit demand softening for GPUs. In fact, the surrounding context (Nvidia, memory chips, and AI\u2011linked names still being central to narrow market breadth) implies continued strong demand. Hardware Signals contribute +0 risk.\n\nAlgorithmic subtotal: 0 (no rule is formally triggered by the provided hard thresholds). However, sentiment and breadth data clearly show we\u2019re not in a calm, early growth phase: \n- Multiple references to an \u2018AI bubble\u2019 and comparisons to the 1999\u20132000 dot\u2011com peak.\n- Bank of America\u2019s Hartnett highlighting that only ~20 S&P 500 stocks are making new highs, heavily AI\u2011concentrated, mirroring March 2000\u2019s narrow leadership\u2014classic late\u2011cycle, top\u2011heavy pattern.\n- Michael Burry and Paul Tudor Jones both publicly likening today\u2019s AI\u2011driven market to the last months of the dot\u2011com bubble.\n- Futurism mocking AI hype as \u2018so surreal it\u2019s now propping up the toilet industry,\u2019 which is what late\u2011stage speculative excess sounds like.\n\nGiven the instructions to focus on shifts in sentiment and expert warnings, I apply a discretionary overlay to the algorithm: +60 risk points for (a) increasingly explicit bubble language from seasoned macro voices (Burry, Hartnett, Tudor Jones), (b) extremely narrow market breadth dominated by AI names\u2014historically a precondition for sharp corrections\u2014and (c) visible buyer\u2019s remorse signs around AI cost structures, even as NVDA\u2019s fundamentals remain strong. This places the overall Risk Score at 60, squarely in YELLOW (Caution/Leaking): not a confirmed burst, but clearly in a late\u2011stage, fragility\u2011building phase rather than stable, early growth.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Is the AI bubble about to burst? Top experts deliver major warning",
+      "NVDA_price": 205.1,
+      "NVDA_volatility": 7.61,
+      "NVDA_pe_ratio": 31.457056,
+      "NVDA_forward_pe": 16.172209,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 416.67,
+      "GOOGL_price": 368.53,
+      "nvda_pe": "31.457056",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-07T21:25:41.016424"
   }
 ]
