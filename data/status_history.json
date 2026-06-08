@@ -4014,5 +4014,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-07T21:25:41.016424"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "1) Efficiency Check (+0): NVDA revenue growth is ~85.2% (>10%), and news does not clearly indicate that AI leaders are massively increasing capex while seeing sub-10% revenue growth. No +20 risk applied.\n2) Valuation Check (+0): NVDA PEG ratio is 0.63 (<2.5) and trailing P/E is 32.0 (<70). Both thresholds for +15 risk are not met, so no valuation penalty.\n3) Adoption Check (+25): While the term 'pilot purgatory' is not explicitly mentioned, sentiment in the news has clearly shifted toward bubble skepticism and cost concerns. Headlines reference an 'AI bubble' multiple times, highlight short ideas (SoundHound as an 'AI Bubble Stock to Short Now'), and discuss AI costs as a 'huge issue' for some companies. The article about Tesla explicitly frames AI as something that should not be relied on to drive revenue growth, implying doubts about current AI monetization. This constitutes an early sign of adoption friction and skepticism, so +25 risk.\n4) Hardware Signals (+0): None of the articles mention easing GPU supply, reduced lead times, or similar indications of weakening hardware demand. No +20 risk.\nBase score is 0. Adding adoption-related risk (+25). Given the broad rout in AI-related tech shares and repeated 'AI bubble' framing in headlines, an additional discretionary +10 risk is warranted within the 0\u2013100 band to reflect clear sentiment deterioration, bringing the total to 35.\nTotal Risk Score: 35 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "AI bubble just got a reality check?",
+      "NVDA_price": 208.64,
+      "NVDA_volatility": 7.13,
+      "NVDA_pe_ratio": 32.0,
+      "NVDA_forward_pe": 16.45134,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 411.74,
+      "GOOGL_price": 363.31,
+      "nvda_pe": "32.0",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-08T21:32:57.486552"
   }
 ]
