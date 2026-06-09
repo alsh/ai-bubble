@@ -4036,5 +4036,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-08T21:32:57.486552"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Step 1 \u2013 Efficiency Check: NVIDIA revenue growth is ~85.2% (0.852), far above the 10% slowdown threshold. The news flow talks about large AI capex and infrastructure build-out, but there is no indication that AI revenue growth at key players is slowing below 10%. Therefore, no +20 risk is applied.\n\nStep 2 \u2013 Valuation Check: NVIDIA\u2019s trailing P/E is ~31.9 (well below the 70 threshold) and its PEG ratio is 0.63 (well below the >2.5 threshold). The condition \u201cNVDA PEG Ratio > 2.5 OR Trailing P/E > 70\u201d is not met, so no +15 risk is applied.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory): The articles discuss bubble worries and systemic risk (Ray Dalio warning, Arthur Hayes calling for an AI crash, Altman noting AI costs are a \u2018huge issue\u2019). However, there is no mention of \u2018pilot purgatory\u2019 or of non\u2011tech companies pausing or canceling AI projects. Tesla is framed as integrating AI prudently, not cancelling it. As the algorithm requires explicit signs of pilots being paused/cancelled, no +25 risk is applied.\n\nStep 4 \u2013 Hardware Signals: None of the news mentions \u2018easing supply\u2019, \u2018reduced lead times\u2019, or similar indicators of GPU demand dropping. The macro commentary focuses on capital flows, debt issuance for AI infra, and bubble concerns, not on loosening GPU supply. Therefore, no +20 risk is applied.\n\nAdding all triggered components: 0 (efficiency) + 0 (valuation) + 0 (adoption) + 0 (hardware) = 0. This falls in the 0\u201330 band, so status = GREEN (Stable/Early Growth), despite rising narrative-level bubble chatter.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Billionaire Ray Dalio just warned of an AI bubble, but his top stock holdings are in these 6 AI names",
+      "NVDA_price": 208.19,
+      "NVDA_volatility": 5.46,
+      "NVDA_pe_ratio": 31.882082,
+      "NVDA_forward_pe": 16.415857,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 403.41,
+      "GOOGL_price": 364.26,
+      "nvda_pe": "31.882082",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-09T21:32:46.423313"
   }
 ]
