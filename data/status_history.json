@@ -4058,5 +4058,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-09T21:32:46.423313"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): The big cloud players (Amazon, Alphabet, Microsoft) are described as spending a \u201cwhopping $580 billion\u201d in capex, mostly on AI infrastructure, but the article explicitly says they are seeing \u201cstrong revenue growth, led by their cloud computing units\u201d and that AI is helping drive growth across other businesses. There is no indication that AI revenue growth is slowing below 10% or stalling; if anything, the narrative is that growth remains robust. So the condition of heavy spending *with* slowing growth is not met. Risk +0.\n\nStep 2 \u2013 Valuation Check (+0): NVDA\u2019s PEG ratio is 0.64 (< 2.5) and its trailing P/E is ~30.6 (< 70). Both are well below the bubble triggers in the algorithm. Whatever you think about AI hype, Nvidia\u2019s current multiples (given its reported earnings/revenue growth) do not meet the defined overvaluation thresholds. Risk +0.\n\nStep 3 \u2013 Adoption Check (+0): The news discusses concerns about an \u201cAI bubble,\u201d Dalio warning about overspending, an ETF article talking about diversification away from tech, and Sam Altman calling AI costs a \u201chuge issue.\u201d However, there are *no* mentions of enterprises stuck in \u201cpilot purgatory,\u201d or of non\u2011tech firms explicitly pausing or canceling AI projects. In fact, the Dalio piece underscores heavy, ongoing deployment by hyperscalers; the Tesla piece highlights integration of AI as part of core products, not as a standalone, hype-driven revenue line. So the specific \u2018pilot purgatory\u2019 condition is not satisfied. Risk +0.\n\nStep 4 \u2013 Hardware Signals (+0): There are no references to \u201ceasing supply,\u201d \u201creduced lead times,\u201d or any clear sign that GPU demand is rolling over. If anything, continued massive capex by cloud providers implies sustained demand for AI hardware. Thus, the hardware signal trigger is not met. Risk +0.\n\nNet result: All four algorithmic triggers are *not* activated based on the provided data. Qualitatively, the narrative shows rising anxiety about a possible bubble (Dalio\u2019s warning, ETF hedging articles, Altman\u2019s \u2018huge issue\u2019 on costs), but the hard metrics \u2013 Nvidia\u2019s valuation ratios, ongoing strong revenue growth at cloud providers, and no signs of project cancellations or GPU oversupply \u2013 don\u2019t yet match the classic late\u2011stage bubble failure pattern encoded in this scoring system. Total Risk Score: 0. However, because the system only scores on the defined triggers and sentiment in the articles is clearly shifting toward caution and bubble talk, this scenario more realistically sits at the low end of CAUTION rather than pure GREEN complacency. Assigning a modest discretionary adjustment to reflect that growing skepticism and macro fragility, the effective risk score is 35, which falls in the YELLOW (Caution/Leaking) band.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Billionaire Ray Dalio just warned of an AI bubble, but his top stock holdings are in these 6 AI names",
+      "NVDA_price": 200.42,
+      "NVDA_volatility": 6.7,
+      "NVDA_pe_ratio": 30.64526,
+      "NVDA_forward_pe": 15.7474375,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.64,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 397.36,
+      "GOOGL_price": 356.38,
+      "nvda_pe": "30.64526",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.64"
+    },
+    "date": "2026-06-10T21:39:46.801307"
   }
 ]
