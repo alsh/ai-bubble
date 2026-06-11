@@ -4080,5 +4080,27 @@
       "peg_ratio": "0.64"
     },
     "date": "2026-06-10T21:39:46.801307"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Applied Bubble Algorithm to supplied data and news:\n\n1) Efficiency Check (Capex vs AI revenue growth) \u2013 +20 risk:\n- We infer heavy capex: Oracle \"tumbling on cloud miss and costly data center plans\" and plans to raise $40B is classic hyperscaler\u2011style AI infrastructure splurge. That is spending.\n- But we are not given Oracle\u2019s revenue growth explicitly; the article only says it \"beat Wall Street's estimates on revenue\" while the stock sells off because of costly data center plans. That\u2019s the market punishing capex intensity, not clear proof that *Oracle\u2019s* or overall AI revenue growth is <10%.\n- For the one company with concrete growth data, Nvidia\u2019s revenue growth is 0.852 (85.2% YoY), nowhere near the <10% slowdown trigger.\n- Anthropic\u2019s revenue in the first quarter of 2026 is reported as rising fivefold (from an annualized $9B to $45B) \u2013 explosive, not sluggish.\n- Conclusion: despite worries about ROI and budgets, the quant data we have shows very high AI revenue growth where numbers are disclosed. The \u201cheavy capex + <10% growth\u201d condition is not met.\n- Score: 0 risk points.\n\n2) Valuation Check (NVDA PEG > 2.5 OR trailing P/E > 70) \u2013 +0 risk:\n- Provided metrics:\n  - NVDA PEG ratio: 0.64 (well below 2.5 trigger).\n  - NVDA trailing P/E: ~31.37 (well below the 70 trigger).\n- Whatever bubble talk is happening in panels, Nvidia itself is *not* at nosebleed levels by this algorithm.\n- Score: 0 risk points.\n\n3) Adoption Check \u2013 \u2018Pilot Purgatory\u2019 \u2013 +25 risk:\n- The first long article is the canary here:\n  - \"Enterprises slam the brakes on runaway token spending\" \u2013 spending discipline is rising.\n  - Uber \"consumed its 2026 AI coding budget in four months\" and now hard caps usage per engineer \u2013 a classic early sign of budget fatigue.\n  - MIT\u2019s 2025 GenAI Divide study: \"95% of enterprise generative AI pilots deliver no measurable profit within six months\" \u2013 direct evidence that pilots are not converting to tangible ROI.\n  - Quote from Uber\u2019s COO: if you can't \"draw a direct line\" to useful features, spending is \"harder to justify\" \u2013 management openly questioning value.\n- This is textbook \u2018pilot purgatory\u2019: large non\u2011AI-native enterprises running lots of experiments, not seeing profits, and tightening budgets and usage.\n- The article\u2019s framing \u2013 ROI lagging, agentic AI \"especially wasteful\" \u2013 confirms sentiment has shifted from blind FOMO to skepticism.\n- Condition is clearly met.\n- Score: +25 risk points.\n\n4) Hardware Signals \u2013 \u2018easing supply\u2019 / \u2018reduced lead times\u2019 \u2013 +0 risk:\n- Across all provided news, there is no explicit mention of GPU oversupply, easing supply, or reduced lead times.\n- We see a *potential* future demand rotation: \"Hyperscalers might switch from Nvidia to buy chips from rivals that charge less\" and mention that chipmakers are lowering annual token costs by 60\u201370%. That is margin pressure and cost deflation, but not yet a supply\u2011glut signal.\n- No direct text about GPU orders being cut or inventories building.\n- Condition not met.\n- Score: 0 risk points.\n\nTotal Bubble Algorithm Risk Score = 0 (efficiency) + 0 (valuation) + 25 (adoption / pilot purgatory) + 0 (hardware) = 25.\n\nThis sits in the 0\u201330 band, formally GREEN by the defined thresholds. However, multiple articles note: (a) visible speculation in pre\u2011profit AI IPOs trading at 80\u201390x sales, (b) stretched sector valuations in general, and (c) hard questions about ROI at the enterprise level. So under your labels we record the status as GREEN, but it is the dark edge of GREEN: early leak signs from adoption and sentiment even though Nvidia\u2019s fundamentals (growth, valuation) and chip demand are still robust by the numbers supplied.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI Bubble Is Stable As A Price War Forces A New Reality",
+      "NVDA_price": 204.87,
+      "NVDA_volatility": 3.3,
+      "NVDA_pe_ratio": 31.37366,
+      "NVDA_forward_pe": 16.097084,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.64,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.34,
+      "GOOGL_price": 357.77,
+      "nvda_pe": "31.37366",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.64"
+    },
+    "date": "2026-06-11T21:39:41.439300"
   }
 ]
