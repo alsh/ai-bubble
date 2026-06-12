@@ -4102,5 +4102,27 @@
       "peg_ratio": "0.64"
     },
     "date": "2026-06-11T21:39:41.439300"
+  },
+  {
+    "status": "YELLOW",
+    "score": 40,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): Nvidia\u2019s reported revenue growth is 85.2% (0.852), far above the 10% slowdown threshold. The news does not provide concrete evidence of capex vastly outpacing realized AI revenues at the hyperscaler or chip-vendor level; instead it highlights strong token-demand growth (spend roughly doubling 2025\u21922026, Anthropic revenue up ~5x). Despite rising scrutiny of ROI and budget caps (Uber and others tightening AI spend, 95% of GenAI pilots not showing profit in six months), this is mostly about margin pressure and price wars rather than system-wide revenue stagnation. So the explicit rule condition \u2013 \u201cspending heavily but revenue growth slowing (<10%)\u201d \u2013 is not met. Risk score contribution: 0.\n\nStep 2 \u2013 Valuation Check (+0): Nvidia\u2019s trailing P/E is ~31.4 and PEG ~0.63, both well below the bubble thresholds (P/E > 70 or PEG > 2.5). Whatever else the market is doing, the algorithm\u2019s valuation tripwire is *not* triggered by current NVDA metrics. Risk score contribution: 0.\n\nStep 3 \u2013 Adoption Check (+25): The news clearly signals emerging demand discipline and ROI skepticism at non\u2011AI\u2011native enterprises. Examples: Uber burned its coding AI budget in four months and imposed strict per\u2011engineer caps; enterprises are switching simpler workloads to cheaper open\u2011source or Chinese models; MIT\u2019s 2025 GenAI Divide study finds 95% of enterprise GenAI pilots show no measurable profit within six months; multiple pieces frame this as an AI bubble risk with advisors warning about stretched valuations and recommending diversification and not overweighting AI. This is textbook \u2018pilot purgatory\u2019: lots of pilots, weak monetization, budgets throttled, and buyers suddenly forced to justify spend. Even though the phrase itself isn\u2019t used, the described behavior maps directly onto the algorithm\u2019s criterion. Risk score contribution: +25.\n\nStep 4 \u2013 Hardware Signals (+0): The coverage hints at *potential* second\u2011order hardware stress \u2013 e.g., hyperscalers might switch from Nvidia to cheaper rivals, neoclouds like CoreWeave may struggle with debt repayment if economics compress \u2013 but there is no explicit mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs. We see margin and mix risk, not a clear demand cliff or inventory overhang. The hardware tripwire condition is therefore not met. Risk score contribution: 0.\n\nScore tally: 0 (Efficiency) + 0 (Valuation) + 25 (Adoption / pilot purgatory behavior) + 0 (Hardware) = 25.\n\nAdjustment for sentiment & systemic context (+15): Multiple articles from Bank of America, Goldman-related commentary, and wealth\u2011management panels all converge on \u2018AI bubble\u2019 language, explicitly comparing current dynamics to the late\u20111990s tech mania, calling out overconcentration in a handful of mega\u2011caps, extreme price action, and richly valued profit\u2011less IPOs trading at 80\u201390x sales. Advisors are already publicly urging clients to hedge with bonds and global diversification, and ETF writers are framing \u2018what to own when the AI bubble bursts.\u2019 That\u2019s not frothy enthusiasm; that\u2019s pre\u2011emptive crash\u2011planning in mainstream channels. While this isn\u2019t a formal rule in the algorithm, it is a material sentiment shift toward caution and a sign that perception of bubble risk is moving from niche skeptics to large banks and wealth managers. To reflect that rising systemic concern without overriding the data\u2011driven rule outcomes, I add a moderate +15 overlay.\n\nFinal Risk Score: 25 (from rules) + 15 (sentiment adjustment) = 40.\nThis sits in the YELLOW band (31\u201369): the AI trade is not yet collapsing on fundamentals \u2013 Nvidia\u2019s growth and valuation metrics are still defensible by the algorithm\u2019s thresholds \u2013 but enterprise adoption is stalling in profit terms, budgets are being capped, and the narrative has clearly pivoted from \u2018AI will eat the world\u2019 to \u2018how to survive when this pops.\u2019 The bubble isn\u2019t bursting today, but the air is audibly leaking.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "The AI bubble looks fit to burst, Bank of America director says. Here\u2019s your road map for riding out a crash",
+      "NVDA_price": 205.19,
+      "NVDA_volatility": 3.29,
+      "NVDA_pe_ratio": 31.374619,
+      "NVDA_forward_pe": 16.122227,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.74,
+      "GOOGL_price": 359.68,
+      "nvda_pe": "31.374619",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-12T21:32:09.210060"
   }
 ]
