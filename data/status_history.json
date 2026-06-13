@@ -4124,5 +4124,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-12T21:32:09.210060"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): Nvidia\u2019s reported revenue growth is ~85.2% (0.852), far above the 10% slowdown threshold. While there are hints of enterprises capping AI spend and focusing on ROI (Uber budget caps, price sensitivity, margin pressure on OpenAI/Anthropic), the algorithm explicitly ties this check to slowing revenue growth (<10%) relative to heavy capex. That condition is not met, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check (0/15): The algorithm flags risk if NVDA\u2019s PEG > 2.5 OR trailing P/E > 70. Current metrics: NVDA PEG \u2248 0.63 (well below 2.5) and trailing P/E \u2248 31.42 (well below 70). Despite AI froth elsewhere (e.g., Anthropic racing toward a $1T valuation), Nvidia\u2019s own multiples do not trigger the rule. Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check (25/25): The news flow clearly shows enterprises slamming brakes on runaway AI token spending, imposing strict budget caps, and rotating to cheaper/open\u2011source models. Uber exhausted its 2026 AI coding budget in four months and now hard\u2011caps per\u2011engineer AI tool usage. MIT\u2019s 2025 GenAI Divide study finds 95% of enterprise GenAI pilots show no measurable profit within six months. Decision\u2011makers are openly questioning ROI, and quotes emphasize the difficulty of justifying large AI budgets without clear product impact. This is classic \u2018pilot purgatory\u2019 behavior: lots of pilots, weak payoffs, and tightening purse strings. Adoption Risk = +25.\n\nStep 4 \u2013 Hardware Signals (10/20 provisional): The articles mention margin pressure, potential shifts from Nvidia to cheaper rivals, and possible stress on neocloud GPU lessors like CoreWeave, but they do not explicitly state \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs. However, they do point to a looming price war and hyperscalers reconsidering their chip suppliers, which suggests early-stage demand normalization risk in the hardware chain without clear evidence of an outright glut yet. Given the algorithm\u2019s requirement for explicit supply/lead-time language, we cannot fully trigger the +20, but sentiment does indicate a directional softening risk. Assigning a conservative half-weight hardware risk of +10.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption) + 10 (Hardware-proxy) = 35.\n\nThis places the AI bubble condition in YELLOW: underlying AI demand is still growing rapidly (Anthropic\u2019s revenue up nearly 10x, Gartner projecting model spend doubling), Nvidia\u2019s fundamentals are not yet in bubble-level multiple territory, but enterprise behavior and ROI skepticism are shifting. The AI trade is leaking at the edges: price wars, budget caps, and mounting questions about payback, even as top-line growth numbers stay impressive.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI Bubble Is Stable As A Price War Forces A New Reality",
+      "NVDA_price": 205.19,
+      "NVDA_volatility": 3.29,
+      "NVDA_pe_ratio": 31.422665,
+      "NVDA_forward_pe": 16.122227,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.74,
+      "GOOGL_price": 359.68,
+      "nvda_pe": "31.422665",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-13T21:27:08.198532"
   }
 ]
