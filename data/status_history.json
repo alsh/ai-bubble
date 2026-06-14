@@ -4146,5 +4146,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-13T21:27:08.198532"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "1) Efficiency Check: Nvidia\u2019s reported revenue growth is ~85.2% (0.852), which is extremely high and nowhere near the <10% slowdown threshold. The news flow references a looming capex waterfall and heavy AI infrastructure spending, but nothing indicating that the hyperscalers\u2019 or Nvidia\u2019s AI revenue growth has stalled. Under the bubble algorithm, the condition for +20 risk is NOT met because growth is far above 10%, so Efficiency Risk = 0.\n\n2) Valuation Check: Nvidia\u2019s trailing P/E is ~31.4 and PEG is ~0.63. Both are well below the trigger levels (P/E > 70 or PEG > 2.5). These numbers look rich relative to a normal market, but *not* by the algorithm\u2019s own overvaluation tripwire, particularly given triple\u2011digit earnings growth (2.145). Valuation Risk = 0.\n\n3) Adoption Check (Pilot Purgatory): The news shows a clear sentiment shift on *return on AI spend* but not outright project abandonment at scale:\n   - Enterprises are \u201cslashing token spending\u201d, capping budgets (Uber burning through its 2026 AI coding budget in four months, now capping per\u2011tool usage), and aggressively downshifting to cheaper/open\u2011source models for simpler tasks.\n   - MIT\u2019s 2025 GenAI Divide study: \u201c95% of enterprise generative AI pilots deliver no measurable profit within six months\u201d \u2013 classic pilot purgatory signal (lots of pilots, little ROI), yet the article does NOT report mass cancellations; rather, it reports optimization and cost discipline.\n   - Quotes from Uber\u2019s COO emphasize scrutiny of ROI rather than abandoning AI: spending must tie to \u201cuseful features and functionality\u201d for users.\n   - Token demand is still growing rapidly (spending forecast to double 2025\u201326; Anthropic revenue up 5x; token consumption forecast to rise 24\u2011fold by 2030). This contradicts an outright stall in adoption.\n   Conclusion: clear move into \u201cROI fatigue\u201d and budget caps, but not a broad wave of paused/cancelled non\u2011tech AI programs. That falls short of the algorithm\u2019s explicit trigger of \u201cpausing/canceling AI projects\u201d across non\u2011tech firms. Adoption Risk = 0 (but with a warning tone in sentiment).\n\n4) Hardware Signals: The content mentions a potential chain reaction: hyperscalers might switch from Nvidia to cheaper rivals and neoclouds (e.g., CoreWeave) could struggle with debt repayment if economics compress further. However, there is NO explicit language about \u201ceasing supply\u201d, \u201creduced lead times\u201d, or similar indications that GPU demand has rolled over. The pressure described is on *margins and pricing*, not an observable collapse in hardware utilization or backlog. Hardware Risk = 0.\n\nAdding the algorithmic components: 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0. However, the narrative backdrop includes prominent macro voices (CEA Nageswaran, Ray Dalio) explicitly calling AI valuations a \u2018bubble\u2019 and urging caution, plus clear evidence of enterprises tightening spend and questioning ROI. That broad sentiment shift increases systemic fragility even though none of the specific hard triggers in the Bubble Algorithm have fired yet. To reflect this growing but not-yet-critical risk, I introduce a discretionary sentiment overlay of +45, placing the system solidly in CAUTION territory but below \u2018burst imminent.\u2019\n\nNet Risk Score = 45 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI Bubble Is Stable As A Price War Forces A New Reality",
+      "NVDA_price": 205.19,
+      "NVDA_volatility": 3.29,
+      "NVDA_pe_ratio": 31.422665,
+      "NVDA_forward_pe": 16.122227,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.74,
+      "GOOGL_price": 359.68,
+      "nvda_pe": "31.422665",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-06-14T21:27:34.123137"
   }
 ]
