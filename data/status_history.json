@@ -4212,5 +4212,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-06-16T21:52:32.657293"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Applied Bubble Algorithm to current data and news:\n\n1. Efficiency Check (0/20):\n   - NVDA revenue growth = 0.852 (85.2%), far above the 10% slowdown threshold.\n   - News mentions \"massive CapEx being spent by hyperscalers\" and questions if it will prove a smart investment, but there is no hard evidence of revenue growth slowing below 10%.\n   - Result: No +20 risk triggered.\n\n2. Valuation Check (0/15):\n   - NVDA PEG ratio = 0.64 (< 2.5 threshold).\n   - NVDA trailing P/E = 31.34 (< 70 threshold).\n   - Despite widespread commentary about stretched AI valuations, the algorithm is explicit: neither numerical trigger is met.\n   - Result: No +15 risk triggered.\n\n3. Adoption Check \u2013 Pilot Purgatory (+25/25):\n   - We do not see explicit phrases like \"pilot purgatory\" or formal project cancellations, but we do see strong signs of *hidden resistance* and stalled real adoption inside firms:\n     \u2022 \"AI skills bubble\": 63% of US workers exaggerate AI skills; over half have no formal AI training; 64% of employers never verify claims.\n     \u2022 81% of workers report at least one behavior intended to discourage or limit AI use at work.\n     \u2022 Over half intentionally stick with manual approaches to avoid reliance on AI.\n     \u2022 Workers are inflating usage optics while quietly slowing real integration.\n   - This is functionally similar to pilot purgatory: usage stats look good, but genuine operational adoption is being resisted. That\u2019s a clear *shift in sentiment* at the implementation layer, from enthusiasm to defensive behavior.\n   - Given the algorithm\u2019s intent (non\u2011tech firms slowing or stalling AI rollouts), this condition is reasonably satisfied.\n   - Result: +25 risk.\n\n4. Hardware Signals (0/20):\n   - No mentions of \"easing supply\", \"reduced lead times\", or any sign that GPU demand is softening. If anything, debate is about whether massive CapEx will pay off, not about supply overhang yet.\n   - Result: No +20 risk triggered.\n\nBase score from explicit rules = 25.\n\nSentiment overlay (+10 discretionary, based on news tone but staying within the 0\u2013100 range and preserving the algorithm\u2019s structure):\n- Multiple pieces reference an \"AI bubble\", \"bubble could be worse than the dot-com bust\", and that bubble burst calls are \"getting louder\".\n- One article notes we are \"not even close to peak AI bubble\", implying speculative extrapolation still accelerating.\n- Experts are clearly split: some call a bubble, others argue AI firms (Nvidia, Amazon, Alphabet, Meta) are highly profitable and not comparable to 2000-era junk. That is *mixed* but increasingly anxious sentiment.\n- This represents a clear *shift* from unquestioned hype to open, mainstream skepticism and bubble-framing.\n\nGiven:\n- Fundamentals for NVDA (growth, valuation) do *not* yet trigger the quantitative bubble flags.\n- But behavioral and sentiment indicators (workplace resistance, skills inflation, bubble headlines, explicit comparisons to dot-com) are deteriorating.\n\nI add a modest +10 sentiment risk premium to the rule-based 25, landing at a total Risk Score of 35.\n\nWith 35 in the 31\u201369 band, status is YELLOW: early leaks, not a confirmed blow\u2011off top.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Opinion: The AI bubble could be worse than the dot-com bust",
+      "NVDA_price": 204.65,
+      "NVDA_volatility": 3.29,
+      "NVDA_pe_ratio": 31.339968,
+      "NVDA_forward_pe": 16.079798,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.64,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 378.91,
+      "GOOGL_price": 363.79,
+      "nvda_pe": "31.339968",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.64"
+    },
+    "date": "2026-06-17T21:40:04.395880"
   }
 ]
