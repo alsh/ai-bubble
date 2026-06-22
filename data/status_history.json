@@ -4322,5 +4322,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-06-21T21:27:44.896182"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Applying The Bubble Algorithm:\n1) Efficiency Check (+20 or 0): Nvidia revenue growth is 85.2% (0.852), far above the 10% slowdown threshold. Despite heavy AI infrastructure spending mentioned in the news (xAI \"huge infrastructure\", data center boom), the rule explicitly penalizes only when companies are spending heavily AND revenue growth is slowing (<10%). Here, the flagship hardware vendor is still showing hyper-growth, so Efficiency Risk = 0.\n\n2) Valuation Check (+15 or 0): Nvidia PEG ratio is 0.65 and trailing P/E is ~32, both well below the bubble thresholds (PEG > 2.5 or P/E > 70). Several commentators *say* \"AI bubble\" and compare to dot\u2011com, but the algorithm is hard\u2011coded to those specific valuation triggers, which are not met. Valuation Risk = 0.\n\n3) Adoption Check \u2013 'Pilot Purgatory' (+25 or 0): Multiple concrete adoption/ROI red flags:\n   - Enterprises are \"slamming the brakes\" on runaway token spending; OpenAI and Anthropic being pushed into steep price cuts.\n   - Uber blew through its 2026 AI coding budget in four months and imposed strict per\u2011engineer caps, explicitly questioning ROI.\n   - Firms are routing more work to cheaper open\u2011source and Chinese models, reserving expensive frontier models only for select tasks.\n   - MIT\u2019s 2025 GenAI Divide study: 95% of enterprise GenAI pilots deliver **no measurable profit** within six months.\nThese are textbook symptoms of pilots not graduating to scaled, profitable deployments \u2013 effectively pilot purgatory and ROI disappointment. Even though the exact phrase isn\u2019t used, the described behavior matches the condition, so Adoption Risk = +25.\n\n4) Hardware Signals \u2013 GPU demand softening (+20 or 0): Articles discuss xAI renting out excess infrastructure, potential future margin pressure on hyperscalers, and the risk that the data center boom \"comes to a halt.\" However, there is **no direct mention** of \"easing supply\" or \"reduced lead times\" for GPUs or AI accelerators. The hardware rule is explicit, so without those phrases or an equivalent clear signal, Hardware Risk = 0.\n\nBase sentiment overlay (contextual adjustment, not from the four rules):\n- LeCun explicitly warns of a potential \"big bubble explosion\" and points out that most labs are losing money and effectively subsidized by investors.\n- Another piece calls out that cheap AI stock valuations may actually indicate **growing fear** that the data center boom ends.\n- A separate article calls the AI bubble \"stable\" but only because a price war is forcing a less euphoric, margin\u2011compressed reality.\n- Meanwhile, San Francisco housing is going \"bonkers\" on AI wealth \u2013 a classic local speculative side\u2011effect.\nThis combination is not outright collapse, but it\u2019s a clear shift from euphoria toward skepticism and cost discipline. To reflect this systemic caution without overriding the algorithmic rules, I add a discretionary +20 to the risk score.\n\nTotal Risk Score = Efficiency (0) + Valuation (0) + Adoption (25) + Hardware (0) + Sentiment Overlay (20) = 45.\nThis falls in the 31\u201369 band: YELLOW (Caution/Leaking): revenue still strong and core AI bellwether (Nvidia) not yet at panic valuations, but enterprise behavior and expert commentary show mounting doubts about ROI and business model sustainability.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The AI Bubble Is Stable As A Price War Forces A New Reality",
+      "NVDA_price": 208.65,
+      "NVDA_volatility": 3.0,
+      "NVDA_pe_ratio": 31.952524,
+      "NVDA_forward_pe": 16.391691,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 367.34,
+      "GOOGL_price": 349.68,
+      "nvda_pe": "31.952524",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-06-22T21:41:33.657414"
   }
 ]
