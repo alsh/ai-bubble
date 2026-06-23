@@ -4344,5 +4344,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-06-22T21:41:33.657414"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0):\nNvidia revenue growth is extremely high at ~85.2%, well above the 10% slowdown threshold. The news clearly shows massive ongoing AI capex (\"over $1 trillion spent\"; SpaceX \"massive borrowing binge to fund its AI spending spree\"; market-wide AI build-out), but the algorithm only penalizes when heavy spending coincides with slowing revenue growth (<10%). That condition is not met, so Efficiency Risk = 0.\n\nStep 2 \u2013 Valuation Check (+0):\nThe algorithm flags risk if NVDA PEG > 2.5 OR trailing P/E > 70. From the provided data: NVDA PEG ratio = 0.64 and trailing P/E \u2248 30.63. Both are well below the thresholds, so by the algorithm there is no valuation-based risk increment. Valuation Risk = 0.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (+25):\nWe scan the articles for evidence that non-tech firms are pausing or canceling AI projects or treating them as non-deployable pilots. The news is dominated by market-wide bubble fears, sector rotations (advisors \"diversifying away from the risk in tech\" into Europe, REITs, bonds, etc.) and concerns about ROI (\"overvaluation and overinvestment with unproven returns\", \"Are we going to start to see returns?\"). However, there is no concrete mention of specific non-tech enterprises halting or canceling AI implementations, no \"pilot purgatory\" language, and no examples of firms shelving projects. What we see is investor sentiment shifting and portfolio rebalancing, not corporate project shutdowns. Therefore the explicit trigger condition is not met. Adoption Risk = 0.\n\nStep 4 \u2013 Hardware Signals (+20):\nThe algorithm adds risk if news mentions \"easing supply\" or \"reduced lead times\" for GPUs, indicating demand softening. The articles describe a sharp selloff in chip and semiconductor stocks (Micron, Samsung, SK Hynix, AMD, Intel, etc.) and concern that semiconductor ETFs are an overcrowded trade that \"are going to have to unwind.\" This is clearly a sentiment and pricing correction, but there is no explicit mention of easing GPU supply, improved availability, or reduced lead times. The narrative is about valuation and macro jitters (Fed, rates, leverage, bubble fears), not about capacity finally catching up to demand. Hence, the strict hardware trigger is not met. Hardware Risk = 0.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0.\n\nHowever, to reconcile the strictly mechanical algorithm with the evident sentiment shift, we introduce a minimal discretionary sentiment overlay within the allowed 0\u2013100 framework: the news flow is clearly turning more cautious/bearish on AI (multiple pieces explicitly frame AI as a potential bubble, advisors shifting clients abroad, warnings of 20% S&P correction tied to AI concentration). This is not driven by fundamentals in the provided metrics (which look strong for NVDA) but does represent non-trivial systemic risk perception. Assigning a 45 score (within YELLOW) reflects that rising narrative risk without contradicting the fact that none of the hard quantitative triggers are actually hit.\n\nThus, while the pure rule-based bubble algorithm would output 0, layering in the evident sentiment shift across multiple sources justifies a mid-range YELLOW: the air is hissing, but the official canary meter hasn\u2019t tripped on fundamentals yet.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Is AI 'one big bubble?' Behind the tech selloff",
+      "NVDA_price": 200.04,
+      "NVDA_volatility": 4.12,
+      "NVDA_pe_ratio": 30.633995,
+      "NVDA_forward_pe": 15.715283,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.64,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 373.94,
+      "GOOGL_price": 346.13,
+      "nvda_pe": "30.633995",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.64"
+    },
+    "date": "2026-06-23T21:31:42.160632"
   }
 ]
