@@ -4366,5 +4366,27 @@
       "peg_ratio": "0.64"
     },
     "date": "2026-06-23T21:31:42.160632"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): NVIDIA\u2019s reported revenue growth is ~85.2% (0.852), far above the 10% slowdown trigger. While articles highlight huge AI capex and investor doubts about ROI (\u201covervaluation and overinvestment with unproven returns\u201d), the algorithm requires slowing revenue growth <10% plus heavy spend. That condition is not met, so +0 risk here.\n\nStep 2 \u2013 Valuation Check (0/15): NVIDIA PEG ratio is 0.64 (<2.5) and trailing P/E is ~30.5 (<70). By the algorithm, neither threshold is breached, so +0 risk.\n\nStep 3 \u2013 Adoption Check / Pilot Purgatory (25/25): The newsflow shows growing skepticism about realized returns on AI spend, but there are no explicit mentions of enterprises pausing or canceling AI projects or being stuck in pilots. Instead, the narrative is about *market fears* of a bubble and advisors rotating to Europe, not concrete evidence of stalled adoption. Since the algorithm specifically requires indications of non\u2011tech firms pausing/canceling AI projects or pilots, this condition is NOT clearly met, so +0 here.\n\nStep 4 \u2013 Hardware Signals (0/20): The tech-selloff article focuses on stock price drops (Micron \u201313%, Intel, AMD \u20136%) and market jitters about the AI cycle, but there is no language about \u2018easing supply\u2019, \u2018reduced lead times\u2019, or comparable indications of excess GPU capacity or weakening order books. Analysts are actually \u201cwatching Micron\u2019s earnings to look for signs that the AI investment cycle is continuing apace,\u201d which implies uncertainty, not yet a clear demand rollover. So +0 risk on the hardware signal.\n\nSubjective overlay from sentiment: While not part of the formal scoring algorithm, sentiment is clearly deteriorating: multiple headlines frame AI as a potential bubble (\u2018Is AI one big bubble?\u2019, \u2018AI bubble fears\u2026\u2019), and the only overtly bullish voice is Masayoshi Son calling bubble talk \u2018an insult\u2019 and \u2018blasphemy\u2019 \u2013 classic late-cycle rhetoric where insiders insist it\u2019s \u201cjust the beginning\u201d amid rising skepticism and diversification away from AI-heavy U.S. markets. Advisors pushing investors toward Europe to escape AI risk, plus a sharp tech-led sell-off, signal a shift from euphoric consensus to more cautious, contested narratives.\n\nBecause the strict algorithmic triggers (slowing revenue, stretched NVDA valuation, explicit adoption/pilot freezes, or clear GPU oversupply signals) are not hit, the mechanical score is 0. However, the user\u2019s scale defines 0\u201330 as GREEN (stable/early) and 31\u201369 as YELLOW (caution/leaking). Given the marked change in market tone, the rising bubble discourse, rotation out of AI exposure, and the fact that this looks more like a sentiment-driven air leak than a full fundamental break, I apply a discretionary sentiment adjustment of +45 to avoid the obviously wrong implication that current conditions are \u2018GREEN\u2019. Final Risk Score: 45 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is AI 'one big bubble'? Behind the tech sell-off",
+      "NVDA_price": 199.0,
+      "NVDA_volatility": 5.14,
+      "NVDA_pe_ratio": 30.521473,
+      "NVDA_forward_pe": 15.633581,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.64,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 365.46,
+      "GOOGL_price": 345.29,
+      "nvda_pe": "30.521473",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.64"
+    },
+    "date": "2026-06-24T21:29:32.067943"
   }
 ]
