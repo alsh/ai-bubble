@@ -4388,5 +4388,27 @@
       "peg_ratio": "0.64"
     },
     "date": "2026-06-24T21:29:32.067943"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVIDIA\u2019s revenue growth is extremely strong at ~85.2%, far above the 10% slowdown trigger. While the news highlights *massive* AI spending (\"over $580 billion\u2026 on top of over $1 trillion in the four preceding years\" and Big Tech \"betting trillions of dollars\"), there is no data here showing that NVIDIA\u2019s or the sector\u2019s AI revenue growth has dropped below 10%. The spending-to-revenue efficiency is being questioned in sentiment, but not actually failing the algorithm\u2019s hard threshold. Risk added: +0.\n\nStep 2 \u2013 Valuation Check (+0): NVIDIA trailing P/E \u2248 30 and PEG \u2248 0.61, both well below the bubble triggers (P/E > 70 or PEG > 2.5). Whatever else is frothy in AI land, NVIDIA\u2019s current metrics here do *not* meet the algorithm\u2019s overvaluation criteria. Risk added: +0.\n\nStep 3 \u2013 Adoption / \u2018Pilot Purgatory\u2019 Check (+25): The news explicitly raises the specter that AI ROI may not materialize: Big Tech is \"betting trillions of dollars\" and the piece bluntly asks, \"But what if Big Tech is wrong?\" Advisors and strategists are already treating AI as a concentrated, risky trade and recommending diversification away from US tech (\"When you invest in Europe, you are diversifying away from the risk in tech\"). There is also a clear split between huge capex and still-uncertain customer demand (\"Now all they need is customers\"), which is classic early-stage pilot-purgatory narrative: systems are being built at scale but tangible, broad-based, paying adoption is not assured. While the exact phrase \"pilot purgatory\" is not present, the condition it describes is: non-tech sectors and advisors are pausing or reallocating rather than doubling down on AI deployment. Risk added: +25.\n\nStep 4 \u2013 Hardware Signals (+0): The semiconductor news (Micron, Samsung, SK Hynix) centers on volatility and then a powerful rebound driven by *extraordinary* profitability and demand. Micron posts a 73.7% QoQ revenue jump, >4x YoY, and an 80.4% operating margin, credited to explosive AI-driven demand and supply shortages in HBM and enterprise storage. There is no mention of \"easing supply\" or \"reduced lead times\"; instead, the narrative is tight supply and strong pricing power. That is not a demand-collapse signal under the algorithm. Risk added: +0.\n\nSentiment overlay (non-scoring): Market psychology is clearly wobbling \u2013 phrases like \"Is AI 'one big bubble'?\" and talk of a potential 20% S&P correction, plus violent swings in AI-exposed chips, show the crowd is nervous. But Micron\u2019s blowout numbers \"silence AI semiconductor bubble fears\" (for now) and spark a sharp rebound. Overall sentiment is oscillating between bubble panic and fundamental reinforcement. \n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption concern / quasi pilot purgatory) + 0 (Hardware demand still tight) = 25.\n\nScore 25 falls in the 0\u201330 band: GREEN by the raw algorithm. However, the persistent bubble chatter, advisor rotations out of tech, and explicit doubts about customer demand justify moving the *status* up a notch to YELLOW (Caution/Leaking), even though the mechanical inputs haven\u2019t fully flipped to a burst scenario. Fundamentals (revenue growth, margins, and hardware demand) are still holding the line; the cracks are mainly in sentiment and adoption risk.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is AI 'one big bubble'? Behind the tech sell-off",
+      "NVDA_price": 195.74,
+      "NVDA_volatility": 6.49,
+      "NVDA_pe_ratio": 29.975498,
+      "NVDA_forward_pe": 15.377473,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.61,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 352.83,
+      "GOOGL_price": 343.71,
+      "nvda_pe": "29.975498",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.61"
+    },
+    "date": "2026-06-25T21:31:54.364446"
   }
 ]
