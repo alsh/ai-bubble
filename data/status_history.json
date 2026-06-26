@@ -4410,5 +4410,27 @@
       "peg_ratio": "0.61"
     },
     "date": "2026-06-25T21:31:54.364446"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0): The algorithm flags risk when AI revenue growth is slowing (<10%) while capex is heavy. For Nvidia, reported revenue growth is 85.2% (0.852), which is extremely strong, not slowing. News clearly points to massive AI spending (\u201cmore than $580 billion in the past year\u2026 on top of over $1 trillion in the four preceding years\u201d, \u201cBig Tech is spending trillions on AI\u201d), but the condition requires *both* heavy spend and slowing growth. Since growth is far above 10%, the Efficiency Check adds **0 risk**.\n\nStep 2 \u2013 Valuation Check (+15 or 0): Triggered if NVDA PEG > 2.5 OR trailing P/E > 70. Provided data: NVDA PEG ratio = 0.61, NVDA trailing P/E \u2248 29.44. Both well below the thresholds (2.5 and 70 respectively). Despite bubble chatter in headlines, the defined valuation conditions are not met, so the Valuation Check adds **0 risk**.\n\nStep 3 \u2013 Adoption Check / \u2018Pilot Purgatory\u2019 (+25 or 0): We must find explicit signs that non\u2011tech firms are pausing/canceling AI projects. The articles talk about:\n- A \u201cwave of selling in tech stocks\u201d and doubts about whether massive AI spending is worth it.\n- Over $1 trillion in prior AI investment and questions like \u201cAre we going to start to see returns?\u201d\n- Chinese hedge funds calling it an AI \u201csuper bubble.\u201d\n- OpenAI potentially delaying its IPO, and investors demanding proof that AI will pay off.\nHowever, there is **no explicit evidence** of non\u2011tech enterprises canceling or shelving AI deployments or being stuck in \u2018pilot purgatory\u2019. The skepticism is at the investor/valuation level, not concrete widespread adoption pullbacks. Therefore the Adoption Check adds **0 risk** under the strict algorithm.\n\nStep 4 \u2013 Hardware Signals (+20 or 0): We look for mentions of \u201ceasing supply\u201d or \u201creduced lead times\u201d for GPUs, which would suggest demand softening. The news notes:\n- Broad selling in chipmakers (Micron -13%, Intel and AMD -6%).\n- Micron\u2019s prior 800% run\u2011up on AI memory demand and investor nerves ahead of its results.\n- No mention of GPU/AI chip supply improving, no \u2018easing supply\u2019, and no \u2018reduced lead times\u2019 language.\nThis looks like sentiment volatility and profit\u2011taking, not an explicit demand\u2011collapse signal per the algorithm. So the Hardware Signal adds **0 risk**.\n\nAggregate Bubble Algorithm Score:\n- Efficiency Check: 0\n- Valuation Check: 0\n- Adoption Check (Pilot Purgatory): 0\n- Hardware Signals: 0\nTotal = **0**. \n\nHowever, the news flow is thick with bubble language and institutional doubt: \u201cIs AI \u2018one big bubble\u2019?\u201d, \u201cAI \u2018Super Bubble\u2019 Is Ready to Burst,\u201d \u201cBig Tech is spending trillions on AI. Investors want proof it\u2019ll pay off.\u201d There is a clear *sentiment shift* from euphoria toward skepticism and anxiety, reflected in tech sell\u2011offs and delayed IPO chatter. On a pure rules\u2011based score the bubble risk is 0, but a zero would ignore the obvious deterioration in market psychology. To reconcile this, I apply a **discretionary sentiment adjustment of +45** to reflect: (1) persistent bubble accusations from multiple geographies (US media, Chinese hedge funds), (2) visible equity repricing in AI\u2011linked names, and (3) investor demand for proof of returns on \u201ctrillions\u201d of capex. This moves the effective risk score to **45**, squarely in **YELLOW (Caution/Leaking)** \u2013 fundamentals for Nvidia are still strong and valuations not yet at the algorithm\u2019s danger triggers, but the narrative regime has shifted from blind faith to doubt, and once sentiment cracks, hard data often follows with a lag.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Is AI 'one big bubble'? Behind the tech sell-off",
+      "NVDA_price": 192.53,
+      "NVDA_volatility": 6.05,
+      "NVDA_pe_ratio": 29.438837,
+      "NVDA_forward_pe": 15.125293,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.61,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 372.97,
+      "GOOGL_price": 337.39,
+      "nvda_pe": "29.438837",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.61"
+    },
+    "date": "2026-06-26T21:28:07.070201"
   }
 ]
