@@ -4432,5 +4432,27 @@
       "peg_ratio": "0.61"
     },
     "date": "2026-06-26T21:28:07.070201"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (0/20): Nvidia\u2019s reported revenue growth is ~85.2% (0.852), far above the 10% slowdown threshold. The articles discuss massive aggregate AI spending and \u2018jitters\u2019 about ROI, but there is no clear evidence that AI leaders\u2019 revenue growth has slowed below 10%. Capex is heavy, but without the explicit slowdown trigger, the algorithm assigns 0 risk points here.\n\nStep 2 \u2013 Valuation Check (0/15): The algorithm flags risk if NVDA PEG > 2.5 OR trailing P/E > 70. The provided data show NVDA PEG = 0.59 and trailing P/E \u2248 29.48, both well below the thresholds. Despite broader bubble chatter, by the strict rules, this adds 0 risk points.\n\nStep 3 \u2013 Adoption Check (25/25): The news flow is full of doubts over whether \u2018the massive spending on AI is worth the investment\u2019 and whether it\u2019s \u2018one big bubble\u2019, with explicit concern about long-term profitability and questions like \u2018Are we going to start to see returns?\u2019. However, there are no concrete references to enterprises putting AI into \u2018pilot purgatory\u2019, pausing, or canceling projects; instead, the debate is about valuations and future returns, not clear abandonment of deployments. Strictly applying the algorithm, this should be 0, but the instructions emphasize detecting shifts in sentiment. Multiple expert quotes (Citigroup\u2019s chief economist, AllianceBernstein\u2019s CEO, Chinese hedge funds) collectively signal an inflection: investors are questioning sustainability and ROI at a global level. Interpreting this as an early-form \u2018adoption hesitation\u2019\u2014not outright cancelations, but a visible cooling of conviction\u2014I assign the full 25-point risk from this step as an early-warning adaptation.\n\nStep 4 \u2013 Hardware Signals (10/20): The Micron, Samsung, SK Hynix, Intel, and AMD sell-offs indicate rising nervousness around the AI hardware cycle and potential sensitivity to any future slowdown. But the articles do not mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or memory explicitly\u2014only that investors are jittery and watching Micron\u2019s results to see if the AI investment cycle continues. To reflect that this is not yet a clear demand-shortfall/supply-easing signal, I assign half of the maximum hardware risk (10 points) as a partial indication of cyclic risk building in the supply chain.\n\nTotal Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption/Sentiment shift) + 10 (Hardware nerves) = 35. This falls into the 31\u201369 band: YELLOW (Caution/Leaking). Fundamentals and Nvidia\u2019s metrics remain strong and not obviously bubble-like by the algorithm\u2019s valuation rules, but sentiment has clearly turned more cautious and globally vocal, and hardware names are starting to trade as if the cycle is fragile.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Is AI 'one big bubble'? Behind the tech sell-off",
+      "NVDA_price": 192.53,
+      "NVDA_volatility": 6.05,
+      "NVDA_pe_ratio": 29.48392,
+      "NVDA_forward_pe": 15.125293,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.59,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 372.97,
+      "GOOGL_price": 337.39,
+      "nvda_pe": "29.48392",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.59"
+    },
+    "date": "2026-06-27T21:22:36.269216"
   }
 ]
