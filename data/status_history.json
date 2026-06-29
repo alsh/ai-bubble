@@ -4476,5 +4476,27 @@
       "peg_ratio": "0.59"
     },
     "date": "2026-06-28T21:22:25.650906"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Applied Bubble Algorithm to current data and news:\n\n1) Efficiency Check (Capex vs. Revenue Growth):\n- News shows \"Big Tech is pouring hundreds of billions into AI infrastructure\" and that data centers are being \"delayed or never built\" with investors worrying about exploding costs. Another piece notes the Magnificent Seven plus AVGO/ORCL have shed ~$2.7T in June as investors scrutinize rising AI capex.\n- That clearly indicates very heavy spending.\n- NVDA\u2019s revenue growth is 85.2% (0.852) \u2013 far above the 10% slowdown trigger.\n- Algorithm rule: only add +20 if heavy spending AND revenue growth < 10%.\n- Condition NOT met. Score +0.\n\n2) Valuation Check (NVDA PEG / P/E):\n- NVDA trailing P/E \u2248 29.86 (< 70 threshold).\n- NVDA PEG ratio = 0.59 (< 2.5 threshold).\n- Both well below the bubble triggers.\n- Algorithm rule: if PEG > 2.5 OR P/E > 70, add +15.\n- Condition NOT met. Score +0.\n\n3) Adoption Check (Pilot Purgatory / stalled ROI):\n- NBER/Deloitte data: ~90% of 6,000 C-suites report \"no impact on employment or productivity\" from AI over 3 years; only 10% see any return on AI investment, with many expecting payoffs only \"in a few years\".\n- Multiple articles frame the question explicitly as: \"Is AI 'one big bubble'?\" and highlight over $1 trillion in prior AI spend with market now asking, \"Are we going to start to see returns?\".\n- AllianceBernstein CEO says you should be \"worried about an AI bubble\" and draws parallels to the dot-com era; notes valuations are rich and expectations extremely high.\n- Another article says the next phase is proving which companies are actually increasing revenue or cutting costs with AI; Indian IT and many corporates have seen tech stocks hit and sentiment weaken pending real use cases.\n- While the phrase \"pilot purgatory\" does not appear verbatim, the data (large spend, very low realized ROI, executives acknowledging delays to tangible benefits) is functionally equivalent to enterprise AI stuck between pilots and scaled deployment.\n- Algorithm intent: evidence that non-tech/enterprise adopters are not seeing payoff or are hesitating in rolling out AI at scale \u2192 Score +25.\n- Condition effectively met. Score +25.\n\n4) Hardware Signals (GPU demand cooling):\n- Articles highlight volatility and concerns over AI chip valuations, but:\n  - Micron delivers a \u201cblockbuster outlook\u201d that \"kept the AI rally alive\" and confirms that \"AI spending remains on track\".\n  - Analysts say supply-demand for semiconductors is \"so tight\" with no clear evidence of a big supply increase.\n  - Memory prices are surging; Apple and Microsoft are raising prices due to higher memory costs.\n- No mention of \"easing supply\" or \"reduced lead times\"; if anything, the bottleneck narrative is intact.\n- Algorithm rule: only add +20 if news explicitly indicates supply easing / shorter lead times (a demand drop signal).\n- Condition NOT met. Score +0.\n\n5) Sentiment overlay (for total risk level within band):\n- Several pieces explicitly raise \"AI bubble\" fears, market \"jitters\", and ask whether the massive spending is \"worth it\".\n- At the same time, some strategists say they \"don't view this as a bubble\" that will pop soon; they see this as a stretched but ongoing rally, backed by strong earnings at key chipmakers.\n- Net picture: fundamentals for hardware (NVDA-like names) still strong and valuations not yet in nosebleed territory, but adoption ROI is lagging and bubble language is moving from fringe commentary to mainstream headlines.\n- To reflect this rising but not-yet-terminal risk, I add a discretionary +20 sentiment/late-cycle factor within the 0\u2013100 scale while staying consistent with the algorithm\u2019s primary triggers.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 25 (Adoption / pilot purgatory by another name) + 0 (Hardware supply) + 20 (sentiment shift) = 45.\n\nA score of 45 falls in the YELLOW band: Caution/Leaking. The pipes haven\u2019t burst, but the pressure is clearly building; hardware earnings are still masking the fact that most corporates are not yet seeing the returns the last $1+ trillion in AI capex was supposed to deliver.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Is AI 'one big bubble'? Behind the tech sell-off",
+      "NVDA_price": 194.97,
+      "NVDA_volatility": 3.06,
+      "NVDA_pe_ratio": 29.85758,
+      "NVDA_forward_pe": 15.274478,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.59,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 368.57,
+      "GOOGL_price": 353.65,
+      "nvda_pe": "29.85758",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.59"
+    },
+    "date": "2026-06-29T21:30:11.864225"
   }
 ]
