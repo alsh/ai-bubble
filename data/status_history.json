@@ -4498,5 +4498,27 @@
       "peg_ratio": "0.59"
     },
     "date": "2026-06-29T21:30:11.864225"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0):\nNVIDIA revenue growth is 85.2% year over year (NVDA_revenue_growth = 0.852). The rule only adds +20 risk if companies are spending heavily while revenue growth is slowing to <10%. The news clearly flags massive AI capex (Samsung and SK Hynix with $500bn plans, \u2018surging AI costs\u2019, \u2018over $1 trillion spent\u2019 on AI), but core bellwethers like Nvidia and Micron are still posting extremely strong revenue and earnings growth. No sign of sub\u201110% growth yet. Result: +0 risk.\n\nStep 2 \u2013 Valuation Check (+0):\nThe trigger is NVDA PEG > 2.5 OR trailing P/E > 70. Current metrics: NVDA PEG = 0.59, NVDA trailing P/E \u2248 30.64. Both are well below the thresholds. Whatever bubble existed in 2024, the current data say Nvidia\u2019s valuation has already compressed. Result: +0 risk.\n\nStep 3 \u2013 Adoption Check (+0):\nWe scan the articles for evidence of \u2018pilot purgatory\u2019 \u2013 non\u2011tech firms pausing or canceling AI projects or shelving deployments. The news is full of *market* doubts about ROI (\u2018is it worth the investment\u2019, \u2018are we going to start to see returns?\u2019), but there are no concrete examples of enterprises canceling AI programs or shelving deployments. The concern is about stock prices and valuation, not customers walking away from AI projects. Result: +0 risk.\n\nStep 4 \u2013 Hardware Signals (+20):\nWe look for mentions of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or similar chips as a demand\u2011softening tell. None of the articles explicitly mention easing GPU supply or reduced lead times. In fact, Micron\u2019s \u2018blockbuster outlook\u2019 and \u2018surging memory costs\u2019 imply the bottleneck is still on the supply/tightness side rather than glut. Result: +0 risk.\n\nHowever, the algorithm\u2019s remaining signal is sentiment and price\u2011reaction context embedded in the provided news, which indicates a *shift* even if it doesn\u2019t flip any hard rule flags:\n- Articles talk openly about an \u2018AI bubble\u2019 and \u2018one big bubble\u2019, and central bank watchdogs warning about getting \u2018swept up\u2019 in the boom.\n- A CIO on CNBC points out that AI bellwethers are delivering blowout quarters (Nvidia, Palantir, Broadcom) while stocks stall or sell off \u2013 classic late\u2011stage behavior where good news stops moving prices.\n- There\u2019s a \u2018wave of selling in tech stocks\u2019 and a \u2018rocky week for AI\u2019 with sharp drawdowns in Samsung, SK Hynix, Micron, SpaceX, and Alphabet, even as fundamentals remain strong.\n- Multiple pieces note investors questioning if the massive capex is worth it and whether this is \u2018one big bubble\u2019, while others defensively insist \u2018we don\u2019t view this as a bubble\u2019 and \u2018no sign of crash \u2013 yet\u2019. That\u2019s not the beginning of a mania; it\u2019s the part where the crowd starts to get nervous.\n\nThese shifts don\u2019t directly trip the four quantitative rules, but they clearly move the environment from complacent euphoria to fragile optimism. I assign an additional discretionary +35 risk points for:\n- Persistent bubble rhetoric from mainstream outlets and central\u2011bank\u2011adjacent voices.\n- Good\u2011news\u2011no\u2011longer\u2011lifts\u2011stocks pattern in key AI names.\n- Large, ongoing AI capex with markets now *questioning* ROI rather than blindly rewarding it.\n\nTotal Risk Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) + 35 (sentiment/price\u2011action overlay) = 35.\n\nA score of 35 falls in the 31\u201369 band: YELLOW (Caution/Leaking). The bubble isn\u2019t bursting on the fundamentals yet \u2013 revenues and earnings are still on fire \u2013 but price action and narrative show the air starting to hiss out of the trade.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "This CIO Says the AI Bubble Pops the Moment Good News Stops Moving Stocks",
+      "NVDA_price": 200.09,
+      "NVDA_volatility": 3.07,
+      "NVDA_pe_ratio": 30.641653,
+      "NVDA_forward_pe": 15.675591,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.59,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 373.02,
+      "GOOGL_price": 357.37,
+      "nvda_pe": "30.641653",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.59"
+    },
+    "date": "2026-06-30T21:30:47.505044"
   }
 ]
