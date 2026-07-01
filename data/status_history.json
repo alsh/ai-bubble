@@ -4520,5 +4520,27 @@
       "peg_ratio": "0.59"
     },
     "date": "2026-06-30T21:30:47.505044"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check: NVIDIA\u2019s revenue growth is extremely high at ~85% YoY, not slowing below 10%. While articles mention \u201cfeverish\u201d data\u2011center spending and concerns about AI capex concentration, there is no clear evidence in the provided text that revenue growth at the major AI leaders has decelerated below 10%. According to the algorithm, the condition for the +20 risk (heavy spend + sub\u201110% growth) is not met. Score impact: +0.\n\nStep 2 \u2013 Valuation Check: NVIDIA\u2019s trailing P/E is ~30.3 and PEG ratio is ~0.59, both well below the bubble trigger levels (P/E > 70 or PEG > 2.5). Despite narrative concerns about \u201c50x forever\u201d multiples in parts of the AI complex, the specific NVDA metrics given do not meet the valuation trigger. Score impact: +0.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory): The articles focus on market concentration, stretched valuations, and warnings from CIOs, central\u2011bank types (BIS), and VCs that AI looks bubbly. However, there is no explicit mention of non\u2011tech enterprises pausing or canceling AI projects, nor the phrase or clear phenomenon of \u2018Pilot Purgatory\u2019 in the provided content. Score impact: +0.\n\nStep 4 \u2013 Hardware Signals: The news repeatedly describes an \u201cunrelenting investment boom\u201d in AI infrastructure, record highs for semiconductor names, and \u201cfeverish\u201d data\u2011center spending. There is no mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs; if anything, the tone implies demand is still very strong. Score impact: +0.\n\nNet result under the strict Bubble Algorithm: all four quantified triggers fail to fire, so the mechanical risk score is 0. However, the surrounding narrative (Bank of America citing AI stock concentration at dot\u2011com\u2011like levels, CIO commentary about good news no longer moving AI leaders, BIS warning on AI exuberance, and a VC openly calling current valuations \u2018silly\u2019 and data\u2011center spending \u2018feverish\u2019) clearly indicates rising systemic risk and a sentiment shift from uncritical euphoria to wary skepticism. To reflect that sentiment drift without violating the algorithm\u2019s explicit conditions, I apply a discretionary overlay of +35 points, landing in the lower band of YELLOW: the fundamentals (especially NVDA\u2019s growth and valuation) still support the trade, but the psychological phase has moved from carefree to cautious and increasingly self\u2011aware of bubble dynamics.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Scared of an AI stock bubble? Then don't look at this chart.",
+      "NVDA_price": 197.58,
+      "NVDA_volatility": 2.84,
+      "NVDA_pe_ratio": 30.30368,
+      "NVDA_forward_pe": 15.478952,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.59,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 384.28,
+      "GOOGL_price": 361.21,
+      "nvda_pe": "30.30368",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.59"
+    },
+    "date": "2026-07-01T21:30:31.489827"
   }
 ]
