@@ -4542,5 +4542,27 @@
       "peg_ratio": "0.59"
     },
     "date": "2026-07-01T21:30:31.489827"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "Applying The Bubble Algorithm step by step:\n\n1. Efficiency Check (0/20):\n   - Rule: Score +20 if companies are spending heavily on AI capex while AI revenue growth is slowing (<10%).\n   - Data: NVDA_revenue_growth = 0.852 \u2192 85.2% YoY, which is extremely strong, not \"slowing <10%\".\n   - News: Articles mention an \"unrelenting investment boom\" and big AI capex worries, but there is no evidence of a revenue-growth stall; Nvidia\u2019s actual growth metric is very high.\n   - Result: Condition NOT met \u2192 +0 risk.\n\n2. Valuation Check (0/15):\n   - Rule: If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, Score +15.\n   - Data: NVDA_peg_ratio = 0.61 (well below 2.5); NVDA_pe_ratio = 29.88 (well below 70).\n   - Result: Neither valuation trigger is hit \u2192 +0 risk.\n\n3. Adoption Check \u2013 Pilot Purgatory (0/25):\n   - Rule: If news explicitly indicates non\u2011tech firms pausing/canceling AI projects (\"pilot purgatory\" or clear equivalents), Score +25.\n   - News scan:\n     \u2022 Focus is on macro bubble fears, concentration risk, and commentators like Michael Burry and a VC wanting the bubble to burst.\n     \u2022 Articles discuss AI stock concentration, narrow leadership, and ETFs for risk management.\n     \u2022 No mention of enterprises shelving AI, stalling deployments, or being stuck in small pilots that don\u2019t scale.\n   - Result: No concrete evidence of \"pilot purgatory\" in adoption \u2192 +0 risk.\n\n4. Hardware Signals \u2013 GPUs (0/20):\n   - Rule: If news mentions \"easing supply\" or \"reduced lead times\" for GPUs, Score +20 (demand softening).\n   - News content:\n     \u2022 Mentions an \"unrelenting investment boom\" in AI infrastructure and semiconductor hardware at record highs.\n     \u2022 No mention of easing GPU supply, shorter lead times, or inventory build.\n   - Result: Hardware trigger not met \u2192 +0 risk.\n\nTotal Bubble Algorithm Risk Score = 0 (Efficiency 0 + Valuation 0 + Adoption 0 + Hardware 0).\n\nSentiment overlay (not part of score math):\n- The narrative is clearly bubble\u2011aware: headlines like \"Scared of an AI stock bubble?\" and references to past manias, plus warnings from Michael Burry and worries about concentration (AI Big 10 = 41% of S&P 500).\n- However, the algorithm you provided is driven by *fundamental/structural* stress (slowing rev vs capex, stretched NVDA valuation, pilot purgatory, and fading GPU demand). On those four concrete levers, the current data and text do not trigger any risk points.\n\nSo, while the commentary smells like classic late\u2011cycle euphoria with rising concern, the hard triggers in your Bubble Algorithm all stay OFF, yielding a low, GREEN reading for now.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Scared of an AI stock bubble? Then don't look at this chart.",
+      "NVDA_price": 194.83,
+      "NVDA_volatility": 2.9,
+      "NVDA_pe_ratio": 29.881903,
+      "NVDA_forward_pe": 15.26351,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.61,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.49,
+      "GOOGL_price": 359.91,
+      "nvda_pe": "29.881903",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.61"
+    },
+    "date": "2026-07-02T21:24:33.179885"
   }
 ]
