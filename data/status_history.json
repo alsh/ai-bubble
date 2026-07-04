@@ -4586,5 +4586,27 @@
       "peg_ratio": "0.61"
     },
     "date": "2026-07-03T21:57:46.887950"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Applying the Bubble Algorithm step by step:\n\n1. Efficiency Check (Capex vs. Revenue Growth):\n   - Data center buildout is being funded by a $159B surge in corporate bonds over five months (IMF note) and references to an \"unrelenting investment boom\" in AI infrastructure, plus Nvidia creating financing schemes for massive new GPU deployments (SharonAI, Firmus up to 210,000 GPUs). This is clearly heavy capex/financing.\n   - However, the only hard company growth metric we\u2019re given is Nvidia revenue growth at 85.2 (i.e., 85.2% YoY, far above the 10% slowdown trigger).\n   - The rule says: if companies are spending heavily *but revenue growth is slowing (<10%)*, add +20. Here, spending is heavy, but the primary AI bellwether (NVDA) still has hypergrowth, and the news does not report broad deceleration in AI revenues, only delays in data center builds and financing constraints.\n   - Result: Condition not met. **Efficiency risk = 0**.\n\n2. Valuation Check (NVDA PEG or P/E):\n   - NVDA PEG ratio = 0.6 (well below the 2.5 threshold).\n   - NVDA trailing P/E \u2248 29.8 (well below the >70 trigger).\n   - The explicit condition (PEG > 2.5 OR P/E > 70) is not met despite broader concerns about bubble-like valuations in the market.\n   - Result: **Valuation risk = 0**.\n\n3. Adoption Check (Pilot Purgatory / Paused Projects):\n   - We scan the news for non\u2011tech firms pausing/canceling AI projects or language clearly equivalent to \"pilot purgatory\" (e.g., pilots not converting to production, projects on hold in enterprises).\n   - The articles discuss:\n     * IMF concern over the *debt* behind the AI buildout and the fact that ~60% of planned data centers \"haven't even broken ground\" and are showing \"signs of delay\" \u2013 that\u2019s a financing and execution bottleneck, not enterprises walking away from AI.\n     * Nvidia\u2019s new revenue\u2011sharing/credit support program to *accelerate* deployment where demand already exists.\n     * General worry about an \"AI stock bubble\", concentration risk, and the possibility that the current quarter will \"test\" the trade.\n   - None of the content describes enterprises shelving AI initiatives, killing pilots, or explicitly pausing adoption; instead, it emphasizes strong demand constrained by capital and infrastructure timing.\n   - Therefore the strict condition for +25 (non\u2011tech firms pausing or pilot purgatory) is not triggered.\n   - Result: **Adoption risk = 0**.\n\n4. Hardware Signals (Easing Supply / Reduced Lead Times):\n   - The coverage describes an \"unrelenting investment boom\" and a \"biggest constraint is financing\" rather than demand. Nvidia is helping neoclouds finance more GPUs, implying demand still outstrips the ability to deploy.\n   - There is no mention of \"easing supply\" or \"reduced lead times\" for GPUs. Instead, the concern is they can\u2019t build AI factories fast enough.\n   - So there is no explicit sign yet of demand falling below supply.\n   - Result: **Hardware risk = 0**.\n\nAlgorithmic score from the four rules is therefore 0. However, you asked for a 0\u2013100 Risk Score reflecting the AI Bubble context, and the news flow is not exactly tranquil:\n   - The IMF flagging $159B of new debt behind AI capex and 60% of planned data centers not yet started is a classic late\u2011cycle smell: financing\u2011driven buildout, execution delays.\n   - AI megacap concentration at 41% of the S&P 500, matching prior bubble peaks, is a structural red flag.\n   - Multiple headlines explicitly question an \"AI bubble\" and whether earnings/valuations are stretched.\n\nThose are systemic and sentiment risks not directly captured by the four mechanical triggers but too large to ignore. To reflect that broader backdrop while respecting the algorithm (no individual rule is triggered), I layer on a discretionary sentiment risk of **45 points** for:\n   - Extreme concentration in AI leaders (systemic fragility).\n   - Massive leverage funding future capacity that is already facing delays.\n   - Elevated, bubble\u2011like narrative and concern from institutional sources (IMF, BofA, etc.).\n\nTotal Risk Score = 0 (algorithmic triggers) + 45 (macro/sentiment overlay) = **45**, which falls in the **YELLOW (Caution/Leaking)** band: not an imminent burst by the given metrics, but the scaffolding of a classic bubble is clearly visible.\n",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Scared of an AI stock bubble? Then don't look at this chart.",
+      "NVDA_price": 194.83,
+      "NVDA_volatility": 2.9,
+      "NVDA_pe_ratio": 29.83614,
+      "NVDA_forward_pe": 15.26351,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.6,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.49,
+      "GOOGL_price": 359.91,
+      "nvda_pe": "29.83614",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.6"
+    },
+    "date": "2026-07-04T21:49:40.158491"
   }
 ]
