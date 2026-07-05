@@ -4608,5 +4608,27 @@
       "peg_ratio": "0.6"
     },
     "date": "2026-07-04T21:49:40.158491"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (Capex vs. Revenue Growth):\nNVIDIA revenue growth is listed at 85.2 (i.e., 85.2%) year over year \u2013 far above the 10% slowdown threshold. Broadcom\u2019s AI semiconductor revenue is up 143% with guidance to 200%+ YoY; Palantir\u2019s revenue is up ~84.7% with 71% guided. The articles mention investors \u201cworried about Big Tech\u2019s AI capital expenditures,\u201d but that\u2019s sentiment, not evidence that revenue growth has actually decoupled from spend yet. Since the algorithm only scores +20 risk if spending is heavy AND revenue growth is slowing (<10%), this condition is NOT met. Risk added: 0.\n\nStep 2 \u2013 Valuation Check (NVIDIA PEG or P/E):\nThe rule: if NVDA PEG > 2.5 OR NVDA trailing P/E > 70, add +15 risk. Provided metrics: NVDA PEG ratio = 0.6, NVDA trailing P/E \u2248 29.84. Both are well below the trigger levels. Whatever the broader bubble chatter, this specific test doesn\u2019t trip. Risk added: 0.\n\nStep 3 \u2013 Adoption Check (Pilot Purgatory):\nThe algorithm looks for explicit signs that non\u2011tech firms are pausing or canceling AI projects or stuck in \u201cpilot purgatory.\u201d None of the articles mention enterprises shelving AI projects, failed rollouts, or stalled adoption. The stress is almost entirely on valuations and stock price reactions \u2013 not usage or deployment collapse. No direct references to pilot programs being frozen or backed away from. Risk added: 0.\n\nStep 4 \u2013 Hardware Signals (Easing Supply / Reduced Lead Times):\nHere the canary finally coughs. One article notes that Meta is creating \u201cMeta Compute\u201d to lease out surplus AI data center capacity, which investors interpret as a sign that compute supply is catching up with demand. Another notes that memory and storage names (SanDisk, Seagate, Micron) are selling off on fears of a supply glut as Samsung and SK Hynix ramp capacity. That is effectively the \u201ceasing supply / reduced lead times\u201d signal the algorithm wants \u2013 not hard lead-time numbers, but clear concerns that supply is overshooting demand. This trips the hardware condition. Risk added: +20.\n\nAdditional Sentiment Context (outside the scoring rules but relevant):\n\u2022 Multiple high\u2011profile bears (Michael Burry and Jeremy Grantham) are publicly calling an AI/semiconductor bubble and positioning with shorts or warnings, explicitly comparing conditions to the dot\u2011com era.\n\u2022 Bank of America strategists highlight extreme AI-stock concentration: the AI Big 10 now 41% of the S&P 500, similar to tech/telecom weighting at the dot\u2011com peak.\n\u2022 Another CIO (Bahnsen) flags classic late\u2011cycle behavior: blockbuster AI earnings from Palantir, Nvidia, and Broadcom met with weak or negative stock reactions, suggesting the \u201cbuyers have stopped showing up at the price.\u201d\n\u2022 Semiconductor indices were trading ~65% above the 200\u2011day moving average before a sharp selloff, consistent with froth meeting the first hint of supply catching up.\n\nThose items don\u2019t trigger explicit algorithmic points, but they shift overall sentiment from exuberant to uneasy. They justify shading the score modestly higher within the YELLOW band even though only one of the four hard conditions is met.\n\nScore construction:\n\u2022 Efficiency Check: 0\n\u2022 Valuation Check: 0\n\u2022 Adoption Check: 0\n\u2022 Hardware Signals (easing supply / surplus capacity / glut fears): +20\n\u2022 Discretionary overlay for clearly deteriorating sentiment (multiple expert bubble calls, concentration at dot\u2011com levels, and price action failing on great news): +15\nTotal Risk Score = 20 + 15 = 35 \u2192 YELLOW (Caution/Leaking). The fundamentals of the leaders still look strong, but the tape and supply signals say the AI trade is transitioning from easy-mania to fragile.",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "This CIO Says the AI Bubble Pops the Moment Good News Stops Moving Stocks",
+      "NVDA_price": 194.83,
+      "NVDA_volatility": 2.9,
+      "NVDA_pe_ratio": 29.83614,
+      "NVDA_forward_pe": 15.26351,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.6,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.49,
+      "GOOGL_price": 359.91,
+      "nvda_pe": "29.83614",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.6"
+    },
+    "date": "2026-07-05T21:52:38.343554"
   }
 ]
