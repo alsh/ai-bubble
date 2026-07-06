@@ -4630,5 +4630,27 @@
       "peg_ratio": "0.6"
     },
     "date": "2026-07-05T21:52:38.343554"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is ~85.2% (>10%) and there is no explicit evidence in the articles of capex overshoot or AI infra spend outpacing revenue. Under the algorithm, we only add +20 risk if heavy spend coincides with slowing revenue (<10%), which is not the case. Score +0.\n2) Valuation Check: NVDA PEG ratio = 0.6 (<= 2.5) and trailing P/E \u2248 29.95 (<= 70). Both thresholds for this rule are not triggered, so no bubble flag from valuation per the given criteria. Score +0.\n3) Adoption Check: The news flow is about macro-level worries and opinions on an AI bubble (Treasury risk report, McNamee warning, Yardeni saying no bubble, Burry shorting Micron, and a thematic piece on AI scarcity vs. abundance). There is no mention of \u2018pilot purgatory\u2019, pauses, or cancellations of AI projects by non\u2011tech firms. So the specific adoption trigger is not met. Score +0.\n4) Hardware Signals: None of the articles reference easing GPU supply, reduced lead times, or similar signals that demand is falling relative to supply. Score +0.\nSumming the rule-based scores: 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0. While sentiment is increasingly debating the existence of an AI bubble, the algorithm you specified is strictly metric- and trigger-based, and those conditions are not met by the provided data, resulting in a GREEN status at the low end of the risk spectrum.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Leaked report from US Treasury lists possible risks of AI bubble",
+      "NVDA_price": 195.55,
+      "NVDA_volatility": 2.24,
+      "NVDA_pe_ratio": 29.946402,
+      "NVDA_forward_pe": 15.319917,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.6,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 386.74,
+      "GOOGL_price": 366.46,
+      "nvda_pe": "29.946402",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.6"
+    },
+    "date": "2026-07-06T22:05:58.183267"
   }
 ]
