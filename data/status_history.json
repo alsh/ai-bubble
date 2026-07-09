@@ -4696,5 +4696,27 @@
       "peg_ratio": "0.6"
     },
     "date": "2026-07-08T21:59:08.599749"
+  },
+  {
+    "status": "GREEN",
+    "score": 0,
+    "reasoning": "1) Efficiency Check: NVDA revenue growth is 85.2% (>10%), and while the news references \u201cunprecedented\u201d AI capex and heavy spending by mega-cap tech, there is no evidence of slowing revenue growth. The algorithm only flags +20 risk when companies are spending heavily *and* revenue growth is slowing (<10%). Condition not met, +0.\n2) Valuation Check: NVDA PEG ratio is 0.6 (<<2.5) and trailing P/E is ~31.05 (<70). Neither valuation trigger is hit, so +0.\n3) Adoption Check: The news is full of macro warnings about an AI bubble (central banks, Treasury, strategists), index concentration, leverage, and retirement risk, but there is no mention of non-tech firms pausing/canceling AI deployments or the phrase/idea of \u2018pilot purgatory.\u2019 This criterion is narrowly defined and not satisfied, so +0.\n4) Hardware Signals: None of the articles mention easing GPU supply, reduced lead times, or signs that hardware demand is rolling over. If anything, concerns focus on financing and systemic risk, not oversupply. Hardware trigger not met, +0.\nSumming all algorithmic components yields a total risk score of 0. Despite growing *narrative* anxiety and official-sector concern, the specified Bubble Algorithm is not triggered by the provided fundamentals and text, keeping the status in the GREEN band (0\u201330).",
+    "metrics": {
+      "market_sentiment": "Bearish",
+      "top_headline": "Central Banks Are Joining The AI Bubble Debate",
+      "NVDA_price": 202.78,
+      "NVDA_volatility": 4.3,
+      "NVDA_pe_ratio": 31.053598,
+      "NVDA_forward_pe": 15.88708,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.6,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 384.36,
+      "GOOGL_price": 358.89,
+      "nvda_pe": "31.053598",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.6"
+    },
+    "date": "2026-07-09T22:14:05.589488"
   }
 ]
