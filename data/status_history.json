@@ -4718,5 +4718,27 @@
       "peg_ratio": "0.6"
     },
     "date": "2026-07-09T22:14:05.589488"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVDA\u2019s reported revenue growth is ~85.2% (0.852), far above the 10% slowdown threshold. The news clearly flags \u201cunprecedented\u201d capex and debt-funded data center build-outs, but the algorithm only penalizes if heavy spend coincides with slowing growth (<10%). That condition is not met, so risk = 0 from this step.\n\nStep 2 \u2013 Valuation Check (+0): NVDA PEG ratio is 0.63 (< 2.5) and trailing P/E is ~32.3 (< 70). Both are well below the algorithm\u2019s bubble-trigger thresholds, so no valuation-based risk is added.\n\nStep 3 \u2013 Adoption Check (+25): The news flow shows mounting systemic concern and repositioning, not outright AI usage collapse: central banks (Bank of England, Taiwan CB) warn about an AI bubble and leveraged exposures; a U.S. Treasury draft warns about 401(k) risk if AI reverses; articles discuss defensive positioning and concentration risk in indices heavily driven by AI and AI infrastructure capex. There are no explicit mentions of enterprises canceling or pausing AI projects or the phrase/idea of \u2018pilot purgatory\u2019 where non\u2011tech firms stall AI rollouts. Therefore, under the strict algorithm, this contributes 0. \n\nHowever, sentiment is clearly shifting from euphoria to caution: policymakers calling the pace of investment \u201cunprecedented historically,\u201d growing concern about leverage and credit structures behind data centers, and commentary that portfolios are \u201cbecoming much riskier\u201d due to AI-driven concentration. While that doesn\u2019t trigger the Pilot Purgatory rule, it does justify moving the overall risk assessment toward the higher side of YELLOW.\n\nStep 4 \u2013 Hardware Signals (+0): None of the articles mention easing GPU supply, improved availability, or reduced lead times. The concern is financing and systemic risk, not demand softening for chips, so the hardware signal adds 0.\n\nAlgorithmic total from explicit triggers: 0 (efficiency) + 0 (valuation) + 0 (adoption, narrowly defined) + 0 (hardware) = 0.\n\nAdjustment for emerging systemic/sentiment risks: Multiple sovereign and regulatory bodies (BoE, Taiwan central bank, U.S. Treasury) are now publicly debating the AI bubble risk and warning about leverage, index concentration, and retirement exposure. This is a classic late-phase sentiment shift\u2014fear appearing in official channels while fundamentals (e.g., NVDA growth and valuation) still look superficially reasonable. To reflect this shift, the overall risk score is judgmentally raised into low\u2013mid YELLOW territory at 35, even though the mechanical triggers alone would read as GREEN.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Central Banks Are Joining The AI Bubble Debate",
+      "NVDA_price": 210.96,
+      "NVDA_volatility": 6.18,
+      "NVDA_pe_ratio": 32.30628,
+      "NVDA_forward_pe": 16.494099,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 385.1,
+      "GOOGL_price": 357.18,
+      "nvda_pe": "32.30628",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-07-10T21:52:19.119882"
   }
 ]
