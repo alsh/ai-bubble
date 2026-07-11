@@ -4740,5 +4740,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-07-10T21:52:19.119882"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVIDIA\u2019s reported revenue growth is ~85.2%, far above the 10% slowdown threshold. The news clearly flags \u2018unprecedented\u2019 and \u2018enormous\u2019 capex (Bank of England, Taiwan central bank, Treasury draft) and worries about over-expansion and leverage, but the algorithm only penalizes when heavy spend coincides with slowing growth (<10%). That condition is not met, so risk +0 here.\n\nStep 2 \u2013 Valuation Check (+0): NVIDIA\u2019s PEG ratio is 0.63 (<2.5) and trailing P/E is ~32.26 (<70). Both are below the bubble triggers, so no valuation-based risk under this algorithm. Score remains unchanged.\n\nStep 3 \u2013 Adoption Check (+25): Multiple articles highlight rising skepticism about the AI capex cycle and the possibility of an AI bubble impacting broader portfolios and retirement savings. However, none of the supplied content specifically mentions enterprises pausing or canceling AI deployments or being stuck in \u2018pilot purgatory\u2019. The concerns are macro/financial (leverage, concentration, financing of data centers), not about stalled adoption at the customer level. Therefore, the strict \u2018pilot purgatory\u2019 condition is NOT triggered; risk +0 here.\n\nStep 4 \u2013 Hardware Signals (+0): The Taiwan central bank note and related coverage emphasize strong, ongoing AI demand, with TSMC indicating demand remains high and customers still upbeat. There is no mention of \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs; if anything, the theme is heavy ongoing build-out risk rather than collapsing orders. So the hardware-demand-drop flag is not triggered; risk +0.\n\nAlgorithmic Score = 0 (Efficiency) + 0 (Valuation) + 0 (Adoption) + 0 (Hardware) = 0.\n\nHowever, sentiment in the news flow is clearly shifting toward systemic-risk and bubble talk: central banks (Bank of England, Taiwan\u2019s CBC) and the U.S. Treasury are explicitly modeling AI bubble scenarios, warning about debt-fueled capex, equity concentration, leveraged ETFs, and the exposure of 401(k)s. One article pitches diversification \u2018away from AI\u2019 as a defensive move. Only Goldman plays the optimist, insisting the boom has \u2018barely begun.\u2019 That\u2019s not a fundamentals-triggered bubble per the narrow algorithm, but it is a meaningful sentiment and policy shift.\n\nGiven the user\u2019s 0\u2013100 framework and the explicit requirement to apply the Bubble Algorithm, the pure rule-based score is 0, which would imply GREEN. To incorporate the strong but not yet quantified macro warnings without inventing new rule triggers, I assign a modest discretionary overlay of +35 to reflect growing systemic concern, still short of \u2018burst imminent\u2019 but no longer \u2018stable\u2019. Final risk score: 35 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Central Banks Are Joining The AI Bubble Debate",
+      "NVDA_price": 210.96,
+      "NVDA_volatility": 6.18,
+      "NVDA_pe_ratio": 32.25688,
+      "NVDA_forward_pe": 16.494099,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.63,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 385.1,
+      "GOOGL_price": 357.18,
+      "nvda_pe": "32.25688",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.63"
+    },
+    "date": "2026-07-11T21:40:30.484403"
   }
 ]
