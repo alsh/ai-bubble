@@ -4762,5 +4762,27 @@
       "peg_ratio": "0.63"
     },
     "date": "2026-07-11T21:40:30.484403"
+  },
+  {
+    "status": "YELLOW",
+    "score": 60,
+    "reasoning": "1) Efficiency Check: Nvidia\u2019s revenue growth is extremely high at ~85.2%, while news indicates hyperscalers are still \u2018pouring hundreds of billions\u2019 into AI capex and \u2018selling nearly every advanced processor they can manufacture.\u2019 This is not a slowing sub\u201110% revenue growth scenario, so Efficiency risk = 0. 2) Valuation Check: NVDA PEG ratio is 0.65 and trailing P/E is ~32.3, both well below the bubble thresholds (PEG > 2.5 or P/E > 70). So Valuation risk = 0. 3) Adoption Check: Across the articles, there is mounting *macro* concern (central banks, index concentration, debt-financed capex, investors looking to \u2018diversify away from AI\u2019, questions about what happens \u2018if AI adoption slows\u2019) but no explicit evidence of \u2018pilot purgatory\u2019 \u2013 no clear wave of non\u2011tech firms pausing or canceling AI projects yet. So, under the strict algorithm, Adoption risk = 0. 4) Hardware Signals: None of the articles mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs; instead they imply persistent tight demand. So Hardware risk = 0. Algorithmic score from the four explicit rules is therefore 0 (GREEN). However, zooming out, multiple central banks (Bank of England, Taiwan\u2019s central bank) are formally flagging AI-bubble *systemic* risk, noting unprecedented AI capex financed increasingly by debt and credit, historic index concentration in a narrow set of AI names, and an economy \u2018addicted\u2019 to AI spending that already accounts for more than 25% of US GDP growth and ~8% of GDP \u2013 surpassing dot\u2011com levels on some measures. At the same time, bullish houses like Goldman Sachs argue the boom is early and capex is modest as a share of GDP in their framing, a direct contradiction that signals a highly polarized environment. The presence of these official warnings, leverage build\u2011up, investor attempts to hedge away from AI exposure, and recognition that markets have \u2018paid in advance\u2019 for very optimistic AI scenarios justifies overriding the purely mechanical 0 and assigning a discretionary mid\u2011range YELLOW risk score of 60: not an imminent burst by the numbers today, but a clearly unstable, over\u2011concentrated regime where any disappointment in earnings or adoption could rapidly flip sentiment.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The U.S. Economy Is Addicted to AI Spending. What Happens If It Slows?",
+      "NVDA_price": 210.96,
+      "NVDA_volatility": 6.18,
+      "NVDA_pe_ratio": 32.25688,
+      "NVDA_forward_pe": 16.494099,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 385.1,
+      "GOOGL_price": 357.18,
+      "nvda_pe": "32.25688",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-07-12T21:40:23.493510"
   }
 ]
