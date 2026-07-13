@@ -4784,5 +4784,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-07-12T21:40:23.493510"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+20 or 0): The algorithm flags risk when AI revenue growth is slowing (<10%) while capex is heavy. Nvidia\u2019s reported revenue growth is 85.2% (0.852), which is hyper-accelerated, not slowing. However, multiple articles highlight *unprecedented* AI-related capex and debt-financed buildouts:\n- Bank of England warns that AI companies\u2019 use of debt, private credit, leveraged finance, and structured finance for capex is \u201cunprecedented historically,\u201d and explicitly notes markets have \u201cpaid in advance\u201d for a future of cheap compute, fast adoption, and thick margins.\n- Bloomberg-style macro piece says AI spending is now ~8% of U.S. GDP and >25% of GDP growth \u2013 a historically extreme concentration \u2013 comparing it unfavorably to the dot-com peak.\nDespite the capex red flags, the algorithm\u2019s condition requires slowing revenue growth, which we do not have. Therefore, Efficiency Check risk = 0.\n\nStep 2 \u2013 Valuation Check (+15 or 0): Triggered if NVDA PEG > 2.5 OR trailing P/E > 70. From market data:\n- NVDA PEG ratio = 0.65 (well below 2.5)\n- NVDA trailing P/E \u2248 31.1 (well below 70)\nOn a pure numbers basis, Nvidia is priced for high growth, but not at bubble multiples per the algorithm\u2019s thresholds. Valuation Check risk = 0.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019) (+25 or 0): We scan the news for any indication that non-tech firms are pausing/canceling AI projects or getting stuck in pilots. None of the provided articles mention enterprises shelving AI rollouts or being stuck in proof-of-concept hell. Instead, the macro narrative is that AI demand and buildout are still running \u201cfull throttle,\u201d with hyperscalers selling almost every GPU they can get. There are strong *macro* warnings (central banks, Arthur Hayes, Taiwan\u2019s central bank) about overinvestment and bubble risk, but no concrete sign yet of widespread adoption fatigue or stalled deployments. Adoption Check risk = 0.\n\nStep 4 \u2013 Hardware Signals (\u2018easing supply\u2019 / \u2018reduced lead times\u2019 for GPUs) (+20 or 0): The articles discuss massive GPU financing, data center buildouts, and concerns about obsolescence vs. loan amortization schedules, but there is no explicit mention of \u201ceasing supply,\u201d \u201creduced lead times,\u201d or similar phrasing that would indicate demand softening in the hardware channel. On the contrary, the U.S. economy piece reinforces that chipmakers are selling nearly every advanced processor they can manufacture. Hardware Signals risk = 0.\n\nPurely by the mechanical Bubble Algorithm, the score would be 0 (GREEN). However, as \u2018The Canary\u2019 we cannot ignore material systemic risk signals that don\u2019t neatly trip the numeric thresholds:\n- Bank of England explicitly flags AI-equity concentration, heavy leverage (hedge funds, leveraged ETFs), and rapid AI-debt growth as a potential amplifier of a downturn.\n- Taiwan\u2019s central bank governor openly talks about the *risk* of an AI bubble even while acknowledging real growth.\n- Macro data show AI-related capex at historically extreme shares of GDP and GDP growth, exceeding the dot-com era.\n- Arthur Hayes likens AI capex to 19th-century railroad bubbles and warns of duration/obsolescence mismatches on GPU loans.\nThese are strong early-warning signals from policymakers and market participants that the system\u2019s *plumbing* is getting stress-tested by AI leverage and concentration. They don\u2019t yet show demand roll-over or valuation insanity at Nvidia specifically, but they do justify bumping the risk assessment out of complacent GREEN territory into early CAUTION.\n\nGiven (1) still-robust fundamentals and sub-bubble Nvidia valuation vs. (2) mounting macro and financing fragility indicators, an adjusted Canary Risk Score of 45 (mid-YELLOW) best reflects current conditions: the air is getting thinner, but the balloon is still ascending.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "The U.S. Economy Is Addicted to AI Spending. What Happens If It Slows?",
+      "NVDA_price": 203.53,
+      "NVDA_volatility": 4.99,
+      "NVDA_pe_ratio": 31.120794,
+      "NVDA_forward_pe": 15.912429,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 390.99,
+      "GOOGL_price": 352.51,
+      "nvda_pe": "31.120794",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-07-13T21:45:15.200035"
   }
 ]
