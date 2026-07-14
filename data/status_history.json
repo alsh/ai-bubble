@@ -4806,5 +4806,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-07-13T21:45:15.200035"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check: NVDA revenue growth is 85.2% (>10%), and there is no concrete evidence in the articles of AI revenue growth slowing while capex remains extreme. Instead, Bank of England notes \u201cunprecedented\u201d investment pace and SoftBank\u2019s Son argues for trillions in future spend, but no hard data on slowing revenues. Result: +0 risk.\n\nStep 2 \u2013 Valuation Check: NVDA PEG ratio is 0.65 (<2.5) and trailing P/E is ~32.4 (<70). Both conditions for this trigger fail. Result: +0 risk.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019): The news is full of macro bubble debate (BoE financial stability worries, BofA bubble risk indicator at 0.91, a video titled \u201cAI bubble is starting to crack\u201d, and memory-chip technical breakdowns), but there is no mention of enterprises canceling or pausing real-world AI deployments or being stuck in pilots. This is sentiment risk, not usage collapse. Result: +0 risk.\n\nStep 4 \u2013 Hardware Signals: The memory-stock article discusses technical tops in SanDisk, SK Hynix, and Micron, and a sharp drop in SOXX after BofA\u2019s bubble warning, but it explicitly frames this as an \u2018air pocket\u2019 with evidence of institutional accumulation. There is no mention of \u2018easing supply\u2019, \u2018reduced lead times\u2019, or other text indicating GPUs or related AI hardware suddenly becoming easy to source due to a demand drop. Result: +0 risk.\n\nAlgorithmic score from explicit rules is therefore 0. However, the broader context shows rising systemic concern: central banks openly modeling downside AI scenarios, a bubble risk indicator near its maximum, and sector-specific cracks (memory chips rolling over while money quietly accumulates). At the same time, NVDA\u2019s valuation metrics look surprisingly reasonable relative to its extreme growth, and no clear demand rollover is visible in the data you provided. This is classic mid-cycle euphoria with growing skepticism, not a blow-off top collapsing in real time. To reflect this mounting but not yet mechanical risk, I apply a discretionary +45 overlay, placing the regime in the Caution/Leaking band without contradicting the algorithm\u2019s specific triggers.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Central Banks Are Joining The AI Bubble Debate",
+      "NVDA_price": 211.8,
+      "NVDA_volatility": 4.36,
+      "NVDA_pe_ratio": 32.434914,
+      "NVDA_forward_pe": 16.558996,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 384.93,
+      "GOOGL_price": 359.51,
+      "nvda_pe": "32.434914",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-07-14T21:48:03.192334"
   }
 ]
