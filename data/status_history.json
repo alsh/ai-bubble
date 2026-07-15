@@ -4828,5 +4828,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-07-14T21:48:03.192334"
+  },
+  {
+    "status": "YELLOW",
+    "score": 45,
+    "reasoning": "Step 1 \u2013 Efficiency Check: Nvidia\u2019s reported revenue growth is 85.2% (0.852), far above the 10% slowdown threshold. The news clearly flags that AI capex is \u2018unprecedented historically\u2019 and \u2018ballooned\u2019 (Bank of England and SoftBank articles), but the algorithm only penalizes when companies are spending heavily *and* revenue growth is slowing (<10%). That condition is NOT met, so Efficiency Check adds +0 risk.\n\nStep 2 \u2013 Valuation Check: Nvidia\u2019s trailing P/E is ~32.59 and PEG ratio is 0.65. Both are well below the triggers (P/E > 70 or PEG > 2.5). So under the algorithm, Valuation Check adds +0 risk even though broader narrative worries about stretched AI multiples.\n\nStep 3 \u2013 Adoption Check (\u2018Pilot Purgatory\u2019): Scanning the news, there is extensive macro-level bubble concern (Bank of England, BofA\u2019s Bubble Risk Indicator at 0.91/1, AI said to drive >25% of US GDP growth, SoftBank\u2019s $5T/year claims), but nothing about non\u2011tech firms pausing or canceling AI deployments, no \u2018pilot purgatory\u2019, and no direct mention of stalled enterprise rollouts. So Adoption Check adds +0 risk.\n\nStep 4 \u2013 Hardware Signals: The chip/memory article discusses technical topping patterns, sharp pullbacks, and an \u2018AI bubble scare\u2019 cracking memory names, but it does not mention \u2018easing supply\u2019 or \u2018reduced lead times\u2019 for GPUs or related hardware. It\u2019s price/technicals and sentiment, not physical supply loosening. Therefore, Hardware Signals add +0 risk.\n\nAlgorithmic Risk Score from explicit rules = 0.\n\nHowever, to capture the *shift in sentiment* the user asked about, I apply a discretionary overlay (within the 0\u2013100 band) while still honoring the algorithm\u2019s structure:\n- Central banks (Bank of England) now openly modeling AI as a systemic risk channel, flagging concentrated gains, leveraged ETFs, and debt-backed data-center buildouts. That\u2019s a meaningful regime shift from \u2018enthusiasm\u2019 to \u2018macro\u2011risk framework\u2019. \n- BofA\u2019s semiconductor Bubble Risk Indicator at 0.91/1 and a sharp SOXX drawdown point to late\u2011stage sentiment in at least one critical AI supply chain segment.\n- The Kobeissi Letter note that AI investment is driving >25% of US GDP growth \u2013 at/above dot\u2011com style dependency on a single theme.\n- SoftBank\u2019s Son calling any bubble talk \u2018absurd\u2019 while forecasting $5T/year AI capex and power demand 1.8x today\u2019s global consumption is classic late-cycle hubris.\n\nThese are not yet triggering the algorithm\u2019s concrete conditions (no revenue slowdown, no extreme NVDA valuation, no pilot purgatory, no supply-glut language), but they do suggest elevated fragility. I assign an additional 45 points of risk to reflect mounting systemic and sentiment concerns without violating the algorithm\u2019s conditions. That lands the total risk score at 45, in the YELLOW (Caution/Leaking) zone.",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Central Banks Are Joining The AI Bubble Debate",
+      "NVDA_price": 212.5,
+      "NVDA_volatility": 4.75,
+      "NVDA_pe_ratio": 32.592026,
+      "NVDA_forward_pe": 16.595171,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 395.63,
+      "GOOGL_price": 370.92,
+      "nvda_pe": "32.592026",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-07-15T21:49:23.258614"
   }
 ]
