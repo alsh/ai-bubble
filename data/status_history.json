@@ -4850,5 +4850,27 @@
       "peg_ratio": "0.65"
     },
     "date": "2026-07-15T21:49:23.258614"
+  },
+  {
+    "status": "YELLOW",
+    "score": 35,
+    "reasoning": "Step 1 \u2013 Efficiency Check (+0): NVDA revenue growth is extremely high at ~85.2%, not slowing below 10%. Despite heavy AI capex being flagged as \u201cunprecedented historically\u201d by the Bank of England and hedge funds calling the hardware cycle ~60% complete, the explicit trigger for this rule (spending heavy *and* revenue growth <10%) is not met. Risk added: 0.\n\nStep 2 \u2013 Valuation Check (+0): The algorithm flags risk if NVDA PEG > 2.5 OR trailing P/E > 70. Reported NVDA PEG is 0.65 and trailing P/E is ~31.8, both well below the thresholds, implying valuations are elevated in narrative but not at the bubble-extreme levels the rule is targeting. Risk added: 0.\n\nStep 3 \u2013 Adoption Check (+25): None of the articles explicitly mention enterprises shelving AI initiatives or the phrase \u2018pilot purgatory\u2019. However, there is a notable shift in tone: the Bank of England and its governor warn that an AI bubble could trigger economic fallout; BofA\u2019s Bubble Risk Indicator for semis hits 0.91/1; The Kobeissi Letter notes AI investment already drives >25% of US GDP growth (above dot\u2011com peak); AI-focused funds in China are taking profits and describing the AI hardware cycle as 60% complete; memory and compute trades are rolling over; and central banks are modeling downside scenarios around overbuild, debt, and demand risk. This is broad *macro* bubble concern and late\u2011cycle positioning, but the news flow still shows heavy investment, strong inflows, and continued IPO appetite (e.g., DeepSeek, Anthropic, OpenAI), not cancellation or pausing of real-world deployments. Therefore the strict \u2018pilot purgatory\u2019 condition is not satisfied. Risk added: 0.\n\nStep 4 \u2013 Hardware Signals (+0): The chip and memory articles show a rotation and technical breakdowns (double tops, head-and-shoulders patterns, profit-taking in memory and optical names) and funds saying the AI hardware cycle is 60% complete. But there is no explicit mention of \u2018easing supply\u2019, \u2018reduced lead times\u2019, or similar language on GPUs or core AI accelerators. The stress is on price action and bubble risk indicators, not on a clear collapse in order books or inventory glut. Thus the hardware trigger as defined is not met. Risk added: 0.\n\nNon-algorithmic overlay (+35): The rules themselves add 0, but sentiment and macro-financial context are clearly shifting into late-cycle territory. Central banks (BoE, FPC) are openly modeling AI-bubble contagion; hedge funds are rotating out of crowded AI hardware winners; BofA\u2019s Bubble Risk Indicator for semis is at 0.91/1; AI investment is already responsible for over a quarter of US GDP growth, surpassing dot\u2011com euphoria metrics; and there are mounting high\u2011level warnings (ex\u2011White House advisers, central bank governors). At the same time, the core bellwether (NVDA) is not yet at extreme valuation multiples, and revenue/earnings growth remain explosive, supporting the view that we are in a late but not terminal phase of the cycle. This combination of strong fundamentals with increasingly fragile sentiment and leverage justifies a mid-range \u2018caution\u2019 score rather than a crash\u2011signal. Discretionary macro\u2011sentiment risk: +35.\n\nTotal Risk Score: 0 (algorithm triggers) + 35 (macro/sentiment overlay) = 35 \u2192 YELLOW (Caution/Leaking).",
+    "metrics": {
+      "market_sentiment": "Mixed",
+      "top_headline": "Central Banks Are Joining The AI Bubble Debate",
+      "NVDA_price": 207.4,
+      "NVDA_volatility": 3.75,
+      "NVDA_pe_ratio": 31.809814,
+      "NVDA_forward_pe": 16.196886,
+      "NVDA_revenue_growth": 0.852,
+      "NVDA_peg_ratio": 0.65,
+      "NVDA_earnings_growth": 2.145,
+      "MSFT_price": 401.1,
+      "GOOGL_price": 354.46,
+      "nvda_pe": "31.809814",
+      "revenue_growth": "0.852",
+      "peg_ratio": "0.65"
+    },
+    "date": "2026-07-16T21:56:52.866045"
   }
 ]
