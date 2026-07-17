@@ -1,199 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Canary - AI Market Monitor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center py-10">
-
-    <div class="w-full max-w-4xl px-4">
-        <!-- Header -->
-        <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400">
-                The Canary
-            </h1>
-            <p class="text-gray-400 mt-2">AI Financial Bubble Monitor (Zero-Maintenance)</p>
-        </header>
-
-        <!-- Metrics Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                <h3 class="text-gray-400 text-sm uppercase">NVDA P/E Ratio</h3>
-                <p id="nvda-pe" class="text-2xl font-bold text-blue-400">Loading...</p>
-                <p id="nvda-peg" class="text-xs text-gray-500 mt-1">PEG: <span id="peg-val">-</span></p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                <h3 class="text-gray-400 text-sm uppercase">Revenue Growth</h3>
-                <p id="rev-growth" class="text-2xl font-bold text-purple-400">Loading...</p>
-            </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                <h3 class="text-gray-400 text-sm uppercase">Market Sentiment</h3>
-                <p id="sentiment" class="text-xl font-bold text-gray-200">Loading...</p>
-            </div>
-        </div>
-
-        <!-- Status Card -->
-        <div id="status-card" class="bg-gray-800 rounded-xl p-8 shadow-lg text-center mb-8 border border-gray-700 transition-all duration-300">
-            <h2 class="text-xl text-gray-400 uppercase tracking-widest mb-4">Current Market Status</h2>
-            <div id="status-indicator" class="text-6xl font-black mb-2 tracking-tighter">LOADING...</div>
-            <div id="score-display" class="text-2xl font-semibold opacity-80">Risk Score: --/100</div>
-        </div>
-
-        <!-- Reasoning -->
-        <div class="bg-gray-800 rounded-xl p-6 shadow-lg mb-8 border border-gray-700">
-            <h3 class="text-lg font-semibold text-gray-300 mb-2 border-b border-gray-700 pb-2">AI Analyst Reasoning</h3>
-            <p id="reasoning-text" class="text-gray-300 leading-relaxed italic">
-                Fetching latest analysis...
-            </p>
-            
-            <div id="metrics-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-sm">
-                <!-- Metrics will be injected here -->
-            </div>
-        </div>
-
-        <!-- Chart -->
-        <div class="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700">
-            <h3 class="text-lg font-semibold text-gray-300 mb-4">Risk Score Trend (Last 30 Days)</h3>
-            <canvas id="trendChart"></canvas>
-        </div>
-
-        <!-- Footer -->
-        <footer class="mt-12 text-center text-gray-500 text-xs">
-            <p>Powered by OpenRouter & GitHub Actions. Data updates daily at 21:00 UTC.</p>
-        </footer>
-    </div>
-
-    <script>
-        async function loadData() {
-            try {
-                // Determine raw URL if local vs gh-pages, but normally relative path is fine for gh-pages
-                const response = await fetch('data/status_history.json');
-                if (!response.ok) throw new Error("Failed to load data");
-                
-                const history = await response.json();
-                if (!history || history.length === 0) {
-                    document.getElementById('status-indicator').innerText = "NO DATA";
-                    document.getElementById('reasoning-text').innerText = "Run the agent to generate initial data.";
-                    return;
-                }
-
-                // Get latest entry
-                const latest = history[history.length - 1];
-
-                // Update Status UI
-                const statusEl = document.getElementById('status-indicator');
-                const cardEl = document.getElementById('status-card');
-                const scoreEl = document.getElementById('score-display');
-                
-                statusEl.innerText = latest.status;
-                scoreEl.innerText = `Risk Score: ${latest.score}/100`;
-
-                // Wipe previous bg classes
-                cardEl.className = "rounded-xl p-8 shadow-lg text-center mb-8 border transition-all duration-300";
-                
-                if (latest.status === "RED") {
-                    cardEl.classList.add("bg-red-900/40", "border-red-500", "text-red-100");
-                    statusEl.innerText = "CRITICAL WARNING";
-                    statusEl.classList.add("text-red-400");
-                } else if (latest.status === "YELLOW") {
-                    cardEl.classList.add("bg-yellow-900/40", "border-yellow-500", "text-yellow-100");
-                     statusEl.innerText = "CAUTION";
-                     statusEl.classList.add("text-yellow-400");
-                } else {
-                    cardEl.classList.add("bg-green-900/40", "border-green-500", "text-green-100");
-                     statusEl.innerText = "STABLE";
-                     statusEl.classList.add("text-green-400");
-                }
-
-                // Update Reasoning
-                document.getElementById('reasoning-text').innerText = `"${latest.reasoning}"`;
-
-                // Update Metrics (if available)
-                if (latest.metrics) {
-                    const grid = document.getElementById('metrics-grid');
-                    grid.innerHTML = '';
-                    
-                    for (const [key, value] of Object.entries(latest.metrics)) {
-                        const div = document.createElement('div');
-                        div.className = "bg-gray-700/50 p-3 rounded";
-                        div.innerHTML = `<span class="block text-gray-400 text-xs uppercase">${key.replace(/_/g, ' ')}</span><span class="font-mono font-bold">${value}</span>`;
-                        grid.appendChild(div);
-                    }
-                }
-
-                // Update Metrics Grid
-                if (latest.metrics) {
-                    const pe = latest.metrics.nvda_pe || "N/A";
-                    const growth = latest.metrics.revenue_growth ? (parseFloat(latest.metrics.revenue_growth) * 100).toFixed(1) + "%" : "N/A";
-                    const peg = latest.metrics.nvda_peg_ratio || latest.metrics.peg_ratio || "N/A";
-                    
-                    document.getElementById('nvda-pe').textContent = pe;
-                    document.getElementById('peg-val').textContent = peg;
-                    document.getElementById('rev-growth').textContent = growth;
-                    document.getElementById('sentiment').textContent = latest.metrics.market_sentiment || "N/A";
-                }
-
-                // Render Chart
-                const labels = history.map(h => {
-                    const d = new Date(h.date);
-                    // Check if valid date
-                    if (isNaN(d.getTime())) return h.date;
-                    
-                    // If it has time component (length > 10 usually implies ISO string with time)
-                    if (h.date.length > 10) {
-                        return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-                    }
-                    return h.date;
-                }).slice(-30);
-                const dataPoints = history.map(h => h.score).slice(-30);
-
-                const ctx = document.getElementById('trendChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Bubble Risk Score',
-                            data: dataPoints,
-                            borderColor: '#60a5fa', // Blue-400
-                            backgroundColor: 'rgba(96, 165, 250, 0.1)',
-                            borderWidth: 2,
-                            tension: 0.3,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                max: 100,
-                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                            },
-                            x: {
-                                grid: { display: false }
-                            }
-                        },
-                        plugins: {
-                            legend: { display: false }
-                        }
-                    }
-                });
-
-            } catch (err) {
-                console.error(err);
-                document.getElementById('status-indicator').innerText = "ERROR";
-                document.getElementById('reasoning-text').innerText = "Could not load data. " + err.message;
-            }
-        }
-        
-        loadData();
-    </script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Canary - AI Market Monitor</title>
+<script src="https://cdn.tailwindcss.com"></script><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>body{font-family:Inter,sans-serif}</style></head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center py-10"><main class="w-full max-w-4xl px-4">
+<header class="text-center mb-10"><h1 class="text-4xl font-bold text-blue-400">The Canary</h1><p class="text-gray-400 mt-2">AI Financial Bubble Monitor (Zero-Maintenance)</p></header>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"><div class="bg-gray-800 p-6 rounded-lg text-center"><h3 class="text-gray-400 text-sm uppercase">NVDA P/E Ratio</h3><p id="nvda-pe" class="text-2xl font-bold text-blue-400">Loading...</p><p class="text-xs text-gray-500 mt-1">PEG: <span id="peg-val">-</span></p></div><div class="bg-gray-800 p-6 rounded-lg text-center"><h3 class="text-gray-400 text-sm uppercase">Revenue Growth</h3><p id="rev-growth" class="text-2xl font-bold text-purple-400">Loading...</p></div><div class="bg-gray-800 p-6 rounded-lg text-center"><h3 class="text-gray-400 text-sm uppercase">Market Sentiment</h3><p id="sentiment" class="text-xl font-bold">Loading...</p></div></div>
+<section id="status-card" class="bg-gray-800 rounded-xl p-8 text-center mb-8 border border-gray-700"><h2 class="text-xl text-gray-400 uppercase tracking-widest mb-4">Current Market Status</h2><div id="status-indicator" class="text-5xl font-black mb-2">LOADING...</div><div id="score-display" class="text-2xl">Risk Score: --/100</div></section>
+<section class="bg-gray-800 rounded-xl p-6 mb-8 border border-gray-700"><h3 class="text-lg font-semibold text-gray-300 mb-2 border-b border-gray-700 pb-2">AI Analyst Opinion</h3><p id="thesis-text" class="text-xl text-gray-200 mb-3"></p><p id="reasoning-text" class="text-gray-300 leading-relaxed italic">Fetching latest analysis...</p><div id="opinion-meta" class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-5 text-sm"></div><div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5"><div><h4 class="text-red-300 font-semibold">Risk factors</h4><ul id="risk-factors" class="list-disc list-inside text-gray-300"></ul></div><div><h4 class="text-green-300 font-semibold">Stabilizing factors</h4><ul id="stabilizing-factors" class="list-disc list-inside text-gray-300"></ul></div></div><div id="metrics-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-sm"></div></section>
+<section class="bg-gray-800 rounded-xl p-6 border border-gray-700"><h3 class="text-lg font-semibold text-gray-300 mb-4">Risk Score Trend (Last 30 Valid Points)</h3><canvas id="trendChart"></canvas></section>
+<footer class="mt-12 text-center text-gray-500 text-xs"><p>Powered by OpenRouter &amp; GitHub Actions. Data updates daily at 21:00 UTC.</p></footer></main>
+<script>
+const FRESHNESS_HOURS=48;
+function text(parent,value,cls){const node=document.createElement('span');node.textContent=String(value===undefined||value===null?'Unavailable':value);if(cls)node.className=cls;parent.appendChild(node);return node;}
+function set(id,value){document.getElementById(id).textContent=String(value===undefined||value===null?'Unavailable':value);}
+function list(id,values){const el=document.getElementById(id);el.replaceChildren();(Array.isArray(values)?values:[]).forEach(value=>{const li=document.createElement('li');li.textContent=String(value);el.appendChild(li);});}
+function isScore(entry){return entry&&Number.isInteger(entry.score)&&entry.score>=0&&entry.score<=100;}
+function dateLabel(value){const date=new Date(value);return Number.isNaN(date.getTime())?String(value||'Unknown'):date.toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
+function meta(label,value){const div=document.createElement('div');div.className='bg-gray-700/50 p-3 rounded';text(div,label.replaceAll('_',' '),'block text-gray-400 text-xs uppercase');text(div,value,'font-mono font-bold');return div;}
+function renderMetrics(metrics){const grid=document.getElementById('metrics-grid');grid.replaceChildren();if(!metrics)return;Object.entries(metrics).forEach(([key,value])=>grid.appendChild(meta(key,value)));}
+function renderChart(history){const points=history.filter(isScore).slice(-30);const ctx=document.getElementById('trendChart').getContext('2d');new Chart(ctx,{type:'line',data:{labels:points.map(p=>dateLabel(p.date)),datasets:[{label:'Bubble Risk Score',data:points.map(p=>p.score),borderColor:'#60a5fa',backgroundColor:'rgba(96,165,250,.1)',borderWidth:2,tension:.3,fill:true}]},options:{responsive:true,scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}},plugins:{legend:{display:false}}}});}
+function renderV2(latest){set('thesis-text',latest.thesis);set('reasoning-text','“'+latest.reasoning+'”');const metaEl=document.getElementById('opinion-meta');metaEl.replaceChildren();const change=latest.change||{};const movement=change.delta===null||change.delta===undefined?'Baseline':(change.delta>=0?'+':'')+change.delta+' points from '+change.previous_score;const quality=latest.data_quality||{};[['confidence',latest.confidence],['updated',dateLabel(latest.date)],['score movement',movement],['change explanation',change.explanation],['evidence',String(quality.state||'Unavailable')+'; market complete: '+String(quality.market_data_complete)+'; articles: '+String(quality.fetched_articles||0)+' fetched / '+String(quality.fresh_articles||0)+' fresh'],['requested model',latest.model&&latest.model.requested],['resolved model',latest.model&&latest.model.resolved],['methodology',latest.methodology_version]].forEach(([k,v])=>metaEl.appendChild(meta(k,v)));list('risk-factors',latest.risk_factors);list('stabilizing-factors',latest.stabilizing_factors);if(quality.state==='degraded')text(metaEl,'DEGRADED EVIDENCE','text-yellow-300 font-bold');const timestamp=new Date(latest.date);if(!Number.isNaN(timestamp.getTime())&&(Date.now()-timestamp.getTime()>FRESHNESS_HOURS*3600000))text(metaEl,'STALE ANALYSIS — status may not reflect current conditions','text-red-300 font-bold');}
+async function loadData(){try{const response=await fetch('data/status_history.json');if(!response.ok)throw new Error('Failed to load data');const history=await response.json();if(!Array.isArray(history)||!history.length){set('status-indicator','NO DATA');set('reasoning-text','Run the agent to generate initial data.');return;}const latest=history[history.length-1];const status=isScore(latest)?(latest.schema_version===2?(latest.score<=30?'GREEN':latest.score<=69?'YELLOW':'RED'):latest.status):'Unavailable';set('status-indicator',status);set('score-display','Risk Score: '+(isScore(latest)?latest.score:'--')+'/100');const card=document.getElementById('status-card');card.className='rounded-xl p-8 text-center mb-8 border';card.classList.add(status==='RED'?'bg-red-900/40':status==='YELLOW'?'bg-yellow-900/40':'bg-green-900/40');if(latest.schema_version===2)renderV2(latest);else{set('thesis-text','Legacy analysis');set('reasoning-text','“'+(latest.reasoning||'Unavailable')+'”');const m=document.getElementById('opinion-meta');m.replaceChildren();m.appendChild(meta('metadata','Legacy record; enhanced fields unavailable'));list('risk-factors',[]);list('stabilizing-factors',[]);}renderMetrics(latest.metrics);const metrics=latest.metrics||{};set('nvda-pe',metrics.nvda_pe||metrics.NVDA_pe_ratio||'N/A');set('peg-val',metrics.peg_ratio||metrics.NVDA_peg_ratio||'N/A');const growth=metrics.revenue_growth||metrics.NVDA_revenue_growth;set('rev-growth',growth===undefined?'N/A':(Number(growth)*100).toFixed(1)+'%');set('sentiment',metrics.market_sentiment||'N/A');renderChart(history);}catch(error){console.error(error);set('status-indicator','ERROR');set('reasoning-text','Could not load data. '+error.message);}}
+loadData();
+</script></body></html>

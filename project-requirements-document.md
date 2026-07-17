@@ -10,6 +10,8 @@
 
 **Core Philosophy:** "Zero Infrastructure, Zero Maintenance."
 
+The published score is a model-authored editorial opinion of how fragile the AI investment boom is to a meaningful correction in the next 6–12 months. It is not a probability or investment recommendation. Confidence describes the model's assessment; data quality independently describes collection completeness.
+
 * **No Backend Server:** We use GitHub Actions as the runtime.
 * **No Database:** We use the Git repository itself as the database.
 * **No Hosting Cost:** We use GitHub Pages for the frontend.
@@ -97,7 +99,7 @@ The agent must append a new object to this array daily. The frontend relies on t
 
    * **API Provider:** OpenRouter
    * **Base URL:** `https://openrouter.ai/api/v1`
-   * **Model:** Prioritize `openai/gpt-5.1` or `google/gemini-2.0-flash-thinking-exp`.
+   * **Model:** Request OpenRouter's `~openai/gpt-latest` alias by default. The alias selects the newest eligible OpenAI GPT model; the response's concrete `completion.model` is persisted. `OPENROUTER_MODEL` may override the requested slug for testing or rollback. Retries repeat the same slug and never silently switch vendors.
    * **System Prompt:**
 
      > "You are 'The Canary', a cynical, data-driven financial analyst tracking the AI Bubble.
@@ -205,4 +207,4 @@ The agent must append a new object to this array daily. The frontend relies on t
 ## 8. Non-Functional Requirements
 
 * **Security:** API Keys must **never** be hardcoded. They must only be accessed via `os.environ`.
-* **Error Handling:** If the LLM API fails or returns malformed JSON, the script must exit with an error code and **not** corrupt the `status_history.json` file.
+* **Error Handling:** If the LLM API fails or returns malformed JSON, the script must exit with an error code and **not** corrupt the `status_history.json` file. History must be a JSON array and updates use same-directory atomic replacement. New entries use schema version 2 and methodology `canary-opinion-v2`; market completeness and article counts are independent data-quality metadata (articles within 48 hours are fresh).
