@@ -42,6 +42,7 @@ METHODOLOGY_VERSION = "canary-opinion-v2"
 DEFAULT_MODEL = "~openai/gpt-latest"
 MODEL_OVERRIDE_ENV = "OPENROUTER_MODEL"
 MODEL_RETRY_ATTEMPTS = 3
+MAX_OUTPUT_TOKENS = 2_000
 ARTICLE_FRESHNESS_HOURS = 48
 CONFIDENCE_VALUES = {"LOW", "MEDIUM", "HIGH"}
 
@@ -239,6 +240,7 @@ def analyze_market_status(market_data, news_items, history=None):
                 model=model,
                 messages=[{"role": "system", "content": "You are a careful financial analyst."}, {"role": "user", "content": prompt}],
                 response_format={"type": "json_object"},
+                max_tokens=MAX_OUTPUT_TOKENS,
             )
             resolved = getattr(completion, "model", None)
             if not isinstance(resolved, str) or not resolved.strip():

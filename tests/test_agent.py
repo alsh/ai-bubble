@@ -115,7 +115,9 @@ class TestProvenanceAndPersistence(unittest.TestCase):
         mock_openai.return_value = client
         result = agent.analyze_market_status({"NVDA_price": 1}, [{"title": "x"}])
         self.assertEqual(result["_resolved_model"], "openai/gpt-5.4")
-        self.assertEqual([call.kwargs["model"] for call in client.chat.completions.create.call_args_list], [agent.DEFAULT_MODEL] * 2)
+        calls = client.chat.completions.create.call_args_list
+        self.assertEqual([call.kwargs["model"] for call in calls], [agent.DEFAULT_MODEL] * 2)
+        self.assertEqual([call.kwargs["max_tokens"] for call in calls], [agent.MAX_OUTPUT_TOKENS] * 2)
 
     @patch("agent.OpenAI")
     @patch("agent.OPENROUTER_API_KEY", "fake")
