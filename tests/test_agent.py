@@ -195,7 +195,7 @@ class TestProvenanceAndPersistence(unittest.TestCase):
                 json.dump([{"score": 1}], handle)
             agent.update_history({"score": 2}, path)
             self.assertEqual([x["score"] for x in agent.load_history(path)], [1, 2])
-    def test_nonstandard_json_is_rejected_without_replacing_history(self):
+    def test_nonstandard_json_is_rejected_for_new_entries_and_repaired_on_load(self):
         with tempfile.TemporaryDirectory() as directory:
             path = os.path.join(directory, "history.json")
             original = '[{"score": 1}]'
@@ -209,8 +209,13 @@ class TestProvenanceAndPersistence(unittest.TestCase):
 
             with open(path, "w") as handle:
                 handle.write('[{"score": 1, "metric": NaN}]')
-            with self.assertRaises(ValueError):
-                agent.load_history(path)
+            history = agent.load_history(path)
+            self.assertIsNone(history[0]["metric"])
+            agent.update_history({"score": 2}, path)
+            with open(path) as handle:
+                repaired = handle.read()
+            self.assertNotIn("NaN", repaired)
+            self.assertEqual([item["score"] for item in json.loads(repaired)], [1, 2])
 
     def test_atomic_replace_failure_preserves_destination_and_removes_temp(self):
         with tempfile.TemporaryDirectory() as directory:

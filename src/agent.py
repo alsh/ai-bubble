@@ -94,9 +94,16 @@ def _clean_market_data(market_data):
     return cleaned
 
 
+class _NonStandardJSONConstantError(ValueError):
+    """Signals a recoverable JavaScript-only numeric literal in history."""
 def _reject_non_standard_json_constant(value):
     """Reject JavaScript-only numeric constants accepted by Python's JSON parser."""
-    raise ValueError(f"non-standard JSON constant {value!r} is not permitted")
+    raise _NonStandardJSONConstantError(f"non-standard JSON constant {value!r} is not permitted")
+
+def _recover_non_standard_json_constant(value):
+    """Convert legacy non-standard numeric literals to JSON null while repairing history."""
+    return None
+
 
 def get_market_data():
     """Fetch market snapshots. Missing individual tickers are retained as degradation."""
@@ -405,7 +412,14 @@ def load_history(path=DATA_FILE):
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as handle:
-        history = json.load(handle, parse_constant=_reject_non_standard_json_constant)
+        try:
+            history = json.load(handle, parse_constant=_reject_non_standard_json_constant)
+        except _NonStandardJSONConstantError:
+            # Older runs may already contain NaN emitted by Python's permissive encoder.
+            # Recover those values as null so this run can rewrite a valid history file.
+            handle.seek(0)
+            history = json.load(handle, parse_constant=_recover_non_standard_json_constant)
+            print(f"Warning: repaired non-standard numeric values in {path}")
     if not isinstance(history, list):
         raise ValueError("history must be a JSON array")
     return history
