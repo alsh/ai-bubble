@@ -6,10 +6,12 @@ module once a day and GitHub Pages serves the resulting file directly.
 import datetime
 import html
 import json
+import math
 import os
 import re
 import tempfile
 from email.utils import parsedate_to_datetime
+from numbers import Real
 from urllib.parse import parse_qs, urlparse
 
 try:
@@ -47,6 +49,55 @@ ARTICLE_FRESHNESS_HOURS = 48
 CONFIDENCE_VALUES = {"LOW", "MEDIUM", "HIGH"}
 
 
+def _is_finite_number(value):
+    """Return whether value is a JSON-safe finite real number."""
+    if isinstance(value, bool) or not isinstance(value, Real):
+        return False
+    try:
+        return math.isfinite(float(value))
+    except (TypeError, ValueError, OverflowError):
+        return False
+
+
+def _as_finite_float(value):
+    """Convert a numeric value to a finite built-in float, or return None."""
+    if isinstance(value, bool) or value is None:
+        return None
+    try:
+        number = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    return number if math.isfinite(number) else None
+
+
+def _normalise_metric(value):
+    """Keep optional market metrics JSON-safe while preserving useful text."""
+    if isinstance(value, str):
+        value = value.strip()
+        if not value or value.lower() in {"nan", "+nan", "-nan", "inf", "+inf", "-inf",
+                                           "infinity", "+infinity", "-infinity"}:
+            return "N/A"
+        return value
+    number = _as_finite_float(value)
+    return number if number is not None else "N/A"
+
+
+def _clean_market_data(market_data):
+    """Replace non-JSON numeric values before evidence reaches the prompt or file."""
+    if not isinstance(market_data, dict):
+        return {}
+    cleaned = {}
+    for key, value in market_data.items():
+        if not isinstance(key, str):
+            continue
+        cleaned[key] = _normalise_metric(value)
+    return cleaned
+
+
+def _reject_non_standard_json_constant(value):
+    """Reject JavaScript-only numeric constants accepted by Python's JSON parser."""
+    raise ValueError(f"non-standard JSON constant {value!r} is not permitted")
+
 def get_market_data():
     """Fetch market snapshots. Missing individual tickers are retained as degradation."""
     tickers = ["NVDA", "MSFT", "GOOGL"]
@@ -60,24 +111,33 @@ def get_market_data():
             if hist.empty:
                 print(f"Warning: No history found for {ticker}")
                 continue
-            data[f"{ticker}_price"] = round(float(hist["Close"].iloc[-1]), 2)
+            price = _as_finite_float(hist["Close"].iloc[-1])
+            if price is None:
+                print(f"Warning: Non-finite closing price for {ticker}")
+                continue
+            data[f"{ticker}_price"] = round(price, 2)
             if ticker == "NVDA":
-                data["NVDA_volatility"] = round(float(hist["Close"].std()), 2)
-                data["NVDA_pe_ratio"] = info.get("trailingPE", "N/A")
-                data["NVDA_forward_pe"] = info.get("forwardPE", "N/A")
-                data["NVDA_revenue_growth"] = info.get("revenueGrowth", "N/A")
-                peg = info.get("pegRatio", "N/A")
-                if peg in (None, "N/A"):
-                    try:
-                        pe = float(info.get("trailingPE"))
-                        growth = float(info.get("earningsGrowth"))
-                        peg = round(pe / (growth * 100), 2) if growth else "N/A"
-                    except (TypeError, ValueError, ZeroDivisionError):
-                        peg = "N/A"
+                volatility = _as_finite_float(hist["Close"].std())
+                if volatility is not None:
+                    data["NVDA_volatility"] = round(volatility, 2)
+                data["NVDA_pe_ratio"] = _normalise_metric(info.get("trailingPE", "N/A"))
+                data["NVDA_forward_pe"] = _normalise_metric(info.get("forwardPE", "N/A"))
+                data["NVDA_revenue_growth"] = _normalise_metric(info.get("revenueGrowth", "N/A"))
+                peg = _normalise_metric(info.get("pegRatio", "N/A"))
+                if peg == "N/A":
+                    pe = _as_finite_float(info.get("trailingPE"))
+                    growth = _as_finite_float(info.get("earningsGrowth"))
+                    if pe is not None and growth not in (None, 0):
+                        try:
+                            calculated_peg = pe / (growth * 100)
+                        except (OverflowError, ZeroDivisionError):
+                            calculated_peg = None
+                        if _is_finite_number(calculated_peg):
+                            peg = round(calculated_peg, 2)
                 data["NVDA_peg_ratio"] = peg
         except Exception as exc:
             print(f"Error fetching {ticker}: {exc}")
-    return data
+    return _clean_market_data(data)
 
 
 def extract_article_content(url):
@@ -203,7 +263,7 @@ def prior_context(history):
 
 
 def _prompt(market_data, news_items, context):
-    context_text = json.dumps(context, ensure_ascii=False)
+    context_text = json.dumps(context, ensure_ascii=False, allow_nan=False)
     return f"""You are The Canary, an independent editorial financial analyst.
 
 Question: how fragile is the AI investment boom to a meaningful correction within the next 6–12 months?
@@ -214,8 +274,8 @@ independently rather than anchoring on the prior opinion. Explain material movem
 This is an editorial opinion, not a probability or investment recommendation.
 
 Prior compact context (scores are context only): {context_text}
-Market evidence: {json.dumps(market_data, ensure_ascii=False)}
-News evidence: {json.dumps(news_items, ensure_ascii=False)}
+Market evidence: {json.dumps(market_data, ensure_ascii=False, allow_nan=False)}
+News evidence: {json.dumps(news_items, ensure_ascii=False, allow_nan=False)}
 
 Return JSON only with exactly these model-authored fields:
 {{"score": integer 0-100, "confidence": "LOW"|"MEDIUM"|"HIGH",
@@ -277,7 +337,8 @@ def data_quality(market_data, news_items, now=None):
     """
     now = now or datetime.datetime.now(datetime.timezone.utc)
     required_prices = [f"{ticker}_price" for ticker in ("NVDA", "MSFT", "GOOGL")]
-    market_complete = all(isinstance(market_data.get(key), (int, float)) for key in required_prices)
+    market_complete = isinstance(market_data, dict) and all(_is_finite_number(market_data.get(key))
+                                                   for key in required_prices)
     fetched = len(news_items) if isinstance(news_items, list) else 0
     fresh = 0
     for item in news_items if isinstance(news_items, list) else []:
@@ -293,9 +354,10 @@ def data_quality(market_data, news_items, now=None):
 def build_version2_entry(opinion, market_data, news_items, history, now=None):
     """Combine validated model fields with application-owned metadata."""
     validated = validate_opinion(opinion)
-    usable_market = isinstance(market_data, dict) and any(isinstance(value, (int, float)) and not isinstance(value, bool)
-                                                          for value in market_data.values())
-    usable_news = isinstance(news_items, list) and any(
+    market_data = _clean_market_data(market_data)
+    news_items = news_items if isinstance(news_items, list) else []
+    usable_market = any(_is_finite_number(value) for value in market_data.values())
+    usable_news = any(
         isinstance(item, dict) and any(isinstance(item.get(key), str) and item.get(key).strip()
                                        for key in ("title", "summary", "content"))
         for item in news_items)
@@ -306,8 +368,10 @@ def build_version2_entry(opinion, market_data, news_items, history, now=None):
     previous = context["prior_score"]
     metrics = dict(market_data)
     metrics["market_sentiment"] = opinion.get("market_sentiment", metrics.get("market_sentiment", "Unavailable"))
-    if news_items:
-        metrics["top_headline"] = news_items[0].get("title", "")
+    first_article = next((item for item in news_items if isinstance(item, dict)), None)
+    if first_article is not None:
+        headline = first_article.get("title")
+        metrics["top_headline"] = headline.strip() if isinstance(headline, str) and headline.strip() else "Unavailable"
     entry = {
         "schema_version": SCHEMA_VERSION,
         "methodology_version": METHODOLOGY_VERSION,
@@ -332,6 +396,8 @@ def build_version2_entry(opinion, market_data, news_items, history, now=None):
     entry["metrics"].setdefault("nvda_pe", str(market_data.get("NVDA_pe_ratio", "N/A")))
     entry["metrics"].setdefault("revenue_growth", str(market_data.get("NVDA_revenue_growth", "N/A")))
     entry["metrics"].setdefault("peg_ratio", str(market_data.get("NVDA_peg_ratio", "N/A")))
+    # Fail before persistence rather than creating a browser-invalid JSON artifact.
+    json.dumps(entry, ensure_ascii=False, allow_nan=False)
     return entry
 
 
@@ -339,7 +405,7 @@ def load_history(path=DATA_FILE):
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as handle:
-        history = json.load(handle)
+        history = json.load(handle, parse_constant=_reject_non_standard_json_constant)
     if not isinstance(history, list):
         raise ValueError("history must be a JSON array")
     return history
@@ -356,7 +422,7 @@ def update_history(entry, path=DATA_FILE):
     fd, temporary = tempfile.mkstemp(prefix=".status_history.", suffix=".tmp", dir=directory, text=True)
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as handle:
-            json.dump(history, handle, indent=2, ensure_ascii=False)
+            json.dump(history, handle, indent=2, ensure_ascii=False, allow_nan=False)
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(temporary, path)
@@ -370,11 +436,10 @@ def update_history(entry, path=DATA_FILE):
 
 
 def main():
-    market_data = get_market_data()
+    market_data = _clean_market_data(get_market_data())
     news_items = get_news_headlines()
     history = load_history(DATA_FILE)
-    usable_market = isinstance(market_data, dict) and any(isinstance(value, (int, float)) and not isinstance(value, bool)
-                                                          for value in market_data.values())
+    usable_market = any(_is_finite_number(value) for value in market_data.values())
     usable_news = isinstance(news_items, list) and any(
         isinstance(item, dict) and any(isinstance(item.get(key), str) and item.get(key).strip()
                                        for key in ("title", "summary", "content"))

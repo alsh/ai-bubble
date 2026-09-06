@@ -78,13 +78,63 @@ class TestContract(unittest.TestCase):
         self.assertEqual(quality["fresh_articles"], 0)
         self.assertEqual(quality["state"], "degraded")
 
+    def test_market_collection_normalises_non_finite_values(self):
+        class CloseSeries:
+            def __init__(self, value):
+                self.iloc = self
+                self.value = value
+
+            def __getitem__(self, _index):
+                return self.value
+
+            def std(self):
+                return float("nan")
+
+        class History:
+            empty = False
+
+            def __getitem__(self, _key):
+                return CloseSeries(100.0)
+
+        class Ticker:
+            info = {
+                "trailingPE": float("nan"),
+                "forwardPE": float("inf"),
+                "revenueGrowth": float("nan"),
+                "pegRatio": float("nan"),
+                "earningsGrowth": float("nan"),
+            }
+
+            def history(self, period):
+                self.period = period
+                return History()
+
+        with patch.object(agent.yf, "Ticker", return_value=Ticker()):
+            market_data = agent.get_market_data()
+
+        self.assertEqual(market_data["NVDA_price"], 100.0)
+        self.assertNotIn("NVDA_volatility", market_data)
+        self.assertEqual(market_data["NVDA_pe_ratio"], "N/A")
+        json.dumps(market_data, allow_nan=False)
+
+    def test_non_finite_market_values_are_degraded_and_json_safe(self):
+        entry = agent.build_version2_entry(
+            {**VALID_OPINION, "_resolved_model": "fixture/v1"},
+            {"NVDA_price": float("nan"), "MSFT_price": 200, "GOOGL_price": 300},
+            [{"title": "Headline"}],
+            [],
+        )
+        self.assertEqual(entry["metrics"]["NVDA_price"], "N/A")
+        self.assertFalse(entry["data_quality"]["market_data_complete"])
+        json.dumps(entry, allow_nan=False)
 
 class TestDashboardArtifact(unittest.TestCase):
     def test_dashboard_contract_is_text_safe_and_mixed_schema_aware(self):
         with open(os.path.join(os.path.dirname(__file__), "..", "index.html"), encoding="utf-8") as handle:
             dashboard = handle.read()
         self.assertNotIn("innerHTML", dashboard)
-        for marker in ("schema_version", "risk-factors", "stabilizing-factors", "FRESHNESS_HOURS", "slice(-30)"):
+        for marker in ("schema_version", "risk-factors", "stabilizing-factors", "FRESHNESS_HOURS", "slice(-30)",
+                       "parseHistoryPayload", "RECOVERED NON-FINITE VALUES", "Number.isFinite"):
             self.assertIn(marker, dashboard)
         legacy = fixture("legacy_history.json")
         v2 = agent.build_version2_entry({**VALID_OPINION, "_resolved_model": "fixture/v1"},
@@ -145,6 +195,22 @@ class TestProvenanceAndPersistence(unittest.TestCase):
                 json.dump([{"score": 1}], handle)
             agent.update_history({"score": 2}, path)
             self.assertEqual([x["score"] for x in agent.load_history(path)], [1, 2])
+    def test_nonstandard_json_is_rejected_without_replacing_history(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = os.path.join(directory, "history.json")
+            original = '[{"score": 1}]'
+            with open(path, "w") as handle:
+                handle.write(original)
+
+            with self.assertRaises(ValueError):
+                agent.update_history({"score": 2, "metric": float("nan")}, path)
+            with open(path) as handle:
+                self.assertEqual(handle.read(), original)
+
+            with open(path, "w") as handle:
+                handle.write('[{"score": 1, "metric": NaN}]')
+            with self.assertRaises(ValueError):
+                agent.load_history(path)
 
     def test_atomic_replace_failure_preserves_destination_and_removes_temp(self):
         with tempfile.TemporaryDirectory() as directory:

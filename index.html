@@ -17,11 +17,59 @@ function text(parent,value,cls){const node=document.createElement('span');node.t
 function set(id,value){document.getElementById(id).textContent=String(value===undefined||value===null?'Unavailable':value);}
 function list(id,values){const el=document.getElementById(id);el.replaceChildren();(Array.isArray(values)?values:[]).forEach(value=>{const li=document.createElement('li');li.textContent=String(value);el.appendChild(li);});}
 function isScore(entry){return entry&&Number.isInteger(entry.score)&&entry.score>=0&&entry.score<=100;}
+function parseHistoryPayload(raw){try{return{history:JSON.parse(raw),recovered:false};}catch(error){const repaired=raw.replace(/([:,\[]\s*)(?:NaN|[+-]?Infinity)(?=\s*[,}\]])/g,'$1null');if(repaired===raw)throw error;try{return{history:JSON.parse(repaired),recovered:true};}catch(_){throw error;}}}
 function dateLabel(value){const date=new Date(value);return Number.isNaN(date.getTime())?String(value||'Unknown'):date.toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});}
 function meta(label,value){const div=document.createElement('div');div.className='bg-gray-700/50 p-3 rounded';text(div,label.replaceAll('_',' '),'block text-gray-400 text-xs uppercase');text(div,value,'font-mono font-bold');return div;}
 function renderMetrics(metrics){const grid=document.getElementById('metrics-grid');grid.replaceChildren();if(!metrics)return;Object.entries(metrics).forEach(([key,value])=>grid.appendChild(meta(key,value)));}
 function renderChart(history){const points=history.filter(isScore).slice(-30);const ctx=document.getElementById('trendChart').getContext('2d');new Chart(ctx,{type:'line',data:{labels:points.map(p=>dateLabel(p.date)),datasets:[{label:'Bubble Risk Score',data:points.map(p=>p.score),borderColor:'#60a5fa',backgroundColor:'rgba(96,165,250,.1)',borderWidth:2,tension:.3,fill:true}]},options:{responsive:true,scales:{y:{beginAtZero:true,max:100},x:{grid:{display:false}}},plugins:{legend:{display:false}}}});}
 function renderV2(latest){set('thesis-text',latest.thesis);set('reasoning-text','“'+latest.reasoning+'”');const metaEl=document.getElementById('opinion-meta');metaEl.replaceChildren();const change=latest.change||{};const movement=change.delta===null||change.delta===undefined?'Baseline':(change.delta>=0?'+':'')+change.delta+' points from '+change.previous_score;const quality=latest.data_quality||{};[['confidence',latest.confidence],['updated',dateLabel(latest.date)],['score movement',movement],['change explanation',change.explanation],['evidence',String(quality.state||'Unavailable')+'; market complete: '+String(quality.market_data_complete)+'; articles: '+String(quality.fetched_articles||0)+' fetched / '+String(quality.fresh_articles||0)+' fresh'],['requested model',latest.model&&latest.model.requested],['resolved model',latest.model&&latest.model.resolved],['methodology',latest.methodology_version]].forEach(([k,v])=>metaEl.appendChild(meta(k,v)));list('risk-factors',latest.risk_factors);list('stabilizing-factors',latest.stabilizing_factors);if(quality.state==='degraded')text(metaEl,'DEGRADED EVIDENCE','text-yellow-300 font-bold');const timestamp=new Date(latest.date);if(!Number.isNaN(timestamp.getTime())&&(Date.now()-timestamp.getTime()>FRESHNESS_HOURS*3600000))text(metaEl,'STALE ANALYSIS — status may not reflect current conditions','text-red-300 font-bold');}
-async function loadData(){try{const response=await fetch('data/status_history.json');if(!response.ok)throw new Error('Failed to load data');const history=await response.json();if(!Array.isArray(history)||!history.length){set('status-indicator','NO DATA');set('reasoning-text','Run the agent to generate initial data.');return;}const latest=history[history.length-1];const status=isScore(latest)?(latest.schema_version===2?(latest.score<=30?'GREEN':latest.score<=69?'YELLOW':'RED'):latest.status):'Unavailable';set('status-indicator',status);set('score-display','Risk Score: '+(isScore(latest)?latest.score:'--')+'/100');const card=document.getElementById('status-card');card.className='rounded-xl p-8 text-center mb-8 border';card.classList.add(status==='RED'?'bg-red-900/40':status==='YELLOW'?'bg-yellow-900/40':'bg-green-900/40');if(latest.schema_version===2)renderV2(latest);else{set('thesis-text','Legacy analysis');set('reasoning-text','“'+(latest.reasoning||'Unavailable')+'”');const m=document.getElementById('opinion-meta');m.replaceChildren();m.appendChild(meta('metadata','Legacy record; enhanced fields unavailable'));list('risk-factors',[]);list('stabilizing-factors',[]);}renderMetrics(latest.metrics);const metrics=latest.metrics||{};set('nvda-pe',metrics.nvda_pe||metrics.NVDA_pe_ratio||'N/A');set('peg-val',metrics.peg_ratio||metrics.NVDA_peg_ratio||'N/A');const growth=metrics.revenue_growth||metrics.NVDA_revenue_growth;set('rev-growth',growth===undefined?'N/A':(Number(growth)*100).toFixed(1)+'%');set('sentiment',metrics.market_sentiment||'N/A');renderChart(history);}catch(error){console.error(error);set('status-indicator','ERROR');set('reasoning-text','Could not load data. '+error.message);}}
+async function loadData(){
+ try {
+  const response=await fetch('data/status_history.json');
+  if(!response.ok)throw new Error('Failed to load data');
+  const parsed=parseHistoryPayload(await response.text());
+  const history=parsed.history;
+  if(!Array.isArray(history)||!history.length){
+   set('status-indicator','NO DATA');
+   set('reasoning-text','Run the agent to generate initial data.');
+   return;
+  }
+  const latest=history[history.length-1]||{};
+  const status=isScore(latest)?(latest.schema_version===2?(latest.score<=30?'GREEN':latest.score<=69?'YELLOW':'RED'):latest.status):'Unavailable';
+  set('status-indicator',status);
+  set('score-display','Risk Score: '+(isScore(latest)?latest.score:'--')+'/100');
+  const card=document.getElementById('status-card');
+  card.className='rounded-xl p-8 text-center mb-8 border';
+  if(status==='RED')card.classList.add('bg-red-900/40');
+  else if(status==='YELLOW')card.classList.add('bg-yellow-900/40');
+  else if(status==='GREEN')card.classList.add('bg-green-900/40');
+  if(latest.schema_version===2){
+   renderV2(latest);
+  }else{
+   set('thesis-text','Legacy analysis');
+   set('reasoning-text','“'+(latest.reasoning||'Unavailable')+'”');
+   const m=document.getElementById('opinion-meta');
+   m.replaceChildren();
+   m.appendChild(meta('metadata','Legacy record; enhanced fields unavailable'));
+   list('risk-factors',[]);
+   list('stabilizing-factors',[]);
+  }
+  const metrics=latest.metrics&&typeof latest.metrics==='object'?latest.metrics:{};
+  renderMetrics(metrics);
+  set('nvda-pe',metrics.nvda_pe||metrics.NVDA_pe_ratio||'N/A');
+  set('peg-val',metrics.peg_ratio||metrics.NVDA_peg_ratio||'N/A');
+  const growth=metrics.revenue_growth||metrics.NVDA_revenue_growth;
+  const growthNumber=Number(growth);
+  set('rev-growth',Number.isFinite(growthNumber)?(growthNumber*100).toFixed(1)+'%':'N/A');
+  set('sentiment',metrics.market_sentiment||'N/A');
+  renderChart(history);
+  if(parsed.recovered)text(document.getElementById('opinion-meta'),'RECOVERED NON-FINITE VALUES — this run should be regenerated','text-yellow-300 font-bold');
+ }catch(error){
+  console.error(error);
+  set('status-indicator','ERROR');
+  const message=error instanceof SyntaxError?'Published data is malformed JSON.':(error&&error.message)||String(error);
+  set('reasoning-text','Could not load data. '+message);
+ }
+}
 loadData();
 </script></body></html>
