@@ -5275,14 +5275,14 @@
       "resolved": "openai/gpt-5.6-sol"
     },
     "metrics": {
-      "NVDA_price": NaN,
+      "NVDA_price": null,
       "NVDA_volatility": 3.64,
       "NVDA_pe_ratio": 31.626911,
       "NVDA_forward_pe": 16.072695,
       "NVDA_revenue_growth": 0.852,
       "NVDA_peg_ratio": 0.58,
-      "MSFT_price": NaN,
-      "GOOGL_price": NaN,
+      "MSFT_price": null,
+      "GOOGL_price": null,
       "market_sentiment": "Unavailable",
       "top_headline": "Central Banks Are Joining The AI Bubble Debate",
       "nvda_pe": "31.626911",
@@ -7752,6 +7752,65 @@
       "GOOGL_price": 338.46,
       "market_sentiment": "Unavailable",
       "top_headline": "AI Bubble Monitor: Wall Street is Betting Trillions on Silicon Valley to Prevail Over Chinese AI",
+      "nvda_pe": "29.159492",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.58"
+    }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-06T17:23:42.897213+00:00",
+    "score": 79,
+    "status": "RED",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom is highly fragile to a meaningful 6–12 month correction, chiefly because infrastructure commitments are accelerating far faster than demonstrated enterprise returns and remain concentrated among a few mutually dependent buyers and suppliers. Yet strong realized hardware demand, exceptional Nvidia growth and moderate forward valuations argue for a sharp expectations reset rather than an indiscriminate structural collapse.",
+    "reasoning": "Valuation is less extreme than classic bubble comparisons: Nvidia's roughly 14.9x forward P/E, 0.58 PEG ratio and 106% reported revenue growth provide substantial earnings support, while the broader Nasdaq multiple cited is well below its 2000 peak. The greater vulnerability lies in investment efficiency and financing. Projected hyperscaler capital expenditure of roughly $800 billion this year and $1.3 trillion next year requires monetization to accelerate, even as some major spenders face weakening free cash flow and potentially circular relationships among cloud providers, AI labs and chip suppliers. Adoption is broad but economically immature: evidence that most pilots lack measurable P&L impact and that only a minority of organizations report limited EBIT benefits leaves infrastructure spending ahead of validated end demand. Hardware demand is currently real, record-setting and supply constrained, but long lead times and supply-chain visibility can amplify an eventual inventory or utilization correction rather than prevent one. Concentration remains acute across hyperscaler budgets, Nvidia-linked infrastructure and market leadership, increasing sensitivity to even one buyer's capex moderation. Cheaper Chinese and open-weight models could expand usage, but they also threaten pricing, proprietary-model economics and the amount of compute revenue needed per task. Price behavior cannot be judged firmly from the supplied snapshot alone; Nvidia's stated volatility suggests continued sensitivity, but there is no trend, breadth or drawdown series. Overall, the boom has stronger earnings foundations than a pure speculative bubble, but its marginal economics are not yet robust enough to absorb a material disappointment smoothly.",
+    "risk_factors": [
+      "Hyperscaler capex is projected to rise from about $800 billion to $1.3 trillion in one year, creating a very high monetization hurdle.",
+      "Enterprise adoption remains dominated by pilots, with limited evidence of material EBIT or cash-flow improvement.",
+      "Free-cash-flow pressure at major infrastructure buyers could force capex discipline if revenue growth or financing conditions weaken.",
+      "Spending and equity leadership are concentrated among a small group of hyperscalers, frontier labs and Nvidia-centered suppliers.",
+      "Circular financing, investment and purchasing relationships may overstate independent end demand.",
+      "Low-cost Chinese and open-weight models could compress token prices and weaken returns on expensive proprietary infrastructure.",
+      "Custom accelerators and model-efficiency gains could reduce Nvidia's pricing power or compute required per unit of output.",
+      "Supply-constrained ordering and long build cycles create overshoot risk if utilization or demand expectations soften."
+    ],
+    "stabilizing_factors": [
+      "Nvidia's approximately 106% revenue growth demonstrates substantial realized demand rather than purely speculative capacity plans.",
+      "A roughly 14.9x forward P/E and 0.58 PEG ratio are not obviously excessive if current earnings expectations prove durable.",
+      "Nvidia's supply-chain visibility across wafers, memory, optics, power and facilities supports near-term order confidence.",
+      "Major AI leaders generate significant operating earnings, unlike many companies at the peak of the dot-com bubble.",
+      "Lower inference costs can stimulate usage and broaden adoption even while pressuring unit prices.",
+      "Vertical and regulated workflow applications offer a plausible path from experimentation to durable enterprise value."
+    ],
+    "change": {
+      "previous_score": 77,
+      "delta": 2,
+      "explanation": "The score rises modestly from 77 to 79. The valuation case has become more supportive—especially Nvidia's low forward multiple relative to its growth—and current chip demand remains powerful. However, those stabilizers are slightly outweighed by the reported step-up in hyperscaler capex, continued weak enterprise ROI, free-cash-flow concerns and evidence that cheaper competing models may undermine monetization before the new capacity earns adequate returns. The small increase reflects greater correction fragility, not a shift toward expecting a dot-com-style collapse."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 0,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-5.6-sol"
+    },
+    "metrics": {
+      "NVDA_price": 230.36,
+      "NVDA_volatility": 5.32,
+      "NVDA_pe_ratio": 29.159492,
+      "NVDA_forward_pe": 14.902219,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.58,
+      "MSFT_price": 499.7,
+      "GOOGL_price": 338.46,
+      "market_sentiment": "Unavailable",
+      "top_headline": "Jensen Huang said this word exactly 1 time during Nvidia's earnings call, and that was enough to put artificial intelligence (AI) bubble fears to rest",
       "nvda_pe": "29.159492",
       "revenue_growth": "1.059",
       "peg_ratio": "0.58"
