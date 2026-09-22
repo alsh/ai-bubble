@@ -8758,5 +8758,57 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.47"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-22T23:23:16.294979+00:00",
+    "score": 74,
+    "status": "RED",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom remains highly fragile to a meaningful correction over the next 6–12 months, but strong chip demand and earnings make an imminent collapse a weaker case than a sharp repricing of expectations.",
+    "reasoning": "Projected 2026 AI-related spending of roughly $1 trillion worldwide sets a demanding bar for returns. If customers delay projects or AI revenue fails to justify the buildout, spending plans and the concentrated stocks tied to them could reprice together. Financing pressure could amplify that shift, although the claim that five companies alone will spend more than $1 trillion is inconsistent with the cited worldwide estimate and is not a sound basis for the score. Adoption is consequential but the supplied evidence does not establish how quickly it is producing returns. On valuation, Nvidia's reported 106% revenue growth and roughly 14.6 forward P/E temper a simple 'prices have outrun the business' argument; forward earnings, however, depend on sustained growth. The price snapshot and unqualified volatility figure do not establish a market downtrend. Bubble warnings and a possible rate headwind warrant attention, not treatment as proof that a correction has begun.",
+    "risk_factors": [
+      "Heavy projected capex may outrun customers' measurable returns and eventual AI revenue.",
+      "Concentration in major AI suppliers and sponsors could magnify a spending or earnings disappointment.",
+      "Demanding growth expectations leave valuations sensitive to even a modest slowdown.",
+      "Higher financing costs or greater borrowing needs could make investment plans less resilient."
+    ],
+    "stabilizing_factors": [
+      "Nvidia's reported revenue growth indicates substantial current hardware demand.",
+      "Its reported forward earnings multiple is less extreme than bubble comparisons alone imply.",
+      "Large sponsors and strategic interest in compute may sustain investment through setbacks."
+    ],
+    "change": {
+      "previous_score": 77,
+      "delta": -3,
+      "explanation": "At 74 versus the prior 77, the assessment is slightly less severe, not materially changed. Reassessing the supplied evidence, strong realized hardware growth and Nvidia's forward multiple deserve more weight than unverified financing claims or bubble headlines. The scale and concentration of spending still support a high fragility score."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6-sol"
+    },
+    "metrics": {
+      "NVDA_price": 228.87,
+      "NVDA_volatility": 6.09,
+      "NVDA_pe_ratio": 28.934261,
+      "NVDA_forward_pe": 14.593853,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.48,
+      "MSFT_price": 498.0,
+      "GOOGL_price": 351.16,
+      "market_sentiment": "Unavailable",
+      "top_headline": "Is the AI bubble bursting?",
+      "nvda_pe": "28.934261",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.48"
+    }
   }
 ]
