@@ -8810,5 +8810,57 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.48"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-23T23:21:16.602690+00:00",
+    "score": 77,
+    "status": "RED",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom is highly vulnerable to a meaningful correction over the next 6–12 months, chiefly if returns on the infrastructure buildout disappoint. Strong chip growth and earnings make a wholesale collapse less compelling than a sharp repricing of expectations.",
+    "reasoning": "Projected AI capital spending is enormous, while the cited estimate of roughly $800 billion in bank exposure raises the stakes if data-center revenue falls short. Highly leveraged individual projects could be especially sensitive, though those estimates do not establish system-wide losses. Adoption is visible, but a product demonstration is not evidence that monetization will justify the buildout. Nvidia's reported 105.9% revenue growth supports genuine hardware demand; its roughly 28.5 trailing and 14.4 forward P/E ratios are not, by themselves, evidence of extreme valuation. The lower forward multiple nevertheless depends on substantial earnings delivery. Spending and market expectations are concentrated among a limited set of chip suppliers, large technology buyers and infrastructure financiers. The supplied prices and volatility figure do not show a clear market trend or an ongoing correction. Taken together, the evidence points to considerable repricing risk, not proof that demand is already breaking.",
+    "risk_factors": [
+      "AI infrastructure spending may outpace revenue and returns.",
+      "Debt-financed data centers could amplify setbacks, particularly where individual projects use high leverage.",
+      "Concentrated buyers, suppliers and lenders could transmit a spending slowdown across the boom.",
+      "Forward valuations depend on continued earnings growth."
+    ],
+    "stabilizing_factors": [
+      "Nvidia's reported revenue growth indicates substantial current hardware demand.",
+      "Reported and forward Nvidia multiples are less stretched than a simple bubble narrative suggests.",
+      "Practical AI uses are emerging, even though their eventual revenue contribution remains uncertain."
+    ],
+    "change": {
+      "previous_score": 74,
+      "delta": 3,
+      "explanation": "Up modestly from 74 to 77: the reported scale of capital spending and bank financing adds weight to investment-efficiency and spillover concerns. The move is limited because key exposure figures are estimates, the market data establish no adverse price trend, and chip growth remains a material counterweight."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6-sol"
+    },
+    "metrics": {
+      "NVDA_price": 225.51,
+      "NVDA_volatility": 3.87,
+      "NVDA_pe_ratio": 28.473484,
+      "NVDA_forward_pe": 14.379603,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.49,
+      "MSFT_price": 500.59,
+      "GOOGL_price": 337.83,
+      "market_sentiment": "Unavailable",
+      "top_headline": "AI might be in its bubble phase. How exposed are banks?",
+      "nvda_pe": "28.473484",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.49"
+    }
   }
 ]
