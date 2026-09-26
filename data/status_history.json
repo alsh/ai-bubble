@@ -8967,5 +8967,57 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.48"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-26T23:15:17.229704+00:00",
+    "score": 82,
+    "status": "RED",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom is highly fragile to a meaningful correction over the next 6–12 months, chiefly because the scale and financing of the buildout may outrun its returns—not because AI demand is absent.",
+    "reasoning": "Valuation is mixed: Nvidia’s roughly 28.5 trailing P/E is not, by itself, evidence of a bubble, and its 14.4 forward P/E and reported 105.9% revenue growth provide real support. But the forward multiple depends on earnings expectations being met. Adoption appears economically meaningful, yet the supplied evidence does not establish that customer returns can support the projected infrastructure spend. That gap matters more as financing extends beyond hyperscalers to lenders and private credit. Hardware demand is strong now, but a spending slowdown could quickly change expectations for chip suppliers. Exposure is concentrated among a few large builders and beneficiaries. The price snapshot and unspecified volatility measure do not show a sustained sell-off, so price behavior offers no clear confirmation of an imminent correction. Reported spending, productivity and bank-exposure figures are estimates or projections, not independently verified losses; taken together, they point to vulnerability rather than a dated crash forecast.",
+    "risk_factors": [
+      "Projected AI infrastructure spending requires substantial future productivity and revenue gains to earn adequate returns.",
+      "Debt and private-credit financing could amplify losses if data-center utilization or pricing disappoints.",
+      "Concentrated spending by hyperscalers could transmit a capex reset to hardware suppliers and related equities.",
+      "Competitive pressure and cheaper AI services could increase adoption while reducing returns on existing investments."
+    ],
+    "stabilizing_factors": [
+      "Nvidia’s reported revenue growth and lower forward than trailing P/E indicate substantial current demand and expected earnings growth.",
+      "AI already has commercial uses and may deliver larger productivity gains than current estimates assume.",
+      "Large established builders have businesses outside AI that may help absorb a slower investment payoff."
+    ],
+    "change": {
+      "previous_score": 80,
+      "delta": 2,
+      "explanation": "Up modestly from the prior 80: the supplied reports add concrete concern about the scale and financing of the buildout. The move is limited because those figures include projections and estimates, while strong chip revenue and a lack of clear adverse price-trend evidence still argue against treating a correction as inevitable."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 0,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6-sol"
+    },
+    "metrics": {
+      "NVDA_price": 225.07,
+      "NVDA_volatility": 1.79,
+      "NVDA_pe_ratio": 28.489874,
+      "NVDA_forward_pe": 14.351548,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.47,
+      "MSFT_price": 516.17,
+      "GOOGL_price": 343.92,
+      "market_sentiment": "Unavailable",
+      "top_headline": "Is the AI bubble bursting?",
+      "nvda_pe": "28.489874",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.47"
+    }
   }
 ]
