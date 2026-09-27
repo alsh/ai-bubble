@@ -9019,5 +9019,57 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.47"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-27T23:30:27.777907+00:00",
+    "score": 80,
+    "status": "RED",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom remains highly fragile to a meaningful correction in the next 6–12 months. The central risk is that infrastructure spending and its financing outrun realized returns, not that AI demand disappears.",
+    "reasoning": "The reported projection of $1 trillion in global AI-related capital spending in 2026 sets a demanding hurdle for investment efficiency. Accounts of discounted data-center loans and construction-related payment deferrals suggest that financing risk may be surfacing beyond equities, although one project does not establish a systemic credit problem. Valuation is less one-sided: Nvidia’s roughly 28.5 trailing P/E, 14.4 forward P/E and reported 105.9% revenue growth offer substantial earnings support. The forward multiple, however, depends on growth expectations holding up. Adoption and hardware demand appear real, but the supplied evidence does not show whether AI revenues and returns will justify the full buildout. Concentration in major technology companies and chip suppliers could amplify a reassessment. The quoted share prices and volatility figure do not establish a price trend or an ongoing broad sell-off. Taken together, the evidence supports high correction fragility, not a claim that a bust has begun.",
+    "risk_factors": [
+      "Capital expenditure may outpace customers’ willingness to pay and the returns earned on new capacity.",
+      "Debt-funded data centers face construction, power, tenant-credit and refinancing risks.",
+      "A shortfall in expected earnings could reprice AI-linked stocks even if usage keeps growing.",
+      "Concentrated exposure to a few large buyers and chip suppliers can transmit spending cuts quickly."
+    ],
+    "stabilizing_factors": [
+      "Nvidia’s reported revenue growth and forward valuation indicate substantial current demand and expected earnings support.",
+      "AI adoption can remain valuable even if some infrastructure projects disappoint.",
+      "The supplied evidence does not establish widespread credit distress or a sustained market decline."
+    ],
+    "change": {
+      "previous_score": 82,
+      "delta": -2,
+      "explanation": "The score is two points below the prior 82, a modest rather than material change. I independently retain a high-fragility view, but temper it because strong reported supplier growth and the absence of demonstrated broad credit or price deterioration offset the concerning financing signals. The project-finance reports warrant scrutiny, not extrapolation to the entire boom."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6-sol"
+    },
+    "metrics": {
+      "NVDA_price": 225.07,
+      "NVDA_volatility": 1.79,
+      "NVDA_pe_ratio": 28.489874,
+      "NVDA_forward_pe": 14.351548,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.47,
+      "MSFT_price": 516.17,
+      "GOOGL_price": 343.92,
+      "market_sentiment": "Unavailable",
+      "top_headline": "How to Know When the AI Boom Is About to Go Bust",
+      "nvda_pe": "28.489874",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.47"
+    }
   }
 ]
