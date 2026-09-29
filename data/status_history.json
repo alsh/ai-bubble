@@ -9071,5 +9071,49 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.47"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-29T00:44:54.315990+00:00",
+    "score": 75,
+    "status": "RED",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom remains substantially fragile to a meaningful correction over the next 6–12 months. The main vulnerability is a gap between infrastructure spending and demonstrated returns, not the disappearance of AI demand.",
+    "reasoning": "Valuation and investment efficiency are the central concerns: if prices assume rapid returns on AI capacity, slower monetization could prompt a sharp reassessment. Financing arrangements that support hardware purchases could amplify that risk, but the supplied material does not establish their scale. Adoption may ultimately justify significant spending, yet there are no usage or revenue figures here to test whether it is keeping pace. Hardware demand and market concentration could transmit any spending slowdown across AI-linked stocks. Burry’s shift to puts signals a prominent bearish view, not proof of an imminent correction; many cited positions extend into 2027. There is also no market evidence with which to assess current price behavior. Taken together, the evidence supports high fragility, but not a confident claim that a correction is already under way.",
+    "risk_factors": [
+      "Valuations may depend on AI revenue growing faster than currently demonstrated returns.",
+      "Infrastructure investment could outrun utilization or become harder to finance.",
+      "A pause in hardware orders could affect several closely linked AI businesses.",
+      "Concentrated exposure could magnify a sentiment reversal."
+    ],
+    "stabilizing_factors": [
+      "AI can deliver lasting economic value even if some investments disappoint.",
+      "Continued adoption could improve utilization and investment returns.",
+      "Lower technology costs could broaden adoption after an investment overshoot."
+    ],
+    "change": {
+      "previous_score": 80,
+      "delta": -5,
+      "explanation": "Down five points from the prior 80. The core spending-versus-returns concern remains, but the new items add chiefly opinion and one investor’s positioning—not verified valuation, adoption, financing, hardware-order, or price data. That warrants a still-elevated score with lower conviction, rather than treating a prominent short seller’s timing call as confirmation."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Michael Burry believes the AI bubble may burst sooner than he first believed",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
