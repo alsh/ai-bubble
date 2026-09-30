@@ -9115,5 +9115,52 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-09-30T00:00:29.266898+00:00",
+    "score": 70,
+    "status": "RED",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is substantially vulnerable to a meaningful correction over the next 6–12 months if monetization disappoints, but the supplied evidence does not establish an imminent break.",
+    "reasoning": "This is an editorial fragility score, not a probability or investment recommendation. The central vulnerability is the potential mismatch between infrastructure commitments and realized returns. Across valuation, investment efficiency and financing, adoption, hardware demand, concentration, and price behavior, that mismatch could create a feedback loop: disappointing revenue undermines earnings expectations, spending plans weaken, and exposed suppliers and investors reprice together. However, the evidence does not demonstrate that this process is underway. There are no valuation metrics, financing terms, adoption figures, hardware orders, concentration measures, or market-price data. The five headlines largely repeat one investor's bearish view and should be treated as one commentary cluster, not five independent confirmations. Burry's reported shorter timeline and options positioning identify a possible catalyst window; they do not validate it. Stabilizing evidence is also missing: durable paid adoption, strong sponsor cash generation, and sustained hardware utilization could materially offset fragility, but none is established here. Holistically, 70 reflects substantial potential vulnerability without claiming that a correction is already developing.",
+    "risk_factors": [
+      "If valuations require rapid AI monetization, even a modest revenue disappointment could cause a substantial expectations reset; current valuation exposure is unquantified.",
+      "Infrastructure spending could outrun realized returns, particularly where financing depends on continued growth or external capital.",
+      "Adoption may fail to translate into profitable, recurring revenue despite strong product usage.",
+      "Hardware demand could weaken sharply if buyers defer spending; current orders, utilization, and inventories are unavailable.",
+      "Concentrated customers, suppliers, or investor exposures could amplify a correction, but their present magnitude is not documented.",
+      "The reported revenue-disappointment catalyst is plausible, but bearish positioning alone does not demonstrate deteriorating price behavior."
+    ],
+    "stabilizing_factors": [
+      "The supplied snippets report a bearish forecast, not documented revenue misses, order cancellations, or financing distress.",
+      "Durable paid adoption and improving unit economics would support investment returns; these remain unverified potential stabilizers.",
+      "Cash-generative infrastructure sponsors and sustained hardware utilization could cushion a spending adjustment; the evidence does not establish their current strength.",
+      "A valuation correction need not imply the disappearance of underlying AI demand."
+    ],
+    "change": {
+      "previous_score": 75,
+      "delta": -5,
+      "explanation": "The score falls five points from 75 after an independent reassessment. The prior thesis remains a plausible risk mechanism, but this evidence set does not substantiate its severity with operating or market data. Repeated coverage of Burry's accelerated bearish outlook does not warrant an increase. The reduction reflects evidentiary restraint, not demonstrated improvement in fundamentals; confidence remains LOW."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 5,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "‘Big Short’ Investor Expects AI Bubble Burst ‘Sooner Than Later’",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
