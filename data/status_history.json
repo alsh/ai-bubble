@@ -9162,5 +9162,50 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-01T00:16:19.537082+00:00",
+    "score": 70,
+    "status": "RED",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is substantially fragile to a meaningful correction over the next 6–12 months, particularly if revenue disappointments weaken spending commitments, but the supplied evidence does not establish an imminent break.",
+    "reasoning": "The central vulnerability is a potential feedback loop: disappointing AI monetization could prompt major buyers to reconsider capital spending, weakening infrastructure demand and earnings expectations across the supply chain. The quoted Ares research identifies this mechanism, but the underlying report and contractual provisions are unavailable, so its strength and scope cannot be verified. Valuation vulnerability remains plausible rather than measurable because no multiples, earnings revisions or market data are supplied. Investment efficiency and financing are important concerns, yet there is no direct evidence here of deteriorating returns, funding stress or canceled commitments. Adoption is similarly unresolved: unproven revenue is not evidence that usage or customer willingness to pay is declining. Hardware evidence is mixed; Acer's reported comments suggest memory cyclicality and expanding Chinese supply, but do not establish excess capacity across AI accelerators or infrastructure. Concentration could amplify a correction if a small number of buyers change spending plans, although their exposures are not quantified. Reported stock-market highs and tight volatility may indicate complacency, but also contradict the idea that a break is already underway; neither is independently documented. Continued construction intentions provide some stabilization, though a builder's confidence is not proof of profitable demand. Holistically, 70 denotes substantial conditional fragility, not a forecast of collapse or a 70% probability. Confidence is low because the evidence is largely commentary, includes repeated coverage of one bearish investor, and lacks direct operating and market measurements.",
+    "risk_factors": [
+      "AI revenue disappointment could undermine capital-spending assumptions and propagate through infrastructure and semiconductor demand.",
+      "Spending concentrated among a handful of major buyers could create correlated downside if their capital-allocation priorities change.",
+      "Expanding memory supply could revive hardware cyclicality, although the evidence does not establish a broader AI-chip glut.",
+      "Reported market highs and subdued volatility could leave prices sensitive to negative surprises if optimistic expectations are embedded."
+    ],
+    "stabilizing_factors": [
+      "The supplied evidence documents no actual broad spending cuts, financing failures or deterioration in AI adoption.",
+      "A major data-center builder expresses confidence that construction will continue, suggesting some persistence in infrastructure activity.",
+      "Reported continued stock-price strength is inconsistent with an already-confirmed market reversal.",
+      "Repeated Burry headlines represent one bearish view rather than several independent confirmations."
+    ],
+    "change": {
+      "previous_score": 70,
+      "delta": 0,
+      "explanation": "The score remains 70 after an independent reassessment. The quoted revenue-to-capex feedback mechanism makes the downside thesis more concrete, but Burry's shorter option horizon is a positioning decision, not independent evidence that fundamentals have worsened. Missing valuation, adoption, financing and order data prevent a defensible material increase; the builder's assurances are likewise insufficient to justify a decrease."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 4,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "‘Big Short’ Investor Expects AI Bubble Burst ‘Sooner Than Later’",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
