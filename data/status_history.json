@@ -9207,5 +9207,50 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-02T00:21:40.641193+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom remains substantially vulnerable to a meaningful correction within 6–12 months, but reported earnings growth and infrastructure demand argue against treating a near-term break as inevitable.",
+    "reasoning": "This is an editorial fragility score, not a probability or investment recommendation. Valuation and price behavior present a mixed picture: the reported gain of more than 20% indicates a strong rally, but the claim that earnings are growing faster than prices challenges a purely speculative explanation. Neither claim establishes whether current valuations are reasonable, and the technology-wide figures may not represent AI investments specifically. Investment efficiency and financing remain important unknowns: the supplied material does not quantify capital spending, realized returns, funding dependence, or spending commitments. Adoption is similarly unmeasured; infrastructure purchases do not establish profitable end-user adoption. Hardware demand has the clearest reported support through Corning's optical-fiber demand, although current orders cannot establish durable utilization or returns. Concentration could amplify a reversal if spending depends on a narrow customer base, but no exposure data are supplied. Burry's warning, political-trigger speculation, and reports of safety-related market anxiety illustrate possible sentiment catalysts rather than demonstrated financial deterioration. Holistically, genuine demand and reported earnings support moderate the downside thesis, while missing fundamentals and potentially expectation-sensitive investment keep fragility elevated. Confidence is low because market evidence is absent and the news consists of short, unattributed-source excerpts.",
+    "risk_factors": [
+      "A strong rally could reverse if future earnings or monetization fall short of expectations; valuation multiples are not supplied.",
+      "Infrastructure demand may outrun profitable adoption, leaving investment returns vulnerable even while equipment orders remain strong.",
+      "Funding dependence, capital-spending efficiency, and customer concentration are unmeasured, limiting assessment of how a disappointment would propagate.",
+      "Safety concerns or policy changes could catalyze a sentiment correction, although the supplied political-trigger claims are speculative."
+    ],
+    "stabilizing_factors": [
+      "Reported earnings growth exceeding share-price growth argues against interpreting the entire rally as multiple expansion, if confirmed.",
+      "Corning's reported optical-fiber demand suggests real infrastructure purchasing rather than enthusiasm alone.",
+      "The supplied evidence does not demonstrate financing distress, widespread spending cancellations, or collapsing hardware demand.",
+      "Corning's effort to sustain growth beyond the boom suggests awareness of cyclicality, although it does not establish resilience."
+    ],
+    "change": {
+      "previous_score": 70,
+      "delta": -5,
+      "explanation": "The score falls five points from 70 to 65 after independent reassessment. The reported earnings-versus-price relationship and tangible infrastructure demand provide a stronger counterweight to the correction thesis than bearish forecasts provide support for an imminent break. The reduction is modest because those stabilizers are only briefly described, while valuation, financing, adoption economics, and concentration remain largely unobserved. The thesis therefore remains one of substantial vulnerability, not imminent collapse."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 3,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Inside The Oldest AI Startup’s Mission To Become Bubble-Proof",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
