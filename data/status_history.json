@@ -9252,5 +9252,51 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-03T00:04:24.240217+00:00",
+    "score": 60,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom appears meaningfully fragile to a correction within 6–12 months, but the supplied evidence supports vulnerability more clearly than an imminent break.",
+    "reasoning": "This is an editorial fragility score, not a probability or investment recommendation. Assessed holistically, the principal concern is that infrastructure spending and investor expectations could outrun commercially sustainable adoption. Valuation risk would amplify that mismatch, but no current multiples, earnings estimates or cash-flow data are supplied. Investment efficiency and financing are similarly important but unmeasured: weak utilization, disappointing returns or dependence on external funding could turn slower growth into spending cuts. Adoption evidence does not establish whether paying customers are generating durable, profitable demand. Hardware evidence is more supportive: the Corning snippet describes strong optical-fiber demand, although infrastructure orders do not by themselves validate downstream AI economics. Concentration could transmit disappointment across interconnected customers, suppliers and portfolios, but its magnitude is not documented here. Price behavior is the weakest evidentiary lens: a headline about spooked markets is not a substitute for returns, breadth, volatility or credit conditions. Burry's warnings and reported put expiries indicate one investor's positioning, not independent confirmation of a correction timeline; the two Burry items largely duplicate the same signal. The Buffett headline is hypothetical rather than evidence of deterioration. Overall, plausible correction mechanisms and reported infrastructure demand support an elevated score, while missing market data and thin, unattributed news summaries prevent a stronger conclusion.",
+    "risk_factors": [
+      "If valuations require sustained exceptional growth, even modest earnings or spending disappointments could produce substantial repricing.",
+      "Infrastructure investment could outpace monetization, leaving weak utilization and inadequate returns on capital.",
+      "Externally financed businesses could face a sharper adjustment if funding conditions tighten.",
+      "Concentrated exposure across major customers, suppliers and investors could amplify a localized disappointment.",
+      "Bubble warnings could worsen sentiment, although the supplied commentary does not establish fundamental deterioration."
+    ],
+    "stabilizing_factors": [
+      "The Corning report describes strong demand for data-center optical fiber, suggesting the boom has a tangible infrastructure component.",
+      "Infrastructure demand could persist through an equity correction; falling asset prices need not imply collapsing AI usage.",
+      "Durable paid adoption, improving investment returns and internally funded spending would stabilize the cycle, although these are not demonstrated in the supplied evidence.",
+      "The supplied material does not document order cancellations, financing stress or an earnings collapse; this limits the bearish case without proving those risks are absent."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": -5,
+      "explanation": "The score falls five points from 65 after an independent reassessment. This is a modest evidentiary recalibration, not a finding that underlying conditions have improved. The new material is dominated by speculative headlines and overlapping bearish commentary, while the prior thesis's earnings support is not refreshed. A score of 60 preserves meaningful vulnerability without treating weakly substantiated timing claims as evidence of an approaching rupture."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "If an AI bubble crashes the stock market, Warren Buffett says this is the first move investors should make",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
