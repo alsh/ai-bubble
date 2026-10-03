@@ -9298,5 +9298,59 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-03T23:26:44.434254+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is materially fragile to a meaningful equity-market correction over the next 6–12 months, but strong reported growth and moderate earnings multiples argue against treating a break as imminent.",
+    "reasoning": "The balance of evidence points to elevated vulnerability rather than an exhausted boom. Valuation is not the clearest weakness: supplied NVDA trailing and forward P/E ratios of approximately 29.6 and 14.9, alongside reported revenue growth of 105.9%, provide substantial fundamental support. However, the forward multiple and low PEG depend on earnings expectations being realized; neither measures whether customers earn adequate returns on AI investment. Investment efficiency and adoption remain largely untested because the packet supplies no customer monetization, utilization, retention, capex-return or financing data. Hardware demand appears strong through NVDA growth and the Corning report, but infrastructure purchases do not establish durable end-user profitability. Concentration could transmit a disappointment at major AI suppliers or buyers across the broader trade, although actual exposures are not supplied. The strongest correction mechanism is the article's reported combination of rapidly expanded market-wide margin debt and higher interest rates: if accurate, this would increase forced-selling risk and valuation pressure. It is not evidence that AI infrastructure itself is debt-funded. Price evidence is insufficient to establish a reversal: single stock-price snapshots and an undefined volatility figure cannot identify a trend. Reported QQQ gains suggest continued enthusiasm, while normal VIX and benign recession indicators offer counterweights. Overall, 65 denotes materially elevated fragility, not a 65% probability or a prediction that AI demand will collapse.",
+    "risk_factors": [
+      "Reported market-wide leverage could amplify an initial decline through margin calls; the figures are unverified and not AI-specific.",
+      "Reported higher yields and policy rates could pressure equity multiples and increase financing costs.",
+      "Attractive forward valuation depends on continued earnings delivery despite exceptionally high growth expectations.",
+      "Evidence of customer adoption quality, monetization and returns on infrastructure spending is missing.",
+      "Exposure to a narrow set of AI leaders could spread company-specific disappointments, though concentration is not quantified."
+    ],
+    "stabilizing_factors": [
+      "Supplied NVDA revenue growth and earnings multiples do not support a valuation-only crash thesis.",
+      "The Corning report suggests demand extends beyond chips into supporting infrastructure.",
+      "Reported VIX, Sahm Rule and yield-curve readings do not indicate broad financial or recession stress.",
+      "The packet does not document collapsing orders, widespread spending cancellations or an established price downtrend."
+    ],
+    "change": {
+      "previous_score": 60,
+      "delta": 5,
+      "explanation": "The five-point increase from 60 reflects an independent assessment that the reported leverage expansion and rate pressure add a concrete correction-amplification mechanism. It does not follow the prior score trend or give extra weight to repeated bubble headlines and investor predictions. Strong growth and valuation support limit the increase. Confidence is LOW because sources are unidentified, several reports are commentary or truncated, and key operating and market claims lack corroboration."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 233.95,
+      "NVDA_volatility": 2.64,
+      "NVDA_pe_ratio": 29.576487,
+      "NVDA_forward_pe": 14.905945,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.29,
+      "MSFT_price": 517.53,
+      "GOOGL_price": 343.5,
+      "market_sentiment": "Unavailable",
+      "top_headline": "If an AI Bubble Crashes the Stock Market, Warren Buffett Says This Is the First Move Investors Should Make",
+      "nvda_pe": "29.576487",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.29"
+    }
   }
 ]
