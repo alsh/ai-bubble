@@ -9352,5 +9352,59 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.29"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-04T23:43:38.284047+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is materially fragile to a meaningful equity-market correction over the next 6–12 months, but the supplied evidence does not establish an imminent collapse or a breakdown in underlying demand.",
+    "reasoning": "The score expresses editorial fragility, not a probability. Holistically, strong supplier growth and apparently moderate earnings multiples counterbalance the boom's sensitivity to spending expectations and investment returns. NVIDIA's supplied trailing P/E of about 29.6 and forward P/E of 14.9 do not independently indicate an extreme valuation; revenue growth of 1.059, interpreted as 105.9%, is substantial stabilizing evidence. However, the forward multiple and PEG of 0.29 depend on earnings expectations and data consistency that cannot be verified here. Supplier revenue also does not establish that customers earn adequate returns on AI infrastructure. Investment efficiency, financing durability and monetized adoption therefore remain central unresolved questions—not demonstrated failures. Hardware demand appears strong from reported growth, but there are no order, inventory or utilization figures to establish its persistence. Concentration could transmit a spending disappointment across chipmakers, infrastructure providers and major technology equities, although this dataset does not quantify that exposure. Price behavior supplies little confirmation: isolated share prices and an undefined volatility reading of 2.64 cannot establish momentum, drawdowns or market stress. The news is mainly opinion and narrative, with unknown sources, minimal supporting detail and overlapping Burry coverage. Neither bearish forecasts nor SoftBank's enthusiasm establishes the timing of a correction. A score of 65 reflects meaningful vulnerability to an expectations reset, while stopping short of the severe fragility implied by clear demand deterioration, funding stress or indiscriminately excessive valuations.",
+    "risk_factors": [
+      "Earnings expectations could reset if hardware growth decelerates, weakening the protection suggested by the low forward P/E.",
+      "Rapid infrastructure investment could outpace monetized adoption and customer returns; the supplied evidence does not resolve this mismatch.",
+      "Shared exposure to large AI spending programs could amplify a correction across suppliers and technology equities.",
+      "Financing-sensitive infrastructure businesses may be vulnerable if funding tightens, although no company-level financing evidence is supplied.",
+      "Bubble narratives may intensify sentiment reversals, but the headlines are not reliable evidence of impending fundamental stress."
+    ],
+    "stabilizing_factors": [
+      "NVIDIA's supplied revenue growth indicates substantial realized supplier demand rather than a purely speculative story.",
+      "The supplied trailing and forward earnings multiples temper the case for an obvious valuation-driven collapse, subject to data and forecast reliability.",
+      "No concrete evidence of order cancellations, deteriorating utilization, financing distress or broad earnings cuts is provided.",
+      "A correction in AI-related equities need not imply that AI adoption or its long-term economic value has failed."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": 0,
+      "explanation": "The independently reassessed score remains 65. There is no material movement to explain: the supplied growth and valuation evidence supports resilience, while investment returns and spending durability remain unresolved. The bearish headlines do not justify raising fragility because they provide forecasts rather than verified deterioration; the missing adoption and financing evidence also prevents a confident reduction."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 233.95,
+      "NVDA_volatility": 2.64,
+      "NVDA_pe_ratio": 29.576487,
+      "NVDA_forward_pe": 14.905945,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.29,
+      "MSFT_price": 517.53,
+      "GOOGL_price": 343.5,
+      "market_sentiment": "Unavailable",
+      "top_headline": "Michael Burry thinks the AI bubble will burst sooner than later, including big drops in Micron and Nebius by mid-2027",
+      "nvda_pe": "29.576487",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.29"
+    }
   }
 ]
