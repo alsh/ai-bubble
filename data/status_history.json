@@ -9460,5 +9460,51 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.29"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-07T00:14:47.830627+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is meaningfully fragile to an equity-market correction over the next 6–12 months, particularly if spending or monetization undershoots elevated expectations. The evidence does not establish that a broad investment collapse is imminent.",
+    "reasoning": "A holistic assessment places fragility moderately above the midpoint, rather than at crisis levels. Valuation risk is plausible given reported record highs, but no earnings multiples or earnings revisions are supplied, so overvaluation cannot be demonstrated. Investment efficiency and financing present the clearest potential correction mechanism: disappointing returns could prompt hyperscalers to moderate spending, while interconnected customer, supplier and financing relationships could transmit that disappointment across the ecosystem. The equity-issuance article raises a possible dilution and capital-absorption channel but provides insufficient detail to establish its scale. Adoption evidence is notably absent: neither executive enthusiasm nor bubble warnings establish customer usage, willingness to pay or profitable deployment. Hardware stocks reaching records demonstrate investor expectations, not orders or sustainable hardware demand; even continued demand growth could disappoint prices that anticipate faster growth. Concentration amplifies market vulnerability: the supplied article reports that Nvidia, Apple and Microsoft account for more than 21% of the S&P 500, although this is not a pure measure of AI exposure. Price behavior is mixed, with record highs suggesting continued sponsorship despite an earlier report of market unease; there is no verified drawdown, breadth or volatility series establishing deterioration. Stabilizing considerations include the presence of established businesses within the trade and the possibility that competitive urgency sustains investment. These considerations temper, but do not eliminate, correction risk. A score of 65 expresses meaningful vulnerability, not a 65% probability, an imminent crash forecast or an investment recommendation.",
+    "risk_factors": [
+      "Elevated expectations could make slower-than-expected spending growth sufficient to trigger repricing, even without an outright spending contraction.",
+      "Interconnected customers, suppliers and financing providers may concentrate economic exposure and transmit a spending disappointment.",
+      "Reported index concentration could turn weakness in a few large companies into a broader market correction.",
+      "Potential new equity issuance could dilute holders or strain investor appetite, although issuance volumes and terms are not supplied.",
+      "Missing valuation, adoption, utilization and cash-return data leave the durability of investment economics unresolved."
+    ],
+    "stabilizing_factors": [
+      "The reported record highs indicate continued investor support, not an already-established breakdown.",
+      "Established companies with businesses beyond AI provide a different foundation from a boom composed entirely of speculative entrants.",
+      "Competitive pressure may sustain infrastructure investment even while near-term monetization remains uncertain.",
+      "Bearish investor positioning and historical analogies do not independently demonstrate weakening operating demand or an imminent correction."
+    ],
+    "change": {
+      "previous_score": 60,
+      "delta": 5,
+      "explanation": "The score rises modestly from 60 to 65 after independent reassessment. Reported concentration and the customer-supplier-financing nexus sharpen the mechanism through which an expectations miss could spread. The supplied evidence also does not substantiate the prior thesis's earnings-supported valuation and strong reported hardware-demand claims. This is a modest increase, not a reversal: missing market data, incomplete articles and largely opinion-based reporting do not justify a high-fragility or collapse-centered assessment."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 3,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "BlackRock CEO says he's more fearful of losing the AI race than an AI bubble",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
