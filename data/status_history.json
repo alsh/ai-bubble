@@ -9506,5 +9506,52 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-08T00:35:50.204624+00:00",
+    "score": 68,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is substantially fragile to a meaningful equity-market correction over the next 6–12 months, especially if financing costs rise or monetization disappoints. The supplied evidence does not establish an imminent collapse in AI demand or infrastructure investment.",
+    "reasoning": "The score expresses elevated fragility, not a correction probability. Holistically, the strongest concern is the interaction of ambitious spending commitments, potentially tighter financing and concentrated equity exposure—not the number of bubble warnings. On valuation, reported market records and optimistic expectations suggest vulnerability to disappointment, but no earnings multiples or growth-adjusted valuation data are supplied. On investment efficiency and financing, reports of sharply higher borrowing and capital expenditure approaching operating cash flow would, if verified, indicate reduced funding flexibility and greater dependence on future returns. Gross debt issuance alone, however, does not establish excessive leverage: cash balances, maturities, refinancing and debt-service capacity matter. On adoption, claims that many users cannot demonstrate financial returns raise monetization concerns, but the packet provides no representative adoption, revenue or productivity series. On hardware demand, infrastructure spending indicates purchasing activity, not necessarily profitable end-use demand; there is no direct evidence of falling orders, cancellations or excess inventory. Concentration could transmit an AI repricing into broad indexes, although overlapping ETF holdings are not themselves leverage. On price behavior, reported new highs show that the trade remains supported; they neither prove a bubble nor demonstrate an emerging breakdown, and market data are absent. Stabilizing evidence includes continued financing access and spending, plus a cited view that yields would need to rise further to threaten the trade. Those supports are limited but argue against declaring an imminent bust. Confidence is low because sources are unidentified, several stories repeat the same Dalio comments, one spending timeline is inconsistent, and key financial claims lack primary-source verification.",
+    "risk_factors": [
+      "If infrastructure spending absorbs most operating cash flow, disappointing returns could force slower investment, additional borrowing or reduced shareholder distributions.",
+      "Higher financing costs could simultaneously pressure project economics and equity valuations.",
+      "AI monetization may lag infrastructure commitments, leaving investors exposed even if adoption continues growing.",
+      "Concentrated mega-cap and semiconductor exposure could amplify an AI-led correction across broad indexes.",
+      "Hardware demand could weaken if customers reassess utilization or returns, although the supplied evidence does not show that happening."
+    ],
+    "stabilizing_factors": [
+      "Reported bond issuance indicates financing remains available; issuance volume alone is not evidence of financial distress.",
+      "Continued infrastructure spending supports near-term hardware purchasing, even though its ultimate profitability is uncertain.",
+      "Reported market highs provide no confirmation of an ongoing price breakdown.",
+      "The packet contains no direct evidence of widespread order cancellations, credit distress or collapsing AI adoption.",
+      "A cited bank assessment argues that yields would need to rise considerably further before materially threatening the AI trade."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": 3,
+      "explanation": "The independently reassessed score is 68 versus the prior 65, a modest increase rather than a material change in thesis. Reported borrowing growth and pressure on cash-flow coverage strengthen the financing-risk mechanism. However, duplicated commentary, weak sourcing and missing market, adoption and hardware data prevent a larger increase. The conclusion remains elevated correction fragility, not an imminent broad investment collapse."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 4,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Ray Dalio Says The AI Bubble Is Getting Close To Its Breaking Point",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
