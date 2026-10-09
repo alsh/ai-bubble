@@ -9553,5 +9553,51 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-09T00:50:55.603141+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is substantially fragile to a meaningful equity-market correction over the next 6–12 months, but the supplied evidence does not establish an imminent financing crisis or collapse in underlying demand.",
+    "reasoning": "The central vulnerability is the interaction of demanding expectations, unusually large infrastructure commitments and concentrated equity exposure: disappointing returns on AI spending could reprice both suppliers and their largest customers before demand actually contracts. Valuation risk is plausible, but no earnings multiples or valuation benchmarks are supplied. On investment efficiency and financing, the reported $713 billion hyperscaler data-center spending estimate and claims of depleted free cash flow raise concerns about monetization lagging capital outlays; however, the packet provides no company-level cash-flow, liquidity or borrowing-cost evidence to verify a financing squeeze. Adoption remains largely unmeasured: neither paid usage nor customer retention, revenue conversion or productivity returns are documented. Hardware demand has some support from reported continued spending growth, but there are no orders, utilization or inventory figures establishing either durable scarcity or an emerging glut. Reported concentration above 21% in three index constituents could amplify a reversal, although their businesses are not exclusively AI-related. Price behavior is unconfirmed because market evidence is empty: near-record equities do not establish weakening breadth, a technical breakdown or credit stress. Stabilizing evidence includes expected further spending growth and the absence of demonstrated demand contraction. Several headlines repeat one strategist's forecast rather than supply independent corroboration, and a predicted 2027–2028 bust only partly overlaps the requested horizon. Holistically, 65 signifies substantial vulnerability—not a probability, a forecast of an inevitable crash or an investment recommendation.",
+    "risk_factors": [
+      "Infrastructure spending could outrun monetization, reducing investment returns and pressuring free cash flow.",
+      "If borrowing costs rise materially, debt-dependent projects could face delays or reduced spending, transmitting pressure to hardware suppliers.",
+      "Concentrated index exposure could magnify company-specific disappointments into a broader equity correction.",
+      "Expectations for sustained AI growth could reset before adoption or hardware demand materially deteriorates.",
+      "Safety-related restrictions or coordinated development pauses could disrupt deployment, although no binding slowdown is established here."
+    ],
+    "stabilizing_factors": [
+      "The supplied reporting expects infrastructure spending to grow again next year, albeit more slowly; slower growth is not an outright contraction.",
+      "The packet does not demonstrate deteriorating paid adoption, hardware-order cancellations or falling infrastructure utilization.",
+      "No market or credit data are supplied confirming a technical breakdown, widening spreads or an active financing crisis.",
+      "The most severe crash forecast is an outlier among the cited strategists and extends partly beyond the 6–12-month horizon."
+    ],
+    "change": {
+      "previous_score": 68,
+      "delta": -3,
+      "explanation": "The independently reassessed score is 65, down 3 points from 68. The financing and concentration mechanisms remain credible, but the current packet offers mostly repeated commentary, limited primary financial evidence and crash timing that only partly fits the requested horizon. The modest reduction reflects weaker support for near-term fragility, not affirmative evidence that valuations, financing conditions or monetization have improved."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 4,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "AI bubble could burst within two years, triggering severe market crash, strategist warns",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
