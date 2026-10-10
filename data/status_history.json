@@ -9646,5 +9646,59 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-10T23:59:29.468000+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom is substantially vulnerable to a meaningful equity-market correction within 6–12 months, but the supplied evidence supports a repricing risk more strongly than an imminent funding crisis or collapse in AI demand.",
+    "reasoning": "This is an editorial fragility score, not a probability or investment recommendation. Valuation evidence is mixed: supplied Nvidia multiples of approximately 29 times trailing earnings and 14 times forward earnings, alongside roughly 106% revenue growth, weaken the argument that the entire boom rests on extreme valuations. However, forward earnings depend on continued spending and profitability; apparently inexpensive multiples can become misleading near a cyclical earnings peak. Investment efficiency and financing are the central vulnerabilities: infrastructure commitments may outrun customers' monetization, while higher borrowing costs could expose weaker projects. Reports of depleted hyperscaler free cash flow are concerning but are not substantiated here by financial statements. Adoption evidence is thin: supplier revenue demonstrates real infrastructure purchases, not necessarily attractive returns for end users. Hardware demand currently looks strong, although durable computing demand does not guarantee uninterrupted accelerator orders or protect against overbuilding. Concentration among leading suppliers and large buyers creates a channel through which spending disappointments could spread across AI equities. Reported record index levels and a large semiconductor rally indicate elevated expectations, not a confirmed reversal; isolated stock prices and an undefined volatility reading cannot establish deteriorating momentum. Profitable incumbents, rapid reported revenue growth and relatively moderate Nvidia multiples provide meaningful stabilization. Taken together, these factors justify substantial fragility without establishing that a correction is imminent. Confidence is limited by unattributed, partially truncated and sometimes promotional news, absent cash-flow and adoption data, and unverified forecast assumptions.",
+    "risk_factors": [
+      "Infrastructure spending could exceed monetizable AI demand, reducing returns and prompting investment cuts.",
+      "Debt-dependent projects are exposed to higher financing costs and refinancing pressure.",
+      "Forward valuations may understate vulnerability if earnings forecasts assume unusually strong spending persists.",
+      "Concentrated suppliers and buyers can transmit a capex slowdown across the AI investment ecosystem.",
+      "A correction can occur despite continued technological adoption if growth merely falls short of expectations."
+    ],
+    "stabilizing_factors": [
+      "Supplied Nvidia revenue growth indicates strong current hardware demand rather than a purely speculative narrative.",
+      "Nvidia's supplied earnings multiples do not independently establish extreme overvaluation.",
+      "Profitable, diversified technology incumbents have greater capacity to sustain investment than speculative firms dependent entirely on external funding.",
+      "The supplied evidence does not demonstrate widespread order cancellations, credit-market closure or a confirmed price breakdown."
+    ],
+    "change": {
+      "previous_score": 67,
+      "delta": -2,
+      "explanation": "The score is 2 points below the prior 67, a modest adjustment rather than a material change in thesis. Independently balancing the evidence gives greater credit to current supplier growth and Nvidia's supplied valuation, while treating repeated bubble warnings as overlapping commentary rather than separate confirmation. Financing and monetization risks remain substantial, but the evidence does not justify escalating the near-term assessment."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 4,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 229.28,
+      "NVDA_volatility": 4.81,
+      "NVDA_pe_ratio": 28.986094,
+      "NVDA_forward_pe": 14.406897,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.28,
+      "MSFT_price": 535.07,
+      "GOOGL_price": 351.66,
+      "market_sentiment": "Unavailable",
+      "top_headline": "Worried about an AI bubble? You need to see this 1 chart now.",
+      "nvda_pe": "28.986094",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.28"
+    }
   }
 ]
