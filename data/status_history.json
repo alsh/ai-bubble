@@ -9599,5 +9599,52 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-10T00:23:55.758275+00:00",
+    "score": 67,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is substantially fragile to a meaningful equity-market correction within 6–12 months, especially if spending outpaces monetization or financing becomes more expensive. The evidence does not establish an imminent funding crisis or collapse in underlying demand.",
+    "reasoning": "A score of 67 expresses elevated fragility, not a correction probability or investment recommendation. Holistically, the strongest concern is the interaction of ambitious infrastructure spending, potentially greater financing dependence, concentrated market leadership, and prices that appear to anticipate continued success. Reported spending and bond-issuance projections suggest that investment efficiency increasingly matters: productive infrastructure can still disappoint shareholders if returns arrive too slowly or borrowing costs rise. However, debt issuance alone does not establish financial distress, and the supplied material lacks company-level cash-flow, leverage, and return-on-investment data. Valuation evidence is similarly incomplete: record share prices do not prove excessive multiples, while claims of reasonable valuations and strong earnings lack supporting detail. Adoption offers a meaningful counterweight. AWS describes production inference and established compute and storage workloads, alongside a reported nearly $500 billion backlog. Those observations support durable activity but do not isolate AI revenue, prove customer-wide returns, or establish the profitability and timing of backlog conversion. Hardware stocks reaching records show market enthusiasm, not verified order growth, utilization, or sustainable hardware demand. Reported concentration above 21% in three S&P 500 constituents increases the potential transmission of disappointment, although Apple is not a pure AI exposure. Price behavior shows strength rather than a confirmed reversal; no market series is supplied to assess breadth, volatility, or trend deterioration. These stabilizers argue against a crisis-level score, while the spending-financing-concentration combination leaves considerable room for an expectations-driven correction even if AI adoption continues.",
+    "risk_factors": [
+      "Reported infrastructure spending ambitions could outrun monetization, lowering incremental returns and compressing free cash flow.",
+      "Reported increases in borrowing could make the buildout more sensitive to financing costs; issuance forecasts are not evidence of actual distress.",
+      "Concentrated index leadership could amplify a repricing of AI-related earnings expectations into a broader market correction.",
+      "Hardware demand durability is unverified: the evidence provides no order, cancellation, utilization, or inventory data.",
+      "Record prices may leave limited room for earnings or spending disappointments, although valuation multiples are not supplied."
+    ],
+    "stabilizing_factors": [
+      "AWS reports diversified customers and substantial production workloads rather than dependence solely on speculative AI startups.",
+      "AWS's reported backlog provides potential revenue visibility, subject to execution, timing, and profitability.",
+      "Established cloud businesses generate profits and serve non-AI workloads, providing support beyond the AI investment narrative.",
+      "The supplied commentary cites strong earnings and reasonable valuations in parts of technology, although those claims are insufficiently quantified.",
+      "No supplied evidence demonstrates a credit-market seizure, broad demand collapse, or confirmed price-trend breakdown."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": 2,
+      "explanation": "The score is 2 points above the prior 65, a modest rather than material shift. Independently reassessing the evidence, reported borrowing growth and spending ambitions strengthen the financing and investment-efficiency concerns, but durable workloads and backlog limit the increase. Repeated Dalio warnings are not independent corroboration, and forecasts extending into 2027–2028 do not establish a correction within 6–12 months. Confidence is low because market evidence is absent and several articles contain only snippets, interested-party assertions, or unverified estimates."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 5,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Why AI bubble fears aren't keeping this Amazon boss up at night",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
