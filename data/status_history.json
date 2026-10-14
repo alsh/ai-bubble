@@ -9809,5 +9809,51 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.28"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-14T00:02:03.697416+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is meaningfully fragile to a correction over the next 6–12 months, primarily through an earnings-expectations and valuation reset. Financing could amplify that adjustment, but the supplied evidence does not establish an imminent funding crisis or collapse in demand.",
+    "reasoning": "A score of 65 indicates elevated fragility, not a crash probability or an inevitable reversal. Holistically, reported crowded technology positioning, market concentration and escalating infrastructure commitments make disappointing commercial returns potentially consequential. Valuation vulnerability is plausible, but no current multiples or earnings revisions are supplied. Investment efficiency and financing are the strongest incremental concerns: the reported $700 billion infrastructure-spending projection and $570 billion AI-linked bond-issuance forecast suggest substantial capital commitments, if accurate. However, these figures have different scopes and cannot be combined or treated as proof that hyperscalers cannot internally fund investment. Adoption evidence is insufficient to establish either accelerating monetization or enterprise retrenchment. Hardware demand likewise lacks direct evidence on orders, utilization, cancellations or inventories, so heavy spending should not be confused with demonstrated investment returns. Concentration could transmit an AI disappointment to the broader market, although the cited large companies are not pure AI exposures. Price behavior cannot be assessed without returns, breadth, volatility or technical data; crowded positioning is a vulnerability, not confirmation that a reversal has started. Continued reported investment and financing access offer some support, while widespread bubble anxiety complicates a simple unchecked-euphoria narrative. The unknown-source, partly truncated news reports and absence of market data materially limit confidence.",
+    "risk_factors": [
+      "Reported technology overweight positioning could magnify selling if earnings or AI monetization disappoint.",
+      "Large infrastructure commitments may pressure free cash flow and returns on capital before commercial benefits become measurable.",
+      "Greater debt financing, if the reported forecasts are accurate, could increase exposure to financing costs and refinancing conditions.",
+      "Concentration in major technology companies could turn an AI-specific expectations reset into a broader equity correction.",
+      "Missing valuation, adoption and hardware-utilization data leave important potential vulnerabilities unresolved rather than disproved."
+    ],
+    "stabilizing_factors": [
+      "Reported ongoing infrastructure spending is consistent with continued buyer commitment, although it does not establish profitable end demand.",
+      "Reported access to bond markets suggests financing remains available; the supplied material documents no funding-market closure or default cascade.",
+      "The supplied evidence does not demonstrate broad adoption contraction, hardware-order cancellations or an established price breakdown.",
+      "Investor concern about a bubble is already visible, making the sentiment backdrop less uniformly euphoric than the most alarmist headlines imply."
+    ],
+    "change": {
+      "previous_score": 63,
+      "delta": 2,
+      "explanation": "The independent assessment is 65 versus the prior 63, a modest increase rather than a material thesis change. Reported crowding and the scale of prospective debt financing add vulnerability, but their limited verification prevents a larger adjustment. Celebrity warnings and predictions extending into 2028 receive little weight for the specific 6–12-month horizon. The principal correction mechanism remains an expectations and valuation reset, with financing stress a possible amplifier rather than an established central case."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Investors are split on AI bubble risks but still piling in to the stocks",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
