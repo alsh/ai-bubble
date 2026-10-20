@@ -10130,5 +10130,51 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.26"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-20T00:03:19.177665+00:00",
+    "score": 63,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is materially fragile to a meaningful correction over the next 6–12 months, primarily through financing stress and demanding return expectations rather than demonstrated weakness in underlying demand. Strong reported growth limits the case for an imminent, broad collapse.",
+    "reasoning": "The score expresses elevated but not extreme fragility; it is neither a correction probability nor an investment recommendation. The principal vulnerability is that infrastructure spending and financing obligations can run ahead of economically sustainable customer returns even while hardware suppliers report exceptional growth. Reported CoreWeave credit distress, leverage and interest expense suggest a possible transmission channel from financing pressure to slower investment and equity repricing. However, one leveraged operator does not establish industry-wide funding stress, particularly among better-capitalized hyperscalers.\n\nValuation evidence is mixed: the supplied trailing earnings multiples do not independently establish a bubble, but earnings supported by unusually rapid infrastructure spending may be vulnerable if that spending slows. Adoption evidence is indirect: supplier revenue, capacity utilization and contracted commitments support real demand, but do not establish broad end-customer profitability or durable application monetization. Hardware shortages and reported price increases support near-term revenue while potentially encouraging costly capacity additions and raising buyers' investment hurdles.\n\nConcentration links a small group of major infrastructure buyers, suppliers and prominent equities, creating a plausible amplification mechanism. Nevertheless, no portfolio-positioning or market-breadth data are supplied. Reported sharp CoreWeave losses alongside earlier index records indicate localized repricing, not demonstrated broad contagion. Strong reported supplier growth, constrained capacity and backlog are substantial stabilizers, although backlog is not equivalent to collected cash or attractive returns.\n\nEvidence quality materially limits conviction: market evidence is empty, sources are unidentified, and the specific financial figures and credit claims are not independently verified here. Sensational bubble headlines, the unsupported IMF attribution and investor opinions receive little weight. Taken together, the evidence supports meaningful correction vulnerability, but not a conclusion that a broad unwind is already underway.",
+    "risk_factors": [
+      "Reported distress at a leveraged infrastructure provider could expose refinancing sensitivity and pressure future capital spending if confirmed.",
+      "Large infrastructure commitments may outpace customer monetization, leaving utilization, cash flow and investment returns below expectations.",
+      "Current earnings multiples may understate vulnerability if supplier profits depend on an unusually intense spending cycle.",
+      "Concentrated buyers and suppliers could transmit a spending slowdown across AI-linked equities.",
+      "Reported sharp losses in a financing-sensitive AI stock show that repricing can occur despite strong revenue growth."
+    ],
+    "stabilizing_factors": [
+      "Reported supplier revenue growth, high utilization and capacity shortages indicate substantial current hardware demand.",
+      "Reported backlog additions and price increases argue against an immediate, generalized demand collapse.",
+      "Better-capitalized hyperscalers need not face the same financing constraints as leveraged infrastructure specialists.",
+      "The supplied evidence does not demonstrate broad adoption deterioration, widespread spending cancellations or market-wide credit contagion."
+    ],
+    "change": {
+      "previous_score": 60,
+      "delta": 3,
+      "explanation": "The independent assessment is 63, versus the prior 60—a modest three-point increase, not a shift to a collapse thesis. The substantive new concern is reported credit-market stress at CoreWeave, which gives the financing-risk argument a more concrete mechanism. Strong reported demand and the weak verification of these claims constrain the increase. The change does not rest on louder bubble commentary or the prior score trajectory."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 5,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "IMF warns that AI bubble could take down the entire world economy",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
