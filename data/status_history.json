@@ -10604,5 +10604,52 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-29T00:31:47.258006+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom remains materially fragile to a meaningful correction over the next 6–12 months, with financing demands and uncertain infrastructure returns the main vulnerabilities. A selective shakeout is better supported than a systemic bust or collapse in adoption.",
+    "reasoning": "A score of 65 expresses elevated but not extreme fragility; it is an editorial assessment, not a probability. Across the lenses, the central vulnerability is whether profitable customer demand can develop fast enough to justify infrastructure spending and sustain financing. Valuation risk matters, but the supplied evidence does not establish current U.S. multiples or earnings expectations reliably. Reported fundraising and chip-leasing commitments suggest substantial capital requirements, yet financing access also supports continued investment; headline deal totals are not equivalent to deployed capital or debt exposure. Adoption and investment efficiency remain unresolved because there are no substantive data on customer retention, monetization, utilization or incremental returns. Hardware share-price declines, if accurate, indicate investor repricing rather than independently proving weaker orders. Concentrated exposure across chips, infrastructure and major buyers could transmit spending disappointments through the ecosystem, although the packet does not quantify those links. Reported semiconductor losses suggest a correction may already be underway, making it important not to treat past losses as evidence that an equally large additional decline must follow. Profitable U.S. incumbents, continued financing access and reported broad-market resilience provide meaningful offsets. Confidence is low because market evidence is empty, sources are unidentified, several items repeat bubble narratives, and key numerical claims lack primary-source confirmation.",
+    "risk_factors": [
+      "Infrastructure spending could outpace monetization and utilization, weakening returns even if AI adoption continues.",
+      "Large external funding requirements and chip-leasing obligations could increase sensitivity to financing costs, refinancing conditions and investor appetite.",
+      "Shared exposure to a narrow group of major buyers, suppliers and financing channels could amplify spending cuts or earnings disappointments.",
+      "If reported semiconductor weakness is accurate, it signals deteriorating sentiment and potentially tighter conditions for new capital issuance.",
+      "The reported Chinese selloff illustrates valuation and policy vulnerability, although equipment restrictions and market structure limit its usefulness as a direct U.S. comparison."
+    ],
+    "stabilizing_factors": [
+      "The packet describes major U.S. AI leaders as profitable, providing a stronger earnings foundation than purely speculative businesses.",
+      "Reported financing activity suggests capital remains available, although announced or sought funding is not the same as completed funding.",
+      "Existing price declines may have removed some speculative excess; reported broad-market resilience argues against assuming systemic contagion.",
+      "The evidence does not demonstrate a collapse in customer adoption or hardware orders; missing data should not be treated as deterioration.",
+      "Bubble warnings and a non-binding anti-bailout resolution do not themselves establish financial distress or an imminent correction."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": 0,
+      "explanation": "The score remains 65 after independent reassessment. The new packet raises concerns about financing scale and reported semiconductor weakness, but those signals are offset by potential prior repricing, continued capital access and profitable incumbents. Repeated bubble commentary, weak sourcing and absent operating data do not justify a material change from the prior assessment."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 4,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Tech: The AI Bubble Has Already Burst In China. Could The U.S. Be Next?",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
