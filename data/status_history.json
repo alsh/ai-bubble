@@ -10651,5 +10651,52 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-30T00:30:48.443276+00:00",
+    "score": 66,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom remains materially fragile to a further meaningful correction over the next 6–12 months, especially among leveraged infrastructure providers. A selective shakeout is better supported than a systemic collapse or reversal of AI adoption.",
+    "reasoning": "The central vulnerability is the mismatch between large, relatively inflexible infrastructure commitments and uncertain returns on that investment. Reported lender retrenchment could expose weaker operators before their capacity generates sufficient cash flow. Credit discipline can ultimately improve investment efficiency, but its near-term transmission mechanism includes refinancing stress, cancellations and failures. Valuation risk remains relevant, although the supplied evidence does not establish current U.S. AI valuations reliably; profitable U.S. leaders should not be equated with the extreme Chinese multiples reported in one article. Adoption is an important evidence gap: there are no substantive customer-retention, paid-usage or productivity-return figures here, so neither collapsing demand nor adequate monetization can be inferred. Hardware evidence is mixed: reported semiconductor drawdowns and warnings about GPU oversupply suggest vulnerability, while the ASML shipment outlook suggests continuing equipment demand. Those figures are not independently verified, and equipment orders do not establish attractive end-user economics. Concentration creates potential spillovers when shared customers, lenders and suppliers reduce exposure together, although strong incumbents may absorb distressed capacity. Price behavior is similarly two-sided: reported chip-sector weakness could signal spreading stress, but it also means some correction may already have occurred, reducing remaining valuation excess. Broad-market resilience argues against assuming systemic contagion. Overall, financing and return-on-capital risks outweigh the stabilizers, but do not justify a crash-level assessment. The score is an editorial fragility judgment, not a probability.",
+    "risk_factors": [
+      "Reported restrictions on financing for standalone AI data-center operators could force distressed sales, project cancellations or defaults.",
+      "Heavy infrastructure spending may outrun monetization, while hardware depreciation and lower compute prices could impair returns.",
+      "Concentrated customers, suppliers and funding relationships could transmit a selective downturn across the AI investment chain.",
+      "Reported semiconductor weakness and widening credit spreads could indicate stress extending beyond speculative equities.",
+      "The supplied evidence does not demonstrate that adoption is translating into durable cash flows sufficient to support investment commitments."
+    ],
+    "stabilizing_factors": [
+      "Profitable, financially stronger incumbents are better positioned to maintain investment and acquire distressed assets than financing-dependent entrants.",
+      "Capital rationing can curb speculative capacity additions before they become a larger systemic problem.",
+      "Reported equipment-demand plans suggest that hardware investment has not uniformly reversed, although plans are not guaranteed shipments.",
+      "Reported broad-market resilience and existing sector drawdowns leave room for an orderly repricing rather than an abrupt market-wide collapse.",
+      "Financial losses in AI infrastructure would not, by themselves, establish a collapse in underlying AI adoption."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": 1,
+      "explanation": "The score rises one point from 65 to 66, a marginal rather than material change. Reassessing independently, reported lender retrenchment makes the financing vulnerability more immediate, while existing drawdowns and market resilience temper the case for a larger increase. Confidence is low because market evidence is empty, sources are unidentified, several articles are incomplete, and important claims lack primary-source corroboration. Speculation about IPO-funded rescues is not treated as an established backstop."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "Yardeni Says AI Bubble Is Deflating, Not Bursting, as Bond Market Steps In",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
