@@ -10698,5 +10698,51 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-10-31T00:15:24.758622+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom appears materially fragile to a meaningful correction over the next 6–12 months, but a selective repricing is better supported than a broad collapse in AI demand. Fragility is greatest where valuations and financing depend on rapid monetization.",
+    "reasoning": "A score of 65 signifies elevated editorial concern, not a 65% probability. The evidence is thin: no market dataset is supplied, both news sources are unidentified, and their claims are not independently verified. Across the analytical lenses, valuation risk depends on how much future growth prices already discount; absent multiples and earnings revisions, its magnitude is uncertain. Investment efficiency and financing are the central potential fault line: infrastructure spending can precede monetization, making disappointing utilization or returns especially damaging to debt-dependent providers. Adoption and hardware demand must be separated from investment returns—greater AI usage need not produce attractive application margins or justify every infrastructure project. Neither lens has adequate direct evidence here. Concentration can amplify a repricing because overlapping technology exposures transmit weakness across portfolios and indices, although current concentration figures are unavailable. On price behavior, the reported roughly 2.9% Nasdaq decline would indicate sensitivity to expectations if accurate, but one session does not establish a sustained correction or a funding crisis. Stabilizing evidence includes the supplied report's strong Amazon earnings and AWS growth, although those figures require verification and do not isolate AI profitability. The Character.AI collapse claim is too thinly documented to establish broader distress. Holistically, the potential mismatch between investment commitments and monetization supports elevated concern, while the lack of verified deterioration limits the case for a higher score.",
+    "risk_factors": [
+      "Valuations could reprice sharply if embedded AI earnings expectations exceed realized profits; current valuation metrics are missing.",
+      "Long-lived infrastructure commitments can become burdensome if utilization, pricing or monetization disappoints, particularly for leveraged operators.",
+      "AI adoption may grow without generating sufficient margins or cash returns to validate the investment cycle.",
+      "Hardware orders could weaken if customers digest capacity or reduce spending; no order, inventory or utilization data are supplied.",
+      "Concentrated technology exposure can magnify correlated selling and transmit an AI repricing to broader indices."
+    ],
+    "stabilizing_factors": [
+      "The supplied report describes strong Amazon operating results and AWS growth, potentially indicating continued demand, though the figures are unverified and not AI-specific.",
+      "Continued adoption and profitable workloads could support infrastructure demand even during an equity correction.",
+      "Providers with strong internally generated cash flow would be less exposed to refinancing pressure than debt-dependent operators.",
+      "A reported single-session selloff and an inadequately documented company-collapse claim do not establish systemic deterioration."
+    ],
+    "change": {
+      "previous_score": 66,
+      "delta": -1,
+      "explanation": "The score is 65 versus the prior 66, an immaterial change rather than a new directional call. Independent reassessment still supports elevated, selective fragility. The supplied evidence does not substantiate worsening financing conditions, falling hardware demand or weaker monetization sufficiently to justify escalation; its limited reliability chiefly reduces confidence, not the underlying risk assessment."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 2,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "[US Stock Plunge] NASDAQ Down About 3%! What Will Happen to the S&P 500 Amid Concerns Over an AI Bubble?",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
