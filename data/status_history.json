@@ -10800,5 +10800,59 @@
       "revenue_growth": "N/A",
       "peg_ratio": "N/A"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-11-02T00:02:35.845541+00:00",
+    "score": 64,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is materially fragile to a meaningful correction over the next 6–12 months, especially in financing-dependent infrastructure and speculative equities. A selective repricing is better supported than a broad collapse in AI demand.",
+    "reasoning": "The score expresses editorial fragility, not a correction probability. Valuation evidence tempers the bearish case: Nvidia's supplied trailing P/E of about 25.9 and forward P/E of about 12.9, alongside reported revenue growth of 105.9%, do not independently establish excessive pricing. However, forward earnings depend on estimates that could prove cyclical, and the metrics' dates and calculation bases are unspecified. Investment efficiency and financing remain the central potential fault line: infrastructure can lose economic value if utilization, customer monetization or funding availability disappoint, even while AI usage grows. The supplied evidence does not quantify those exposures or establish that deterioration is occurring. Adoption likewise lacks direct evidence on paid usage, retention and realized customer returns. Hardware demand has some support from Nvidia's reported growth and the potential breadth of GPU, CPU and custom-chip workloads, but supplier revenue does not establish attractive returns for infrastructure buyers. Concentration in leading suppliers, large buyers and advanced manufacturing creates correlated exposure; diversification across chip designs does not eliminate dependence on aggregate capital spending. Price behavior is inadequately documented: isolated share prices establish no trend, and the volatility figure lacks units and a measurement window. The reported Chinese drawdown would illustrate meaningful repricing risk if verified, but the unknown-source headlines may overlap and do not establish equivalent conditions elsewhere. Taken together, these factors support elevated but not extreme fragility, with substantial uncertainty about timing and breadth.",
+    "risk_factors": [
+      "Infrastructure spending could outrun profitable utilization and customer monetization, weakening investment returns before AI adoption itself contracts.",
+      "Financing-dependent infrastructure operators and startups could face refinancing pressure or reduced access to equity; the supplied evidence does not quantify their exposure.",
+      "Nvidia's low reported forward multiple provides less protection if expected earnings embed an unusually strong spending cycle.",
+      "Shared dependence on major capital-spending customers and concentrated advanced manufacturing could transmit disappointments across the supply chain.",
+      "The reported Chinese AI-equity selloff, if verified, demonstrates how quickly expectations can reset, but its magnitude and broader relevance remain uncertain."
+    ],
+    "stabilizing_factors": [
+      "Nvidia's supplied valuation and strong reported revenue growth argue against treating the entire boom as unsupported speculation.",
+      "Demand spanning GPUs, CPUs and custom accelerators could support hardware suppliers even as individual AI investments disappoint.",
+      "Established, profitable suppliers can be more resilient than financing-dependent projects, although they remain exposed to customer spending cuts.",
+      "The supplied evidence does not establish broad order cancellations, collapsing paid adoption or a generalized funding freeze."
+    ],
+    "change": {
+      "previous_score": 65,
+      "delta": -1,
+      "explanation": "The independent assessment is 64 versus the prior 65, a modest adjustment rather than a material thesis change. The supplied valuation and growth figures restrain the case for extreme fragility, while the unverified selloff headlines do not justify a stronger bearish conclusion. Missing evidence on utilization, financing and customer returns keeps the assessment elevated but confidence low."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 3,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 204.64,
+      "NVDA_volatility": 5.2,
+      "NVDA_pe_ratio": 25.87105,
+      "NVDA_forward_pe": 12.858633,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.25,
+      "MSFT_price": 521.91,
+      "GOOGL_price": 279.84,
+      "market_sentiment": "Unavailable",
+      "top_headline": "Is the AI bubble bursting? In China, it has already burst",
+      "nvda_pe": "25.87105",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.25"
+    }
   }
 ]
