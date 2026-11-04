@@ -40,10 +40,10 @@ jobs:
         git config --global user.email "actions@github.com"
         
         # Check if there are changes to commit
-        if [[ -n $(git status -s data/status_history.json) ]]; then
-          git add data/status_history.json
+        if [[ -n $(git status --short -- data) ]]; then
+          git add data
           git commit -m "Daily Update: $(date +'%Y-%m-%d')"
           git push
         else
-          echo "No changes to data/status_history.json"
+          echo "No changes to data/"
         fi

@@ -133,9 +133,11 @@ class TestDashboardArtifact(unittest.TestCase):
         with open(os.path.join(os.path.dirname(__file__), "..", "index.html"), encoding="utf-8") as handle:
             dashboard = handle.read()
         self.assertNotIn("innerHTML", dashboard)
-        for marker in ("schema_version", "risk-factors", "stabilizing-factors", "FRESHNESS_HOURS", "slice(-30)",
-                       "parseHistoryPayload", "RECOVERED NON-FINITE VALUES", "Number.isFinite"):
+        for marker in ("schema_version", "risk-factors", "stabilizing-factors", "FRESHNESS_HOURS",
+                       "parseHistoryPayload", "RECOVERED NON-FINITE VALUES", "Number.isFinite",
+                       "data/status_history/index.json", "onClick", "show-current", "pointHitRadius"):
             self.assertIn(marker, dashboard)
+        self.assertNotIn("slice(-30)", dashboard)
         legacy = fixture("legacy_history.json")
         v2 = agent.build_version2_entry({**VALID_OPINION, "_resolved_model": "fixture/v1"},
                                          {"NVDA_price": 1}, [{"title": "<script>"}], legacy)
@@ -180,6 +182,67 @@ class TestProvenanceAndPersistence(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             agent.analyze_market_status({}, [])
         self.assertEqual(client.chat.completions.create.call_count, agent.MODEL_RETRY_ATTEMPTS)
+
+    def test_monthly_history_splits_entries_and_indexes_months(self):
+        with tempfile.TemporaryDirectory() as directory:
+            storage = os.path.join(directory, "status_history")
+            entries = [
+                {"date": "2026-01-01T00:30:00+02:00", "score": 20},
+                {"date": "2026-01-15T12:00:00+00:00", "score": 40},
+            ]
+            for entry in entries:
+                agent.update_history(entry, storage)
+
+            self.assertEqual(sorted(os.listdir(storage)), ["2025-12.json", "2026-01.json", "index.json"])
+            with open(os.path.join(storage, "index.json"), encoding="utf-8") as handle:
+                self.assertEqual(json.load(handle), {"months": ["2025-12", "2026-01"]})
+            self.assertEqual(agent.load_history(storage), entries)
+
+    def test_legacy_history_migration_moves_entries_and_removes_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            storage = os.path.join(directory, "status_history")
+            legacy = os.path.join(directory, "status_history.json")
+            history = [
+                {"date": "2025-12-31", "score": 20},
+                {"date": "2026-01-01T00:00:00+00:00", "score": 40},
+            ]
+            with open(legacy, "w", encoding="utf-8") as handle:
+                json.dump(history, handle)
+
+            self.assertEqual(agent.load_history(storage), history)
+            self.assertFalse(os.path.exists(legacy))
+            self.assertEqual(agent.load_history(storage), history)
+            self.assertEqual(sorted(name for name in os.listdir(storage) if name.endswith(".json")),
+                             ["2025-12.json", "2026-01.json", "index.json"])
+
+    def test_invalid_legacy_date_stops_migration_without_removing_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            storage = os.path.join(directory, "status_history")
+            legacy = os.path.join(directory, "status_history.json")
+            with open(legacy, "w", encoding="utf-8") as handle:
+                json.dump([{"score": 20}], handle)
+
+            with self.assertRaises(ValueError):
+                agent.migrate_legacy_history(storage, legacy)
+            self.assertTrue(os.path.isfile(legacy))
+            self.assertFalse(os.path.exists(storage))
+            self.assertEqual(os.listdir(directory), ["status_history.json"])
+
+    def test_monthly_atomic_replace_failure_preserves_month_file(self):
+        with tempfile.TemporaryDirectory() as directory:
+            storage = os.path.join(directory, "status_history")
+            entry = {"date": "2026-01-01T00:00:00+00:00", "score": 20}
+            agent.update_history(entry, storage)
+            month_file = os.path.join(storage, "2026-01.json")
+            with open(month_file, encoding="utf-8") as handle:
+                original = handle.read()
+
+            with patch("agent.os.replace", side_effect=OSError("replace failed")):
+                with self.assertRaises(OSError):
+                    agent.update_history({"date": "2026-01-02", "score": 40}, storage)
+            with open(month_file, encoding="utf-8") as handle:
+                self.assertEqual(handle.read(), original)
+            self.assertEqual(sorted(os.listdir(storage)), ["2026-01.json", "index.json"])
 
     def test_corrupt_history_unchanged_and_atomic_append(self):
         with tempfile.TemporaryDirectory() as directory:

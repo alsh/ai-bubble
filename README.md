@@ -8,6 +8,7 @@ A serverless, zero-maintenance AI agent that tracks the health of the AI financi
 - **AI Analyst**: Publishes a versioned editorial opinion about how fragile the AI investment boom is to a meaningful correction over the next 6–12 months. Confidence is the model's judgment; data quality is an independent collection measure.
 - **Data-Driven**: Tracks volatility of major AI stocks (NVDA, MSFT, GOOGL) and global news sentiment.
 - **Visual Dashboard**: Beautiful, dark-mode UI to visualize the "Risk Score" trend.
+- **Interactive History**: Select a point on the trend graph to view that date's opinion and metrics. Select **Show current data** to return to the latest entry.
 
 ## 🛠️ Setup & Deployment
 
@@ -27,7 +28,9 @@ You need an API key from [OpenRouter](https://openrouter.ai/) to access the LLM.
     export OPENROUTER_API_KEY="your_key_here"
     python src/agent.py
     ```
-    This will generate a new entry in `data/status_history.json`. The default requested model is OpenRouter's `~openai/gpt-latest` alias: it means the newest eligible OpenAI GPT model selected by OpenRouter, not a fixed model name. Set `OPENROUTER_MODEL` to an exact slug for controlled testing or rollback. Each v2 entry records both requested and concrete resolved model identities and the `canary-opinion-v2` methodology.
+    This adds a new entry to the file for the current UTC month: `data/status_history/YYYY-MM.json`. If `data/status_history.json` exists, the agent moves its records into monthly files on its next run. The small `data/status_history/index.json` file lists the months for the dashboard.
+
+    The default requested model is OpenRouter's `~openai/gpt-latest` alias: it means the newest eligible OpenAI GPT model selected by OpenRouter, not a fixed model name. Set `OPENROUTER_MODEL` to an exact slug for controlled testing or rollback. Each v2 entry records both requested and concrete resolved model identities and the `canary-opinion-v2` methodology.
 
     A score is an editorial opinion, not a calibrated probability or investment recommendation. Status is derived from score (0–30 GREEN, 31–69 YELLOW, 70–100 RED). Evidence quality is reported separately: articles published within the 48-hour freshness window count as fresh; missing collection inputs are marked degraded. A completely empty evidence packet is rejected.
 3.  **View Dashboard**:

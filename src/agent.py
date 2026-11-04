@@ -1,7 +1,8 @@
 """The Canary daily editorial opinion agent.
 
-The persisted file deliberately remains a plain JSON array: GitHub Actions runs this
-module once a day and GitHub Pages serves the resulting file directly.
+History is stored in monthly JSON arrays with a small month index. The static
+dashboard serves these files directly; the agent migrates legacy single-file
+history when it runs.
 """
 import datetime
 import html
@@ -37,7 +38,8 @@ except ImportError:
 from openai import OpenAI
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
-DATA_FILE = "data/status_history.json"
+DATA_DIR = "data/status_history"
+LEGACY_DATA_FILE = "data/status_history.json"
 RSS_FEED_URL = "https://www.bing.com/news/search?q=AI+bubble&format=rss&mkt=en-us"
 SCHEMA_VERSION = 2
 METHODOLOGY_VERSION = "canary-opinion-v2"
@@ -408,15 +410,13 @@ def build_version2_entry(opinion, market_data, news_items, history, now=None):
     return entry
 
 
-def load_history(path=DATA_FILE):
+def _read_history_file(path):
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as handle:
         try:
             history = json.load(handle, parse_constant=_reject_non_standard_json_constant)
         except _NonStandardJSONConstantError:
-            # Older runs may already contain NaN emitted by Python's permissive encoder.
-            # Recover those values as null so this run can rewrite a valid history file.
             handle.seek(0)
             history = json.load(handle, parse_constant=_recover_non_standard_json_constant)
             print(f"Warning: repaired non-standard numeric values in {path}")
@@ -425,18 +425,45 @@ def load_history(path=DATA_FILE):
     return history
 
 
-def update_history(entry, path=DATA_FILE):
-    """Append using same-directory atomic replacement; never reset corrupt history."""
-    history = load_history(path)
+def _history_month(entry, index=None):
     if not isinstance(entry, dict):
-        raise ValueError("entry must be an object")
-    history.append(entry)
+        raise ValueError(f"history entry {index} must be an object with a date")
+    value = entry.get("date")
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"history entry {index} has no valid date")
+    try:
+        parsed = datetime.datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError(f"history entry {index} has invalid date {value!r}") from exc
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=datetime.timezone.utc)
+    else:
+        parsed = parsed.astimezone(datetime.timezone.utc)
+    return parsed.strftime("%Y-%m")
+
+
+def _history_months(directory):
+    if not os.path.isdir(directory):
+        return []
+    return sorted(name[:-5] for name in os.listdir(directory)
+                  if re.fullmatch(r"\d{4}-(?:0[1-9]|1[0-2])\.json", name))
+
+
+def _load_partitioned_history(directory):
+    history = []
+    for month in _history_months(directory):
+        history.extend(_read_history_file(os.path.join(directory, f"{month}.json")))
+    return history
+
+
+def _write_json_atomic(path, payload):
     directory = os.path.dirname(path) or "."
     os.makedirs(directory, exist_ok=True)
-    fd, temporary = tempfile.mkstemp(prefix=".status_history.", suffix=".tmp", dir=directory, text=True)
+    fd, temporary = tempfile.mkstemp(
+        prefix=f".{os.path.basename(path)}.", suffix=".tmp", dir=directory, text=True)
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as handle:
-            json.dump(history, handle, indent=2, ensure_ascii=False, allow_nan=False)
+            json.dump(payload, handle, indent=2, ensure_ascii=False, allow_nan=False)
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(temporary, path)
@@ -446,13 +473,94 @@ def update_history(entry, path=DATA_FILE):
         except FileNotFoundError:
             pass
         raise
-    print(f"Updated {path} with new entry.")
 
 
+def _write_month_index(directory):
+    _write_json_atomic(os.path.join(directory, "index.json"), {"months": _history_months(directory)})
+
+
+def _legacy_path_for(directory):
+    directory = os.path.normpath(directory)
+    return os.path.join(os.path.dirname(directory), os.path.basename(directory) + ".json")
+
+
+def migrate_legacy_history(storage_dir=DATA_DIR, legacy_file=LEGACY_DATA_FILE):
+    """Move the old array into month files, then remove its source file."""
+    if not os.path.isfile(legacy_file):
+        return False
+    history = _read_history_file(legacy_file)
+    groups = {}
+    for index, entry in enumerate(history):
+        groups.setdefault(_history_month(entry, index), []).append(entry)
+
+    parent = os.path.dirname(os.path.normpath(storage_dir)) or "."
+    os.makedirs(parent, exist_ok=True)
+    staging = tempfile.mkdtemp(prefix=".status_history.migration.", dir=parent)
+    try:
+        for month, entries in groups.items():
+            _write_json_atomic(os.path.join(staging, f"{month}.json"), entries)
+        _write_month_index(staging)
+
+        if os.path.isdir(storage_dir) and not os.listdir(storage_dir):
+            os.rmdir(storage_dir)
+        if os.path.exists(storage_dir):
+            if not os.path.isdir(storage_dir):
+                raise ValueError(f"monthly history path is not a directory: {storage_dir}")
+            existing = {month: _read_history_file(os.path.join(storage_dir, f"{month}.json"))
+                        for month in _history_months(storage_dir)}
+            if existing != groups:
+                raise ValueError("legacy and monthly history both exist with different data; migration stopped")
+            _write_month_index(storage_dir)
+        else:
+            os.replace(staging, storage_dir)
+            staging = None
+
+        os.unlink(legacy_file)
+        print(f"Migrated {len(history)} history entries from {legacy_file} to {storage_dir}.")
+        return True
+    finally:
+        if staging and os.path.isdir(staging):
+            for name in os.listdir(staging):
+                os.unlink(os.path.join(staging, name))
+            os.rmdir(staging)
+
+
+def load_history(path=DATA_DIR):
+    """Load a legacy array or all month files; migrate the default legacy store once."""
+    if os.path.isfile(path) or str(path).endswith(".json"):
+        return _read_history_file(path)
+    legacy_file = _legacy_path_for(path)
+    if os.path.isfile(legacy_file):
+        migrate_legacy_history(path, legacy_file)
+    return _load_partitioned_history(path)
+
+
+def update_history(entry, path=DATA_DIR):
+    """Append atomically to one month file and refresh its small month index."""
+    if not isinstance(entry, dict):
+        raise ValueError("entry must be an object")
+    if not os.path.isdir(path) and str(path).endswith(".json"):
+        history = load_history(path)
+        history.append(entry)
+        _write_json_atomic(path, history)
+        print(f"Updated {path} with new entry.")
+        return
+
+    legacy_file = _legacy_path_for(path)
+    if os.path.isfile(legacy_file):
+        migrate_legacy_history(path, legacy_file)
+    month = _history_month(entry)
+    os.makedirs(path, exist_ok=True)
+    month_path = os.path.join(path, f"{month}.json")
+    history = _read_history_file(month_path)
+    history.append(entry)
+    _write_json_atomic(month_path, history)
+    _write_month_index(path)
+    print(f"Updated {month_path} with new entry.")
 def main():
+    history = load_history()
     market_data = _clean_market_data(get_market_data())
     news_items = get_news_headlines()
-    history = load_history(DATA_FILE)
     usable_market = any(_is_finite_number(value) for value in market_data.values())
     usable_news = isinstance(news_items, list) and any(
         isinstance(item, dict) and any(isinstance(item.get(key), str) and item.get(key).strip()
@@ -462,7 +570,7 @@ def main():
         raise ValueError("evidence packet is entirely empty")
     opinion = analyze_market_status(market_data, news_items, history)
     entry = build_version2_entry(opinion, market_data, news_items, history)
-    update_history(entry, DATA_FILE)
+    update_history(entry)
 
 
 if __name__ == "__main__":

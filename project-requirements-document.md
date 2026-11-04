@@ -26,15 +26,15 @@ The system follows a "Git-as-Backend" architecture pattern.
 
 2. **The Agent (`src/agent.py`):** A Python script that performs the "Check-Think-Save" loop.
 
-3. **The Database (`data/status_history.json`):** A flat JSON file stored in the repository containing the historical record of daily checks.
+3. **The Database (`data/status_history/`):** Monthly JSON arrays stored in the repository. `index.json` lists the available months; the agent updates only the active month.
 
 4. **The Dashboard (`index.html`):** A static HTML file hosted on GitHub Pages that fetches the raw JSON content to render the UI.
 
 ## 3. Data Structures
 
-### 3.1 The Database (`data/status_history.json`)
+### 3.1 The Database (`data/status_history/YYYY-MM.json`)
 
-The agent must append a new object to this array daily. The frontend relies on this specific schema.
+Each monthly file stores an array of daily check records. The agent appends each new object to the file for its UTC month. The dashboard reads `data/status_history/index.json` to find the monthly files. If the legacy `data/status_history.json` file exists, the agent moves its records into monthly files on the next run, then removes the old file after the migration succeeds.
 
 ```json
 [
@@ -118,9 +118,10 @@ The agent must append a new object to this array daily. The frontend relies on t
 
 4. **Persistence:**
 
-   * Load the existing `data/status_history.json`.
-   * Append the new entry.
-   * Save the file back to disk.
+   * Load all monthly files from `data/status_history/`.
+   * If `data/status_history.json` exists, partition its records by UTC month and move them into the monthly files.
+   * Append the new entry to its month file and update `index.json`.
+   * Use atomic file replacement so a failed write does not damage existing history.
 
 ### 4.2 The Workflow (`.github/workflows/daily.yml`)
 
@@ -153,23 +154,25 @@ The agent must append a new object to this array daily. The frontend relies on t
 
 **UI Logic:**
 
-1. **Data Fetching:** On load, fetch `data/status_history.json`.
+1. **Data Fetching:** On load, fetch `data/status_history/index.json`, then fetch each listed month file. If the index is not present, try the legacy `data/status_history.json` file.
 
 2. **Current Status Card:**
-   * Display the **Latest Status** (GREEN, YELLOW, RED).
+   * Display the latest status on initial load, then update it when the user selects a graph point.
    * **Dynamic Styling:**
      * Red: `bg-red-500` (Text: "CRITICAL WARNING")
      * Yellow: `bg-yellow-500` (Text: "CAUTION")
      * Green: `bg-green-500` (Text: "STABLE")
 
 3. **Trend Graph:**
-   * Render a Line Chart showing the `score` (Y-axis) over the `date` (X-axis) for the last 30 entries.
+   * Render all valid `score` values over time.
+   * Let the user select a graph point to show that record's date, status, opinion, and metrics in the main widgets.
+   * Provide a **Show current data** button to return to the latest record.
 
 4. **Reasoning Section:**
-   * Display the `reasoning` text block from the latest entry.
+   * Display the `reasoning` text block from the selected entry.
 
 5. **Metrics Grid:**
-   * Display a small grid showing `NVDA P/E`, `Revenue Growth`, and `Market Sentiment` pulled from the latest JSON entry.
+   * Display a small grid showing `NVDA P/E`, `Revenue Growth`, and `Market Sentiment` pulled from the selected entry.
 
 ## 6. Implementation Prompt for AI Coding Agent
 
@@ -177,7 +180,7 @@ The agent must append a new object to this array daily. The frontend relies on t
 
 > "Act as a Senior Python Developer and DevOps Engineer. I need to scaffold a serverless repository for 'The Canary', an AI Market Monitor.
 >
-> 1. **Setup Structure**: Create folders `src/`, `data/`, and `.github/workflows/`. Create an empty `data/status_history.json` initialized with `[]`.
+> 1. **Setup Structure**: Create folders `src/`, `data/`, and `.github/workflows/`. Create `data/status_history/` and `data/status_history/index.json` with an empty `months` array.
 >
 > 2. **Dependencies**: Create `requirements.txt` with `yfinance`, `feedparser`, `trafilatura`, `fake-useragent`, `openai`, `pandas`.
 >
@@ -187,7 +190,7 @@ The agent must append a new object to this array daily. The frontend relies on t
 >    * **Market Data:** Fetch `trailingPE`, `revenueGrowth`, `pegRatio`, and `currentPrice` for NVDA/MSFT using `yfinance`.
 >    * **News Data:** Fetch Google News RSS. Iterate top 5 items. TRY to scrape full content with `trafilatura` (using random user-agent). IF scraping fails/returns empty, fallback to RSS `summary`. Limit content to 3000 chars.
 >    * **Analysis:** Send this to `google/gemini-2.0-flash-thinking-exp`. Use the 'Bubble Algorithm' system prompt defined in the PRD (Efficiency, Valuation, Adoption, Hardware checks) to output a JSON with `status`, `score`, and `reasoning`.
->    * Append this result to `data/status_history.json`.
+>    * Append this result to `data/status_history/YYYY-MM.json` and update `data/status_history/index.json`.
 >
 > 4. **The Workflow (`.github/workflows/daily.yml`)**:
 >    * Schedule it for 21:00 UTC daily.
@@ -207,4 +210,4 @@ The agent must append a new object to this array daily. The frontend relies on t
 ## 8. Non-Functional Requirements
 
 * **Security:** API Keys must **never** be hardcoded. They must only be accessed via `os.environ`.
-* **Error Handling:** If the LLM API fails or returns malformed JSON, the script must exit with an error code and **not** corrupt the `status_history.json` file. History must be a JSON array and updates use same-directory atomic replacement. New entries use schema version 2 and methodology `canary-opinion-v2`; market completeness and article counts are independent data-quality metadata (articles within 48 hours are fresh).
+* **Error Handling:** If the LLM API fails or returns malformed JSON, the script must exit with an error code and **not** corrupt the monthly history files. Each file must contain a JSON array, and updates use same-directory atomic replacement. New entries use schema version 2 and methodology `canary-opinion-v2`; market completeness and article counts are independent data-quality metadata (articles within 48 hours are fresh).
