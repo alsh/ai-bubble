@@ -8,7 +8,7 @@ A serverless, zero-maintenance AI agent that tracks the health of the AI financi
 - **AI Analyst**: Publishes a versioned editorial opinion about how fragile the AI investment boom is to a meaningful correction over the next 6–12 months. Confidence is the model's judgment; data quality is an independent collection measure.
 - **Data-Driven**: Tracks volatility of major AI stocks (NVDA, MSFT, GOOGL) and global news sentiment.
 - **Visual Dashboard**: Beautiful, dark-mode UI to visualize the "Risk Score" trend.
-- **Interactive History**: Select a point on the trend graph to view that date's opinion and metrics. Select **Show current data** to return to the latest entry.
+- **Interactive History**: The graph shows 30 points at a time. Use **Older** and **Newer** to browse all history. Select a point to view its opinion and metrics, or select **Show current data** to return to the latest entry.
 
 ## 🛠️ Setup & Deployment
 

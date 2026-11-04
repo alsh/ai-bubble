@@ -135,7 +135,8 @@ class TestDashboardArtifact(unittest.TestCase):
         self.assertNotIn("innerHTML", dashboard)
         for marker in ("schema_version", "risk-factors", "stabilizing-factors", "FRESHNESS_HOURS",
                        "parseHistoryPayload", "RECOVERED NON-FINITE VALUES", "Number.isFinite",
-                       "data/status_history/index.json", "onClick", "show-current", "pointHitRadius"):
+                       "data/status_history/index.json", "onClick", "show-current", "pointHitRadius",
+                       "HISTORY_WINDOW_SIZE", "history-window-label", "history-older", "history-newer"):
             self.assertIn(marker, dashboard)
         self.assertNotIn("slice(-30)", dashboard)
         legacy = fixture("legacy_history.json")

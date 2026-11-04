@@ -164,8 +164,9 @@ Each monthly file stores an array of daily check records. The agent appends each
      * Green: `bg-green-500` (Text: "STABLE")
 
 3. **Trend Graph:**
-   * Render all valid `score` values over time.
+   * Render a 30-point window of valid scores, with the latest points shown by default.
    * Let the user select a graph point to show that record's date, status, opinion, and metrics in the main widgets.
+   * Provide **Older** and **Newer** controls to move through all points.
    * Provide a **Show current data** button to return to the latest record.
 
 4. **Reasoning Section:**
