@@ -1,4 +1,5 @@
 yfinance
+numpy>=1.24
 feedparser
 openai
 pandas

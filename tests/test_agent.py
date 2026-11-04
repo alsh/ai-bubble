@@ -136,7 +136,10 @@ class TestDashboardArtifact(unittest.TestCase):
         for marker in ("schema_version", "risk-factors", "stabilizing-factors", "FRESHNESS_HOURS",
                        "parseHistoryPayload", "RECOVERED NON-FINITE VALUES", "Number.isFinite",
                        "data/status_history/index.json", "onClick", "show-current", "pointHitRadius",
-                       "HISTORY_WINDOW_SIZE", "history-window-label", "history-older", "history-newer"):
+                       "HISTORY_WINDOW_SIZE", "history-window-label", "history-older", "history-newer",
+                       "power-exponents-panel", "power-exponents-status", "power-instrument",
+                       "power-h-chart", "power-alpha-chart", "power-range-30", "power-range-120",
+                       "docs/power-exponents.md", "spanGaps:false", "Experimental"):
             self.assertIn(marker, dashboard)
         self.assertNotIn("slice(-30)", dashboard)
         legacy = fixture("legacy_history.json")
@@ -293,6 +296,23 @@ class TestProvenanceAndPersistence(unittest.TestCase):
             with open(path) as handle:
                 self.assertEqual(handle.read(), original)
             self.assertEqual(os.listdir(directory), ["history.json"])
+
+
+class TestOptionalPowerExponentIntegration(unittest.TestCase):
+    @patch.dict(os.environ, {agent.POWER_EXPONENTS_ENABLED_ENV: "0"}, clear=False)
+    @patch("agent.power_exponents.publish_power_exponents")
+    def test_disabled_collection_makes_no_provider_call(self, publish):
+        self.assertFalse(agent.update_power_exponent_diagnostics())
+        publish.assert_not_called()
+
+    @patch.dict(os.environ, {agent.POWER_EXPONENTS_ENABLED_ENV: "1"}, clear=False)
+    @patch("agent.power_exponents.publish_power_exponents")
+    def test_enabled_collection_uses_separate_artifact_and_failure_isolated(self, publish):
+        publish.return_value = {"generated_at_utc": "2025-01-01T22:00:00Z"}
+        self.assertTrue(agent.update_power_exponent_diagnostics())
+        publish.assert_called_once_with(agent.POWER_EXPONENTS_PATH)
+        publish.side_effect = OSError("test write failure")
+        self.assertFalse(agent.update_power_exponent_diagnostics())
 
 
 if __name__ == "__main__":

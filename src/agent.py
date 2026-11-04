@@ -37,6 +37,8 @@ except ImportError:
         random = "Mozilla/5.0"
 from openai import OpenAI
 
+import power_exponents
+
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 DATA_DIR = "data/status_history"
 LEGACY_DATA_FILE = "data/status_history.json"
@@ -48,6 +50,8 @@ MODEL_OVERRIDE_ENV = "OPENROUTER_MODEL"
 MODEL_RETRY_ATTEMPTS = 3
 MAX_OUTPUT_TOKENS = 2_000
 ARTICLE_FRESHNESS_HOURS = 48
+POWER_EXPONENTS_ENABLED_ENV = "POWER_EXPONENTS_ENABLED"
+POWER_EXPONENTS_PATH = "data/power_exponents.json"
 CONFIDENCE_VALUES = {"LOW", "MEDIUM", "HIGH"}
 
 
@@ -557,6 +561,23 @@ def update_history(entry, path=DATA_DIR):
     _write_json_atomic(month_path, history)
     _write_month_index(path)
     print(f"Updated {month_path} with new entry.")
+
+
+def update_power_exponent_diagnostics():
+    """Publish optional diagnostics without making them a requirement for the opinion run."""
+    if os.environ.get(POWER_EXPONENTS_ENABLED_ENV) != "1":
+        print("Experimental power-exponent collection is disabled.")
+        return False
+    try:
+        artifact = power_exponents.publish_power_exponents(POWER_EXPONENTS_PATH)
+        print("Published experimental power-exponent history through "
+              f"{artifact['generated_at_utc']}.")
+        return True
+    except Exception as exc:
+        print(f"Warning: power-exponent collection/publication failed: {exc}")
+        return False
+
+
 def main():
     history = load_history()
     market_data = _clean_market_data(get_market_data())
@@ -571,6 +592,7 @@ def main():
     opinion = analyze_market_status(market_data, news_items, history)
     entry = build_version2_entry(opinion, market_data, news_items, history)
     update_history(entry)
+    update_power_exponent_diagnostics()
 
 
 if __name__ == "__main__":

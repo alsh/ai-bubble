@@ -3,8 +3,8 @@ name: Daily Market Check
 
 on:
   schedule:
-    # Runs at 21:00 UTC every day
-    - cron: '0 21 * * *'
+    # Runs at 22:00 UTC, after the regular US equity close in both DST offsets.
+    - cron: '0 22 * * *'
   workflow_dispatch:
 
 permissions:
@@ -31,6 +31,7 @@ jobs:
     - name: Run Agent
       env:
         OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        POWER_EXPONENTS_ENABLED: ${{ vars.POWER_EXPONENTS_ENABLED || '0' }}
       run: |
         python src/agent.py
 
