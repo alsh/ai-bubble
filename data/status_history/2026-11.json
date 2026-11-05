@@ -161,5 +161,52 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.25"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-11-05T01:59:42.178037+00:00",
+    "score": 60,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is materially but not acutely fragile to a meaningful correction over the next 6–12 months. Selective equity repricing and financing pressure are more credible downside paths than a broad collapse in AI demand.",
+    "reasoning": "A score of 60 expresses moderately elevated fragility, not a crash forecast or a probability. The central vulnerability is that productive, growing AI adoption can coexist with disappointing investment returns if asset prices and infrastructure commitments require faster monetization than customers deliver. However, the supplied evidence does not establish how stretched valuations are, whether investment efficiency is deteriorating, or whether financing conditions are tightening. Adoption and hardware demand are similarly underdocumented: data-center bookings provide an indirect demand signal, not proof of profitable enterprise adoption or sustained accelerator orders. Concentration could amplify a correction if infrastructure providers depend on overlapping large customers, but customer exposures are not supplied. With no market evidence, price momentum, breadth and actual selling pressure cannot be assessed. The strongest stabilizing item is the reported triple-digit booking/backlog growth and higher renewal rates at Digital Realty, which argues against an immediate, generalized demand collapse. That claim comes from a short bullish article excerpt without underlying financial detail. Damodaran's warning merits attention as a valuation perspective, but the headline does not establish correction timing or magnitude. Bitcoin commentary and portfolio-positioning articles add little direct evidence. Holistically, the balance supports material vulnerability without demonstrating an imminent break.",
+    "risk_factors": [
+      "Valuation risk: if prices require unusually rapid earnings growth, even continued AI adoption could accompany a substantial equity correction; current multiples and embedded expectations are not provided.",
+      "Investment efficiency and financing: infrastructure spending could outpace monetization, leaving financing-dependent projects exposed to weaker utilization, refinancing pressure or reduced funding availability.",
+      "Adoption risk: usage growth may not translate into sufficient recurring revenue, margins or customer productivity gains to validate investment commitments.",
+      "Hardware-demand risk: order digestion, efficiency improvements or customer spending delays could weaken supplier growth without ending the broader AI adoption cycle.",
+      "Concentration risk: overlapping exposure to a small group of major customers could transmit spending cuts across chips, cloud services and data centers; the supplied evidence does not quantify this exposure.",
+      "Price-behavior uncertainty: absent market data, there is no basis to determine whether speculative excess is expanding, a correction is underway, or downside has already been absorbed."
+    ],
+    "stabilizing_factors": [
+      "Reported Digital Realty booking/backlog growth and higher renewal rates suggest continued infrastructure demand and some commercial pricing support, subject to verification.",
+      "Contracted demand can cushion near-term revenue, although backlog alone does not establish cash conversion, customer credit quality or attractive investment returns.",
+      "A correction in AI-linked securities does not require AI adoption to reverse; continued usage and monetization could limit the breadth of a downturn.",
+      "The supplied material contains no concrete evidence of widespread order cancellations, financing failures or collapsing demand; that limits the bearish case rather than proving resilience."
+    ],
+    "change": {
+      "previous_score": 62,
+      "delta": -2,
+      "explanation": "The score is 2 points below the prior 62, a small editorial adjustment rather than a material thesis change. Independently weighing this evidence, the company-specific demand signal deserves more weight than the largely repetitive bubble commentary, while missing valuation, financing and price data prevent a stronger conclusion in either direction. The thesis remains selective financial vulnerability rather than broad demand collapse; the limited evidence warrants LOW confidence."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 3,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "AI bubble is coming, and there is no way out! Aswath Damodaran explains what investors should do before the crash begins",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
