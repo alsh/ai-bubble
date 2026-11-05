@@ -562,10 +562,106 @@ def update_history(entry, path=DATA_DIR):
     print(f"Updated {month_path} with new entry.")
 
 
+POWER_INTERPRETATION_VERSION = "power-exponents-interpretation-v1"
+POWER_INTERPRETATION_MAX_WORDS = 180
+POWER_INTERPRETATION_INSTRUCTIONS = """Explain experimental market diagnostics to a general reader.
+Use only the supplied computed data for this one instrument. Do not use news,
+external knowledge of recent events, other instruments, or an editorial score.
+Write 90–150 words in clear, short sentences, in at most three short paragraphs.
+Return JSON with one field: {"explanation": "plain text"}. No Markdown or HTML.
+Explain the latest DFA H relative to the ideal independent finite-variance
+returns reference H=0.5, and R² as fit quality over the supplied scales only.
+Describe the 1/5-observation H changes and prior-only standardized deviation
+when available; overlapping windows make this deviation NOT a significance test.
+Explain Hill alpha: lower estimates suggest heavier fitted absolute-return tails,
+higher estimates suggest thinner fitted tails, conditional on a suitable tail model.
+Use the actual separate DFA/Hill window lengths, tail count k, x_min (absolute
+log-return units; multiply by 100 only when describing percent log returns),
+and cutoff sensitivity when useful. Sensitivity is NOT a confidence interval.
+Briefly describe the supplied recent H/alpha trajectory using dates and values.
+Distinguish null/unavailable estimates from zero; do not invent missing results.
+Do not call rounded H=0.500 an exact or proven memoryless random walk.
+Do not claim persistence, mean reversion, clean Brownian scaling, finite/infinite
+market variance, structural breaks, trader herding, or market safety is established.
+No crash predictions, probabilities, danger/herding thresholds, phase-transition
+warnings, trading advice, or claims that high R² confirms a regime.
+Do not infer specific daily moves or causes of Hill steps from exponent history:
+rolling-window entry/exit and threshold changes can both affect the estimate.
+End with a brief reminder that these are uncertain descriptive estimates, not a
+crash forecast. Do not give an all-clear or claim extreme events are absent.
+"""
+
+
+def explain_power_exponents(artifact, symbol, instrument):
+    """Make one bounded, separate model request using derived diagnostics only."""
+    if not OPENROUTER_API_KEY:
+        raise ValueError("OPENROUTER_API_KEY environment variable is not set.")
+    points = instrument["points"][-30:]
+    evidence = {
+        "symbol": symbol, "session_date": instrument["last_session"],
+        "methodology_version": artifact.get("methodology_version"),
+        "settings": artifact.get("settings", {}),
+        "history_type": instrument.get("history_type"),
+        "gap_warning": instrument.get("gap_warning"),
+        "latest": points[-1], "recent_points": points,
+    }
+    model = requested_model()
+    # No retry loop: at most one extra request per eligible instrument per run.
+    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY,
+                    timeout=60.0, max_retries=0)
+    completion = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "system", "content": POWER_INTERPRETATION_INSTRUCTIONS},
+                  {"role": "user", "content": json.dumps(evidence, allow_nan=False)}],
+        response_format={"type": "json_object"}, max_tokens=1_200,
+    )
+    choice = completion.choices[0]
+    if choice.finish_reason != "stop":
+        raise ValueError("interpretation response did not finish normally")
+    payload = json.loads(choice.message.content,
+                         parse_constant=_reject_non_standard_json_constant)
+    if not isinstance(payload, dict):
+        raise ValueError("interpretation response must be an object")
+    explanation = _nonempty_string(payload.get("explanation"), "explanation")
+    if len(explanation) > 2400 or len(explanation.split()) > POWER_INTERPRETATION_MAX_WORDS:
+        raise ValueError("interpretation response is too long")
+    resolved = _nonempty_string(getattr(completion, "model", None), "resolved model")
+    return {
+        "status": "available", "text": explanation,
+        "session_date": instrument["last_session"],
+        "history_start": points[0]["date"], "history_end": points[-1]["date"],
+        "observation_count": len(points),
+        "generated_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "methodology_version": POWER_INTERPRETATION_VERSION,
+        "estimator_version": artifact.get("methodology_version"),
+        "requested_model": model, "resolved_model": resolved,
+    }
+
+
+def add_power_exponent_interpretations(artifact):
+    """Isolate instrument failures; never relabel retained stale text as current."""
+    for symbol in power_exponents.INSTRUMENTS:
+        instrument = artifact.get("instruments", {}).get(symbol)
+        if not isinstance(instrument, dict) or instrument.get("status") != "available":
+            continue
+        points = instrument.get("points", [])
+        if (not points or points[-1].get("date") != instrument.get("last_session")
+                or not any(_is_finite_number(points[-1].get(key)) for key in ("h", "alpha"))):
+            instrument["interpretation"] = {"status": "unavailable"}
+            continue
+        try:
+            instrument["interpretation"] = explain_power_exponents(artifact, symbol, instrument)
+        except Exception:
+            # Do not publish provider errors, response bodies, or an old session's text.
+            print(f"Warning: power-exponent interpretation unavailable for {symbol}.")
+            instrument["interpretation"] = {"status": "unavailable"}
+
+
 def update_power_exponent_diagnostics():
     """Publish optional diagnostics without making them a requirement for the opinion run."""
     try:
-        artifact = power_exponents.publish_power_exponents(POWER_EXPONENTS_PATH)
+        artifact = power_exponents.publish_power_exponents(
+            POWER_EXPONENTS_PATH, enrich_artifact=add_power_exponent_interpretations)
         print("Published experimental power-exponent history through "
               f"{artifact['generated_at_utc']}.")
         return True

@@ -303,7 +303,8 @@ class TestOptionalPowerExponentIntegration(unittest.TestCase):
     def test_enabled_collection_uses_separate_artifact_and_failure_isolated(self, publish):
         publish.return_value = {"generated_at_utc": "2025-01-01T22:00:00Z"}
         self.assertTrue(agent.update_power_exponent_diagnostics())
-        publish.assert_called_once_with(agent.POWER_EXPONENTS_PATH)
+        publish.assert_called_once_with(
+            agent.POWER_EXPONENTS_PATH, enrich_artifact=agent.add_power_exponent_interpretations)
         publish.side_effect = OSError("test write failure")
         self.assertFalse(agent.update_power_exponent_diagnostics())
 

@@ -523,7 +523,8 @@ def write_artifact_atomic(path: str, artifact: dict) -> None:
 def publish_power_exponents(path: str = "data/power_exponents.json", *,
                             now: dt.datetime | None = None,
                             ticker_factory=None,
-                            config: MonitorConfig = MonitorConfig()) -> dict:
+                            config: MonitorConfig = MonitorConfig(),
+                            enrich_artifact=None) -> dict:
     """Collect (opt-in only at caller), retain truthful stale history, and publish."""
     previous = load_previous_artifact(path)
     histories, failures = collect_price_histories(now=now, ticker_factory=ticker_factory)
@@ -535,5 +536,7 @@ def publish_power_exponents(path: str = "data/power_exponents.json", *,
     artifact = build_artifact(histories, now=now, failures=failures,
                               previous=previous, provider_version=provider_version,
                               config=config)
+    if enrich_artifact is not None:
+        enrich_artifact(artifact)
     write_artifact_atomic(path, artifact)
     return artifact

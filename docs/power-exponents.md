@@ -1,6 +1,6 @@
 # Power exponents (experimental)
 
-This panel shows two **descriptive market measurements**. They are not crash predictors, probabilities, measures of trader synchronization, or investment advice. They do not affect The Canary's editorial score or its LLM prompt.
+This panel shows two **descriptive market measurements**. They are not crash predictors, probabilities, measures of trader synchronization, or investment advice. They do not affect The Canary's editorial score or its editorial LLM prompt.
 
 The selected series are measured separately:
 
@@ -10,6 +10,16 @@ The selected series are measured separately:
 - **SPY**: a broad US market comparison that overlaps with large technology companies.
 
 These funds are proxies. They do not represent a pure or stable portfolio of AI companies. Do not compare them as independent experiments, pool their price levels, or interpret their correlation as a causal AI-market effect.
+
+## Short AI-generated interpretations
+
+`src/agent.py` makes one separate OpenRouter request per instrument with available estimates, up to four additional requests per run. It uses `OPENROUTER_API_KEY` and the same `OPENROUTER_MODEL` setting as the editorial analysis. Each request has a 60-second timeout and no automatic retries. This adds API cost and can add up to approximately four minutes of waiting time.
+
+The input contains only that instrument's computed latest values, estimator settings, data warnings, and up to 30 recent diagnostic observations. It does not contain raw prices, news, or the editorial score. The instruction requests 90–150 words in at most three short paragraphs. Responses longer than 180 words or 2400 characters are rejected. The text should explain H, fit quality, fitted tail thickness, recent changes, and cutoff sensitivity where data is available. It must not turn descriptive estimates into crash forecasts, safety claims, or significance tests. These instructions reduce unsupported claims; they do not guarantee numerical or scientific correctness.
+
+Each instrument record can have an `interpretation` object. An available interpretation records `text`, `session_date`, the recent-history date range and observation count, generation time, prompt version, estimator version, and requested/resolved model identities. The artifact is published atomically after generation. A failed or invalid response sets that instrument's interpretation to unavailable without removing its numerical diagnostics or stopping the other requests. An instrument with stale retained data keeps its previous interpretation, if present; no new request is made for it.
+
+The text widget is below the power graphs. It follows the instrument selector but always describes the latest recorded session and its recent history. Selecting an older chart point or changing the chart range does not change the interpretation period. The widget states this scope, marks retained or aged data stale, and hides text whose session does not match the instrument's latest session. Old artifacts without interpretations remain valid. Model text is displayed as plain text, not HTML.
 
 ## Inputs and provenance
 
