@@ -50,7 +50,6 @@ MODEL_OVERRIDE_ENV = "OPENROUTER_MODEL"
 MODEL_RETRY_ATTEMPTS = 3
 MAX_OUTPUT_TOKENS = 2_000
 ARTICLE_FRESHNESS_HOURS = 48
-POWER_EXPONENTS_ENABLED_ENV = "POWER_EXPONENTS_ENABLED"
 POWER_EXPONENTS_PATH = "data/power_exponents.json"
 CONFIDENCE_VALUES = {"LOW", "MEDIUM", "HIGH"}
 
@@ -565,9 +564,6 @@ def update_history(entry, path=DATA_DIR):
 
 def update_power_exponent_diagnostics():
     """Publish optional diagnostics without making them a requirement for the opinion run."""
-    if os.environ.get(POWER_EXPONENTS_ENABLED_ENV) != "1":
-        print("Experimental power-exponent collection is disabled.")
-        return False
     try:
         artifact = power_exponents.publish_power_exponents(POWER_EXPONENTS_PATH)
         print("Published experimental power-exponent history through "
