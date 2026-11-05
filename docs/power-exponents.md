@@ -17,10 +17,6 @@ The collector requests five years of Yahoo Finance daily history through the uno
 
 The artifact records the instrument, source/client, adjustment settings, methodology version, retrieval time, last session date, and whether the history is reconstructed. Historical chart points are recalculated from the provider's current historical response. A provider can revise prices or corporate-action adjustments. These points are **not archived point-in-time forecasts** and may change when the source history changes. The dashboard does not publish raw closes or returns.
 
-Yahoo Finance access through yfinance is unofficial. Yahoo's [Terms of Service](https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html) require express prior permission for automated data collection and restrict reuse and distribution of service content. The yfinance project says the Yahoo Finance API is intended for personal use only; see [its README](https://github.com/ranaroussi/yfinance#readme). These sources do not confirm that a public dashboard can publish derived indicators. Keep collection disabled unless you have permission that covers automated collection and public display, or use a provider with a license that allows this use. This is not a legal determination.
-
-Collection is **disabled by default**. Set the GitHub Actions repository variable `POWER_EXPONENTS_ENABLED` to `1` only after reviewing data permissions. A missing or failed feed appears as unavailable or stale; the editorial analysis continues without this diagnostic collection.
-
 The regular-session workflow runs at 22:00 UTC, after the US close in both standard and daylight-saving time. A manually started run excludes today's bar before 16:15 America/New_York. This conservative cutoff also excludes early-close sessions until 16:15; it is not an exchange-calendar calculation. The actual session date in the artifact is authoritative. The dashboard also marks old input stale if an existing artifact stops updating. An input gap longer than seven calendar days is flagged, but ordinary weekends and exchange holidays are not filled with artificial prices.
 
 ## DFA-1 return-scaling exponent H

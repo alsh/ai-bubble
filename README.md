@@ -27,11 +27,9 @@ You need an API key from [OpenRouter](https://openrouter.ai/) to access the LLM.
 2.  **Run the Agent**:
     ```bash
     export OPENROUTER_API_KEY="your_key_here"
-    # Optional only after checking public-use rights; disabled if unset.
-    export POWER_EXPONENTS_ENABLED=1
     python src/agent.py
     ```
-    This adds a new entry to the file for the current UTC month: `data/status_history/YYYY-MM.json`. If `data/status_history.json` exists, the agent moves its records into monthly files on its next run. The small `data/status_history/index.json` file lists the months for the dashboard. Unless `POWER_EXPONENTS_ENABLED=1`, no experimental price history is fetched. When enabled, the agent writes bounded derived diagnostics to `data/power_exponents.json` without publishing raw prices. Review [the methodology and data-use limits](docs/power-exponents.md) before enabling it.
+    This adds a new entry to the file for the current UTC month: `data/status_history/YYYY-MM.json`. If `data/status_history.json` exists, the agent moves its records into monthly files on its next run. The small `data/status_history/index.json` file lists the months for the dashboard. Agent writes bounded derived diagnostics to `data/power_exponents.json` without publishing raw prices. Review [the methodology and data-use limits](docs/power-exponents.md) before enabling it.
 
     The default requested model is OpenRouter's `~openai/gpt-latest` alias: it means the newest eligible OpenAI GPT model selected by OpenRouter, not a fixed model name. Set `OPENROUTER_MODEL` to an exact slug for controlled testing or rollback. Each v2 entry records both requested and concrete resolved model identities and the `canary-opinion-v2` methodology.
 
@@ -43,6 +41,13 @@ You need an API key from [OpenRouter](https://openrouter.ai/) to access the LLM.
     ```
     Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
+### Run Tests
+The test suite uses Python's built-in `unittest` framework:
+```bash
+python -m unittest discover -s tests -v
+```
+In VS Code, select the project's Python environment and use **Python: Configure Tests** to select **unittest** with `tests` as the test directory if the Test Explorer has not already discovered the tests.
+
 ### 4. GitHub Deployment (Automated)
 To enable daily automatic updates, follow these steps. The workflow runs at 22:00 UTC, after the US regular equity close in both standard and daylight-saving time:
 
@@ -52,24 +57,19 @@ To enable daily automatic updates, follow these steps. The workflow runs at 22:0
     - Name: `OPENROUTER_API_KEY`
     - Value: `sk-or-v1-...` (your actual key).
 
-2. **Optional power-exponent collection** (disabled by default):
-    - First check applicable Yahoo Finance and exchange terms for public derived-data use. Technical access through yfinance is not a redistribution license.
-    - Under **Settings → Secrets and variables → Actions → Variables**, add `POWER_EXPONENTS_ENABLED` with value `1` only after review. Leave it unset or set it to `0` to disable collection.
-    - The first enabled run reconstructs recent diagnostic history from the provider's current response. It is not a point-in-time historical record.
-
-3.  **Enable GitHub Pages**:
+2.  **Enable GitHub Pages**:
     - Go to **Settings** -> **Pages**.
     - Under **Build and deployment** -> **Source**, select **Deploy from a branch**.
     - Select **Branch**: `main`, **Folder**: `/(root)`.
     - Click **Save**.
 
-4.  **Permissions** (Important!):
+3.  **Permissions** (Important!):
     - Go to **Settings** -> **Actions** -> **General**.
     - Scroll to **Workflow permissions**.
     - Select **Read and write permissions**.
     - Click **Save**.
 
-5.  **Test It**:
+4.  **Test It**:
     - Go to the **Actions** tab.
     - Select "Daily Market Check".
     - Click **Run workflow**.

@@ -299,13 +299,6 @@ class TestProvenanceAndPersistence(unittest.TestCase):
 
 
 class TestOptionalPowerExponentIntegration(unittest.TestCase):
-    @patch.dict(os.environ, {agent.POWER_EXPONENTS_ENABLED_ENV: "0"}, clear=False)
-    @patch("agent.power_exponents.publish_power_exponents")
-    def test_disabled_collection_makes_no_provider_call(self, publish):
-        self.assertFalse(agent.update_power_exponent_diagnostics())
-        publish.assert_not_called()
-
-    @patch.dict(os.environ, {agent.POWER_EXPONENTS_ENABLED_ENV: "1"}, clear=False)
     @patch("agent.power_exponents.publish_power_exponents")
     def test_enabled_collection_uses_separate_artifact_and_failure_isolated(self, publish):
         publish.return_value = {"generated_at_utc": "2025-01-01T22:00:00Z"}
