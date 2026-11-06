@@ -1,7 +1,7 @@
 {
   "artifact_version": 1,
   "methodology_version": "power-exponents-dfa1-hill-v1",
-  "generated_at_utc": "2026-11-05T20:03:24.652940Z",
+  "generated_at_utc": "2026-11-06T01:59:08.481264Z",
   "provider": {
     "name": "Yahoo Finance via yfinance (unofficial provider client)",
     "client_version": "1.8.0",
@@ -44,8 +44,8 @@
   "instruments": {
     "QQQ": {
       "symbol": "QQQ",
-      "status": "available",
-      "status_message": null,
+      "status": "stale",
+      "status_message": "Price history unavailable: ValueError: daily closes contains a non-finite value",
       "source": "Yahoo Finance via yfinance (unofficial provider client)",
       "price_adjustment": "yfinance history(auto_adjust=True, interval='1d', prepost=False, repair=False)",
       "history_type": "reconstructed",
@@ -7267,12 +7267,13 @@
         "estimator_version": "power-exponents-dfa1-hill-v1",
         "requested_model": "~openai/gpt-latest",
         "resolved_model": "openai/gpt-6.1-sol"
-      }
+      },
+      "stale_since_utc": "2026-11-06T01:59:08.481264Z"
     },
     "SOXX": {
       "symbol": "SOXX",
-      "status": "available",
-      "status_message": null,
+      "status": "stale",
+      "status_message": "Price history unavailable: ValueError: daily closes contains a non-finite value",
       "source": "Yahoo Finance via yfinance (unofficial provider client)",
       "price_adjustment": "yfinance history(auto_adjust=True, interval='1d', prepost=False, repair=False)",
       "history_type": "reconstructed",
@@ -14494,12 +14495,13 @@
         "estimator_version": "power-exponents-dfa1-hill-v1",
         "requested_model": "~openai/gpt-latest",
         "resolved_model": "openai/gpt-6.1-sol"
-      }
+      },
+      "stale_since_utc": "2026-11-06T01:59:08.481264Z"
     },
     "NVDA": {
       "symbol": "NVDA",
-      "status": "available",
-      "status_message": null,
+      "status": "stale",
+      "status_message": "Price history unavailable: ValueError: daily closes contains a non-finite value",
       "source": "Yahoo Finance via yfinance (unofficial provider client)",
       "price_adjustment": "yfinance history(auto_adjust=True, interval='1d', prepost=False, repair=False)",
       "history_type": "reconstructed",
@@ -21721,12 +21723,13 @@
         "estimator_version": "power-exponents-dfa1-hill-v1",
         "requested_model": "~openai/gpt-latest",
         "resolved_model": "openai/gpt-6.1-sol"
-      }
+      },
+      "stale_since_utc": "2026-11-06T01:59:08.481264Z"
     },
     "SPY": {
       "symbol": "SPY",
-      "status": "available",
-      "status_message": null,
+      "status": "stale",
+      "status_message": "Price history unavailable: ValueError: daily closes contains a non-finite value",
       "source": "Yahoo Finance via yfinance (unofficial provider client)",
       "price_adjustment": "yfinance history(auto_adjust=True, interval='1d', prepost=False, repair=False)",
       "history_type": "reconstructed",
@@ -28948,7 +28951,8 @@
         "estimator_version": "power-exponents-dfa1-hill-v1",
         "requested_model": "~openai/gpt-latest",
         "resolved_model": "openai/gpt-6.1-sol"
-      }
+      },
+      "stale_since_utc": "2026-11-06T01:59:08.481264Z"
     }
   }
 }

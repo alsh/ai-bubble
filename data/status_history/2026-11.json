@@ -316,5 +316,53 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.25"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-11-06T01:59:07.530869+00:00",
+    "score": 71,
+    "status": "RED",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom is materially fragile to a further meaningful correction over the next 6–12 months, especially in leveraged infrastructure and concentrated semiconductor exposure. Financing and earnings resets are more credible threats than a collapse in AI adoption.",
+    "reasoning": "A score of 71 indicates elevated fragility, not a 71% probability or a prediction of systemic collapse. The strongest reported warning is the combination of falling infrastructure equities and expensive debt: if accurate, this creates a feedback loop in which weaker equity cushions and higher financing costs undermine projects before their revenues mature. Concentrated customers, suppliers and investor positioning could transmit that stress across the AI investment chain. Reported policy opposition to data centers adds potential permitting, power-cost and construction-delay risks, but election outcomes are not enacted restrictions. Valuation remains a vulnerability because apparently reasonable forward multiples can depend on aggressive earnings forecasts; however, no verified valuation data establish how much optimism remains after the reported selloff. Price behavior suggests expectations are vulnerable, but several articles describe the same episode and should not count as independent confirmation. A correction already underway also removes some speculative excess, so its magnitude alone does not establish greater downside ahead. Adoption and hardware demand provide an important distinction: productive AI use can keep expanding while infrastructure investment earns disappointing returns. Reported backlogs and hyperscaler spending plans support near-term equipment demand, but do not demonstrate profitable utilization or independent end-customer cash generation. Overall, financing stress and concentration outweigh the available stabilizers, without establishing an imminent sector-wide bust. Confidence is low because market evidence is empty, sources are unidentified, some market-history claims conflict, and the reported figures cannot be independently verified here.",
+    "risk_factors": [
+      "Reported mid-teens yields on some CoreWeave-linked debt suggest potentially restrictive financing costs, although instrument terms, maturities and comparable credit spreads are unavailable.",
+      "Heavy infrastructure spending may outrun monetization; delays, low utilization, depreciation and hardware obsolescence could weaken investment returns.",
+      "Concentration in a few hyperscaler buyers, chip suppliers and crowded equity exposures could amplify earnings disappointments and forced selling.",
+      "Forward earnings expectations may remain demanding even after share-price declines; supplied evidence does not quantify the remaining valuation cushion.",
+      "Potential data-center restrictions and power constraints could delay revenue while financing and construction obligations continue.",
+      "Reported broad semiconductor and infrastructure declines suggest repricing can spread beyond weaker individual borrowers."
+    ],
+    "stabilizing_factors": [
+      "Large, cash-generative hyperscalers are better positioned than debt-dependent developers to fund investment through a market downturn.",
+      "Reported cloud backlogs and spending commitments suggest continuing hardware demand, although their quality, cancellation provisions and profitability are unverified.",
+      "The supplied evidence does not establish a collapse in AI adoption, usage or customer willingness to pay.",
+      "Lower equity prices can reduce valuation excess and encourage investment discipline, limiting subsequent downside.",
+      "Stress among leveraged infrastructure providers does not by itself imply comparable financial weakness across the entire AI ecosystem."
+    ],
+    "change": {
+      "previous_score": 68,
+      "delta": 3,
+      "explanation": "The score rises three points from 68 to 71. Independently reassessing the supplied evidence, reported credit stress alongside infrastructure-equity losses strengthens the financing-feedback-loop concern. The increase is modest because the news is overlapping and weakly sourced, some correction has reportedly already occurred, and there is insufficient evidence of deteriorating adoption or widespread cash-flow failure. Celebrity warnings and bearish positions carry little independent analytical weight."
+    },
+    "data_quality": {
+      "state": "degraded",
+      "market_data_complete": false,
+      "fetched_articles": 5,
+      "fresh_articles": 5,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "market_sentiment": "Unavailable",
+      "top_headline": "AI bubble fears trigger $2.3 trillion Wall Street selloff as Nasdaq 100 plunges 6%: 'flashbacks to 2008 or 2001'",
+      "nvda_pe": "N/A",
+      "revenue_growth": "N/A",
+      "peg_ratio": "N/A"
+    }
   }
 ]
