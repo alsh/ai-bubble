@@ -643,5 +643,59 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.22"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v2",
+    "date": "2026-11-12T02:41:26.021183+00:00",
+    "score": 62,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "The AI investment boom remains materially fragile to a meaningful correction over the next 6–12 months, especially in leveraged infrastructure businesses. The evidence supports an uneven investment shakeout more strongly than an indiscriminate collapse.",
+    "reasoning": "On a scale where 100 means greatest fragility, 62 reflects substantial vulnerability with meaningful buffers—not a 62% probability. Financing and investment efficiency are the central weaknesses: higher borrowing costs, long construction lead times and rapidly evolving hardware can undermine returns even while AI usage grows. The supplied report of SoftBank equipment-related writedowns illustrates that mismatch, if accurate. CoreWeave's reported revenue growth and contract-backed repayment plan are important counterevidence, although avoiding unsecured borrowing does not establish that expansion is fully funded or economically attractive. Adoption evidence is thinner: infrastructure revenue demonstrates demand for computing, not necessarily profitable end-customer deployment. Hardware demand appears supported, but customer concentration and dependence on a relatively small group of large spenders create a transmission channel from spending restraint to suppliers and lenders. Valuation is a substantial offset: Nvidia's supplied trailing P/E near 22, forward P/E near 11 and approximately 106% revenue growth do not support a simple claim of universally excessive public-market multiples. However, the figures lack dates and methodology, and forward earnings could reflect unusually strong cycle conditions. Microsoft and Alphabet prices alone establish nothing about valuation. Reported sharp infrastructure-stock declines suggest some risk has already been repriced; the subsequent rally shows sensitivity to reassuring financing news rather than proof of durable stabilization. Nvidia's volatility figure is uninterpretable without units and a measurement window. Taken together, these lenses indicate material but selective fragility. Confidence is low because the news is unverified, source attribution is weak, and adoption, utilization and cash-return data are missing.",
+    "risk_factors": [
+      "Leveraged infrastructure operators face refinancing pressure and a mismatch between upfront spending and uncertain long-term cash generation.",
+      "Strong computing demand may coexist with poor investment returns if utilization, pricing or hardware useful lives disappoint.",
+      "Concentrated buyers and interconnected financing relationships could transmit a spending slowdown across the ecosystem.",
+      "Reported permitting restrictions could delay project revenue and strand commitments; their scope and implementation remain unverified.",
+      "Low forward valuation multiples offer less protection if earnings forecasts depend on peak margins or uninterrupted spending."
+    ],
+    "stabilizing_factors": [
+      "Supplied Nvidia valuation and growth figures argue against treating the entire boom as valuation-driven speculation.",
+      "Reported CoreWeave growth and contract-supported debt repayment provide company-specific evidence against an immediate financing breakdown.",
+      "Reported substantial infrastructure-stock declines may already discount some adverse outcomes.",
+      "Large incumbent buyers have greater capacity to sustain investment than leveraged specialist builders, although current balance-sheet evidence was not supplied."
+    ],
+    "change": {
+      "previous_score": 64,
+      "delta": -2,
+      "explanation": "The independently assessed score is 62 versus the prior 64, a modest decline rather than a thesis reversal. The reported financing reassurance and evidence of prior repricing slightly reduce immediate fragility. They do not resolve investment-efficiency, concentration or adoption-economics concerns. Unverified bubble commentary receives little weight, and the evidence does not justify a larger movement. This is an editorial assessment, not a probability or investment recommendation."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 5,
+      "fresh_articles": 4,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 173.73,
+      "NVDA_volatility": 6.88,
+      "NVDA_pe_ratio": 21.963337,
+      "NVDA_forward_pe": 10.92035,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.21,
+      "MSFT_price": 521.13,
+      "GOOGL_price": 293.45,
+      "market_sentiment": "Unavailable",
+      "top_headline": "The Odds of an AI Bubble-Bursting Event Appear to Be Sharply Rising",
+      "nvda_pe": "21.963337",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.21"
+    }
   }
 ]
