@@ -1,7 +1,7 @@
 # The Canary 🐦
 **AI Market Monitor for the "AI Bubble"**
 
-A serverless AI agent that tracks the health of the AI financial market. It runs daily on GitHub Actions, analyzes market data and news using an LLM, and publishes an editorial risk score to a public dashboard. An optional experimental Power exponents panel graphs market-return diagnostics separately from that score.
+A serverless AI agent that tracks the health of the AI financial market. It runs daily on GitHub Actions, analyzes market data and news using an LLM, and publishes an editorial risk score to a public dashboard. The experimental Power Exponents panel adds daily market-return diagnostics by default and displays them separately from that score.
 
 ## 🚀 Features
 - **Zero Infrastructure**: Runs entirely on GitHub Actions and GitHub Pages.
@@ -9,7 +9,7 @@ A serverless AI agent that tracks the health of the AI financial market. It runs
 - **Data-Driven**: Tracks volatility of major AI stocks (NVDA, MSFT, GOOGL) and global news sentiment.
 - **Visual Dashboard**: Dark-mode UI with a historical editorial risk-score graph.
 - **Interactive History**: The score graph shows 30 points at a time. Use **Older** and **Newer** to browse all history. Select a point to view its opinion and metrics, or select **Show current data** to return to the latest entry.
-- **Experimental power exponents**: Optional, separate H and tail-alpha graphs for QQQ, SOXX, NVDA, and SPY. These are descriptive research diagnostics, not crash forecasts, and do not change the editorial score.
+- **Experimental Power Exponents**: Default-enabled H and tail-alpha graphs for QQQ, SOXX, NVDA, and SPY, with bounded AI interpretations for each instrument when estimates are available. These are descriptive research diagnostics, not crash forecasts. Their data and separate interpretations are excluded from the editorial prompt and do not change the editorial score.
 
 ## 🛠️ Setup & Deployment
 
@@ -29,11 +29,11 @@ You need an API key from [OpenRouter](https://openrouter.ai/) to access the LLM.
     export OPENROUTER_API_KEY="your_key_here"
     python src/agent.py
     ```
-    This adds a new entry to the file for the current UTC month: `data/status_history/YYYY-MM.json`. If `data/status_history.json` exists, the agent moves its records into monthly files on its next run. The small `data/status_history/index.json` file lists the months for the dashboard. Agent writes bounded derived diagnostics to `data/power_exponents.json` without publishing raw prices. Review [the methodology and data-use limits](docs/power-exponents.md) before enabling it.
+    This adds a new entry to the file for the current UTC month: `data/status_history/YYYY-MM.json`. If `data/status_history.json` exists, the agent moves its records into monthly files on its next run. The small `data/status_history/index.json` file lists the months for the dashboard. The agent also collects default-enabled power-exponent diagnostics and writes bounded derived data to `data/power_exponents.json`; it does not publish raw prices. Review [the methodology and data-use limits](docs/power-exponents.md).
 
-    The default requested model is OpenRouter's `~openai/gpt-latest` alias: it means the newest eligible OpenAI GPT model selected by OpenRouter, not a fixed model name. Set `OPENROUTER_MODEL` to an exact slug for controlled testing or rollback. Each v2 entry records both requested and concrete resolved model identities and the `canary-opinion-v2` methodology.
+    The default requested model is OpenRouter's `~openai/gpt-latest` alias: it means the newest eligible OpenAI GPT model selected by OpenRouter, not a fixed model name. Set `OPENROUTER_MODEL` to an exact slug for controlled testing or rollback. Each v2 entry records both requested and concrete resolved model identities and the `canary-opinion-v3` methodology.
 
-    Power-exponent explanations use the same API key and model setting. Each agent run makes up to four additional LLM requests: one per instrument with available estimates. The text appears below the power graphs and changes with the instrument selector. It describes the latest session and up to 30 recent observations, not the selected historical chart point. If a request fails, the graphs remain available without that explanation.
+    Power-exponent explanations use the same API key and model setting. Each daily run makes up to four additional bounded LLM requests: one per instrument with available estimates. Each request uses that instrument's derived diagnostics and returns a short interpretation. The text appears below the power graphs and changes with the instrument selector. It describes the latest session and up to 30 recent observations, not the selected historical chart point. If a request fails, the numerical diagnostics remain available without that explanation.
 
     A score is an editorial opinion, not a calibrated probability or investment recommendation. Status is derived from score (0–30 GREEN, 31–69 YELLOW, 70–100 RED). Evidence quality is reported separately: articles published within the 48-hour freshness window count as fresh; missing collection inputs are marked degraded. A completely empty evidence packet is rejected. Power-exponent diagnostics remain outside the editorial LLM prompt and score; separate LLM requests generate their short explanations. The underlying Yahoo Finance/yfinance feed is unofficial; enabling publication requires the operator to verify applicable provider and exchange terms.
 3.  **View Dashboard**:

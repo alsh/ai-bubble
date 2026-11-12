@@ -1,214 +1,81 @@
-# Product Requirements Document (PRD): "The Canary"
+# Product Requirements Document: The Canary
 
-**Version:** 1.2
-**Type:** Serverless AI Agent & Dashboard
-**Tech Stack:** Python, GitHub Actions, GitHub Pages, OpenRouter API
+**Version:** 2.0
+**Type:** Static dashboard and scheduled AI market monitor
+**Technology:** Python, GitHub Actions, GitHub Pages, OpenRouter
 
-## 1. Project Overview
+## 1. Purpose and operating principles
 
-**Objective:** Build an autonomous, zero-maintenance market monitor that tracks the health of the "AI Financial Bubble." The system runs once daily to fetch financial data and news, uses an LLM to analyze market sentiment and stability, and publishes the results to a public dashboard.
+The Canary publishes a daily editorial assessment of structural fragility in the AI investment boom over the next 6–12 months. The score is an editorial index from 0 to 100. It is not a calibrated probability, a crash forecast, or investment advice. Model confidence describes analytical confidence. `data_quality` reports evidence collection completeness independently.
 
-**Core Philosophy:** "Zero Infrastructure, Zero Maintenance."
+The application uses GitHub Actions as its runtime, repository JSON files as its history store, and GitHub Pages for its static dashboard. It has no application server or database. The dashboard is a single HTML file with no build step. All dynamic text is rendered through safe DOM APIs and `textContent`; it must not use `innerHTML`.
 
-The published score is a model-authored editorial opinion of how fragile the AI investment boom is to a meaningful correction in the next 6–12 months. It is not a probability or investment recommendation. Confidence describes the model's assessment; data quality independently describes collection completeness.
+The editorial opinion and experimental Power Exponents diagnostics are separate pipelines. Power Exponents are descriptive research measurements. They do not enter the editorial prompt or score.
 
-* **No Backend Server:** We use GitHub Actions as the runtime.
-* **No Database:** We use the Git repository itself as the database.
-* **No Hosting Cost:** We use GitHub Pages for the frontend.
+## 2. Runtime and model policy
 
-## 2. System Architecture
+The workflow is `.github/workflows/daily.yml`. It runs on cron `0 22 * * *` (22:00 UTC), after the regular US equity close in both EST and EDT. A manual `workflow_dispatch` trigger is also available. The workflow installs the Python requirements, runs `src/agent.py`, and publishes changed data files.
 
-The system follows a "Git-as-Backend" architecture pattern.
+The agent requests OpenRouter's `~openai/gpt-latest` alias by default. This is an intentional capability-tracking alias, not a fixed model version. `OPENROUTER_MODEL` can override the requested model for controlled testing or rollback. Each editorial record stores the requested model identity and the resolved model identity returned by the provider. Editorial retries use the same requested slug. The agent does not silently fall back to another vendor or model.
 
-### Components
+LLM requests require `OPENROUTER_API_KEY` in the environment. Do not store API keys in source, prompts, or published artifacts. Unit tests and implementation checks must be offline and must not call paid model APIs.
 
-1. **The Scheduler (GitHub Actions):** A workflow defined in `.github/workflows/daily.yml` that triggers automatically at market close (21:00 UTC).
+## 3. Editorial evidence collection
 
-2. **The Agent (`src/agent.py`):** A Python script that performs the "Check-Think-Save" loop.
+### 3.1 Market packet
 
-3. **The Database (`data/status_history/`):** Monthly JSON arrays stored in the repository. `index.json` lists the available months; the agent updates only the active month.
+`src/agent.py` collects a one-month adjusted daily-price snapshot and fundamentals for `NVDA`, `MSFT`, and `GOOGL`. The market packet can contain latest prices; trailing 5- and 20-session returns; annualized 20-session realized volatility; trailing and forward P/E; revenue growth; and PEG ratios. Return and volatility measurements are scale-free. Missing or invalid provider values are represented as unavailable, not as fabricated numeric values. Legacy NVDA metric aliases remain available for older dashboard and record consumers.
 
-4. **The Dashboard (`index.html`):** A static HTML file hosted on GitHub Pages that fetches the raw JSON content to render the UI.
+### 3.2 News packet
 
-## 3. Data Structures
+The agent collects news through the three balanced Bing News RSS queries in `RSS_FEED_URLS`: AI valuation/bubble, AI capital expenditure/data-center spending, and enterprise adoption/revenue/return on investment. It unwraps Bing redirect URLs, deduplicates normalized URLs and titles, and selects at most two fresh articles per query, up to six articles in total. Only when no fresh articles exist across any query, it instead retains at most one deduplicated RSS item per query in feed order so stale or undated news can still provide bounded context in degraded-evidence runs.
 
-### 3.1 The Database (`data/status_history/YYYY-MM.json`)
+For each selected article, the agent extracts publisher attribution from RSS metadata, the title, or the unwrapped URL domain. It attempts full-text extraction with `trafilatura`; when extraction is unavailable, it uses the RSS summary. Article text is limited to 2,500 characters. The packet retains query-topic and URL-domain context. Articles are considered fresh only when their publication timestamp falls within the preceding 48 hours. Unknown dates are not counted as fresh.
 
-Each monthly file stores an array of daily check records. The agent appends each new object to the file for its UTC month. The dashboard reads `data/status_history/index.json` to find the monthly files. If the legacy `data/status_history.json` file exists, the agent moves its records into monthly files on the next run, then removes the old file after the migration succeeds.
+The application derives `data_quality` independently from the model's confidence. It records market completeness, fetched and fresh article counts, and the 48-hour freshness window. An entirely empty evidence packet is rejected.
 
-```json
-[
-  {
-    "date": "2025-12-05T10:30:00.000",
-    "status": "YELLOW",
-    "score": 65,
-    "reasoning": "Nvidia volatility is high (45.2) and news sentiment is mixed due to stalled pilots.",
-    "metrics": {
-      "nvda_price": 145.20,
-      "nvda_pe_ratio": 65.4,
-      "nvda_revenue_growth": 0.12,
-      "market_sentiment": "Bearish",
-      "top_headline": "Global banks pause AI rollout"
-    }
-  }
-]
-```
+## 4. Editorial record and persistence
 
-**Schema Notes:**
+New records retain `schema_version: 2` and use `methodology_version: "canary-opinion-v3"`. This preserves compatibility with historical version 2 records while recording the current rubric. The model supplies:
 
-* `status`: Enum ["GREEN", "YELLOW", "RED"]
-* `score`: Integer 0-100 (0 = Safe, 100 = Crash Imminent)
-* `date`: ISO 8601 Timestamp (e.g., `2025-12-05T10:30:00`)
+- `score`: a holistic, model-authored assessment of fragility on a 0–100 scale. The score is not a sum of fixed metric-triggered penalties. `0–30` is GREEN (low fragility), `31–69` is YELLOW (watchful or elevated fragility), and `70–100` is RED (high or extreme fragility).
+- `confidence`: `LOW`, `MEDIUM`, or `HIGH`, based on analytical evidence, not a substitute for application-owned data-quality status.
+- `market_sentiment`: `BEARISH`, `CAUTIOUS`, `MIXED`, `CONSTRUCTIVE`, or `EUPHORIC`, describing observed market tone separately from the fragility score.
+- Non-empty `thesis` and `reasoning` strings.
+- Non-empty arrays of `risk_factors` and `stabilizing_factors`.
+- `change_explanation`, stored with application-owned prior score and score delta under `change`.
 
-## 4. Functional Requirements (Backend)
+The application owns status, date, data-quality metadata, model provenance, and metric collection. It validates model output before persistence. Historical records from earlier schemas remain readable and render with unavailable labels where newer fields do not exist.
 
-### 4.1 The Agent Script (`src/agent.py`)
+Editorial records are partitioned by UTC month in `data/status_history/YYYY-MM.json`. `data/status_history/index.json` lists available months. The agent writes JSON through same-directory temporary files and atomic replacement. If the legacy single file `data/status_history.json` exists, the agent migrates its records into monthly files before removing it after a successful migration.
 
-**Dependency Constraints:**
+## 5. Experimental Power Exponents
 
-* `yfinance` (v0.2.50+ for stable API access)
-* `feedparser` (v6.0.11+ for RSS parsing)
-* `trafilatura` (For scraping full article content)
-* `fake-useragent` (CRITICAL: To rotate headers and avoid 403 blocks)
-* `requests` (for HTTP requests)
-* `openai` (v1.57+ configured for OpenRouter)
+The default-enabled experimental subsystem is implemented in `src/power_exponents.py` and publishes bounded derived diagnostics to `data/power_exponents.json` for `QQQ`, `SOXX`, `NVDA`, and `SPY`. It publishes no raw price history and retains at most 120 observations per instrument. Its data is stored separately from editorial status history.
 
-**Logic Flow:**
+The subsystem computes:
 
-1. **Fetch Market Data (Fundamentals):**
+- DFA-1 signed-return scaling `H` over a 252-return window, with fit quality and split-scale slopes `h_short` (scales 8–20) and `h_long` (scales 25–63).
+- DFA-1 `h_abs` and `h_abs_r_squared` on absolute returns as a descriptive volatility-clustering companion.
+- Hill absolute-return tail exponent `alpha` over a 1,000-return window, with `alpha_se` as the idealized i.i.d. standard error and 5%/15% tail-cutoff sensitivity estimates.
 
-   * **Tickers:** `NVDA` (Hardware Bellwether), `MSFT` (Software/Capex Proxy), `GOOGL` (Model Competitor).
-   * **Technicals:** Closing Price, Volatility (StdDev of last 5 days).
-   * **Fundamentals (via `ticker.info`):**
-     * `trailingPE`: Price-to-Earnings Ratio.
-     * `forwardPE`: Expected future valuation.
-     * `revenueGrowth`: YoY Revenue Growth.
-     * `pegRatio`: Price/Earnings-to-Growth (Key for bubble detection; >2.0 often signals overvaluation).
+These estimates are sensitive to sample size, scale choice, changing regimes, dependent returns, and model assumptions. In particular, `alpha_se` is not a confidence interval under dependent returns, and cutoff sensitivity is not a confidence interval. The dashboard labels the panel experimental and does not present its measurements as forecasts.
 
-2. **Fetch News Data (The Hybrid Mining Strategy):**
+When an instrument has available current estimates, the agent may make one bounded AI interpretation request for that instrument, up to four requests for the four instruments. These short interpretations use only that instrument's derived measurements and recent history. They are persisted separately, excluded from the editorial prompt, and cannot change the editorial score. An interpretation failure does not prevent numerical diagnostics from being published.
 
-   * **Source:** Google News RSS.
-   * **Query:** `https://news.google.com/rss/search?q=AI+adoption+OR+AI+bubble+when:1d&hl=en-US&gl=US&ceid=US:en`
-   * **Extraction Logic (Robustness):**
-     * Iterate through Top 5 headlines.
-     * **Attempt 1 (Deep Dive):** Use `trafilatura.fetch_url(url)` with a random `User-Agent` header to scrape the full body.
-     * **Fallback (Safety Net):** If scraping fails (returns None, 403, or empty string), default to using the RSS `description` field.
-     * **Token Optimization:** Truncate all scraped text to 3,000 characters max per article to prevent context window overflow.
+## 6. Dashboard requirements
 
-3. **Intelligence (LLM Analysis):**
+`index.html` loads the monthly editorial history index and its listed month files. It supports the legacy single-file history fallback, displays the latest editorial status, thesis, reasoning, risk and stabilizing factors, metrics, and a navigable score-history chart. Users can select historical points and return to current data.
 
-   * **API Provider:** OpenRouter
-   * **Base URL:** `https://openrouter.ai/api/v1`
-   * **Model:** Request OpenRouter's `~openai/gpt-latest` alias by default. The alias selects the newest eligible OpenAI GPT model; the response's concrete `completion.model` is persisted. `OPENROUTER_MODEL` may override the requested slug for testing or rollback. Retries repeat the same slug and never silently switch vendors.
-   * **System Prompt:**
+The dashboard preserves the existing `#pe-ratio`, `#rev-growth`, and `#sentiment` elements. It displays available NVDA, MSFT, and GOOGL price, return, realized-volatility, and valuation metrics, plus structured market sentiment. Older records may lack those fields or contain legacy sentiment labels; missing values must render as a clear unavailable value, never as `undefined` or `NaN`.
 
-     > "You are 'The Canary', a cynical, data-driven financial analyst tracking the AI Bubble.
-     > **The Bubble Algorithm:**
-     > 1. **Efficiency Check:** Compare AI Revenue Growth to Capex signals (inferred from news). If companies are spending heavily but revenue growth is slowing (<10%), Score +20 risk.
-     > 2. **Valuation Check:** If NVDA PEG Ratio > 2.5 OR Trailing P/E > 70, Score +15 risk.
-     > 3. **Adoption Check:** Scan news for 'Pilot Purgatory'. If non-tech firms are pausing/canceling AI projects, Score +25 risk.
-     > 4. **Hardware Signals:** If news mentions 'easing supply' or 'reduced lead times' for GPUs, Score +20 risk (signaling demand drop).
-     >
-     > **Task:** Analyze the provided metrics and news. Calculate the total Risk Score (0-100).
-     > * 0-30: GREEN (Stable/Early Growth)
-     > * 31-69: YELLOW (Caution/Leaking)
-     > * 70-100: RED (Burst Imminent)
-     >
-     > Output valid JSON only."
+The Power Exponents panel shows numeric summaries and charts, fit and cutoff information, and available split-scale, absolute-return, and standard-error measurements. It must remain compatible with older artifacts that do not contain `h_short`, `h_long`, `h_abs`, `h_abs_r_squared`, or `alpha_se`. Keep the existing DOM IDs used by tests and integrations. The page must contain exactly one inline application `<script>` element; external library scripts remain loaded by CDN.
 
-4. **Persistence:**
+## 7. Operational and quality requirements
 
-   * Load all monthly files from `data/status_history/`.
-   * If `data/status_history.json` exists, partition its records by UTC month and move them into the monthly files.
-   * Append the new entry to its month file and update `index.json`.
-   * Use atomic file replacement so a failed write does not damage existing history.
-
-### 4.2 The Workflow (`.github/workflows/daily.yml`)
-
-**Triggers:**
-
-* **Schedule:** Cron `0 21 * * *` (Runs daily at 9 PM UTC).
-* **Manual:** `workflow_dispatch` (Allows manual trigger for testing).
-
-**Job Steps:**
-
-1. Checkout repository.
-2. Install Python 3.10.
-3. Install dependencies (`pip install -r requirements.txt`).
-4. Run `python src/agent.py`.
-   * **Env Var:** Inject `OPENROUTER_API_KEY` from repository secrets.
-5. Commit and Push changes:
-   * Config user as "AI Agent".
-   * Commit message: "Daily Update: [Date]".
-
-## 5. Functional Requirements (Frontend)
-
-### 5.1 The Dashboard (`index.html`)
-
-**Constraints:** Single HTML file. No build step. Use CDN for all libraries.
-
-**Libraries:**
-
-* **Tailwind CSS:** `<script src="https://cdn.tailwindcss.com"></script>`
-* **Chart.js:** `<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>`
-
-**UI Logic:**
-
-1. **Data Fetching:** On load, fetch `data/status_history/index.json`, then fetch each listed month file. If the index is not present, try the legacy `data/status_history.json` file.
-
-2. **Current Status Card:**
-   * Display the latest status on initial load, then update it when the user selects a graph point.
-   * **Dynamic Styling:**
-     * Red: `bg-red-500` (Text: "CRITICAL WARNING")
-     * Yellow: `bg-yellow-500` (Text: "CAUTION")
-     * Green: `bg-green-500` (Text: "STABLE")
-
-3. **Trend Graph:**
-   * Render a 30-point window of valid scores, with the latest points shown by default.
-   * Let the user select a graph point to show that record's date, status, opinion, and metrics in the main widgets.
-   * Provide **Older** and **Newer** controls to move through all points.
-   * Provide a **Show current data** button to return to the latest record.
-
-4. **Reasoning Section:**
-   * Display the `reasoning` text block from the selected entry.
-
-5. **Metrics Grid:**
-   * Display a small grid showing `NVDA P/E`, `Revenue Growth`, and `Market Sentiment` pulled from the selected entry.
-
-## 6. Implementation Prompt for AI Coding Agent
-
-*Copy and paste the text below into your AI coding tool (Cursor/Windsurf/Copilot) to generate the project.*
-
-> "Act as a Senior Python Developer and DevOps Engineer. I need to scaffold a serverless repository for 'The Canary', an AI Market Monitor.
->
-> 1. **Setup Structure**: Create folders `src/`, `data/`, and `.github/workflows/`. Create `data/status_history/` and `data/status_history/index.json` with an empty `months` array.
->
-> 2. **Dependencies**: Create `requirements.txt` with `yfinance`, `feedparser`, `trafilatura`, `fake-useragent`, `openai`, `pandas`.
->
-> 3. **The Agent (`src/agent.py`)**:
->    * Use `os.environ.get("OPENROUTER_API_KEY")` for authentication.
->    * Initialize `openai.OpenAI` client with `base_url="https://openrouter.ai/api/v1"`.
->    * **Market Data:** Fetch `trailingPE`, `revenueGrowth`, `pegRatio`, and `currentPrice` for NVDA/MSFT using `yfinance`.
->    * **News Data:** Fetch Google News RSS. Iterate top 5 items. TRY to scrape full content with `trafilatura` (using random user-agent). IF scraping fails/returns empty, fallback to RSS `summary`. Limit content to 3000 chars.
->    * **Analysis:** Send this to `google/gemini-2.0-flash-thinking-exp`. Use the 'Bubble Algorithm' system prompt defined in the PRD (Efficiency, Valuation, Adoption, Hardware checks) to output a JSON with `status`, `score`, and `reasoning`.
->    * Append this result to `data/status_history/YYYY-MM.json` and update `data/status_history/index.json`.
->
-> 4. **The Workflow (`.github/workflows/daily.yml`)**:
->    * Schedule it for 21:00 UTC daily.
->    * Include steps to install python, install requirements, run the script, and commit the changes back to the repo.
->
-> 5. **The Dashboard (`index.html`)**:
->    * Create a clean, dark-mode UI using Tailwind CSS via CDN.
->    * Fetch the JSON file. Display the Status Card, the Reasoning text, and a metrics grid (P/E, Growth).
->    * Use Chart.js to plot the history of the 'score'."
-
-## 7. Success Metrics
-
-* **Reliability:** The GitHub Action runs successfully 7/7 days a week.
-* **Cost Efficiency:** Monthly OpenRouter costs stay below $0.10.
-* **Latency:** The Dashboard loads and renders data in < 1 second.
-
-## 8. Non-Functional Requirements
-
-* **Security:** API Keys must **never** be hardcoded. They must only be accessed via `os.environ`.
-* **Error Handling:** If the LLM API fails or returns malformed JSON, the script must exit with an error code and **not** corrupt the monthly history files. Each file must contain a JSON array, and updates use same-directory atomic replacement. New entries use schema version 2 and methodology `canary-opinion-v2`; market completeness and article counts are independent data-quality metadata (articles within 48 hours are fresh).
+- Keep editorial scoring separate from Power Exponents measurements and interpretations.
+- Use strict JSON serialization that rejects non-finite numeric values, and atomic file replacement for persisted artifacts.
+- Preserve historical data. Do not rewrite existing records to make them conform to a newer schema.
+- Keep tests deterministic and offline. Do not make paid OpenRouter calls or live network requests from tests.
+- Verify dashboard DOM compatibility, including the single-inline-script and no-`innerHTML` constraints.
+- Verify changes do not modify `data/` artifacts.

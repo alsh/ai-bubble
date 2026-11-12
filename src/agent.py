@@ -13,7 +13,14 @@ import re
 import tempfile
 from email.utils import parsedate_to_datetime
 from numbers import Real
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, parse_qsl, urlencode, urlparse, urlunparse
+from typing import Any
+
+np: Any = None
+try:
+    import numpy as np
+except ImportError:  # Keep contract-only validation importable without optional collection deps.
+    pass
 
 try:
     import feedparser
@@ -35,23 +42,40 @@ try:
 except ImportError:
     class UserAgent:
         random = "Mozilla/5.0"
-from openai import OpenAI
+try:
+    from openai import OpenAI
+except ImportError:  # Keep offline validation and persistence tests runnable without the SDK.
+    class OpenAI:  # type: ignore[no-redef]
+        def __init__(self, *_args, **_kwargs):
+            raise RuntimeError("openai package is required for LLM requests")
 
-import power_exponents
+power_exponents: Any = None
+try:
+    import power_exponents as power_exponents
+except ImportError:  # Experimental diagnostics require NumPy and are optional to the agent.
+    pass
 
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 DATA_DIR = "data/status_history"
 LEGACY_DATA_FILE = "data/status_history.json"
-RSS_FEED_URL = "https://www.bing.com/news/search?q=AI+bubble&format=rss&mkt=en-us"
+RSS_FEED_URLS = (
+    "https://www.bing.com/news/search?q=%22AI+bubble%22+OR+%22AI+valuation%22&format=rss&mkt=en-us",
+    "https://www.bing.com/news/search?q=%22AI+capex%22+OR+%22AI+data+center%22+spending&format=rss&mkt=en-us",
+    "https://www.bing.com/news/search?q=enterprise+AI+adoption+revenue+ROI&format=rss&mkt=en-us",
+)
+RSS_FEED_URL = RSS_FEED_URLS[0]
 SCHEMA_VERSION = 2
-METHODOLOGY_VERSION = "canary-opinion-v2"
+METHODOLOGY_VERSION = "canary-opinion-v3"
 DEFAULT_MODEL = "~openai/gpt-latest"
 MODEL_OVERRIDE_ENV = "OPENROUTER_MODEL"
 MODEL_RETRY_ATTEMPTS = 3
 MAX_OUTPUT_TOKENS = 2_000
 ARTICLE_FRESHNESS_HOURS = 48
+MAX_NEWS_ITEMS = 6
+MAX_ARTICLE_CHARS = 2_500
 POWER_EXPONENTS_PATH = "data/power_exponents.json"
 CONFIDENCE_VALUES = {"LOW", "MEDIUM", "HIGH"}
+SENTIMENT_VALUES = {"BEARISH", "CAUTIOUS", "MIXED", "CONSTRUCTIVE", "EUPHORIC"}
 
 
 def _is_finite_number(value):
@@ -111,44 +135,98 @@ def _recover_non_standard_json_constant(value):
 
 
 def get_market_data():
-    """Fetch market snapshots. Missing individual tickers are retained as degradation."""
+    """Fetch one-month peer snapshots and normalize scale-free market metrics."""
     tickers = ["NVDA", "MSFT", "GOOGL"]
     data = {}
     print("Fetching stock data...")
     for ticker in tickers:
+        info = {}
         try:
             stock = yf.Ticker(ticker)
-            hist = stock.history(period="5d")
-            info = stock.info or {}
-            if hist.empty:
-                print(f"Warning: No history found for {ticker}")
-                continue
-            price = _as_finite_float(hist["Close"].iloc[-1])
-            if price is None:
-                print(f"Warning: Non-finite closing price for {ticker}")
-                continue
-            data[f"{ticker}_price"] = round(price, 2)
-            if ticker == "NVDA":
-                volatility = _as_finite_float(hist["Close"].std())
-                if volatility is not None:
-                    data["NVDA_volatility"] = round(volatility, 2)
-                data["NVDA_pe_ratio"] = _normalise_metric(info.get("trailingPE", "N/A"))
-                data["NVDA_forward_pe"] = _normalise_metric(info.get("forwardPE", "N/A"))
-                data["NVDA_revenue_growth"] = _normalise_metric(info.get("revenueGrowth", "N/A"))
-                peg = _normalise_metric(info.get("pegRatio", "N/A"))
-                if peg == "N/A":
-                    pe = _as_finite_float(info.get("trailingPE"))
-                    growth = _as_finite_float(info.get("earningsGrowth"))
-                    if pe is not None and growth not in (None, 0):
+            try:
+                info = stock.info or {}
+            except Exception as exc:
+                print(f"Warning: No fundamentals found for {ticker}: {exc}")
+            try:
+                hist = stock.history(period="1mo", interval="1d", auto_adjust=True)
+            except TypeError:
+                # Keep minimal test doubles and older clients usable.
+                hist = stock.history(period="1mo")
+
+            try:
+                if getattr(hist, "empty", False):
+                    raw_closes = []
+                else:
+                    close_series = hist["Close"]
+                    tolist = getattr(close_series, "tolist", None)
+                    to_numpy = getattr(close_series, "to_numpy", None)
+                    raw_closes: Any
+                    if callable(tolist):
+                        raw_closes = tolist()
+                    elif callable(to_numpy):
+                        raw_closes = list(to_numpy())
+                    elif hasattr(close_series, "iloc"):
+                        # Minimal Series stubs sometimes expose only `.iloc[-1]`.
+                        raw_closes = [close_series.iloc[-1]]
+                    else:
                         try:
-                            calculated_peg = pe / (growth * 100)
-                        except (OverflowError, ZeroDivisionError):
-                            calculated_peg = None
-                        if _is_finite_number(calculated_peg):
-                            peg = round(calculated_peg, 2)
-                data["NVDA_peg_ratio"] = peg
+                            raw_closes = list(close_series)
+                        except TypeError:
+                            raw_closes = [close_series]
+                closes = [value for raw in raw_closes
+                          if (value := _as_finite_float(raw)) is not None and value > 0]
+            except Exception as exc:
+                print(f"Warning: No usable history found for {ticker}: {exc}")
+                closes = []
+
+            if closes:
+                data[f"{ticker}_price"] = round(closes[-1], 2)
+            else:
+                print(f"Warning: No finite positive close found for {ticker}")
+
+            if len(closes) >= 6:
+                data[f"{ticker}_5d_return_pct"] = round((closes[-1] / closes[-6] - 1.0) * 100.0, 2)
+            else:
+                data[f"{ticker}_5d_return_pct"] = "N/A"
+            if len(closes) >= 21:
+                data[f"{ticker}_20d_return_pct"] = round((closes[-1] / closes[-21] - 1.0) * 100.0, 2)
+            else:
+                data[f"{ticker}_20d_return_pct"] = "N/A"
+
+            if len(closes) >= 21:
+                volatility_closes = closes[-21:]
+            elif len(closes) >= 6:
+                volatility_closes = closes
+            else:
+                volatility_closes = None
+            volatility = None
+            if volatility_closes is not None:
+                log_returns = np.diff(np.log(np.asarray(volatility_closes, dtype=float)))
+                if len(log_returns) >= 2:
+                    candidate = float(np.std(log_returns, ddof=1) * math.sqrt(252) * 100.0)
+                    if math.isfinite(candidate) and candidate >= 0:
+                        volatility = round(candidate, 2)
+            data[f"{ticker}_realized_vol_20d_pct"] = volatility if volatility is not None else "N/A"
+
         except Exception as exc:
             print(f"Error fetching {ticker}: {exc}")
+            data.setdefault(f"{ticker}_5d_return_pct", "N/A")
+            data.setdefault(f"{ticker}_20d_return_pct", "N/A")
+            data.setdefault(f"{ticker}_realized_vol_20d_pct", "N/A")
+
+        if not isinstance(info, dict):
+            info = {}
+        pe = _as_finite_float(info.get("trailingPE"))
+        growth = _as_finite_float(info.get("earningsGrowth"))
+        peg = _normalise_metric(info.get("pegRatio", "N/A"))
+        if peg == "N/A" and pe is not None and pe > 0 and growth is not None and growth > 0:
+            calculated_peg = pe / (growth * 100.0)
+            if _is_finite_number(calculated_peg):
+                peg = round(float(calculated_peg), 2)
+        data[f"{ticker}_pe_ratio"] = _normalise_metric(info.get("trailingPE", "N/A"))
+        data[f"{ticker}_forward_pe"] = _normalise_metric(info.get("forwardPE", "N/A"))
+        data[f"{ticker}_revenue_growth"] = _normalise_metric(info.get("revenueGrowth", "N/A"))
+        data[f"{ticker}_peg_ratio"] = peg
     return _clean_market_data(data)
 
 
@@ -167,49 +245,185 @@ def extract_article_content(url):
     return None
 
 
+def _entry_value(entry, key, default=None):
+    """Read one feedparser-like field from either a mapping or a simple stub."""
+    if isinstance(entry, dict):
+        return entry.get(key, default)
+    return getattr(entry, key, default)
+
+
+def _unwrap_article_url(url):
+    """Unwrap Bing redirects and return a canonical URL plus its hostname."""
+    candidate = str(url or "").strip()
+    for _ in range(3):
+        parsed = urlparse(candidate)
+        params = parse_qs(parsed.query)
+        redirected = next((value for key, values in params.items()
+                           if key.lower() == "url" for value in values if value.strip()), None)
+        if not redirected or redirected == candidate:
+            break
+        candidate = redirected.strip()
+    parsed = urlparse(candidate)
+    scheme = parsed.scheme.lower()
+    hostname = (parsed.hostname or "").lower().rstrip(".")
+    try:
+        port = parsed.port
+    except ValueError:
+        port = None
+    netloc = hostname
+    if port and not ((scheme == "https" and port == 443) or (scheme == "http" and port == 80)):
+        netloc = f"{hostname}:{port}"
+    tracking_keys = {
+        "cvid", "fbclid", "gclid", "mc_cid", "mc_eid", "ocid", "ref", "referrer",
+        "source", "utm_campaign", "utm_content", "utm_medium", "utm_source", "utm_term",
+    }
+    query = [(key, value) for key, value in parse_qsl(parsed.query, keep_blank_values=True)
+             if key.lower() not in tracking_keys and not key.lower().startswith("utm_")]
+    normalized = urlunparse((scheme, netloc, parsed.path or ("/" if netloc else ""),
+                             parsed.params, urlencode(sorted(query)), ""))
+    return normalized, hostname
+
+
+def _normalized_news_title(title):
+    """Normalize a headline for deduplication and return an optional publisher suffix."""
+    collapsed = " ".join(str(title or "").split())
+    comparable, separator, publisher = collapsed.rpartition(" - ")
+    if separator and publisher.strip():
+        comparable = comparable.strip()
+        publisher = publisher.strip()
+    else:
+        comparable, publisher = collapsed, ""
+    return comparable.lower(), publisher
+
+
+def _news_source(entry, hostname, title_publisher):
+    source = _entry_value(entry, "source", {}) or {}
+    if isinstance(source, list):
+        source = source[0] if source else {}
+    source_title = _entry_value(source, "title", "") if source else ""
+    if isinstance(source_title, str) and source_title.strip() and source_title.strip().lower() != "unknown source":
+        return source_title.strip()
+    bing_source = _entry_value(entry, "news_source", "")
+    if (isinstance(bing_source, str) and bing_source.strip()
+            and bing_source.strip().lower() != "unknown source"):
+        return bing_source.strip()
+    if title_publisher and title_publisher.lower() != "unknown source":
+        return title_publisher
+    return hostname.removeprefix("www.") if hostname else "Unknown Source"
+
+
+def _news_candidate(entry, query_topic, feed_index):
+    raw_title = _entry_value(entry, "title", "")
+    title = str(raw_title or "")
+    normalized_title, title_publisher = _normalized_news_title(title)
+    raw_link = _entry_value(entry, "link", "")
+    link, hostname = _unwrap_article_url(raw_link)
+    raw_description = (_entry_value(entry, "description", "")
+                       or _entry_value(entry, "summary", ""))
+    description = html.unescape(str(raw_description or ""))
+    summary = re.sub(r"<[^<]+?>", "", description).strip()
+    published = _entry_value(entry, "published", "") or _entry_value(entry, "updated", "")
+    parsed_published = _parse_published(published)
+    now = datetime.datetime.now(datetime.timezone.utc)
+    fresh = (parsed_published is not None and datetime.timedelta(0) <= now - parsed_published
+             <= datetime.timedelta(hours=ARTICLE_FRESHNESS_HOURS))
+    timestamp = parsed_published.timestamp() if fresh and parsed_published is not None else 0.0
+    return {
+        "title": title,
+        "normalized_title": normalized_title,
+        "url": link,
+        "url_domain": hostname.removeprefix("www."),
+        "summary": summary,
+        "source": _news_source(entry, hostname, title_publisher),
+        "published": published if isinstance(published, str) else "",
+        "query_topic": query_topic,
+        "feed_index": feed_index,
+        "fresh": fresh,
+        "timestamp": timestamp,
+    }
+
+
 def get_news_headlines():
-    """Fetch up to five RSS items and use article text with an RSS fallback."""
-    print(f"Fetching news headlines from {RSS_FEED_URL}...")
+    """Collect balanced, deduplicated RSS evidence and scrape only selected articles."""
+    if feedparser is None:
+        print("Error fetching news: feedparser is required for news collection")
+        return []
     try:
         import requests
-        response = requests.get(RSS_FEED_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-        response.raise_for_status()
-        if feedparser is None:
-            raise RuntimeError("feedparser is required for news collection")
-        feed = feedparser.parse(response.content)
-        items = []
-        for entry in feed.entries[:5]:
-            raw_title = entry.get("title", None)
-            if not isinstance(raw_title, str):
-                raw_title = getattr(entry, "title", "")
-            title = str(raw_title)
-            raw_description = entry.get("description", "")
-            description = html.unescape(str(raw_description))
-            summary = re.sub(r"<[^<]+?>", "", description)
-            source = entry.get("source", {}) or {}
-            if isinstance(source, list):
-                source = source[0] if source else {}
-            raw_link = entry.get("link", None)
-            if not isinstance(raw_link, str):
-                raw_link = getattr(entry, "link", "")
-            link = str(raw_link)
-            try:
-                params = parse_qs(urlparse(link).query)
-                link = params.get("url", [link])[0]
-            except Exception:
-                pass
-            content = extract_article_content(link) or summary
-            items.append({
-                "title": title,
-                "summary": summary,
-                "source": source.get("title", "Unknown Source") if isinstance(source, dict) else "Unknown Source",
-                "published": entry.get("published", entry.get("updated", "")),
-                "content": content[:3000],
-            })
-        return items
-    except Exception as exc:
-        print(f"Error fetching news: {exc}")
+    except ImportError:
+        print("Error fetching news: requests is required for news collection")
         return []
+
+    topics = ("valuation_bubble", "capex_infrastructure", "enterprise_adoption_roi")
+    query_candidates = []
+    for query_topic, feed_url in zip(topics, RSS_FEED_URLS):
+        print(f"Fetching news headlines for {query_topic}...")
+        try:
+            response = requests.get(feed_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+            response.raise_for_status()
+            feed = feedparser.parse(response.content)
+        except Exception as exc:
+            print(f"Error fetching news for {query_topic}: {exc}")
+            continue
+
+        candidates = [_news_candidate(entry, query_topic, index)
+                      for index, entry in enumerate(getattr(feed, "entries", []))]
+        query_candidates.append((query_topic, candidates))
+
+    selected = []
+    seen_urls = set()
+    seen_titles = set()
+    for _query_topic, candidates in query_candidates:
+        fresh_candidates = sorted(
+            (candidate for candidate in candidates if candidate["fresh"]),
+            key=lambda item: (-item["timestamp"], item["feed_index"]))
+        topic_count = 0
+        for candidate in fresh_candidates:
+            url_key = candidate["url"]
+            title_key = candidate["normalized_title"]
+            if ((url_key and url_key in seen_urls) or (title_key and title_key in seen_titles)):
+                continue
+            if len(selected) >= MAX_NEWS_ITEMS:
+                break
+            if url_key:
+                seen_urls.add(url_key)
+            if title_key:
+                seen_titles.add(title_key)
+            selected.append(candidate)
+            topic_count += 1
+            if topic_count >= 2:
+                break
+
+    if not selected:
+        for _query_topic, candidates in query_candidates:
+            for candidate in candidates:
+                url_key = candidate["url"]
+                title_key = candidate["normalized_title"]
+                if ((url_key and url_key in seen_urls) or (title_key and title_key in seen_titles)):
+                    continue
+                if len(selected) >= MAX_NEWS_ITEMS:
+                    break
+                if url_key:
+                    seen_urls.add(url_key)
+                if title_key:
+                    seen_titles.add(title_key)
+                selected.append(candidate)
+                break
+
+    items = []
+    for candidate in selected[:MAX_NEWS_ITEMS]:
+        content = (extract_article_content(candidate["url"]) if candidate["url"] else None)
+        content = content or candidate["summary"]
+        items.append({
+            "title": candidate["title"],
+            "summary": candidate["summary"],
+            "source": candidate["source"],
+            "published": candidate["published"],
+            "content": content[:MAX_ARTICLE_CHARS],
+            "query_topic": candidate["query_topic"],
+            "url_domain": candidate["url_domain"],
+        })
+    return items
 
 
 def requested_model():
@@ -230,19 +444,26 @@ def _nonempty_string(value, field):
     return value.strip()
 
 
-def validate_opinion(payload):
-    """Validate only model-authored v2 fields and return a normalized copy."""
+def validate_opinion(payload, *, require_sentiment=False):
+    """Validate model-authored fields and return a normalized opinion."""
     if not isinstance(payload, dict):
         raise ValueError("model response must be an object")
     required = ("score", "confidence", "thesis", "reasoning", "risk_factors",
                 "stabilizing_factors", "change_explanation")
     missing = [name for name in required if name not in payload]
+    if require_sentiment and "market_sentiment" not in payload:
+        missing.append("market_sentiment")
     if missing:
         raise ValueError("missing required fields: " + ", ".join(missing))
     score_status(payload["score"])
     if payload["confidence"] not in CONFIDENCE_VALUES:
         raise ValueError("confidence must be LOW, MEDIUM, or HIGH")
     result = {"score": payload["score"], "confidence": payload["confidence"]}
+    if "market_sentiment" in payload:
+        sentiment = payload["market_sentiment"]
+        if not isinstance(sentiment, str) or sentiment not in SENTIMENT_VALUES:
+            raise ValueError("market_sentiment must be BEARISH, CAUTIOUS, MIXED, CONSTRUCTIVE, or EUPHORIC")
+        result["market_sentiment"] = sentiment
     for field in ("thesis", "reasoning", "change_explanation"):
         result[field] = _nonempty_string(payload[field], field)
     for field in ("risk_factors", "stabilizing_factors"):
@@ -274,25 +495,118 @@ def prior_context(history):
     }
 
 
+EDITORIAL_SYSTEM_INSTRUCTIONS = """You are The Canary, an independent editorial financial analyst.
+
+CORE QUESTION AND SCOPE
+Assess the structural fragility of the AI investment boom to a meaningful equity
+correction (a sector drawdown of at least 20%) or material AI-infrastructure
+capital-expenditure deceleration over the next 6–12 months. The integer score is
+an editorial fragility index from 0 to 100, not a calibrated probability, forecast,
+or investment advice.
+
+CALIBRATED FRAGILITY SCORE BANDS
+- 0–30 GREEN — Low fragility / Sustainable expansion: valuation multiples are
+  supported by realized cash flows and broad end-user ROI; financing is mostly
+  internal cash flow; capex and adoption grow together without circular vendor
+  financing or acute concentration stress.
+- 31–50 YELLOW — Moderate fragility / Watchful growth: real adoption and strong
+  supplier earnings coexist with elevated expectations, capex ahead of verified
+  downstream monetization, or concentration that magnifies macro/guidance shocks.
+- 51–69 YELLOW — Elevated fragility / Selective repricing risk: major infrastructure
+  commitments conflict with unverified buyer ROI, external/vendor financing is
+  increasing, or localized selloffs/multiple compression appear, while core
+  hyperscaler demand and earnings still restrain an imminent systemic bust.
+- 70–85 RED — High fragility / Correction-prone: stretched valuations or aggressive
+  forward assumptions combine with circular/debt-heavy financing, buyer ROI
+  disappointments, inventory/lead-time softening, or credit/equity contagion.
+- 86–100 RED — Extreme fragility / Acute bust conditions: active capex cancellations,
+  funding freezes, demand air-pockets, or broad earnings/guidance breakdowns occur
+  alongside crowded leverage.
+
+CALIBRATED ANALYTICAL CONFIDENCE
+Confidence measures how strongly the supplied evidence supports the analysis; it is
+not a data-completeness rating (the application reports data_quality separately).
+- HIGH: NVDA/MSFT/GOOGL fundamentals and multiple independent, recent news sources
+  directly corroborate evidence across most lenses: valuation, capex financing,
+  downstream adoption, and hardware demand.
+- MEDIUM: peer fundamentals and recent news support a directional synthesis, though
+  some lenses (such as private-startup financing or enterprise ROI) rely on indirect
+  indicators.
+- LOW: fundamentals are mostly N/A, news is missing/stale/redundant or non-factual,
+  or primary signals sharply contradict each other on material facts. Do not default
+  to LOW merely because daily public snapshots lack proprietary enterprise surveys;
+  judge confidence relative to public daily market/news monitoring.
+
+MARKET SENTIMENT (DISTINCT FROM FRAGILITY)
+Choose the prevailing tone of observed price action and news framing: BEARISH means
+broadly negative/downbeat; CAUTIOUS means risk-focused or defensive; MIXED means
+materially conflicting positive and negative signals; CONSTRUCTIVE means broadly
+supportive, improving tone; EUPHORIC means exuberant or unusually optimistic tone.
+Sentiment describes the market's tone, not The Canary's fragility assessment: for
+example, EUPHORIC sentiment can coexist with a high fragility score.
+
+MARKET DATA FIELD AND UNIT DICTIONARY
+For each of NVDA, MSFT, and GOOGL:
+- *_price: latest adjusted daily close in USD.
+- *_5d_return_pct and *_20d_return_pct: trailing 5-session and 20-session returns
+  in percent (for example, -4.25 means -4.25%). N/A means unavailable.
+- *_realized_vol_20d_pct: annualized standard deviation of daily log returns in
+  percent, std * sqrt(252) * 100, using up to 20 sessions when available.
+- *_pe_ratio and *_forward_pe: trailing and forward price/earnings multiples from
+  the Yahoo Finance snapshot; N/A means unavailable.
+- *_revenue_growth: decimal year-over-year quarterly revenue growth (0.852 means
+  +85.2%).
+- *_peg_ratio: provider PEG, or trailing P/E divided by year-over-year earnings
+  growth in percentage points when both are positive.
+
+NEWS PROVENANCE
+News is selected from three balanced Bing RSS searches: AI valuation/bubble,
+AI capex/data-center spending, and enterprise AI adoption/revenue/ROI. Each item
+includes query_topic and url_domain for provenance; extracted article content is
+truncated to 2,500 characters. Different outlets can syndicate the same story, so
+headline/source counts may overlap and should not automatically be treated as
+independent corroboration.
+
+ANTI-ANCHORING AND INTERNAL CONSISTENCY
+First derive today's score and thesis independently from today's market_data and
+news_items using the score rubric. Only afterward use prior_context (prior_score,
+prior_thesis, recent_scores) to explain why today's independent assessment moved or
+stayed near the prior score in change_explanation. Reconcile score band, thesis,
+risk_factors, and stabilizing_factors: do not pair RED (70+) with a mild thesis or
+GREEN/YELLOW (0–69) with a claim of an imminent systemic bust. Consider valuation,
+investment efficiency/financing, adoption, hardware demand, concentration, price
+action, and both risk and stabilizing evidence; do not use fixed additive weights.
+
+OUTPUT CONTRACT
+Return exactly one JSON object and no surrounding prose, with exactly these
+model-authored fields: score (integer 0–100), confidence (LOW/MEDIUM/HIGH),
+market_sentiment (BEARISH/CAUTIOUS/MIXED/CONSTRUCTIVE/EUPHORIC), thesis (non-empty
+string), reasoning (non-empty string), risk_factors (non-empty array of strings),
+stabilizing_factors (non-empty array of strings), and change_explanation (non-empty
+string). Do not emit status or application metadata.
+"""
+
+
 def _prompt(market_data, news_items, context):
     context_text = json.dumps(context, ensure_ascii=False, allow_nan=False)
-    return f"""You are The Canary, an independent editorial financial analyst.
+    return f"""Analyze the evidence below for The Canary's 6–12 month AI-boom fragility assessment.
 
-Question: how fragile is the AI investment boom to a meaningful correction within the next 6–12 months?
-Use these analytical lenses, without fixed additive weights: valuation; investment efficiency and
-financing; adoption; hardware demand; concentration; price behavior; and stabilizing evidence.
-Weigh balanced evidence holistically. Reconcile the integer score with the thesis. Reassess
-independently rather than anchoring on the prior opinion. Explain material movement from it.
-This is an editorial opinion, not a probability or investment recommendation.
+Use valuation, investment efficiency and financing, adoption/ROI, hardware demand,
+concentration, price behavior, and stabilizing evidence. Form today's score and thesis
+from today's evidence first; consult prior_context only afterward for change_explanation.
+Keep the score band consistent with the thesis, risks, and stabilizing factors.
 
-Prior compact context (scores are context only): {context_text}
-Market evidence: {json.dumps(market_data, ensure_ascii=False, allow_nan=False)}
-News evidence: {json.dumps(news_items, ensure_ascii=False, allow_nan=False)}
+Today's market_data: {json.dumps(market_data, ensure_ascii=False, allow_nan=False)}
+Today's news_items (query_topic/url_domain indicate provenance; syndication may overlap):
+{json.dumps(news_items, ensure_ascii=False, allow_nan=False)}
+Prior context (for change explanation only): {context_text}
 
-Return JSON only with exactly these model-authored fields:
+Return JSON only, with exactly this model-authored schema:
 {{"score": integer 0-100, "confidence": "LOW"|"MEDIUM"|"HIGH",
-"thesis": non-empty concise string, "reasoning": non-empty string,
-"risk_factors": non-empty array of strings, "stabilizing_factors": non-empty array of strings,
+"market_sentiment": "BEARISH"|"CAUTIOUS"|"MIXED"|"CONSTRUCTIVE"|"EUPHORIC",
+"thesis": non-empty string, "reasoning": non-empty string,
+"risk_factors": non-empty array of strings,
+"stabilizing_factors": non-empty array of strings,
 "change_explanation": non-empty string}}"""
 
 
@@ -302,7 +616,7 @@ def analyze_market_status(market_data, news_items, history=None):
         raise ValueError("OPENROUTER_API_KEY environment variable is not set.")
     history = [] if history is None else history
     model = requested_model()
-    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY)
+    client: Any = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY, timeout=60.0)
     prompt = _prompt(market_data, news_items, prior_context(history))
     last_error = None
     for attempt in range(MODEL_RETRY_ATTEMPTS):
@@ -310,15 +624,22 @@ def analyze_market_status(market_data, news_items, history=None):
             print(f"Querying LLM ({model}), attempt {attempt + 1}/{MODEL_RETRY_ATTEMPTS}...")
             completion = client.chat.completions.create(
                 model=model,
-                messages=[{"role": "system", "content": "You are a careful financial analyst."}, {"role": "user", "content": prompt}],
+                messages=[{"role": "system", "content": EDITORIAL_SYSTEM_INSTRUCTIONS},
+                          {"role": "user", "content": prompt}],
                 response_format={"type": "json_object"},
                 max_tokens=MAX_OUTPUT_TOKENS,
             )
             resolved = getattr(completion, "model", None)
             if not isinstance(resolved, str) or not resolved.strip():
                 raise ValueError("completion.model is missing; resolved model identity is required")
-            content = completion.choices[0].message.content
-            opinion = validate_opinion(json.loads(content))
+            choice = completion.choices[0]
+            if getattr(choice, "finish_reason", None) != "stop":
+                finish_reason = getattr(choice, "finish_reason", None)
+                raise ValueError(f"opinion response did not finish normally: {finish_reason!r}")
+            content = choice.message.content
+            opinion = validate_opinion(
+                json.loads(content, parse_constant=_reject_non_standard_json_constant),
+                require_sentiment=True)
             opinion["_requested_model"] = model
             opinion["_resolved_model"] = resolved.strip()
             return opinion
@@ -379,7 +700,8 @@ def build_version2_entry(opinion, market_data, news_items, history, now=None):
     context = prior_context(history)
     previous = context["prior_score"]
     metrics = dict(market_data)
-    metrics["market_sentiment"] = opinion.get("market_sentiment", metrics.get("market_sentiment", "Unavailable"))
+    metrics["market_sentiment"] = (validated.get("market_sentiment") or
+                                    opinion.get("market_sentiment", metrics.get("market_sentiment", "Unavailable")))
     first_article = next((item for item in news_items if isinstance(item, dict)), None)
     if first_article is not None:
         headline = first_article.get("title")
@@ -562,34 +884,59 @@ def update_history(entry, path=DATA_DIR):
     print(f"Updated {month_path} with new entry.")
 
 
-POWER_INTERPRETATION_VERSION = "power-exponents-interpretation-v1"
+POWER_INTERPRETATION_VERSION = "power-exponents-interpretation-v2"
 POWER_INTERPRETATION_MAX_WORDS = 180
+POWER_INTERPRETATION_MAX_CHARS = 2_400
+_POWER_INTERPRETATION_SIGNAL_FIELDS = (
+    "date", "h", "h_r_squared", "h_status", "h_short", "h_long", "h_abs",
+    "h_abs_r_squared", "h_delta_1", "h_delta_5", "h_baseline_z", "alpha",
+    "alpha_se", "alpha_status", "alpha_k", "alpha_x_min",
+)
 POWER_INTERPRETATION_INSTRUCTIONS = """Explain experimental market diagnostics to a general reader.
 Use only the supplied computed data for this one instrument. Do not use news,
 external knowledge of recent events, other instruments, or an editorial score.
 Write 90–150 words in clear, short sentences, in at most three short paragraphs.
-Return JSON with one field: {"explanation": "plain text"}. No Markdown or HTML.
+Return plain JSON with one field: {"explanation": "plain text"}. No Markdown or HTML.
 Explain the latest DFA H relative to the ideal independent finite-variance
 returns reference H=0.5, and R² as fit quality over the supplied scales only.
+When h_r_squared < 0.85, or h_short (scales 8–20) and h_long (scales 25–63)
+diverge materially, say the single straight-line exponent fits poorly across
+scales 8–63; this may reflect crossover or a transient volatility shift, not one
+clean scaling law. Describe h_abs (DFA-1 of |r_t|) as a volatility-clustering
+contrast: signed returns may sit near 0.5 while return magnitudes show stronger
+persistence; this is descriptive, not tradable predictability.
 Describe the 1/5-observation H changes and prior-only standardized deviation
 when available; overlapping windows make this deviation NOT a significance test.
 Explain Hill alpha: lower estimates suggest heavier fitted absolute-return tails,
 higher estimates suggest thinner fitted tails, conditional on a suitable tail model.
 Use the actual separate DFA/Hill window lengths, tail count k, x_min (absolute
 log-return units; multiply by 100 only when describing percent log returns),
-and cutoff sensitivity when useful. Sensitivity is NOT a confidence interval.
+alpha_se (alpha / sqrt(k), an idealized i.i.d. reference standard error), and
+5%/15% cutoff sensitivity when useful. alpha_se understates uncertainty under
+dependent returns, and cutoff sensitivity is NOT a confidence interval. An
+unchanged alpha on consecutive days is normal if new returns do not enter the
+top k extremes of the 1,000-return (~4-year) window; these order-statistic plateaus
+are not evidence that the market is static.
 Briefly describe the supplied recent H/alpha trajectory using dates and values.
 Distinguish null/unavailable estimates from zero; do not invent missing results.
 Do not call rounded H=0.500 an exact or proven memoryless random walk.
 Do not claim persistence, mean reversion, clean Brownian scaling, finite/infinite
 market variance, structural breaks, trader herding, or market safety is established.
-No crash predictions, probabilities, danger/herding thresholds, phase-transition
+No crash forecasts, probabilities, danger/herding thresholds, phase-transition
 warnings, trading advice, or claims that high R² confirms a regime.
 Do not infer specific daily moves or causes of Hill steps from exponent history:
 rolling-window entry/exit and threshold changes can both affect the estimate.
-End with a brief reminder that these are uncertain descriptive estimates, not a
-crash forecast. Do not give an all-clear or claim extreme events are absent.
+Keep the explanation at or below 180 words and 2,400 characters. End with a brief
+reminder that these are uncertain descriptive estimates, not a crash forecast.
+Do not give an all-clear or claim extreme events are absent.
 """
+
+
+def _compact_recent_point(point):
+    """Project historical diagnostics to their signal fields, excluding repeated detail."""
+    if not isinstance(point, dict):
+        return point
+    return {key: point[key] for key in _POWER_INTERPRETATION_SIGNAL_FIELDS if key in point}
 
 
 def explain_power_exponents(artifact, symbol, instrument):
@@ -603,12 +950,12 @@ def explain_power_exponents(artifact, symbol, instrument):
         "settings": artifact.get("settings", {}),
         "history_type": instrument.get("history_type"),
         "gap_warning": instrument.get("gap_warning"),
-        "latest": points[-1], "recent_points": points,
+        "latest": points[-1], "recent_points": [_compact_recent_point(point) for point in points],
     }
     model = requested_model()
     # No retry loop: at most one extra request per eligible instrument per run.
-    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY,
-                    timeout=60.0, max_retries=0)
+    client: Any = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY,
+                         timeout=60.0, max_retries=0)
     completion = client.chat.completions.create(
         model=model,
         messages=[{"role": "system", "content": POWER_INTERPRETATION_INSTRUCTIONS},
@@ -623,7 +970,7 @@ def explain_power_exponents(artifact, symbol, instrument):
     if not isinstance(payload, dict):
         raise ValueError("interpretation response must be an object")
     explanation = _nonempty_string(payload.get("explanation"), "explanation")
-    if len(explanation) > 2400 or len(explanation.split()) > POWER_INTERPRETATION_MAX_WORDS:
+    if len(explanation) > POWER_INTERPRETATION_MAX_CHARS or len(explanation.split()) > POWER_INTERPRETATION_MAX_WORDS:
         raise ValueError("interpretation response is too long")
     resolved = _nonempty_string(getattr(completion, "model", None), "resolved model")
     return {
