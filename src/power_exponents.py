@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 
 import numpy as np
 
-METHOD_VERSION = "power-exponents-dfa1-hill-v1"
+METHOD_VERSION = "power-exponents-dfa1-hill-v2"
 ARTIFACT_VERSION = 1
 SOURCE_NAME = "Yahoo Finance via yfinance (unofficial provider client)"
 ADJUSTMENT_POLICY = "yfinance history(auto_adjust=True, interval='1d', prepost=False, repair=False)"
@@ -111,7 +111,8 @@ def compute_dfa_scaling_law(
         raise ValueError("DFA minimum segment/scale counts are invalid")
     if values.size < 1:
         return {"h": None, "r_squared": None, "status": "insufficient_returns",
-                "scales": [], "segment_counts": {}}
+                "scales": [], "segment_counts": {}, "h_short": None,
+                "h_long": None}
     if scales is None:
         config_scales = MonitorConfig().scales
     else:
@@ -147,9 +148,24 @@ def compute_dfa_scaling_law(
         fluctuations.append(fluctuation)
         segment_counts[str(tau)] = count
 
+    scale_values = np.asarray(usable_scales, dtype=np.float64)
+    fluctuation_values = np.asarray(fluctuations, dtype=np.float64)
+
+    def subscale_slope(mask) -> float | None:
+        sub_scales = scale_values[mask]
+        sub_flucts = fluctuation_values[mask]
+        if sub_scales.size < 3:
+            return None
+        slope = float(np.polyfit(np.log(sub_scales), np.log(sub_flucts), 1)[0])
+        return slope if math.isfinite(slope) else None
+
+    h_short = subscale_slope(scale_values <= 20)
+    h_long = subscale_slope(scale_values > 20)
+
     if len(usable_scales) < min_valid_scales:
         return {"h": None, "r_squared": None, "status": "insufficient_valid_scales",
-                "scales": usable_scales, "segment_counts": segment_counts}
+                "scales": usable_scales, "segment_counts": segment_counts,
+                "h_short": h_short, "h_long": h_long}
 
     log_scales = np.log(np.asarray(usable_scales, dtype=np.float64))
     log_fluctuations = np.log(np.asarray(fluctuations, dtype=np.float64))
@@ -159,7 +175,8 @@ def compute_dfa_scaling_law(
                               log_fluctuations - log_fluctuations.mean()))
     if total_x_ss <= 0 or total_y_ss <= 0:
         return {"h": None, "r_squared": None, "status": "degenerate_fit",
-                "scales": usable_scales, "segment_counts": segment_counts}
+                "scales": usable_scales, "segment_counts": segment_counts,
+                "h_short": h_short, "h_long": h_long}
     h = float(np.dot(centered_x, log_fluctuations - log_fluctuations.mean()) / total_x_ss)
     intercept = float(log_fluctuations.mean() - h * log_scales.mean())
     fitted = intercept + h * log_scales
@@ -167,9 +184,11 @@ def compute_dfa_scaling_law(
     r_squared = float(1.0 - residual_ss / total_y_ss)
     if not math.isfinite(h) or not math.isfinite(r_squared):
         return {"h": None, "r_squared": None, "status": "non_finite_fit",
-                "scales": usable_scales, "segment_counts": segment_counts}
+                "scales": usable_scales, "segment_counts": segment_counts,
+                "h_short": h_short, "h_long": h_long}
     return {"h": h, "r_squared": r_squared, "status": "available",
-            "scales": usable_scales, "segment_counts": segment_counts}
+            "scales": usable_scales, "segment_counts": segment_counts,
+            "h_short": h_short, "h_long": h_long}
 
 
 def hill_tail_estimate(
@@ -193,24 +212,27 @@ def hill_tail_estimate(
     positive_count = int(positive.size)
     proposed_k = max(min_tail_observations, int(positive_count * tail_fraction))
     if positive_count <= min_tail_observations or proposed_k >= positive_count:
-        return {"alpha": None, "k": None, "x_min": None,
+        return {"alpha": None, "alpha_se": None, "k": None, "x_min": None,
                 "positive_count": positive_count, "status": "insufficient_tail_observations"}
     k = proposed_k
     threshold = float(positive[-k - 1])
     exceedances = positive[-k:]
     if threshold <= 0 or not math.isfinite(threshold):
-        return {"alpha": None, "k": k, "x_min": threshold,
+        return {"alpha": None, "alpha_se": None, "k": k, "x_min": threshold,
                 "positive_count": positive_count, "status": "invalid_threshold"}
     log_excess = np.log(exceedances / threshold)
     denominator = float(np.sum(log_excess))
     if not math.isfinite(denominator) or denominator <= 0:
-        return {"alpha": None, "k": k, "x_min": threshold,
+        return {"alpha": None, "alpha_se": None, "k": k, "x_min": threshold,
                 "positive_count": positive_count, "status": "degenerate_tail"}
     alpha = float(k / denominator)
     if not math.isfinite(alpha):
-        return {"alpha": None, "k": k, "x_min": threshold,
+        return {"alpha": None, "alpha_se": None, "k": k, "x_min": threshold,
                 "positive_count": positive_count, "status": "non_finite_estimate"}
-    return {"alpha": alpha, "k": k, "x_min": threshold,
+    alpha_se = float(alpha / math.sqrt(k))
+    if not math.isfinite(alpha_se):
+        alpha_se = None
+    return {"alpha": alpha, "alpha_se": alpha_se, "k": k, "x_min": threshold,
             "positive_count": positive_count, "status": "available"}
 
 
@@ -241,11 +263,12 @@ def _return_point(return_values: np.ndarray, dates: list[str], end: int,
                   config: MonitorConfig) -> dict:
     point = {"date": dates[end], "h": None, "h_r_squared": None,
              "h_status": "insufficient_returns", "h_scales": [],
-             "h_segment_counts": {}, "alpha": None,
-             "alpha_status": "insufficient_returns", "alpha_k": None,
-             "alpha_x_min": None, "alpha_positive_count": 0,
-             "alpha_sensitivity": {}, "h_delta_1": None,
-             "h_delta_5": None, "h_baseline_z": None,
+             "h_segment_counts": {}, "h_short": None, "h_long": None,
+             "h_abs": None, "h_abs_r_squared": None, "alpha": None,
+             "alpha_se": None, "alpha_status": "insufficient_returns",
+             "alpha_k": None, "alpha_x_min": None,
+             "alpha_positive_count": 0, "alpha_sensitivity": {},
+             "h_delta_1": None, "h_delta_5": None, "h_baseline_z": None,
              "h_baseline_n": 0, "return_count": end + 1}
 
     count = end + 1
@@ -257,12 +280,21 @@ def _return_point(return_values: np.ndarray, dates: list[str], end: int,
         )
         point.update({"h": dfa["h"], "h_r_squared": dfa["r_squared"],
                       "h_status": dfa["status"], "h_scales": dfa["scales"],
-                      "h_segment_counts": dfa["segment_counts"]})
+                      "h_segment_counts": dfa["segment_counts"],
+                      "h_short": dfa["h_short"], "h_long": dfa["h_long"]})
+        dfa_abs = compute_dfa_scaling_law(
+            np.abs(return_values[count - config.dfa_window:count]), config.scales,
+            min_segments=config.min_segments,
+            min_valid_scales=config.min_valid_scales,
+        )
+        point.update({"h_abs": dfa_abs["h"],
+                      "h_abs_r_squared": dfa_abs["r_squared"]})
     if count >= config.hill_window:
         tail_window = return_values[count - config.hill_window:count]
         main = hill_tail_estimate(tail_window, config.tail_fraction,
                                   min_tail_observations=config.min_tail_observations)
-        point.update({"alpha": main["alpha"], "alpha_status": main["status"],
+        point.update({"alpha": main["alpha"], "alpha_se": main["alpha_se"],
+                      "alpha_status": main["status"],
                       "alpha_k": main["k"], "alpha_x_min": main["x_min"],
                       "alpha_positive_count": main["positive_count"]})
         fractions = (0.05, *config.sensitivity_fractions, 0.15)
@@ -452,7 +484,7 @@ def _price_data_from_frame(frame) -> tuple[list[str], list[float]]:
 
 def fetch_adjusted_daily_prices(symbol: str, *, now: dt.datetime | None = None,
                                 ticker_factory=None) -> tuple[list[str], list[float]]:
-    """Fetch one symbol. This function is never called unless collection is opted in."""
+    """Fetch one symbol for the default-enabled daily diagnostics workflow."""
     if symbol not in INSTRUMENTS:
         raise ValueError(f"unsupported diagnostic instrument: {symbol}")
     if ticker_factory is None:
@@ -525,7 +557,7 @@ def publish_power_exponents(path: str = "data/power_exponents.json", *,
                             ticker_factory=None,
                             config: MonitorConfig = MonitorConfig(),
                             enrich_artifact=None) -> dict:
-    """Collect (opt-in only at caller), retain truthful stale history, and publish."""
+    """Collect default-enabled diagnostics, isolate instrument failures, and publish stale history."""
     previous = load_previous_artifact(path)
     histories, failures = collect_price_histories(now=now, ticker_factory=ticker_factory)
     try:

@@ -11,13 +11,71 @@ import unittest
 from unittest.mock import patch
 
 import numpy as np
-import pandas as pd
+try:
+    import pandas as pd
+except ImportError:
+    pd = None
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 import power_exponents as power
 
 
 class TestDFA(unittest.TestCase):
+    def test_method_and_artifact_versions(self):
+        self.assertEqual(power.METHOD_VERSION, "power-exponents-dfa1-hill-v2")
+        self.assertEqual(power.ARTIFACT_VERSION, 1)
+
+    def test_piecewise_crossover_recovers_scale_ranges(self):
+        n = 16_384
+        rng = np.random.default_rng(7)
+        frequencies = np.fft.rfftfreq(n)
+        crossover = 1 / 96
+        spectrum_power = np.where(frequencies < crossover,
+                                  np.maximum(frequencies, 1 / n) ** -0.4,
+                                  np.maximum(frequencies, 1 / n) ** 0.7)
+        spectrum = (rng.normal(size=len(frequencies)) +
+                    1j * rng.normal(size=len(frequencies))) * np.sqrt(spectrum_power / 2)
+        spectrum[0] = 0
+        spectrum[-1] = spectrum[-1].real
+        returns = np.fft.irfft(spectrum, n=n)
+        result = power.compute_dfa_scaling_law(
+            returns, [8, 10, 12, 14, 17, 20, 25, 30, 36, 43, 52, 63], min_valid_scales=6)
+        self.assertEqual(result["status"], "available")
+        self.assertLess(result["h_short"], result["h_long"])
+        self.assertGreater(result["h_long"] - result["h_short"], 0.5)
+
+    def test_subrange_with_fewer_than_three_usable_scales_is_none(self):
+        rng = np.random.default_rng(17)
+        result = power.compute_dfa_scaling_law(
+            rng.normal(size=1_000), [8, 10, 12, 25, 30], min_segments=2,
+            min_valid_scales=4)
+        self.assertIsNone(result["h_long"])
+
+    def test_absolute_returns_reveal_volatility_clustering(self):
+        rng = np.random.default_rng(123)
+        innovations = rng.normal(size=8_192)
+        variance = np.empty_like(innovations)
+        returns = np.empty_like(innovations)
+        variance[0] = 1.0
+        for index in range(1, len(returns)):
+            variance[index] = 0.15 * innovations[index - 1] ** 2 + 0.8 * variance[index - 1]
+        returns[:] = np.sqrt(variance) * innovations
+        scales = [8, 10, 12, 14, 17, 20, 25, 30, 36, 43, 52, 63]
+        signed = power.compute_dfa_scaling_law(returns, scales, min_valid_scales=6)
+        absolute = power.compute_dfa_scaling_law(np.abs(returns), scales, min_valid_scales=6)
+        self.assertAlmostEqual(signed["h"], 0.5, delta=0.12)
+        self.assertGreater(absolute["h"], signed["h"] + 0.1)
+
+    def test_alpha_standard_error_and_degenerate_states(self):
+        estimate = power.hill_tail_estimate(np.arange(1.0, 101.0), 0.1)
+        self.assertIsNotNone(estimate["alpha"])
+        self.assertAlmostEqual(estimate["alpha_se"], estimate["alpha"] / math.sqrt(estimate["k"]))
+        for returns, fraction, kwargs in (
+                (np.arange(3.0), 0.5, {"min_tail_observations": 2}),
+                (np.ones(100), 0.1, {})):
+            with self.subTest(returns=returns[:3], fraction=fraction):
+                self.assertIsNone(power.hill_tail_estimate(returns, fraction, **kwargs)["alpha_se"])
+
     def reference_dfa(self, returns, scales, min_segments=4):
         profile = np.cumsum(returns - np.mean(returns))
         scales_used = []
@@ -157,6 +215,7 @@ class TestCausalRollingPoints(unittest.TestCase):
             power.compute_indicator_points(["2025-01-02", "2025-01-02"], [10, 11], self.config)
 
 
+@unittest.skipIf(pd is None, "pandas is optional for price-provider frame tests")
 class TestProviderCollectionAndPublication(unittest.TestCase):
     def setUp(self):
         self.frames = pd.DataFrame(
@@ -373,7 +432,13 @@ class TestPowerDashboardDomStub(unittest.TestCase):
             raise AssertionError("expected one inline dashboard script")
         cls.dashboard_script = scripts[0]
 
-    def run_dashboard(self, artifact, fail_diagnostics=False):
+    def run_dashboard(self, artifact, fail_diagnostics=False, legacy_v1=False):
+        if legacy_v1:
+            artifact = json.loads(json.dumps(artifact))
+            for instrument in artifact["instruments"].values():
+                for point in instrument.get("points", []):
+                    for field in ("alpha_se", "h_short", "h_long", "h_abs", "h_abs_r_squared"):
+                        point.pop(field, None)
         history = [{"date": f"2025-01-{(index % 28) + 1:02d}T22:00:00Z",
                     "score": index % 100, "status": "GREEN", "reasoning": "fixture",
                     "metrics": {}} for index in range(40)]
@@ -422,6 +487,11 @@ vm.runInNewContext(__SCRIPT__,context);
     assert.equal(elements.get('power-exponents-status').textContent.includes('Data through'),true);
     const h=Chart.instances.find(chart=>chart.config.data.datasets[0].label==='DFA-1 H');
     const alpha=Chart.instances.find(chart=>chart.config.data.datasets[0].label==='Hill α');
+    const alphaSummary=elements.get('power-alpha').textContent;
+    const pointSummary=elements.get('power-point-detail').textContent;
+    if(Object.prototype.hasOwnProperty.call(artifact.instruments.QQQ.points.at(-1),'alpha_se'))assert.ok(alphaSummary.includes('± 0.290 (i.i.d. SE)'));
+    if(Object.prototype.hasOwnProperty.call(artifact.instruments.QQQ.points.at(-1),'h_short'))assert.ok(pointSummary.includes('H_short=0.440')&&pointSummary.includes('H_long=0.610')&&pointSummary.includes('H_|r|=0.720'));
+    else assert.ok(!alphaSummary.includes('undefined')&&!pointSummary.includes('undefined'));
     assert.ok(elements.get('power-tail-count').textContent.includes('Hill window n=1000'));
     assert.ok(h.options.plugins.tooltip.callbacks.label({dataIndex:29,datasetIndex:0}).includes('DFA window n: 252'));
     const originalSession=artifact.instruments.QQQ.last_session;
@@ -433,7 +503,7 @@ vm.runInNewContext(__SCRIPT__,context);
     assert.equal(alpha.data.datasets[0].data.length,30);
     assert.equal(h.config.options.spanGaps,false);
     assert.equal(h.config.options.scales.y.max,undefined);
-    assert.ok(alpha.data.datasets[0].data.some(value=>value===null));
+    assert.ok(alpha.data.datasets[0].data.includes(null));
     assert.ok(h.data.datasets[1].data.every(value=>value===0.5));
     elements.get('power-range-120').dispatch('click');
     assert.equal(h.data.datasets[0].data.length,120);
@@ -477,7 +547,9 @@ vm.runInNewContext(__SCRIPT__,context);
 
     def test_populated_history_partial_values_and_editorial_navigation(self):
         point = {"date": "2026-05-20", "h": 0.57, "h_r_squared": 0.96,
-                 "alpha": None, "alpha_k": 100, "alpha_x_min": 0.012,
+                 "h_short": 0.44, "h_long": 0.61, "h_abs": 0.72,
+                 "h_abs_r_squared": 0.91,
+                 "alpha": 2.9, "alpha_se": 0.29, "alpha_k": 100, "alpha_x_min": 0.012,
                  "alpha_positive_count": 950, "alpha_sensitivity": {
                      "5%": {"alpha": 2.8, "k": 50, "x_min": 0.02},
                      "15%": {"alpha": 3.1, "k": 150, "x_min": 0.01}},
@@ -491,6 +563,7 @@ vm.runInNewContext(__SCRIPT__,context);
             item["date"] = (dt.date(2026, 1, 1) + dt.timedelta(days=index)).isoformat()
             item["h"] = None if index == 3 else point["h"]
             points.append(item)
+        points[100]["alpha"] = None
         artifact = {"artifact_version": 1,
                     "settings": {"dfa_window": 252, "min_scale": 8,
                                  "max_scale": 63, "hill_window": 1000,
@@ -508,6 +581,7 @@ vm.runInNewContext(__SCRIPT__,context);
                                  "points": []},
                         "SPY": {"status": "unavailable", "points": []}}}
         self.run_dashboard(artifact)
+        self.run_dashboard(artifact, legacy_v1=True)
 
     def test_missing_diagnostic_artifact_does_not_break_editorial_history(self):
         self.run_dashboard(None)

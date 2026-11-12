@@ -1,13 +1,17 @@
 import datetime
 import json
+import math
 import os
+import statistics
+import subprocess
 import sys
 import tempfile
+import types
 import unittest
 from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
-import agent
+import agent  # noqa: E402
 
 
 FIXTURES = os.path.join(os.path.dirname(__file__), "fixtures")
@@ -65,6 +69,31 @@ class TestContract(unittest.TestCase):
     def test_empty_evidence_rejected(self):
         with self.assertRaises(ValueError):
             agent.build_version2_entry(VALID_OPINION, {}, [], [])
+
+    def test_sentiment_validation_legacy_compatibility_and_entry_propagation(self):
+        self.assertEqual(agent.METHODOLOGY_VERSION, "canary-opinion-v3")
+        self.assertEqual(agent.SCHEMA_VERSION, 2)
+        self.assertNotIn("market_sentiment", agent.validate_opinion(VALID_OPINION))
+        with self.assertRaisesRegex(ValueError, "market_sentiment"):
+            agent.validate_opinion(VALID_OPINION, require_sentiment=True)
+
+        live = {**VALID_OPINION, "market_sentiment": "CONSTRUCTIVE"}
+        self.assertEqual(agent.validate_opinion(live, require_sentiment=True)["market_sentiment"],
+                         "CONSTRUCTIVE")
+        for sentiment in ("sunny", "UNKNOWN", None, 3):
+            with self.subTest(sentiment=sentiment), self.assertRaises(ValueError):
+                agent.validate_opinion({**VALID_OPINION, "market_sentiment": sentiment})
+            with self.subTest(required_sentiment=sentiment), self.assertRaises(ValueError):
+                agent.validate_opinion({**VALID_OPINION, "market_sentiment": sentiment},
+                                       require_sentiment=True)
+
+        entry = agent.build_version2_entry(
+            {**live, "_requested_model": "test/requested", "_resolved_model": "test/resolved"},
+            {"NVDA_price": 100}, [], [],
+        )
+        self.assertEqual(entry["metrics"]["market_sentiment"], "CONSTRUCTIVE")
+        self.assertEqual(entry["methodology_version"], "canary-opinion-v3")
+        self.assertEqual(entry["schema_version"], 2)
 
     def test_data_quality_honors_rfc2822_timezone_offset(self):
         now = datetime.datetime(2026, 7, 18, 22, 30, tzinfo=datetime.timezone.utc)
@@ -128,6 +157,225 @@ class TestContract(unittest.TestCase):
         self.assertFalse(entry["data_quality"]["market_data_complete"])
         json.dumps(entry, allow_nan=False)
 
+class TestMarketCollection(unittest.TestCase):
+    @staticmethod
+    def ticker_factory(closes_by_symbol, info_by_symbol):
+        class History:
+            empty = False
+
+            def __init__(self, closes):
+                self.closes = closes
+
+            def __getitem__(self, key):
+                if key != "Close":
+                    raise KeyError(key)
+                return self.closes
+
+        class Ticker:
+            def __init__(self, symbol):
+                self.symbol = symbol
+                self.info = info_by_symbol[symbol]
+
+            def history(self, **_kwargs):
+                return History(closes_by_symbol[self.symbol])
+
+        return Ticker
+
+    def test_peer_fundamentals_returns_and_sample_realized_volatility(self):
+        closes = [100.0 * (1.01 ** index) for index in range(21)]
+        info = {
+            "NVDA": {"trailingPE": 30, "forwardPE": 25, "revenueGrowth": 0.5,
+                     "earningsGrowth": 0.2, "pegRatio": float("nan")},
+            "MSFT": {"trailingPE": 20, "forwardPE": 22, "revenueGrowth": 0.15,
+                     "earningsGrowth": 0, "pegRatio": None},
+            "GOOGL": {"trailingPE": 18, "forwardPE": 17, "revenueGrowth": 0.24,
+                      "earningsGrowth": -0.1, "pegRatio": "N/A"},
+        }
+        factory = self.ticker_factory(dict.fromkeys(info, closes), info)
+        with patch.object(agent.yf, "Ticker", side_effect=factory) as ticker:
+            market = agent.get_market_data()
+        self.assertEqual([call.args[0] for call in ticker.call_args_list], list(info))
+        expected_5d = round((closes[-1] / closes[-6] - 1) * 100, 2)
+        expected_20d = round((closes[-1] / closes[-21] - 1) * 100, 2)
+        log_returns = [math.log(right / left) for left, right in zip(closes[-21:-1], closes[-20:], strict=True)]
+        expected_volatility = round(statistics.stdev(log_returns) * math.sqrt(252) * 100, 2)
+        for symbol in info:
+            with self.subTest(symbol=symbol):
+                self.assertEqual(market[f"{symbol}_price"], round(closes[-1], 2))
+                self.assertEqual(market[f"{symbol}_5d_return_pct"], expected_5d)
+                self.assertEqual(market[f"{symbol}_20d_return_pct"], expected_20d)
+                self.assertEqual(market[f"{symbol}_realized_vol_20d_pct"], expected_volatility)
+                self.assertEqual(market[f"{symbol}_pe_ratio"], info[symbol]["trailingPE"])
+                self.assertEqual(market[f"{symbol}_forward_pe"], info[symbol]["forwardPE"])
+                self.assertEqual(market[f"{symbol}_revenue_growth"], info[symbol]["revenueGrowth"])
+        self.assertEqual(market["NVDA_peg_ratio"], 1.5)
+        self.assertEqual(market["MSFT_peg_ratio"], "N/A")
+        self.assertEqual(market["GOOGL_peg_ratio"], "N/A")
+        self.assertNotIn("NVDA_volatility", market)
+
+    def test_peg_fallback_rejects_missing_nonfinite_and_nonpositive_growth(self):
+        closes = [100.0 * (1.01 ** index) for index in range(21)]
+        for growth in (None, float("nan"), 0, -0.2):
+            info = {symbol: {"trailingPE": 30, "earningsGrowth": growth,
+                             "pegRatio": None} for symbol in ("NVDA", "MSFT", "GOOGL")}
+            factory = self.ticker_factory(dict.fromkeys(info, closes), info)
+            with self.subTest(earnings_growth=growth), patch.object(agent.yf, "Ticker", side_effect=factory):
+                market = agent.get_market_data()
+            self.assertEqual([market[f"{symbol}_peg_ratio"] for symbol in info], ["N/A"] * 3)
+
+    def test_realized_volatility_is_unavailable_with_fewer_than_five_returns(self):
+        closes = [100.0, 102.0, 101.0, 104.0, 105.0]
+        info = {symbol: {} for symbol in ("NVDA", "MSFT", "GOOGL")}
+        factory = self.ticker_factory(dict.fromkeys(info, closes), info)
+        with patch.object(agent.yf, "Ticker", side_effect=factory):
+            market = agent.get_market_data()
+        for symbol in info:
+            self.assertEqual(market[f"{symbol}_realized_vol_20d_pct"], "N/A")
+
+    def test_three_rss_queries_deduplicate_cap_truncate_and_fallback_publishers(self):
+        now = datetime.datetime.now(datetime.timezone.utc)
+
+        def fresh(hours_ago=2):
+            return (now - datetime.timedelta(hours=hours_ago)).isoformat()
+
+        feeds = {
+            agent.RSS_FEED_URLS[0]: [
+                {"title": "Shared Story - Publisher Suffix",
+                 "link": "https://www.bing.com/news/apiclick.aspx?url=https%3A%2F%2Fexample.com%2Fstory%3Futm_source%3Done",
+                 "published": fresh()},
+                {"title": "Fresh query-one second", "link": "https://q1.example/second",
+                 "published": fresh(3)},
+                {"title": "Over per-query cap", "link": "https://q1.example/third",
+                 "published": fresh(4)},
+                {"title": "Stale query-one item", "link": "https://q1.example/stale",
+                 "published": (now - datetime.timedelta(hours=49)).isoformat()},
+                {"title": "Undated query-one item", "link": "https://q1.example/undated"},
+            ],
+            agent.RSS_FEED_URLS[1]: [
+                {"title": "URL duplicate alternate", "link": "https://example.com/story",
+                 "published": fresh(1)},
+                {"title": "shared story", "link": "https://other.example/duplicate-title",
+                 "published": fresh(2)},
+                {"title": "News source fallback", "link": "https://news.example/a",
+                 "news_source": "News Feed Publisher", "published": fresh(3)},
+                {"title": "Hostname fallback", "link": "https://www.host.example/article",
+                 "published": fresh(4)},
+                {"title": "Over second-query cap", "link": "https://q2.example/fifth",
+                 "published": fresh(5)},
+            ],
+            agent.RSS_FEED_URLS[2]: [
+                {"title": "Unknown source fallback", "description": "x" * 3_000,
+                 "published": fresh()},
+                {"title": "Third query second", "link": "https://q3.example/second",
+                 "source": {"title": "Preferred Source"}, "published": fresh(1)},
+                {"title": "Over global cap", "link": "https://q3.example/third",
+                 "published": fresh(2)},
+            ],
+        }
+        requests = types.SimpleNamespace()
+        requested_urls = []
+
+        class Response:
+            def __init__(self, content):
+                self.content = content
+
+            def raise_for_status(self):
+                pass
+
+        def fake_get(url, **_kwargs):
+            requested_urls.append(url)
+            return Response(url)
+
+        requests.get = fake_get
+        feedparser = types.SimpleNamespace(parse=lambda content: types.SimpleNamespace(entries=feeds[content]))
+        with (patch.dict(sys.modules, {"requests": requests}),
+              patch.object(agent, "feedparser", feedparser),
+              patch.object(agent, "extract_article_content", return_value="x" * 3_000)):
+            items = agent.get_news_headlines()
+
+        self.assertEqual(requested_urls, list(agent.RSS_FEED_URLS))
+        self.assertEqual(len(items), 6)
+        self.assertEqual([sum(item["query_topic"] == topic for item in items)
+                          for topic in ("valuation_bubble", "capex_infrastructure", "enterprise_adoption_roi")],
+                         [2, 2, 2])
+        self.assertEqual([item["source"] for item in items], [
+            "Publisher Suffix", "q1.example", "News Feed Publisher", "host.example",
+            "Preferred Source", "Unknown Source",
+        ])
+        self.assertNotIn("Over per-query cap", [item["title"] for item in items])
+        self.assertNotIn("Stale query-one item", [item["title"] for item in items])
+        self.assertNotIn("Undated query-one item", [item["title"] for item in items])
+        self.assertEqual(sum(item["title"].lower().startswith("shared story") for item in items), 1)
+        self.assertNotIn("Over per-query cap", [item["title"] for item in items])
+        self.assertNotIn("Over second-query cap", [item["title"] for item in items])
+        self.assertNotIn("Over global cap", [item["title"] for item in items])
+        self.assertTrue(all(len(item["content"]) == 2_500 for item in items))
+
+    def test_three_rss_queries_return_bounded_stale_fallback_in_degraded_mode(self):
+        now = datetime.datetime.now(datetime.timezone.utc)
+        stale_date = (now - datetime.timedelta(hours=49)).isoformat()
+        feeds = {
+            agent.RSS_FEED_URLS[0]: [
+                {"title": "Stale first query", "link": "https://q1.example/stale",
+                 "published": stale_date},
+                {"title": "Second stale first query", "link": "https://q1.example/older"},
+            ],
+            agent.RSS_FEED_URLS[1]: [
+                {"title": "Undated second query", "link": "https://q2.example/undated"},
+                {"title": "Second undated second query", "link": "https://q2.example/also-undated"},
+            ],
+            agent.RSS_FEED_URLS[2]: [
+                {"title": "Stale third query", "link": "https://q3.example/stale",
+                 "published": stale_date},
+                {"title": "Second stale third query", "link": "https://q3.example/older"},
+            ],
+        }
+        requests = types.SimpleNamespace()
+
+        class Response:
+            def __init__(self, content):
+                self.content = content
+
+            def raise_for_status(self):
+                pass
+
+        requests.get = lambda url, **_kwargs: Response(url)
+        feedparser = types.SimpleNamespace(parse=lambda content: types.SimpleNamespace(entries=feeds[content]))
+        with (patch.dict(sys.modules, {"requests": requests}),
+              patch.object(agent, "feedparser", feedparser),
+              patch.object(agent, "extract_article_content", return_value=None)):
+            items = agent.get_news_headlines()
+
+        self.assertEqual([item["title"] for item in items], [
+            "Stale first query", "Undated second query", "Stale third query",
+        ])
+        self.assertEqual([item["query_topic"] for item in items], [
+            "valuation_bubble", "capex_infrastructure", "enterprise_adoption_roi",
+        ])
+        quality = agent.data_quality(
+            {"NVDA_price": 1, "MSFT_price": 2, "GOOGL_price": 3}, items, now=now)
+        self.assertEqual(quality["fetched_articles"], 3)
+        self.assertEqual(quality["fresh_articles"], 0)
+        self.assertEqual(quality["state"], "degraded")
+
+    def test_import_succeeds_when_optional_packages_are_blocked(self):
+        source_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+        script = r'''import sys
+blocked = ("openai", "numpy", "feedparser", "trafilatura", "yfinance", "fake_useragent", "power_exponents")
+for name in blocked:
+    sys.modules[name] = None
+sys.path.insert(0, sys.argv[1])
+import agent
+legacy = {"score": 50, "confidence": "MEDIUM", "thesis": "t", "reasoning": "r",
+          "risk_factors": ["risk"], "stabilizing_factors": ["support"],
+          "change_explanation": "steady"}
+assert agent.validate_opinion(legacy)["score"] == 50
+'''
+        result = subprocess.run([sys.executable, "-c", script, source_dir], text=True,
+                                capture_output=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+
 class TestDashboardArtifact(unittest.TestCase):
     def test_dashboard_contract_is_text_safe_and_mixed_schema_aware(self):
         with open(os.path.join(os.path.dirname(__file__), "..", "index.html"), encoding="utf-8") as handle:
@@ -149,10 +397,12 @@ class TestDashboardArtifact(unittest.TestCase):
 
 
 class TestProvenanceAndPersistence(unittest.TestCase):
-    def completion(self, model="openai/gpt-5.4"):
+    def completion(self, model="openai/gpt-5.4", payload=None, finish_reason="stop"):
         completion = MagicMock()
         completion.model = model
-        completion.choices[0].message.content = json.dumps(VALID_OPINION)
+        live_payload = payload or {**VALID_OPINION, "market_sentiment": "MIXED"}
+        completion.choices[0].message.content = json.dumps(live_payload)
+        completion.choices[0].finish_reason = finish_reason
         return completion
 
     @patch.dict(os.environ, {}, clear=True)
@@ -174,6 +424,31 @@ class TestProvenanceAndPersistence(unittest.TestCase):
         calls = client.chat.completions.create.call_args_list
         self.assertEqual([call.kwargs["model"] for call in calls], [agent.DEFAULT_MODEL] * 2)
         self.assertEqual([call.kwargs["max_tokens"] for call in calls], [agent.MAX_OUTPUT_TOKENS] * 2)
+        self.assertEqual(mock_openai.call_args.kwargs["timeout"], 60.0)
+        self.assertEqual(calls[0].kwargs["messages"][0],
+                         {"role": "system", "content": agent.EDITORIAL_SYSTEM_INSTRUCTIONS})
+        self.assertEqual(result["market_sentiment"], "MIXED")
+
+    @patch("agent.OpenAI")
+    @patch("agent.OPENROUTER_API_KEY", "fake")
+    def test_analyze_rejects_non_stop_finish_reasons_and_nonstandard_json(self, mock_openai):
+        client = MagicMock()
+        mock_openai.return_value = client
+        client.chat.completions.create.return_value = self.completion(finish_reason="length")
+        with self.assertRaisesRegex(RuntimeError, "did not finish normally"):
+            agent.analyze_market_status({"NVDA_price": 1}, [])
+        self.assertEqual(client.chat.completions.create.call_count, agent.MODEL_RETRY_ATTEMPTS)
+
+        for constant in ("NaN", "Infinity", "-Infinity"):
+            payload = json.dumps({**VALID_OPINION, "market_sentiment": "MIXED"})[:-1]
+            payload += ',"invalid_numeric":' + constant + "}"
+            completion = self.completion()
+            completion.choices[0].message.content = payload
+            client.chat.completions.create.return_value = completion
+            client.chat.completions.create.reset_mock()
+            with self.subTest(constant=constant), self.assertRaisesRegex(RuntimeError, "non-standard JSON constant"):
+                agent.analyze_market_status({"NVDA_price": 1}, [])
+            self.assertEqual(client.chat.completions.create.call_count, agent.MODEL_RETRY_ATTEMPTS)
 
     @patch("agent.OpenAI")
     @patch("agent.OPENROUTER_API_KEY", "fake")
@@ -241,9 +516,9 @@ class TestProvenanceAndPersistence(unittest.TestCase):
             with open(month_file, encoding="utf-8") as handle:
                 original = handle.read()
 
-            with patch("agent.os.replace", side_effect=OSError("replace failed")):
-                with self.assertRaises(OSError):
-                    agent.update_history({"date": "2026-01-02", "score": 40}, storage)
+            with (patch("agent.os.replace", side_effect=OSError("replace failed")),
+                  self.assertRaises(OSError)):
+                agent.update_history({"date": "2026-01-02", "score": 40}, storage)
             with open(month_file, encoding="utf-8") as handle:
                 self.assertEqual(handle.read(), original)
             self.assertEqual(sorted(os.listdir(storage)), ["2026-01.json", "index.json"])
@@ -285,14 +560,14 @@ class TestProvenanceAndPersistence(unittest.TestCase):
             self.assertEqual([item["score"] for item in json.loads(repaired)], [1, 2])
 
     def test_atomic_replace_failure_preserves_destination_and_removes_temp(self):
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory() as directory, patch(
+                "agent.os.replace", side_effect=OSError("replace failed")):
             path = os.path.join(directory, "history.json")
             original = '[{"score": 1}]'
             with open(path, "w") as handle:
                 handle.write(original)
-            with patch("agent.os.replace", side_effect=OSError("replace failed")):
-                with self.assertRaises(OSError):
-                    agent.update_history({"score": 2}, path)
+            with self.assertRaises(OSError):
+                agent.update_history({"score": 2}, path)
             with open(path) as handle:
                 self.assertEqual(handle.read(), original)
             self.assertEqual(os.listdir(directory), ["history.json"])

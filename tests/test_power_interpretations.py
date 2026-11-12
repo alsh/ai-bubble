@@ -2,17 +2,24 @@
 import copy
 import json
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-import agent
-import power_exponents
+import agent  # noqa: E402
+import power_exponents  # noqa: E402
+
+
+SIGNAL_FIELDS = (
+    "date", "h", "h_r_squared", "h_status", "h_short", "h_long", "h_abs",
+    "h_abs_r_squared", "h_delta_1", "h_delta_5", "h_baseline_z", "alpha",
+    "alpha_se", "alpha_status", "alpha_k", "alpha_x_min",
+)
 
 
 def artifact():
@@ -23,7 +30,12 @@ def artifact():
             symbol: {"symbol": symbol, "status": "available", "last_session": "2026-11-04",
                      "history_type": "reconstructed", "points": [
                          {"date": "2026-11-04", "h": 0.5, "h_r_squared": 0.979,
-                          "alpha": 3.309, "h_delta_1": None,
+                          "h_status": "available", "h_short": 0.46, "h_long": 0.54,
+                          "h_abs": 0.62, "h_abs_r_squared": 0.91,
+                          "h_delta_1": None, "h_delta_5": 0.01, "h_baseline_z": 1.2,
+                          "alpha": 3.309, "alpha_se": 0.14, "alpha_status": "available",
+                          "alpha_k": 100, "alpha_x_min": 0.012,
+                          "h_scales": [8, 10, 12], "h_segment_counts": {"8": 60},
                           "alpha_sensitivity": {"5%": {"alpha": 3.576}}}]}
             for symbol in power_exponents.INSTRUMENTS
         },
@@ -39,6 +51,10 @@ def completion(text="H is near the independent-returns reference. These estimate
 
 
 class TestPowerInterpretations(unittest.TestCase):
+    def test_interpretation_version(self):
+        self.assertEqual(agent.POWER_INTERPRETATION_VERSION,
+                         "power-exponents-interpretation-v2")
+
     @patch.object(agent, "OPENROUTER_API_KEY", "fake")
     @patch.object(agent, "OpenAI")
     def test_four_separate_bounded_requests_and_provenance(self, constructor):
@@ -48,11 +64,18 @@ class TestPowerInterpretations(unittest.TestCase):
         original = copy.deepcopy(data)
         agent.add_power_exponent_interpretations(data)
         self.assertEqual(create.call_count, 4)
-        for symbol, call in zip(power_exponents.INSTRUMENTS, create.call_args_list):
+        for symbol, call in zip(power_exponents.INSTRUMENTS, create.call_args_list, strict=True):
             evidence = json.loads(call.kwargs["messages"][1]["content"])
             self.assertEqual(evidence["symbol"], symbol)
             self.assertEqual(evidence["latest"]["alpha"], 3.309)
             self.assertIsNone(evidence["latest"]["h_delta_1"])
+            self.assertIn("h_scales", evidence["latest"])
+            self.assertIn("h_segment_counts", evidence["latest"])
+            self.assertIn("alpha_sensitivity", evidence["latest"])
+            self.assertEqual(set(evidence["recent_points"][0]), set(SIGNAL_FIELDS))
+            self.assertEqual(evidence["recent_points"][0]["h_short"], 0.46)
+            for detail_field in ("h_scales", "h_segment_counts", "alpha_sensitivity"):
+                self.assertNotIn(detail_field, evidence["recent_points"][0])
             self.assertEqual(evidence["settings"]["hill_window"], 1000)
             self.assertNotIn("score", evidence)
             self.assertNotIn("news", evidence)

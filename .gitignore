@@ -11,3 +11,4 @@ __pycache__/
 *_output.txt
 install_log.txt
 *.log
+openspec/
