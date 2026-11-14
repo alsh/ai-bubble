@@ -840,5 +840,77 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.21"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-14T01:58:36.749754+00:00",
+    "score": 62,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "AI investment remains vulnerable to further equity repricing or infrastructure-capex deceleration over the next 6–12 months, but strong revenue growth, compressed earnings multiples and selective evidence of profitable adoption argue against an acute systemic bust.",
+    "reasoning": "The strongest fragility signal is price behavior: NVDA has fallen 23.95% over 20 sessions, while GOOGL is down 13.16%, with annualized realized volatility near 54% for both. NVDA's decline exceeds 20% individually, but these observations do not establish a sector-wide correction. Valuation provides a meaningful counterweight: forward P/E multiples range from approximately 10.3 to 21.7, alongside quarterly year-over-year revenue growth of 105.9% at NVDA, 18.8% at MSFT and 24.7% at GOOGL. Those figures support underlying business momentum, although forward multiples depend on earnings estimates being realized. Downstream evidence is encouraging but narrow: Appier reports substantial profit and cash-flow improvement, while the Ardent Health headline describes measurable returns without supplying the underlying figures. Neither establishes economy-wide AI investment efficiency. There is no direct evidence here on infrastructure-capex revisions, financing structures, GPU orders, inventories or lead times; consequently, neither a hardware-demand collapse nor the sustainability of current spending is demonstrated. Concentrated exposure to a few suppliers and platform buyers remains a transmission channel for earnings or spending disappointments. The evidence supports elevated selective-repricing risk rather than high-fragility bust conditions.",
+    "risk_factors": [
+      "NVDA's 23.95% 20-session decline and elevated volatility show substantial supplier-equity stress despite strong reported growth.",
+      "GOOGL's 13.16% 20-session decline suggests repricing extends beyond a single hardware supplier, although MSFT remains comparatively resilient.",
+      "Low forward earnings multiples offer less protection if earnings estimates fall following weaker infrastructure spending or monetization.",
+      "The supplied adoption evidence is too narrow to establish that broad enterprise returns justify aggregate AI-infrastructure investment.",
+      "Dependence on a concentrated supplier and hyperscaler ecosystem can amplify spending revisions; current capex funding, vendor-financing exposure and hardware-order conditions are not directly evidenced."
+    ],
+    "stabilizing_factors": [
+      "NVDA's 105.9% revenue growth supports substantial realized supplier activity rather than a purely expectations-driven boom.",
+      "MSFT and GOOGL revenue growth of 18.8% and 24.7%, respectively, provides a broad business-growth cushion, though it is not exclusively attributable to AI.",
+      "Trailing P/E multiples of approximately 15.4–27.3 and forward multiples of 10.3–21.7 do not independently indicate extreme valuation excess.",
+      "Appier's company-issued results report revenue growth of 21.8%, operating-income growth of 104.7%, improved cash flow and raised guidance, demonstrating profitable adoption in a specific application business.",
+      "MSFT's modest 0.98% 20-session decline and GOOGL's positive five-session return show that market weakness is not uniform.",
+      "The supplied evidence contains no reported capex cancellations, funding freezes or broad earnings-guidance breakdowns."
+    ],
+    "change": {
+      "previous_score": 63,
+      "delta": -1,
+      "explanation": "The independently derived score of 62 is one point below the prior 63. Appier's concrete profitability and cash-flow results modestly strengthen the adoption counterweight to market stress. The adjustment is small because that evidence is company-reported and narrow, while supplier-share weakness remains pronounced and infrastructure spending and financing conditions remain unverified. The assessment stays in the elevated-fragility band."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 2,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 162.85,
+      "NVDA_5d_return_pct": -12.75,
+      "NVDA_20d_return_pct": -23.95,
+      "NVDA_realized_vol_20d_pct": 54.01,
+      "NVDA_pe_ratio": 20.587864,
+      "NVDA_forward_pe": 10.28589,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.2,
+      "MSFT_price": 523.88,
+      "MSFT_5d_return_pct": -1.27,
+      "MSFT_20d_return_pct": -0.98,
+      "MSFT_realized_vol_20d_pct": 36.51,
+      "MSFT_pe_ratio": 27.34238,
+      "MSFT_forward_pe": 21.656946,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.55,
+      "GOOGL_price": 295.77,
+      "GOOGL_5d_return_pct": 3.86,
+      "GOOGL_20d_return_pct": -13.16,
+      "GOOGL_realized_vol_20d_pct": 54.19,
+      "GOOGL_pe_ratio": 15.444908,
+      "GOOGL_forward_pe": 19.162155,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 1.06,
+      "market_sentiment": "MIXED",
+      "top_headline": "3 Numbers & 1 Program: How Ardent Health turned an ambient AI pilot into a measurable enterprise return",
+      "nvda_pe": "20.587864",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.2"
+    }
   }
 ]
