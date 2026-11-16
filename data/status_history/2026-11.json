@@ -983,5 +983,76 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.2"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-16T01:33:48.887446+00:00",
+    "score": 63,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "The AI investment boom remains vulnerable to further equity repricing or infrastructure-capex deceleration over the next 6–12 months, but the evidence supports elevated fragility rather than an imminent systemic bust. Severe supplier-stock weakness and unverified downstream returns coexist with strong reported revenue growth and relatively restrained earnings multiples.",
+    "reasoning": "NVIDIA's 23.95% decline over 20 sessions is already a substantial single-stock correction, not proof that the broader AI sector has crossed the 20% drawdown threshold. Alphabet's 13.16% decline and roughly 54% annualized volatility at both companies reinforce repricing risk, while Microsoft's comparatively stable price limits evidence of broad contagion. Valuations provide a counterweight: trailing/forward P/E ratios are approximately 20.6/10.3 for NVIDIA, 27.3/21.7 for Microsoft, and 15.4/19.2 for Alphabet. These snapshots do not indicate uniformly extreme multiples, although forward ratios depend on estimates being realized. Revenue growth of 105.9%, 18.8%, and 24.7%, respectively, supports substantial underlying business activity; NVIDIA's growth is particularly relevant to hardware demand, but does not establish future orders or end-user investment returns. Nebuly's funding and enterprise contracts demonstrate commercial activity around AI deployment and measurement, not independently verified customer ROI. The supplied evidence does not establish capex cancellations, weakening hardware orders, or circular/debt-heavy financing. Concentrated exposure to a few infrastructure suppliers and buyers remains a transmission risk, but its magnitude is not quantified here. Confidence is medium because the fundamentals and price action support a directional assessment, while the single company-focused news item leaves financing, capex efficiency, and broad enterprise ROI largely indirect.",
+    "risk_factors": [
+      "NVIDIA's 12.75% five-session and 23.95% twenty-session declines indicate substantial supplier-level repricing and vulnerability to further earnings-expectation resets.",
+      "Alphabet's 13.16% twenty-session decline and elevated volatility across NVIDIA and Alphabet show that market stress extends beyond one stock, although it is not uniform.",
+      "Enterprise AI usage and spending have not been connected to broad, independently demonstrated financial returns in the supplied evidence.",
+      "Forward earnings multiples could understate valuation risk if expected profits fail to materialize; lower prices alone do not establish durable value.",
+      "The boom's dependence on major suppliers and hyperscaler buyers creates concentration risk, while current financing structures, capex commitments, and order trends are not established by this evidence."
+    ],
+    "stabilizing_factors": [
+      "Reported revenue growth remains strong across all three companies, particularly NVIDIA's 105.9% year-over-year growth.",
+      "Current earnings multiples are not uniformly stretched, reducing support for a valuation-only systemic-bust thesis.",
+      "Microsoft's modest 0.98% twenty-session decline and Alphabet's 3.86% five-session rebound argue against indiscriminate sector liquidation.",
+      "Nebuly's $21 million financing, named enterprise customers, and multiple six-figure contracts provide limited but tangible evidence of continuing AI-related commercial activity.",
+      "The supplied evidence contains no confirmed capex cancellations, funding freezes, hardware-demand air pockets, or broad earnings breakdown."
+    ],
+    "change": {
+      "previous_score": 63,
+      "delta": 0,
+      "explanation": "Today's independently derived score of 63 is unchanged from the prior assessment. The current evidence retains the same balance: pronounced supplier-stock stress and unresolved downstream ROI warrant elevated fragility, while strong revenue growth, moderate earnings multiples, and uneven rather than broad-based selling restrain a move into the high-fragility RED band. The Nebuly announcement adds evidence of commercial activity but does not materially resolve the investment-return question."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 1,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.1-sol"
+    },
+    "metrics": {
+      "NVDA_price": 162.85,
+      "NVDA_5d_return_pct": -12.75,
+      "NVDA_20d_return_pct": -23.95,
+      "NVDA_realized_vol_20d_pct": 54.01,
+      "NVDA_pe_ratio": 20.587864,
+      "NVDA_forward_pe": 10.272057,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.2,
+      "MSFT_price": 523.88,
+      "MSFT_5d_return_pct": -1.27,
+      "MSFT_20d_return_pct": -0.98,
+      "MSFT_realized_vol_20d_pct": 36.51,
+      "MSFT_pe_ratio": 27.34238,
+      "MSFT_forward_pe": 21.65179,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.55,
+      "GOOGL_price": 295.77,
+      "GOOGL_5d_return_pct": 3.86,
+      "GOOGL_20d_return_pct": -13.16,
+      "GOOGL_realized_vol_20d_pct": 54.19,
+      "GOOGL_pe_ratio": 15.444908,
+      "GOOGL_forward_pe": 19.162155,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 1.04,
+      "market_sentiment": "CAUTIOUS",
+      "top_headline": "Nebuly: $21 Million Series A Funding Led By Planven To Expand Enterprise AI Return On Investment Platform",
+      "nvda_pe": "20.587864",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.2"
+    }
   }
 ]
