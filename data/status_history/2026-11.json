@@ -1125,5 +1125,71 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.2"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-18T03:18:43.143647+00:00",
+    "score": 62,
+    "status": "YELLOW",
+    "confidence": "LOW",
+    "thesis": "AI-boom fragility is elevated over the next 6–12 months. A sharp Nvidia selloff and weakness across all three names point to selective repricing, but strong reported revenue growth and restrained forward multiples do not support a call for a sector-wide drawdown of at least 20% or a material infrastructure spending slowdown as the base case.",
+    "reasoning": "Nvidia fell 28.18% over 20 sessions, compared with 17.66% for Alphabet and 4.82% for Microsoft. All three also declined over five sessions, supporting a bearish tone, but Nvidia's loss alone does not establish a sector-wide drawdown. Nvidia's 105.9% year-over-year revenue growth is consistent with strong recent hardware demand, while its 9.8x forward P/E offers less protection if earnings estimates fall. The only news item offers advice on moving midmarket AI pilots into production, not evidence of realized returns. It does not establish whether infrastructure spending is earning adequate returns, whether buyers are relying more on debt or vendor financing, or whether hardware orders and lead times are weakening. The market data support a repricing assessment more strongly than a capex assessment.",
+    "risk_factors": [
+      "Nvidia and Alphabet recorded sharp 20-session losses and annualized realized volatility above 50%, leaving both exposed to further swings on earnings or guidance.",
+      "Reliance on a small group of hyperscaler buyers makes hardware demand sensitive to any one buyer's spending plans, though the supplied evidence does not show a spending cut.",
+      "The supplied evidence does not verify downstream AI returns or infrastructure financing terms, making it difficult to judge whether current spending can be sustained."
+    ],
+    "stabilizing_factors": [
+      "Reported year-over-year revenue growth was 105.9% at Nvidia, 18.8% at Microsoft, and 24.7% at Alphabet. Those figures show recent business momentum, though they do not isolate AI profitability.",
+      "Forward P/Es of 9.8x for Nvidia, 20.9x for Microsoft, and 18.5x for Alphabet do not indicate uniformly stretched pricing, provided earnings estimates hold."
+    ],
+    "change": {
+      "previous_score": 63,
+      "delta": -1,
+      "explanation": "The score is 62 versus 63 previously, within the recent 62–63 range. Strong reported growth and restrained forward multiples temper the severe price weakness, and the lone news item does not provide evidence of worsening orders or financing. The one-point move does not signal a meaningful improvement."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 1,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.2-sol"
+    },
+    "metrics": {
+      "NVDA_price": 155.46,
+      "NVDA_5d_return_pct": -7.95,
+      "NVDA_20d_return_pct": -28.18,
+      "NVDA_realized_vol_20d_pct": 53.84,
+      "NVDA_pe_ratio": 19.728428,
+      "NVDA_forward_pe": 9.799022,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.19,
+      "MSFT_price": 506.24,
+      "MSFT_5d_return_pct": -5.05,
+      "MSFT_20d_return_pct": -4.82,
+      "MSFT_realized_vol_20d_pct": 37.33,
+      "MSFT_pe_ratio": 26.421711,
+      "MSFT_forward_pe": 20.921688,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.53,
+      "GOOGL_price": 280.2,
+      "GOOGL_5d_return_pct": -2.5,
+      "GOOGL_20d_return_pct": -17.66,
+      "GOOGL_realized_vol_20d_pct": 55.1,
+      "GOOGL_pe_ratio": 14.631855,
+      "GOOGL_forward_pe": 18.457611,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 1.0,
+      "market_sentiment": "BEARISH",
+      "top_headline": "Midmarket AI is not enterprise AI at a smaller scale",
+      "nvda_pe": "19.728428",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.19"
+    }
   }
 ]
