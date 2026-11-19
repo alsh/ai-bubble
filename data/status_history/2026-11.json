@@ -1191,5 +1191,72 @@
       "revenue_growth": "1.059",
       "peg_ratio": "0.19"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-19T02:56:03.567270+00:00",
+    "score": 63,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "AI-boom fragility is elevated over the next 6–12 months. Sharp repricing in Nvidia and Alphabet and a gap between AI adoption and realized returns raise the risk of a broader correction or an infrastructure spending slowdown. Strong revenue growth and restrained forward multiples argue against treating either outcome as the base case.",
+    "reasoning": "All three stocks fell over both five and 20 sessions. Nvidia’s 32.0% 20-session loss shows that a major repricing is already underway in a key supplier, but it does not establish a sector-wide drawdown of at least 20%. Nvidia’s 105.9% year-over-year revenue growth supports the case for realized hardware demand, while its 9.1x forward P/E leaves room for earnings expectations to disappoint. The Singapore fintech survey shows strong deployment and budget intent, but reported returns fell short of expectations. Cost savings and productivity can justify spending without new revenue, though this narrow survey cannot establish whether those gains justify infrastructure investment at scale. The supplied evidence does not directly establish capex trends, financing stress, or weakening hardware orders.",
+    "risk_factors": [
+      "Nvidia fell 32.0% and Alphabet 15.6% over 20 sessions, with annualized realized volatility above 50% for both. The boom’s reliance on a small group of chip suppliers and hyperscalers makes guidance shocks consequential.",
+      "In the Singapore fintech survey, 61% expected returns of 26–50%, but only 42% reported reaching that range. Just 4% named new revenue as AI’s biggest benefit.",
+      "Nvidia’s 9.1x forward P/E looks inexpensive relative to its 19.1x trailing multiple, but that apparent cushion depends on projected earnings holding up."
+    ],
+    "stabilizing_factors": [
+      "Nvidia’s quarterly revenue grew 105.9% year over year, while Microsoft and Alphabet grew 18.8% and 24.7%, respectively. The selloff has not been accompanied by a reported revenue breakdown in these snapshots.",
+      "Forward multiples of 9.1x for Nvidia, 21.0x for Microsoft, and 18.5x for Alphabet provide little evidence of broad valuation euphoria.",
+      "Among surveyed Singapore fintechs, 86% had deployed AI and 94% planned to raise AI budgets. Respondents cited cost reduction, risk management, and productivity benefits even where new revenue was not the main payoff."
+    ],
+    "change": {
+      "previous_score": 62,
+      "delta": 1,
+      "explanation": "The score edges up from 62 to 63 because today’s survey gives more concrete evidence of an adoption-to-ROI gap alongside the selloff. Budget intentions remain strong, however, and the snapshot does not establish worsening capex or financing conditions, so the assessment stays in the elevated-fragility band."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 1,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.2-sol"
+    },
+    "metrics": {
+      "NVDA_price": 150.96,
+      "NVDA_5d_return_pct": -13.11,
+      "NVDA_20d_return_pct": -31.99,
+      "NVDA_realized_vol_20d_pct": 51.68,
+      "NVDA_pe_ratio": 19.084703,
+      "NVDA_forward_pe": 9.0910845,
+      "NVDA_revenue_growth": 1.059,
+      "NVDA_peg_ratio": 0.19,
+      "MSFT_price": 508.29,
+      "MSFT_5d_return_pct": -2.46,
+      "MSFT_20d_return_pct": -4.63,
+      "MSFT_realized_vol_20d_pct": 37.37,
+      "MSFT_pe_ratio": 26.528706,
+      "MSFT_forward_pe": 21.00641,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.5,
+      "GOOGL_price": 282.44,
+      "GOOGL_5d_return_pct": -3.75,
+      "GOOGL_20d_return_pct": -15.63,
+      "GOOGL_realized_vol_20d_pct": 55.39,
+      "GOOGL_pe_ratio": 14.748825,
+      "GOOGL_forward_pe": 18.463291,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 0.99,
+      "market_sentiment": "BEARISH",
+      "top_headline": "Singapore Fintechs Lead in AI Adoption, but just 4% See Revenue Generation as Its Biggest Benefit",
+      "nvda_pe": "19.084703",
+      "revenue_growth": "1.059",
+      "peg_ratio": "0.19"
+    }
   }
 ]
