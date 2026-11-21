@@ -1325,5 +1325,72 @@
       "revenue_growth": "1.032",
       "peg_ratio": "0.18"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-21T02:58:46.027650+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "AI-boom fragility is elevated over the next 6–12 months. Nvidia's sharp repricing makes a broader sector correction more plausible, and uneven enterprise returns leave infrastructure spending vulnerable to a slowdown. Strong reported revenue growth and restrained forward multiples argue against a high-fragility rating absent evidence of deteriorating orders or financing stress.",
+    "reasoning": "All three tracked stocks fell over both five and 20 sessions. Nvidia's 40.5% 20-session decline and 69% annualized realized volatility show acute stress at a key hardware supplier, but a single stock's drawdown does not establish a sector-wide correction. Forward P/Es of 7.6x for Nvidia, 20.0x for Microsoft and 17.3x for Alphabet do not suggest uniformly stretched valuations, though they depend on earnings estimates holding up. Reported revenue growth supports current demand but does not verify future hardware orders, AI-specific monetization or returns on incremental capex. The ROI evidence is directional: a vendor interview describes how to measure workflow gains, while a consultancy survey released via press release reports uneven outcomes without establishing causality. Neither directly documents capex cuts, worsening financing terms or softer hardware lead times.",
+    "risk_factors": [
+      "Nvidia lost 22.9% in five sessions, while Alphabet and Microsoft fell 10.3% and 7.3%, respectively. Concentration around a leading accelerator supplier and a handful of hyperscalers makes the sector sensitive to further guidance disappointments.",
+      "Self-reported enterprise gains are uneven, and pilot productivity does not necessarily produce workflow-level profit or cash flow sufficient to justify infrastructure spending.",
+      "Nvidia's low forward multiple offers less protection if hardware earnings estimates are cut. The supplied evidence does not show how much incremental capacity is funded internally or how exposed it is to debt or vendor financing."
+    ],
+    "stabilizing_factors": [
+      "Reported quarterly revenue rose 103.2% year over year at Nvidia, 18.8% at Microsoft and 24.7% at Alphabet, providing a fundamental counterweight to the selloff.",
+      "Forward multiples are not uniformly stretched, reducing valuation pressure if earnings estimates hold.",
+      "Some surveyed firms report scaling pilots and achieving meaningful business impact. The snapshot provides no direct evidence of widespread order cancellations, funding freezes or a hardware demand collapse."
+    ],
+    "change": {
+      "previous_score": 63,
+      "delta": 2,
+      "explanation": "The score rises from 63 to 65 because selling across all three names, led by Nvidia's outsized decline and high volatility, puts more weight on the risk of a broader repricing. The move is modest because the enterprise evidence still points to uneven returns rather than a broad reversal, and the snapshot does not confirm deterioration in infrastructure orders or financing."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 2,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.2-sol"
+    },
+    "metrics": {
+      "NVDA_price": 125.53,
+      "NVDA_5d_return_pct": -22.92,
+      "NVDA_20d_return_pct": -40.5,
+      "NVDA_realized_vol_20d_pct": 69.04,
+      "NVDA_pe_ratio": 13.483351,
+      "NVDA_forward_pe": 7.5596437,
+      "NVDA_revenue_growth": 1.032,
+      "NVDA_peg_ratio": 0.18,
+      "MSFT_price": 484.52,
+      "MSFT_5d_return_pct": -7.33,
+      "MSFT_20d_return_pct": -7.45,
+      "MSFT_realized_vol_20d_pct": 38.02,
+      "MSFT_pe_ratio": 25.2881,
+      "MSFT_forward_pe": 20.018377,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.47,
+      "GOOGL_price": 265.29,
+      "GOOGL_5d_return_pct": -10.31,
+      "GOOGL_20d_return_pct": -17.15,
+      "GOOGL_realized_vol_20d_pct": 55.97,
+      "GOOGL_pe_ratio": 13.853265,
+      "GOOGL_forward_pe": 17.342186,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 0.96,
+      "market_sentiment": "BEARISH",
+      "top_headline": "What Financial Services Should Consider When Measuring ROI for AI",
+      "nvda_pe": "13.483351",
+      "revenue_growth": "1.032",
+      "peg_ratio": "0.18"
+    }
   }
 ]
