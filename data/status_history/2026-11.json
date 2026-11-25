@@ -1593,5 +1593,72 @@
       "revenue_growth": "1.032",
       "peg_ratio": "0.15"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-25T04:47:01.578269+00:00",
+    "score": 65,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "AI-boom fragility is elevated (YELLOW) over the next 6–12 months. Nvidia’s sharp repricing shows how exposed a concentrated sector is to an earnings or spending disappointment, while uneven enterprise returns leave infrastructure budgets vulnerable to a slowdown. Strong revenue growth and modest reported multiples at key names argue against calling this a broad bust.",
+    "reasoning": "All three stocks fell over five and 20 sessions. Nvidia’s 28.71% 20-session decline and 127% annualized realized volatility show acute stress in a bellwether, but Microsoft’s 6.44% and Alphabet’s 12.95% declines do not establish a sector-wide drawdown of at least 20%. The enterprise reports point to a gap between AI interest and measurable returns at scale, raising the risk that infrastructure spending grows faster than customers can justify. Neither report directly measures hyperscaler capex, financing terms, or hardware orders. Nvidia’s 103.2% year-over-year revenue growth supports recent hardware demand, but its 9.36x forward P/E is only reassuring if earnings estimates hold. The evidence supports elevated fragility, not a confirmed spending or funding break.",
+    "risk_factors": [
+      "Concentration in Nvidia and a handful of hyperscalers makes sector valuations sensitive to a single major guidance or capex reset.",
+      "Enterprise interest has not consistently translated into scaled, measurable returns. If that gap persists, buyers may slow deployments and require clearer payback before committing to more capacity.",
+      "A low forward multiple offers less protection if earnings estimates fall. The supplied evidence does not establish how much of the buildout depends on external or vendor financing."
+    ],
+    "stabilizing_factors": [
+      "Reported year-over-year revenue growth remains strong at Nvidia (103.2%), Microsoft (18.8%), and Alphabet (24.7%), although the latter two figures are company-wide and do not isolate AI returns.",
+      "Nvidia and Alphabet trade at roughly 17.7x and 14.6x trailing earnings, respectively, so the repricing case does not rest on uniformly stretched multiples.",
+      "Nvidia was nearly flat over the latest five sessions, and the supplied evidence does not directly document hardware order deterioration, capex cancellations, or funding freezes."
+    ],
+    "change": {
+      "previous_score": 66,
+      "delta": -1,
+      "explanation": "Down one point from 66, with no change in band. Nvidia’s near-flat five-session return shows the selloff did not deepen over that window, while the enterprise reports reinforce the existing ROI concern without showing that it has led to weaker hardware orders or capex cuts. The small move does not signal a material improvement in underlying fragility."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 2,
+      "fresh_articles": 2,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.2-sol"
+    },
+    "metrics": {
+      "NVDA_price": 155.38,
+      "NVDA_5d_return_pct": -0.05,
+      "NVDA_20d_return_pct": -28.71,
+      "NVDA_realized_vol_20d_pct": 127.0,
+      "NVDA_pe_ratio": 17.737444,
+      "NVDA_forward_pe": 9.357265,
+      "NVDA_revenue_growth": 1.032,
+      "NVDA_peg_ratio": 0.14,
+      "MSFT_price": 496.13,
+      "MSFT_5d_return_pct": -1.81,
+      "MSFT_20d_return_pct": -6.44,
+      "MSFT_realized_vol_20d_pct": 38.29,
+      "MSFT_pe_ratio": 25.89405,
+      "MSFT_forward_pe": 20.498055,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.54,
+      "GOOGL_price": 279.05,
+      "GOOGL_5d_return_pct": -0.41,
+      "GOOGL_20d_return_pct": -12.95,
+      "GOOGL_realized_vol_20d_pct": 61.01,
+      "GOOGL_pe_ratio": 14.571801,
+      "GOOGL_forward_pe": 18.244535,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 0.46,
+      "market_sentiment": "BEARISH",
+      "top_headline": "Why Millions Spent on AI Consulting Still Isn’t Translating Into Business Impact",
+      "nvda_pe": "17.737444",
+      "revenue_growth": "1.032",
+      "peg_ratio": "0.14"
+    }
   }
 ]
