@@ -1794,5 +1794,72 @@
       "revenue_growth": "1.032",
       "peg_ratio": "0.19"
     }
+  },
+  {
+    "schema_version": 2,
+    "methodology_version": "canary-opinion-v3",
+    "date": "2026-11-28T03:42:40.339848+00:00",
+    "score": 64,
+    "status": "YELLOW",
+    "confidence": "MEDIUM",
+    "thesis": "YELLOW — Elevated fragility over the next 6–12 months. Nvidia’s sharp selloff exposes the risk of a concentrated AI trade, while enterprise adoption is scaling faster than measurable returns. Strong revenue growth and undemanding reported valuations keep the evidence short of a broad correction or an imminent infrastructure spending slowdown.",
+    "reasoning": "Nvidia fell 29.57% over 20 sessions with 127.54% annualized realized volatility, versus declines of 6.85% for Microsoft and 3.12% for Alphabet. That is a severe repricing in the leading hardware name, not evidence that the sector has already crossed the 20% drawdown threshold. Nvidia’s 103.2% year-over-year quarterly revenue growth supports hardware demand, but it does not establish future order strength; its reported 9.1x forward P/E is only as reassuring as the earnings estimates behind it. The sole news item cites surveys showing that enterprise-wide AI scaling rose from 38% to 44%, while the share of respondents reporting any EBIT contribution was roughly flat at 37%. That gap raises the risk that buyers scrutinize incremental spending more closely, but the supplied evidence does not directly establish capex cuts, financing stress, or softening hardware orders. The market tone is cautious: all three names are down over 20 sessions despite Nvidia’s five-session rebound.",
+    "risk_factors": [
+      "Nvidia’s outsized decline and volatility show how quickly a concentrated AI trade can reprice, even without comparable losses in Microsoft and Alphabet.",
+      "Enterprise deployment is broadening without a matching rise in reported EBIT impact, leaving the return on incremental AI investment uncertain.",
+      "Low forward multiples offer less protection if earnings expectations fall; the supplied evidence does not show whether infrastructure commitments are backed by durable buyer cash flows."
+    ],
+    "stabilizing_factors": [
+      "Nvidia’s 103.2% year-over-year quarterly revenue growth is evidence of strong realized supplier sales, not a hardware demand collapse.",
+      "Microsoft and Alphabet posted year-over-year revenue growth of 18.8% and 24.7%, respectively, and their roughly 20.4x and 18.0x forward multiples do not point to obvious valuation excess.",
+      "Broader enterprise deployment is a genuine demand signal even if financial returns remain uneven, and the supplied evidence shows no confirmed wave of capex cancellations or funding freezes."
+    ],
+    "change": {
+      "previous_score": 64,
+      "delta": 0,
+      "explanation": "Unchanged at 64. The latest adoption evidence reinforces the prior gap between deployment and measurable returns, while Nvidia’s selloff keeps concentration risk front and center. Strong revenue growth, modest reported multiples, and no direct evidence that financing or hardware orders are deteriorating leave the balance of risks broadly unchanged."
+    },
+    "data_quality": {
+      "state": "complete",
+      "market_data_complete": true,
+      "fetched_articles": 1,
+      "fresh_articles": 1,
+      "freshness_window_hours": 48
+    },
+    "model": {
+      "requested": "~openai/gpt-latest",
+      "resolved": "openai/gpt-6.2-sol"
+    },
+    "metrics": {
+      "NVDA_price": 150.49,
+      "NVDA_5d_return_pct": 3.09,
+      "NVDA_20d_return_pct": -29.57,
+      "NVDA_realized_vol_20d_pct": 127.54,
+      "NVDA_pe_ratio": 16.16434,
+      "NVDA_forward_pe": 9.06278,
+      "NVDA_revenue_growth": 1.032,
+      "NVDA_peg_ratio": 0.19,
+      "MSFT_price": 492.85,
+      "MSFT_5d_return_pct": -1.09,
+      "MSFT_20d_return_pct": -6.85,
+      "MSFT_realized_vol_20d_pct": 38.57,
+      "MSFT_pe_ratio": 25.72286,
+      "MSFT_forward_pe": 20.36254,
+      "MSFT_revenue_growth": 0.188,
+      "MSFT_peg_ratio": 1.56,
+      "GOOGL_price": 274.96,
+      "GOOGL_5d_return_pct": 0.84,
+      "GOOGL_20d_return_pct": -3.12,
+      "GOOGL_realized_vol_20d_pct": 38.28,
+      "GOOGL_pe_ratio": 14.358224,
+      "GOOGL_forward_pe": 17.977129,
+      "GOOGL_revenue_growth": 0.247,
+      "GOOGL_peg_ratio": 0.49,
+      "market_sentiment": "CAUTIOUS",
+      "top_headline": "Enterprises Are Scaling AI Faster Than They Can Control It",
+      "nvda_pe": "16.16434",
+      "revenue_growth": "1.032",
+      "peg_ratio": "0.19"
+    }
   }
 ]
